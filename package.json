@@ -35,5 +35,31 @@
     "karma-jasmine": "~5.1.0",
     "karma-jasmine-html-reporter": "~2.1.0",
     "typescript": "^5.1.6"
-  }
+  },
+  "author": {
+    "name": "Daniel Ibáñez López",
+    "url": "https://github.com/daniivlc145"
+  },
+  "contributors": [
+    {
+      "name": "Max Kaidanov Solomatin",
+      "url": "https://github.com/lmaximan"
+    },
+    {
+      "name": "Laura Junli Illán Ferrández",
+      "url": "https://github.com/lyf4accs"
+    },
+    {
+      "name": "Carlos Cebellán Ferriz",
+      "url": "https://github.com/Cebe5"
+    },
+    {
+      "name": "Julia Martínez Requeni",
+      "url": "https://github.com/Taekomr"
+    },
+    {
+      "name": "Javier Latorre Cano",
+      "url": "https://github.com/javilatorre"
+    }
+  ]
 }

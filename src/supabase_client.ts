@@ -1,10 +1,9 @@
-const config = require('./utils/config')
+import {SUPABASE_URL, SUPABASE_KEY} from './utils/config'
 
-const { createClient } = require('@supabase/supabase-js')
+import { createClient } from '@supabase/supabase-js'
 
-const supabaseClient = createClient(
-  config.SUPABASE_URL,
-  config.SUPABASE_KEY
+export const supabaseClient = createClient(
+  SUPABASE_URL,
+  SUPABASE_KEY
 )
 
-module.exports = { supabaseClient }
