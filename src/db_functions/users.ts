@@ -6,7 +6,7 @@ interface NewUserData {
   phoneNumber?: string
 }
 
-async function signUpUser (email: string, password: string, fullName: string, dni: string, phoneNumber: string) {
+export async function signUpUser (email: string, password: string, fullName: string, dni: string, phoneNumber: string) {
   const userData = {
     email,
     password,
@@ -32,7 +32,7 @@ async function signUpUser (email: string, password: string, fullName: string, dn
   }
 } 
 
-async function signInUser (email: string, password: string) {
+export async function signInUser (email: string, password: string) {
   const signInInfo = {
     email,
     password
@@ -48,7 +48,7 @@ async function signInUser (email: string, password: string) {
   }
 }
 
-async function signOutUser () {
+export async function signOutUser () {
   try {
     const {error} = await supabaseClient.auth.signOut()
     if (error) {
@@ -60,7 +60,7 @@ async function signOutUser () {
   }
 }
 
-async function updateUserData (fullName: string, dni: string, phoneNumber: string) {
+export async function updateUserData (fullName: string, dni: string, phoneNumber: string) {
   try{
     const {data: {user}} = await supabaseClient.auth.getUser()
     const updateData: NewUserData = {
@@ -87,7 +87,7 @@ async function updateUserData (fullName: string, dni: string, phoneNumber: strin
   }
 }
 
-async function deleteUserAccount () {
+export async function deleteUserAccount () {
   try{
     const {data: {user}} = await supabaseClient.auth.getUser()
     
