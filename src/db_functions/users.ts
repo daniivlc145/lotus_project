@@ -6,7 +6,7 @@ interface NewUserData {
   phoneNumber?: string
 }
 
-export async function signUpUser (email: string, password: string, fullName: string, dni: string, phoneNumber: string) {
+export async function signUpUser (email: string, password: string, fullName: string, dni: string, phoneNumber: string): Promise<void> {
   const userData = {
     email,
     password,
@@ -22,17 +22,17 @@ export async function signUpUser (email: string, password: string, fullName: str
     const { data, error} = await supabaseClient.auth.signUp(userData)
 
     if (error) {
-      console.error('Error al registrar usuario:', error.message)
-      return
+      throw new Error('Error al registrar usuario: ' + error.message)
     }
     // Registro exitoso
     console.log('Usuario registrado con éxito')
   } catch (error) {
     console.error('Error inesperado:', (error as Error).message)
+    throw error
   }
 } 
 
-export async function signInUser (email: string, password: string) {
+export async function signInUser (email: string, password: string): Promise<void> {
   const signInInfo = {
     email,
     password
@@ -40,27 +40,29 @@ export async function signInUser (email: string, password: string) {
   try {
     const {data, error} = await supabaseClient.auth.signInWithPassword(signInInfo)
     if (error) {
-      console.log('Error al iniciar sesión:', error.message)
+      throw new Error('Error al iniciar sesión: ' + error.message)
     }
     console.log('Exito iniciando sesión')
   } catch (error) {
     console.log('Error inesperado:', (error as Error).message)
+    throw error
   }
 }
 
-export async function signOutUser () {
+export async function signOutUser (): Promise<void> {
   try {
     const {error} = await supabaseClient.auth.signOut()
     if (error) {
-      console.log('Error al iniciar sesión:', error.message)
+      throw new Error('Error al cerrar sesión: ' + error.message)
     }
     console.log('Exito cerrando sesión')
   } catch (error) {
     console.log('Error inesperado:', (error as Error).message)
+    throw error
   }
 }
 
-export async function updateUserData (fullName: string, dni: string, phoneNumber: string) {
+export async function updateUserData (fullName: string, dni: string, phoneNumber: string): Promise<void> {
   try{
     const {data: {user}} = await supabaseClient.auth.getUser()
     const updateData: NewUserData = {
@@ -79,15 +81,16 @@ export async function updateUserData (fullName: string, dni: string, phoneNumber
       .eq('id', user.id)
 
     if (error) {
-      console.log('Error al actualizar usuario')
+      throw new Error('Error al actualizar datos de usuario: ' + error.message)
     }
 
   } catch (error) {
     console.log('Error inesperado:', (error as Error).message)
+    throw error
   }
 }
 
-export async function deleteUserAccount () {
+export async function deleteUserAccount (): Promise<void> {
   try{
     const {data: {user}} = await supabaseClient.auth.getUser()
     
@@ -97,11 +100,12 @@ export async function deleteUserAccount () {
     }
     const {error} = await supabaseClient.auth.admin.deleteUser(user.id)
     if (error) {
-      console.log('Error al eliminar usuario:', error.message)
+      throw new Error('Error al eliminar usuario: ' + error.message)
     }
     console.log('Exito eliminando usuario')
   } catch (error) {
     console.log('Error inesperado:', (error as Error).message)
+    throw error
   }
 }
   

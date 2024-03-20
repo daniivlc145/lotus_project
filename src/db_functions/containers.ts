@@ -5,7 +5,7 @@ interface ContainerInfo {
     location: string
 }
 
-export async function showContainersLocation(containers: string[]): Promise<ContainerInfo[]> {
+export async function searchContainers(containers: string[]): Promise<ContainerInfo[]> {
     const containersDataList: ContainerInfo[] = [];
     try {
         for (const container of containers) {
