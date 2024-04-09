@@ -6,7 +6,7 @@ body {
 
 .header-map{
     width: 1000px;
-    height: 200px;
+    height: 250px;
     background-color:#84beb0;
     margin: 0 auto;
     display: flex;
@@ -83,3 +83,47 @@ body {
     visibility: visible;
 }
 
+.footer {
+    background-color: white; /* Color de fondo del footer */
+    color: white; /* Color del texto */
+    padding: 10px 0; /* Espaciado interno */
+    position: sticky; /* Fijo en la parte inferior de la pantalla */
+    width: 100%; /* Ancho completo */
+    z-index: 1000;
+    bottom: 0;
+}
+
+.footer-buttons {
+    display: flex; /* Uso de Flexbox */
+    justify-content: space-around; /* Espaciado uniforme entre los botones */
+    padding: 0 20px; /* Espaciado interno para los botones */
+}
+
+.footer-button {
+    background-color: #4CAF50; /* Color de fondo de los botones */
+    border: none; /* Sin bordes */
+    color: white; /* Color del texto */
+    padding: 10px 20px; /* Espaciado interno */
+    text-align: center; /* Alineación del texto */
+    text-decoration: none;
+    display: inline-block;
+    font-size: 16px;
+    margin: 4px 2px;
+    cursor: pointer;
+}
+
+@media (max-width: 600px) {
+    .footer-buttons {
+        flex-direction: column; /* Alineación vertical en pantallas pequeñas */
+        align-items: center; /* Centrado horizontalmente */
+    }
+
+    .footer-button {
+        width: 80%; /* Ancho del botón */
+        margin: 10px 0; /* Espaciado vertical */
+    }
+}
+
+map{
+    
+}
