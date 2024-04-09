@@ -129,6 +129,12 @@
 
 </style>
 <body>
+    <div class="container">
+        <h1>Tutorial de Bienvenida</h1>
+        <p>Contenido del tutorial de bienvenida.</p>
+        <!-- Enlace al componente tutorial-abt con desplazamiento suave -->
+        <a routerLink="/tutorial-abt" (click)="smoothScroll($event)">Ir al tutorial de About</a>
+    </div>
     <div class="iphone">
         <div class="screen">
             <div class="notch"></div>
@@ -148,6 +154,4 @@
         </div>
     </div>
 </body>
-
-    
 </html>
