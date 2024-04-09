@@ -82,50 +82,13 @@
         justify-content: center; /* Centra horizontalmente */
         align-items: center; /* Centra verticalmente */
     }
-</style>
-<style>
-    .texto-bienvenida {
-    font-family: 'Laura Regular', sans-serif; /* Utiliza la fuente Laura Regular */
-    font-size: 45px; /* Tamaño de la fuente */
-    text-align: center; /* Alineación del texto */
-    color: #3a5e62; /* Color del texto */
-    font-weight:bold;
-    position: absolute; /* Posición absoluta */
-    top: 50%; /* Lo posiciona en el centro vertical */
-    left: 50%; /* Lo posiciona en el centro horizontal */
-    transform: translate(-50%, -100%); /* Centra el texto */
-    z-index: 2; /* Asegura que el texto esté por encima del SVG */
-}
 
-    .frog {
-    z-index: 2;
-    position: absolute; /* Posición absoluta */
-    top: 63%; /* Lo posiciona en el centro vertical */
-    left: 20%; /* Lo posiciona en el centro horizontal */
-    
-}
+    .loading {
+        justify-content: center;
+         z-index: 2;
+        position: absolute; /* Posición absoluta */
+    }
 
-    .this-pag{
-    color: #3a5e62 ; /* Color del texto */
-    z-index: 3;
-    left: 44.5%;
-}
-
-    .other{
-    color: #5a8d8d; /* Color del texto */
-    z-index: 2;
-    left: 50%;
-}
-
-    .dot {
-    font-family: 'Laura Regular', sans-serif; /* Utiliza la fuente Laura Regular */
-    font-size: 100px; /* Tamaño de la fuente */
-    text-align: center; /* Alineación del texto */
-    font-weight:bold;
-    position: absolute; /* Posición absoluta */
-    top:70%;
-    transform: translate(-50%, -0%); /* Centra el texto */
-}
 
 </style>
 <body>
@@ -135,15 +98,9 @@
             <div class="sensor"></div>
             <div class="camera"></div>
             <div class="content">
-                <p class="texto-bienvenida">BIENVENIDOS<br>A<br>LOTUS</p>
-                <svg xmlns="http://www.w3.org/2000/svg" viewBox="1.55556 -0.584459 16.44 26.33" style="height: 490px; width:400px; filter: drop-shadow(0 0 10px rgba(0, 0, 0, 0.5));" >
-                    <path d="M 17 25 C 17 26 3 26 3 25 C 2 24 2 24 2 13 C 2 7 1 1 2 1 C 3 0 15 -2 17 1 C 18 2 18 14 18 14 C 18 21 18 24 17 25" fill="#FFFFFF"/>
-                </svg>
-                <figure id="ranita" class="frog">
-                    <img src="/src/icons/frog.png" height="165" width="220"/>
-                </figure>
-                <p class="dot this-pag">.</p>
-                <p class="dot other">...</p>             
+                <figure id="load" class="loading">
+                    <img src="/src/icons/Blank_Chiquito.png" height="130" width="210"/>
+                </figure>  
             </div>
         </div>
     </div>

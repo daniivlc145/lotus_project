@@ -103,10 +103,10 @@
           "builder": "@angular-devkit/build-angular:dev-server",
           "configurations": {
             "production": {
-              "browserTarget": "lotus_project:build:production"
+              "buildTarget": "lotus_project:build:production"
             },
             "development": {
-              "browserTarget": "lotus_project:build:development"
+              "buildTarget": "lotus_project:build:development"
             }
           },
           "defaultConfiguration": "development"
@@ -114,7 +114,7 @@
         "extract-i18n": {
           "builder": "@angular-devkit/build-angular:extract-i18n",
           "options": {
-            "browserTarget": "lotus_project:build"
+            "buildTarget": "lotus_project:build"
           }
         },
         "test": {
