@@ -1,6 +1,5 @@
 {
-  "name": "ionic-app",
-  "app_id": "",
-  "type": "angular",
-  "integrations": {}
+  "name": "lotus",
+  "integrations": {},
+  "type": "angular"
 }
