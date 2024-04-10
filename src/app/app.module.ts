@@ -19,6 +19,6 @@ import { TutorialWelcComponent } from './tutorial/tutorial-welc/tutorial-welc.co
     AppRoutingModule
   ],
   providers: [],
-  bootstrap: [AppComponent]
+  bootstrap: [AppComponent],
 })
 export class AppModule { }

@@ -1,19 +1,19 @@
 import { ComponentFixture, TestBed, waitForAsync } from '@angular/core/testing';
 import { IonicModule } from '@ionic/angular';
 
-import { InfoRecComponent } from './info-rec.component';
+import { TutorialAbtComponent } from './tutorial-abt.component';
 
-describe('InfoRecComponent', () => {
-  let component: InfoRecComponent;
-  let fixture: ComponentFixture<InfoRecComponent>;
+describe('TutorialAbtComponent', () => {
+  let component: TutorialAbtComponent;
+  let fixture: ComponentFixture<TutorialAbtComponent>;
 
   beforeEach(waitForAsync(() => {
     TestBed.configureTestingModule({
-      declarations: [ InfoRecComponent ],
+      declarations: [ TutorialAbtComponent ],
       imports: [IonicModule.forRoot()]
     }).compileComponents();
 
-    fixture = TestBed.createComponent(InfoRecComponent);
+    fixture = TestBed.createComponent(TutorialAbtComponent);
     component = fixture.componentInstance;
     fixture.detectChanges();
   }));

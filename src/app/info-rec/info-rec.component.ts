@@ -1,9 +1,7 @@
-import { Component, OnInit } from '@angular/core';
-
+import { Component, OnInit} from '@angular/core';
 @Component({
   selector: 'app-info-rec',
-  templateUrl: './info-rec.component.html',
-  styleUrls: ['./info-rec.component.scss'],
+  templateUrl: './info-rec.component.html'
 })
 export class InfoRecComponent  implements OnInit {
 
