@@ -14,7 +14,9 @@
               </figure>
               <p class="dotWelc this-pagWelc">.</p>
               <p class="dotWelc otherWelc">...</p>    
-              <input type="button" value=">" class="custom-button-next" href="../tutorial-abt/tutorial-abt.component.html" style="height:50px; width: 50px;"/>         
+              <form [action]="'tutorial-abt'">
+                <input type="submit" value=">" class="custom-button-next" style="height:50px; width: 50px;"/>
+              </form>              
           </div>
       </div>
   </div>

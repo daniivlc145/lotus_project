@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-
+import{Router} from '@angular/router';
 @Component({
   selector: 'app-tutorial-welc',
   templateUrl: './tutorial-welc.component.html',
@@ -7,8 +7,8 @@ import { Component, OnInit } from '@angular/core';
 })
 export class TutorialWelcComponent  implements OnInit {
 
-  constructor() { }
-
+  
+  constructor(){}
   ngOnInit() {}
 
 }
