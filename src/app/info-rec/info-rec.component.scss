@@ -1,8 +1,6 @@
+@import url("/src/css/style.css");
 
-  <style>
-    @import url("/src/css/style.css");
-
-    body {
+body {
     margin: 0;
     padding: 0;
     display: flex;
@@ -12,55 +10,7 @@
     background-color: #f0f0f0;
 }
 
-    swiper-container {
-      width: 240px;
-      height: 320px;
-    }
-
-    swiper-slide {
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      border-radius: 25px;
-      font-size: 22px;
-      font-weight: bold;
-      color: #fff;
-      box-shadow: 0 0 20px rgba(0, 0, 0, 0.5);
-      background-color: #3a5e62;
-    }
-
-    swiper-slide:nth-child(1n) {
-     
-    }
-
-    swiper-slide:nth-child(2n) {
-    }
-
-    swiper-slide:nth-child(3n) {
-    }
-
-    swiper-slide:nth-child(4n) {
-    }
-
-    swiper-slide:nth-child(5n) {
-    }
-
-    swiper-slide:nth-child(6n) {
-    }
-
-    swiper-slide:nth-child(7n) {
-    }
-
-    swiper-slide:nth-child(8n) {
-    }
-
-    swiper-slide:nth-child(9n) {
-    }
-
-    swiper-slide:nth-child(10n) {
-    }
-
-    .iphone {
+.iphone {
     width: 375px; /* iPhone X width */
     height: 812px; /* iPhone X height */
     background-color: #000;
@@ -105,6 +55,9 @@
     border-radius: 5px;
 }
 
+
+
+
 .texto-Reciclaje {
     font-family: 'Laura Regular', sans-serif; /* Utiliza la fuente Laura Regular */
     font-size: 35; /* Tamaño de la fuente */
@@ -112,11 +65,12 @@
     color: #000; /* Color del texto */
     font-weight:bold;
     position: absolute; /* Posición absoluta */
-    top: 12%; /* Lo posiciona en el centro vertical */
+    top: 11%; /* Lo posiciona en el centro vertical */
     left: 50%; /* Lo posiciona en el centro horizontal */
     transform: translate(-50%, -100%); /* Centra el texto */
     z-index: 2; /* Asegura que el texto esté por encima del SVG */
 }
+
 
 .content {
     width: 90%;
@@ -132,35 +86,35 @@
     align-items: center; /* Centra verticalmente */
 }
 
+
 .footer {
     background-color: white; /* Color de fondo del footer */
     color: white; /* Color del texto */
-    position: absolute;
+    padding: 10px 0; /* Espaciado interno */
+    position: sticky; /* Fijo en la parte inferior de la pantalla */
     width: 100%; /* Ancho completo */
     z-index: 1000;
     bottom: 0;
-    border-bottom-left-radius: 40px;
-    border-bottom-right-radius: 40px;
 }
 
 .footer-buttons {
     display: flex; /* Uso de Flexbox */
     justify-content: space-around; /* Espaciado uniforme entre los botones */
+    padding: 0 20px; /* Espaciado interno para los botones */
 }
 
 .footer-button {
     background-color: white; /* Color de fondo de los botones */
     border: none; /* Sin bordes */
     color: white; /* Color del texto */
-    padding: 1px 2px; /* Espaciado interno */
+    padding: 10px 20px; /* Espaciado interno */
     text-align: center; /* Alineación del texto */
     text-decoration: none;
     display: inline-block;
-    width: 43px;
+    width: 150px;
     margin: 4px 2px;
     cursor: pointer;
     display:flex;
-    border-radius: 40px;
 }
 
 @media (max-width: 600px) {
@@ -174,39 +128,3 @@
         margin: 10px 0; /* Espaciado vertical */
     }
 }
-  </style>
-
-
-<body>
-  <div class="iphone">
-    <div class="screen">
-        <div class="notch"></div>
-        <div class="sensor"></div>
-        <div class="camera"></div>
-        <div class="content">
-            <p class="texto-Reciclaje">APRENDIENDO<br>RECICLAJE</p>
-              <swiper-container class="mySwiper" effect="cards" grab-cursor="true">
-                <swiper-slide></swiper-slide>
-                <swiper-slide></swiper-slide>
-                <swiper-slide></swiper-slide>
-                <swiper-slide></swiper-slide>
-                <swiper-slide></swiper-slide>
-                <swiper-slide></swiper-slide>
-                <swiper-slide></swiper-slide>
-                <swiper-slide></swiper-slide>
-                <swiper-slide></swiper-slide>
-              </swiper-container>
-              <script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-element-bundle.min.js"></script>
-              <footer class="footer">
-                <div class="footer-buttons">
-                    <img src="../../assets/img/Icon_Mis_Incidencias.png"class="footer-button">
-                    <img src="../../assets/img/Icon_Reportes_En_El_Mapa.png"class="footer-button">
-                    <img src="../../assets/img/icon_VER_MAPA.png"class="footer-button">
-                    <img src="../../assets/img/icon_Info_Reciclaje.png"class="footer-button">
-                    <img src="../../assets/img/icon_User.png"class="footer-button">
-                </div>
-               </footer> 
-            </div>
-          </div>
-        </div>
- </body>

@@ -7,3 +7,8 @@
     font-family: 'Handwriting'; /*Este es para los símbolos que no dio la versión gratis de mi fuente*/
     src:url('../fonts/Handwriting.ttf') format('truetype');
 }
+
+/* styles.scss */
+
+@import "~swiper/swiper-bundle.css";
+
