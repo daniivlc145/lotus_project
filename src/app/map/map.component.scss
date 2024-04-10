@@ -1,3 +1,5 @@
+@import url("/src/css/style.css");
+
 
 body {
     margin: 0;
@@ -6,7 +8,7 @@ body {
 
 .header-map{
     width: 1000px;
-    height: 300px;
+    height: 350px;
     background-color:#84beb0;
     margin: 0 auto;
     display: flex;
@@ -24,7 +26,7 @@ body {
     top: 40px; 
     font-size: 24px; 
     z-index: 1000;
-    padding-left: 730;
+    padding-left: 700;
     padding-top: 10;
     display: flex;
 }
@@ -67,10 +69,12 @@ display: none;
     display: flex;
     flex-direction: column;
     align-items: center;
+    margin-right: -17px; /* Reduce el margen a la derecha */
+    margin-left: -17px; /* Reduce el margen a la izquierda */
 }
 
 .button-container img {
-    width: 130px; 
+    width: 145px; 
     height: auto;
     cursor: pointer;
     border-color: white;
@@ -160,4 +164,11 @@ display: none;
 .map{
     width: 1000px;
     height: 1750px;
+}
+
+.button-top-right span {
+    font-family: 'Laura Regular', sans-serif;
+    color:#3a5e62;
+    font-weight: bold;
+    font-size: 30px;
 }
