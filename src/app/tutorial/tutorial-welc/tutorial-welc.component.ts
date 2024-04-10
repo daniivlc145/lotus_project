@@ -4,6 +4,7 @@ import { Component, OnInit } from '@angular/core';
   selector: 'app-tutorial-welc',
   templateUrl: './tutorial-welc.component.html'
 })
+
 export class TutorialWelcComponent  implements OnInit {
 
   constructor() { }

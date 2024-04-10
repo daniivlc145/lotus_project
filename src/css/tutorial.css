@@ -1,0 +1,311 @@
+/*base*/
+body {
+    margin: 0;
+    padding: 0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
+    background-color: #f0f0f0;
+}
+
+.iphone {
+    width: 375px; /* iPhone X width */
+    height: 812px; /* iPhone X height */
+    background-color: #000;
+    border-radius: 60px;
+    z-index: 10;
+    position: absolute;
+    box-shadow: 0 0 20px rgba(0, 0, 0, 0.5);
+    overflow: hidden;
+}
+
+.screen {
+    width: 100%;
+    height: 100%;
+    background-color: #000;
+    border-radius: 30px;
+    position: absolute;
+    z-index: 14;
+}
+
+.notch,
+.sensor,
+.camera {
+    position: absolute;
+    z-index: 2; /* Coloca los elementos al frente */
+}
+
+.notch {
+    top: 20px; /* Adjust as needed */
+    left: calc(50% - 75px); /* Adjust as needed */
+    width: 150px;
+    height: 30px;
+    background-color: #000;
+    border-radius: 0 0 15px 15px;
+}
+
+.sensor {
+    top: 30px; /* Adjust as needed */
+    left: calc(50% - 25px); /* Adjust as needed */
+    width: 50px;
+    height: 10px;
+    background-color: #000;
+    border-radius: 5px;
+}
+
+.camera {
+    top: 20px; /* Adjust as needed */
+    left: calc(50% - 5px); /* Adjust as needed */
+    width: 10px;
+    height: 10px;
+    background-color: #000;
+    border-radius: 50%;
+}
+
+
+/*tutoriales*/
+
+.custom-button-next {
+    background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='1.55556 0.555556 5.889 4.194'%3E%3Cpath d='M 7 4 C 7 5 2 5 2 4 C 2 3 1 1 2 1 C 3 0 6 1 7 1 C 7 1 8 3 7 4' fill='%2384beb0'/%3E%3C/svg%3E");
+    background-repeat: no-repeat;
+    background-color: transparent; /* Establecer el color de fondo como transparente */
+    background-size: cover;
+    border: none; /* Sin borde */
+    padding: 10px 20px; /* Espacio interno */
+    cursor: pointer; /* Cambia el cursor al pasar por encima */
+    z-index: 6px;
+    color: white;
+    font-family: 'Handwriting', sans-serif; /* Utiliza la fuente Laura Regular */
+    font-size: 24px; /* Tamaño de la fuente */
+    text-align: center; /* Alineación del texto */
+    position:absolute;
+    right:0%;
+    top:89%;
+}
+.custom-button-next:hover {
+    background-color: transparent;/* Color de fondo al pasar por encima */
+    background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='1.55556 0.555556 5.889 4.194'%3E%3Cpath d='M 7 4 C 7 5 2 5 2 4 C 2 3 1 1 2 1 C 3 0 6 1 7 1 C 7 1 8 3 7 4' fill='%235a8d8d'/%3E%3C/svg%3E");
+
+}
+
+.custom-button-before{
+    background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='4 0.555556 3.444 3.733'%3E%3Cpath d='M 7 4 C 7 5 4 3 4 4 L 4 1 C 4 0 7 1 7 1 C 7 1 8 4 7 4' fill='%2384beb0'/%3E%3C/svg%3E");
+    background-repeat: no-repeat;
+    background-color: transparent; /* Establecer el color de fondo como transparente */
+    background-size: cover;
+    border: none; /* Sin borde */
+    padding: 10px 20px; /* Espacio interno */
+    cursor: pointer; /* Cambia el cursor al pasar por encima */
+    z-index: 6px;
+    color: white;
+    font-family: 'Handwriting', sans-serif; /* Utiliza la fuente Laura Regular */
+    font-size: 24px; /* Tamaño de la fuente */
+    text-align: center; /* Alineación del texto */
+    position:absolute;
+    left:0%;
+    top:89%;
+}
+
+.custom-button-before:hover{
+    background-color: transparent;/* Color de fondo al pasar por encima */
+    background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='4 0.555556 3.444 3.733'%3E%3Cpath d='M 7 4 C 7 5 4 3 4 4 L 4 1 C 4 0 7 1 7 1 C 7 1 8 4 7 4' fill='%235a8d8d'/%3E%3C/svg%3E");
+}
+
+/*custom welc*/
+.this-pagWelc{
+    color: #3a5e62 ; /* Color del texto */
+    z-index: 3;
+    left: 44.5%;
+}
+
+    .otherWelc{
+    color: #5a8d8d; /* Color del texto */
+    z-index: 2;
+    left: 50%;
+}
+
+    .dotWelc {
+    font-family: 'Laura Regular', sans-serif; /* Utiliza la fuente Laura Regular */
+    font-size: 100px; /* Tamaño de la fuente */
+    text-align: center; /* Alineación del texto */
+    font-weight:bold;
+    position: absolute; /* Posición absoluta */
+    top:70%;
+    transform: translate(-50%, -0%); /* Centra el texto */
+}
+
+.texto-bienvenida {
+    font-family: 'Laura Regular', sans-serif; /* Utiliza la fuente Laura Regular */
+    font-size: 45px; /* Tamaño de la fuente */
+    text-align: center; /* Alineación del texto */
+    color: #3a5e62; /* Color del texto */
+    font-weight:bold;
+    position: absolute; /* Posición absoluta */
+    top: 50%; /* Lo posiciona en el centro vertical */
+    left: 50%; /* Lo posiciona en el centro horizontal */
+    transform: translate(-50%, -100%); /* Centra el texto */
+    z-index: 2; /* Asegura que el texto esté por encima del SVG */
+}
+
+    .frogWelc{
+    z-index: 2;
+    position: absolute; /* Posición absoluta */
+    top: 63%; /* Lo posiciona en el centro vertical */
+    left: 20%; /* Lo posiciona en el centro horizontal */
+    
+}
+
+.contentWelc {
+    width: 90%;
+    height: 95%;
+    background-color: #c1d7d5;
+    position: relative;
+    border-radius: 40px;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    display: flex;
+    justify-content: center; /* Centra horizontalmente */
+    align-items: center; /* Centra verticalmente */
+}
+
+/*custom Abt*/
+.contentAbt{
+    width: 90%;
+    height: 95%;
+    background-color: #c1d7d5;
+    position: absolute;
+    border-radius: 40px;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    display: flex;
+    justify-content: center; /* Centra horizontalmente */
+    align-items: center; /* Centra verticalmente */
+}
+
+.textoAbt{
+font-family: 'Laura Regular', sans-serif; /* Utiliza la fuente Laura Regular */
+font-size: 26px; /* Tamaño de la fuente */
+text-align: left; /* Alineación del texto */
+color: #3a5e62; /* Color del texto */
+position: absolute; /* Posición absoluta */
+letter-spacing: -2.5px;
+top: 60%; /* Lo posiciona en el centro vertical */
+left: 50%; /* Lo posiciona en el centro horizontal */
+transform: translate(-50%, -100%); /* Centra el texto */
+z-index: 2; /* Asegura que el texto esté por encima del SVG */
+}
+
+.frog-lotusAbt{
+z-index: 2;
+position: absolute; /* Posición absoluta */
+top: 63%; /* Lo posiciona en el centro vertical */
+left: 30%; /* Lo posiciona en el centro horizontal */
+
+}
+.this-pagAbt{
+color: #3a5e62 ; /* Color del texto */
+z-index: 3; 
+}
+
+.otherAbt{
+color: #5a8d8d; /* Color del texto */
+z-index: 2;
+}
+
+.dotAbt{
+font-family: 'Laura Regular', sans-serif; /* Utiliza la fuente Laura Regular */
+font-size: 100px; /* Tamaño de la fuente */
+text-align: center; /* Alineación del texto */
+font-weight:bold;
+position: absolute; /* Posición absoluta */
+top:70%;
+left: 50%; /* Lo posiciona en el centro horizontal */
+transform: translate(-50%, -0%); /* Centra el texto */
+}
+
+/*Custom Last*/
+.custom-button-continue {
+    background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='1.55556 0.25 11.69 4.194'%3E%3Cpath d='M 12 4 C 11 4 2 5 2 4 C 2 3 1 1 2 1 C 3 0 14 0 13 1 C 13 0 14 4 12 4' fill='%233a5e62'/%3E%3C/svg%3E");
+    background-repeat: no-repeat;
+    background-color: transparent; /* Establecer el color de fondo como transparente */
+    background-size: cover;
+    border: none; /* Sin borde */
+    padding: 10px 20px; /* Espacio interno */
+    cursor: pointer; /* Cambia el cursor al pasar por encima */
+    z-index: 6px;
+    color: white;
+    font-family: 'Laura Regular', sans-serif; /* Utiliza la fuente Laura Regular */
+    font-size: 24px; /* Tamaño de la fuente */
+    text-align: center; /* Alineación del texto */
+    position:absolute;
+    right:48%;
+    top:78%;
+}
+
+
+.custom-button-continue:hover {
+    background-color: transparent;/* Color de fondo al pasar por encima */
+    background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='1.55556 0.25 16.44 4.194'%3E%3Cpath d='M 18 4 C 15 4 2 5 2 4 C 2 3 1 1 2 1 C 3 0 14 0 17 1 C 18 2 18 3 18 4' fill='%23e5cec8'/%3E%3C/svg%3E");
+
+}
+
+
+.contentLast{
+    width: 90%;
+    height: 95%;
+    background-color: #c1d7d5;
+    position: absolute;
+    border-radius: 40px;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    display: flex;
+    justify-content: center; /* Centra horizontalmente */
+    align-items: center; /* Centra verticalmente */
+}
+
+.textoLast{
+font-family: 'Laura Regular', sans-serif; /* Utiliza la fuente Laura Regular */
+font-size: 26px; /* Tamaño de la fuente */
+text-align: left; /* Alineación del texto */
+color: #3a5e62; /* Color del texto */
+position: absolute; /* Posición absoluta */
+letter-spacing: -2.5px;
+top: 60%; /* Lo posiciona en el centro vertical */
+left: 50%; /* Lo posiciona en el centro horizontal */
+transform: translate(-50%, -100%); /* Centra el texto */
+z-index: 2; /* Asegura que el texto esté por encima del SVG */
+}
+
+.frog-lotusLast{
+z-index: 2;
+position: absolute; /* Posición absoluta */
+top: 63%; /* Lo posiciona en el centro vertical */
+left: 30%; /* Lo posiciona en el centro horizontal */
+
+}
+
+.this-pagLast{
+color: #3a5e62 ; /* Color del texto */
+z-index: 3;
+left: 55.5%;
+}
+
+.otherLast{
+color: #5a8d8d; /* Color del texto */
+z-index: 2;
+left: 50%;
+}
+
+.dotLast{
+font-family: 'Laura Regular', sans-serif; /* Utiliza la fuente Laura Regular */
+font-size: 100px; /* Tamaño de la fuente */
+text-align: center; /* Alineación del texto */
+font-weight:bold;
+position: absolute; /* Posición absoluta */
+top:70%;
+transform: translate(-50%, -0%); /* Centra el texto */
+}

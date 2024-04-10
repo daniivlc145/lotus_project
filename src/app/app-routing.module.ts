@@ -1,10 +1,10 @@
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
-import { MapComponent } from './map/map.component';
+import { TutorialWelcComponent } from './tutorial/tutorial-welc/tutorial-welc.component'; 
 
 const routes: Routes = [
-  { path: 'map', component: MapComponent },
-  // Add more routes here if needed
+  { path: '', redirectTo: '/tutorial-welc', pathMatch: 'full' }, // Redirige a /tutorial-welc por defecto
+  { path: 'tutorial-welc', component:TutorialWelcComponent },
 ];
 
 @NgModule({

@@ -4,172 +4,27 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <link rel="stylesheet" href="/src/css/style.css">
-<title>Mockup de iPhone</title>
-<style>
-    body {
-        margin: 0;
-        padding: 0;
-        display: flex;
-        justify-content: center;
-        align-items: center;
-        min-height: 100vh;
-        background-color: #f0f0f0;
-    }
+<link rel="stylesheet" href="/src/css/tutorial.css">
+<title>Last</title>
 
-    .iphone {
-        width: 375px; /* iPhone X width */
-        height: 812px; /* iPhone X height */
-        background-color: #000;
-        border-radius: 60px;
-
-        position: relative;
-        box-shadow: 0 0 20px rgba(0, 0, 0, 0.5);
-        overflow: hidden;
-    }
-
-    .screen {
-        width: 100%;
-        height: 100%;
-        background-color: #000;
-        border-radius: 30px;
-        position: relative;
-    }
-
-    .notch,
-    .sensor,
-    .camera {
-        position: absolute;
-        z-index: 2; /* Coloca los elementos al frente */
-    }
-
-    .notch {
-        top: 20px; /* Adjust as needed */
-        left: calc(50% - 75px); /* Adjust as needed */
-        width: 150px;
-        height: 30px;
-        background-color: #000;
-        border-radius: 0 0 15px 15px;
-    }
-
-    .sensor {
-        top: 30px; /* Adjust as needed */
-        left: calc(50% - 25px); /* Adjust as needed */
-        width: 50px;
-        height: 10px;
-        background-color: #000;
-        border-radius: 5px;
-    }
-
-    .camera {
-        top: 20px; /* Adjust as needed */
-        left: calc(50% - 5px); /* Adjust as needed */
-        width: 10px;
-        height: 10px;
-        background-color: #000;
-        border-radius: 50%;
-    }
-
-    .content {
-        width: 90%;
-        height: 95%;
-        background-color: #c1d7d5;
-        position: absolute;
-        border-radius: 40px;
-        top: 50%;
-        left: 50%;
-        transform: translate(-50%, -50%);
-        display: flex;
-        justify-content: center; /* Centra horizontalmente */
-        align-items: center; /* Centra verticalmente */
-    }
-</style>
-<style>
-    .texto{
-    font-family: 'Laura Regular', sans-serif; /* Utiliza la fuente Laura Regular */
-    font-size: 26px; /* Tamaño de la fuente */
-    text-align: left; /* Alineación del texto */
-    color: #3a5e62; /* Color del texto */
-    position: absolute; /* Posición absoluta */
-    letter-spacing: -2.5px;
-    top: 60%; /* Lo posiciona en el centro vertical */
-    left: 50%; /* Lo posiciona en el centro horizontal */
-    transform: translate(-50%, -100%); /* Centra el texto */
-    z-index: 2; /* Asegura que el texto esté por encima del SVG */
-}
-
-    .frog-lotus {
-    z-index: 2;
-    position: absolute; /* Posición absoluta */
-    top: 63%; /* Lo posiciona en el centro vertical */
-    left: 30%; /* Lo posiciona en el centro horizontal */
-    
-}
-
-    .this-pag{
-    color: #3a5e62 ; /* Color del texto */
-    z-index: 3;
-    left: 55.5%;
-}
-
-    .other{
-    color: #5a8d8d; /* Color del texto */
-    z-index: 2;
-    left: 50%;
-}
-
-    .dot {
-    font-family: 'Laura Regular', sans-serif; /* Utiliza la fuente Laura Regular */
-    font-size: 100px; /* Tamaño de la fuente */
-    text-align: center; /* Alineación del texto */
-    font-weight:bold;
-    position: absolute; /* Posición absoluta */
-    top:70%;
-    transform: translate(-50%, -0%); /* Centra el texto */
-}
-</style>
-<style>
-    .custom-button {
-        background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='1.55556 0.25 11.69 4.194'%3E%3Cpath d='M 12 4 C 11 4 2 5 2 4 C 2 3 1 1 2 1 C 3 0 14 0 13 1 C 13 0 14 4 12 4' fill='%233a5e62'/%3E%3C/svg%3E");
-        background-repeat: no-repeat;
-        background-color: transparent; /* Establecer el color de fondo como transparente */
-        background-size: cover;
-        border: none; /* Sin borde */
-        padding: 10px 20px; /* Espacio interno */
-        cursor: pointer; /* Cambia el cursor al pasar por encima */
-        z-index: 6px;
-        color: white;
-        font-family: 'Laura Regular', sans-serif; /* Utiliza la fuente Laura Regular */
-        font-size: 24px; /* Tamaño de la fuente */
-        text-align: center; /* Alineación del texto */
-        position:absolute;
-        right:48%;
-        top:78%;
-    }
-
-
-    .custom-button:hover {
-        background-color: transparent;/* Color de fondo al pasar por encima */
-        background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='1.55556 0.25 16.44 4.194'%3E%3Cpath d='M 18 4 C 15 4 2 5 2 4 C 2 3 1 1 2 1 C 3 0 14 0 17 1 C 18 2 18 3 18 4' fill='%23e5cec8'/%3E%3C/svg%3E");
-
-    }
-</style>
 <body>
     <div class="iphone">
         <div class="screen">
             <div class="notch"></div>
             <div class="sensor"></div>
             <div class="camera"></div>
-            <div class="content">
-                <p class="texto">LOTUS se compromete a ayudar a que su ciudad presente su mejor versión . <br><br>Reporte cuando los contenedores estén llenos o en mal estado para decir adiós a las calles llenas de basura, y los malos olores. </p>
+            <div class="contentLast">
+                <p class="textoLast">LOTUS se compromete a ayudar a que su ciudad presente su mejor versión . <br><br>Reporte cuando los contenedores estén llenos o en mal estado para decir adiós a las calles llenas de basura, y los malos olores. </p>
                 <svg xmlns="http://www.w3.org/2000/svg" viewBox="1.55556 -0.584459 16.44 26.33" style="height: 490px; width:400px; filter: drop-shadow(0 0 10px rgba(0, 0, 0, 0.5));" >
                     <path d="M 17 25 C 17 26 3 26 3 25 C 2 24 2 24 2 13 C 2 7 1 1 2 1 C 3 0 15 -2 17 1 C 18 2 18 14 18 14 C 18 21 18 24 17 25" fill="#FFFFFF"/>
                 </svg>
-                <figure id="ranita" class="frog-lotus">
+                <figure id="ranita" class="frog-lotusLast">
                     <img src="/src/icons/frog-lotus.png" height="165" width="170"/>
                 </figure>
-                <p class="dot this-pag">.</p>
-                <p class="dot other">...</p>    
-                <input type="button" value="Continuar" class="custom-button" style="height:50px; width:140px;"/>
+                <p class="dotLast this-pagLast">.</p>
+                <p class="dotLast otherLast">...</p>    
+                <input type="button" value="Continuar" class="custom-button-continue" style="height:50px; width:140px;"/>
+                <input type="button" value="<" class="custom-button-before" href="../tutorial-abt/tutorial-abt.component.html" style="height:50px; width: 50px;" />       
             </div>
         </div>
     </div>
