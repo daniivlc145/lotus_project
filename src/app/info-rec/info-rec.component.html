@@ -1,181 +1,236 @@
 
-  <style>
-    @import url("/src/css/style.css");
+<style>
+  @import url("/src/css/style.css");
 
-    body {
-    margin: 0;
-    padding: 0;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    min-height: 100vh;
-    background-color: #f0f0f0;
+  body {
+  margin: 0;
+  padding: 0;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  min-height: 100vh;
+  background-color: #f0f0f0;
 }
 
-    swiper-container {
-      width: 240px;
-      height: 320px;
-    }
+  swiper-container {
+    top:6%;
+    width: 260px;
+    height: 440px;
+    border:none;
+  }
 
-    swiper-slide {
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      border-radius: 25px;
-      font-size: 22px;
-      font-weight: bold;
-      color: #fff;
-      box-shadow: 0 0 20px rgba(0, 0, 0, 0.5);
-      background-color: #3a5e62;
-    }
+  swiper-slide {
+    display: flex;
+    align-items: center;
+    border-radius: 25px;
+    font-size: 22px;
+    font-weight: bold;
+    font-family:'Laura Regular', sans-serif;
+    color: #fff;
+    background-color: #3a5e62;
+    overflow:visible;
+    box-shadow: none;
+    border:none;
+  }
 
-    swiper-slide:nth-child(1n) {
-     
-    }
+  swiper-slide:nth-child(1n) {
+   
+  }
 
-    swiper-slide:nth-child(2n) {
-    }
+  swiper-slide:nth-child(2n) {
+  }
 
-    swiper-slide:nth-child(3n) {
-    }
+  swiper-slide:nth-child(3n) {
+  }
 
-    swiper-slide:nth-child(4n) {
-    }
+  swiper-slide:nth-child(4n) {
+  }
 
-    swiper-slide:nth-child(5n) {
-    }
+  swiper-slide:nth-child(5n) {
+  }
 
-    swiper-slide:nth-child(6n) {
-    }
+  swiper-slide:nth-child(6n) {
+  }
 
-    swiper-slide:nth-child(7n) {
-    }
+  swiper-slide:nth-child(7n) {
+  }
 
-    swiper-slide:nth-child(8n) {
-    }
+  swiper-slide:nth-child(8n) {
+  }
 
-    swiper-slide:nth-child(9n) {
-    }
-
-    swiper-slide:nth-child(10n) {
-    }
-
-    .iphone {
-    width: 375px; /* iPhone X width */
-    height: 812px; /* iPhone X height */
-    background-color: #000;
-    border-radius: 60px;
-    z-index: 10;
-    position: absolute;
-    box-shadow: 0 0 20px rgba(0, 0, 0, 0.5);
-    overflow: hidden;
+  .iphone {
+  width: 375px; /* iPhone X width */
+  height: 812px; /* iPhone X height */
+  background-color: #000;
+  border-radius: 60px;
+  z-index: 30;
+  position: absolute;
+  box-shadow: 0 0 20px rgba(0, 0, 0, 0.5);
+  overflow: hidden;
 }
 
 .screen {
-    width: 100%;
-    height: 100%;
-    background-color: #000;
-    border-radius: 30px;
-    position: absolute;
-    z-index: 14;
+  width: 100%;
+  height: 100%;
+  background-color: #000;
+  border-radius: 30px;
+  position: absolute;
+  z-index: 30;
+  overflow: hidden;
 }
 
 .notch,
 .sensor,
 .camera {
-    position: absolute;
-    z-index: 2; /* Coloca los elementos al frente */
+  position: absolute;
+  z-index: 2; /* Coloca los elementos al frente */
 }
 
 .notch {
-    top: 20px; /* Adjust as needed */
-    left: calc(50% - 75px); /* Adjust as needed */
-    width: 150px;
-    height: 30px;
-    background-color: #000;
-    border-radius: 0 0 15px 15px;
+  top: 20px; /* Adjust as needed */
+  left: calc(50% - 75px); /* Adjust as needed */
+  width: 150px;
+  height: 30px;
+  background-color: #000;
+  border-radius: 0 0 15px 15px;
 }
 
 .sensor {
-    top: 30px; /* Adjust as needed */
-    left: calc(50% - 25px); /* Adjust as needed */
-    width: 50px;
-    height: 10px;
-    background-color: #000;
-    border-radius: 5px;
+  top: 30px; /* Adjust as needed */
+  left: calc(50% - 25px); /* Adjust as needed */
+  width: 50px;
+  height: 10px;
+  background-color: #000;
+  border-radius: 5px;
 }
 
 .texto-Reciclaje {
-    font-family: 'Laura Regular', sans-serif; /* Utiliza la fuente Laura Regular */
-    font-size: 35; /* Tamaño de la fuente */
-    text-align: center; /* Alineación del texto */
-    color: #000; /* Color del texto */
-    font-weight:bold;
-    position: absolute; /* Posición absoluta */
-    top: 12%; /* Lo posiciona en el centro vertical */
-    left: 50%; /* Lo posiciona en el centro horizontal */
-    transform: translate(-50%, -100%); /* Centra el texto */
-    z-index: 2; /* Asegura que el texto esté por encima del SVG */
+  font-family: 'Laura Regular', sans-serif; /* Utiliza la fuente Laura Regular */
+  font-size: 35; /* Tamaño de la fuente */
+  text-align: center; /* Alineación del texto */
+  color: #000; /* Color del texto */
+  font-weight:bold;
+  position: absolute; /* Posición absoluta */
+  top: 12%; /* Lo posiciona en el centro vertical */
+  left: 50%; /* Lo posiciona en el centro horizontal */
+  transform: translate(-50%, -100%); /* Centra el texto */
+  z-index: 2; /* Asegura que el texto esté por encima del SVG */
+}
+.contenedor-title {
+  font-family: 'Laura Regular', sans-serif; /* Utiliza la fuente Laura Regular */
+  font-size: 27; /* Tamaño de la fuente */
+  text-align: center; /* Alineación del texto */
+  color: #fff; /* Color del texto */
+  font-weight:bold;
+  position: absolute; /* Posición absoluta */
+  top: 93px; /* Lo posiciona en el centro vertical */
+  left:30px; /* Lo posiciona en el centro horizontal */
+  z-index: 20; /* Asegura que el texto esté por encima del SVG */
+}
+
+.texto-info{
+  font-family: 'Laura Regular', sans-serif; /* Utiliza la fuente Laura Regular */
+  font-size: 18; /* Tamaño de la fuente */
+  text-align: left; /* Alineación del texto */
+  font-weight: lighter;
+  color: #fff; /* Color del texto */
+  position: absolute; /* Posición absoluta */
+  top: 131px; /* Lo posiciona en el centro vertical */
+  left:30px; /* Lo posiciona en el centro horizontal */
+  z-index: 20; /* Asegura que el texto esté por encima del SVG */
 }
 
 .content {
-    width: 90%;
-    height: 95%;
-    background-color: #e6e5ea;
-    position: absolute;
-    border-radius: 40px;
-    top: 50%;
-    left: 50%;
-    transform: translate(-50%, -50%);
-    display: flex;
-    justify-content: center; /* Centra horizontalmente */
-    align-items: center; /* Centra verticalmente */
+  width: 90%;
+  height: 95%;
+  background-color: #e6e5ea;
+  position: absolute;
+  border-radius: 40px;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  display: flex;
+  justify-content: center; /* Centra horizontalmente */
+  align-items: center; /* Centra verticalmente */
 }
 
 .footer {
-    background-color: white; /* Color de fondo del footer */
-    color: white; /* Color del texto */
-    position: absolute;
-    width: 100%; /* Ancho completo */
-    z-index: 1000;
-    bottom: 0;
-    border-bottom-left-radius: 40px;
-    border-bottom-right-radius: 40px;
+  background-color: white; /* Color de fondo del footer */
+  color: white; /* Color del texto */
+  position: absolute;
+  width: 100%; /* Ancho completo */
+  z-index: 1000;
+  bottom: 0;
+  border-bottom-left-radius: 40px;
+  border-bottom-right-radius: 40px;
 }
 
 .footer-buttons {
-    display: flex; /* Uso de Flexbox */
-    justify-content: space-around; /* Espaciado uniforme entre los botones */
+  display: flex; /* Uso de Flexbox */
+  justify-content: space-around; /* Espaciado uniforme entre los botones */
 }
 
 .footer-button {
-    background-color: white; /* Color de fondo de los botones */
-    border: none; /* Sin bordes */
-    color: white; /* Color del texto */
-    padding: 1px 2px; /* Espaciado interno */
-    text-align: center; /* Alineación del texto */
-    text-decoration: none;
-    display: inline-block;
-    width: 43px;
-    margin: 4px 2px;
-    cursor: pointer;
-    display:flex;
-    border-radius: 40px;
+  background-color: white; /* Color de fondo de los botones */
+  border: none; /* Sin bordes */
+  color: white; /* Color del texto */
+  padding: 1px 2px; /* Espaciado interno */
+  text-align: center; /* Alineación del texto */
+  text-decoration: none;
+  display: inline-block;
+  width: 43px;
+  margin: 4px 2px;
+  cursor: pointer;
+  display:flex;
+  border-radius: 40px;
 }
 
 @media (max-width: 600px) {
-    .footer-buttons {
-        flex-direction: column; /* Alineación vertical en pantallas pequeñas */
-        align-items: center; /* Centrado horizontalmente */
-    }
+  .footer-buttons {
+      flex-direction: column; /* Alineación vertical en pantallas pequeñas */
+      align-items: center; /* Centrado horizontalmente */
+  }
 
-    .footer-button {
-        width: 80%; /* Ancho del botón */
-        margin: 10px 0; /* Espaciado vertical */
-    }
+  .footer-button {
+      width: 80%; /* Ancho del botón */
+      margin: 10px 0; /* Espaciado vertical */
+  }
 }
-  </style>
 
+
+.foto-contenedor{
+  width: 200px;
+  position: absolute; /* Utiliza posicionamiento absoluto */
+  top: -120px; /* Ajusta la posición vertical según sea necesario */
+  right:27px; /* Ajusta la posición horizontal según sea necesario */
+  z-index: 15; /* Asegura que la imagen esté por encima de otras capas */
+}
+
+.foto-contenedor-aceite{
+  width: 190px;
+  position: absolute; /* Utiliza posicionamiento absoluto */
+  top: -120px; /* Ajusta la posición vertical según sea necesario */
+  right:33px; /* Ajusta la posición horizontal según sea necesario */
+  z-index: 15; /* Asegura que la imagen esté por encima de otras capas */
+}
+
+.foto-contenedor-ropa{
+  width: 220px;
+  position: absolute; /* Utiliza posicionamiento absoluto */
+  top: -120px; /* Ajusta la posición vertical según sea necesario */
+  right:20px; /* Ajusta la posición horizontal según sea necesario */
+  z-index: 15; /* Asegura que la imagen esté por encima de otras capas */
+}
+
+.foto-contenedor-otros{
+  width: 170px;
+  position: absolute; /* Utiliza posicionamiento absoluto */
+  top: -85px; /* Ajusta la posición vertical según sea necesario */
+  right:40px; /* Ajusta la posición horizontal según sea necesario */
+  z-index: 15; /* Asegura que la imagen esté por encima de otras capas */
+}
+
+</style>
 
 <body>
   <div class="iphone">
@@ -186,15 +241,85 @@
         <div class="content">
             <p class="texto-Reciclaje">APRENDIENDO<br>RECICLAJE</p>
               <swiper-container class="mySwiper" effect="cards" grab-cursor="true">
-                <swiper-slide></swiper-slide>
-                <swiper-slide></swiper-slide>
-                <swiper-slide></swiper-slide>
-                <swiper-slide></swiper-slide>
-                <swiper-slide></swiper-slide>
-                <swiper-slide></swiper-slide>
-                <swiper-slide></swiper-slide>
-                <swiper-slide></swiper-slide>
-                <swiper-slide></swiper-slide>
+                <swiper-slide>
+                  <div>
+                    <img src="../../assets/img/Contenedor_Vidrio.png" class="foto-contenedor" >
+                    <p class="texto-info" style="width:200px">Aquí puedes depositar cualquier botella de vidrio;
+                      los frascos de cosmética y de colonia; tarros de mermelada y de
+                      conservas. <br><br>NO se puede depositar bombillas, tubos
+                      fluorescentes, resto de vajilla, cristales rotos. Además
+                      tenemos que quitarle los tapones a las botellas, tarros
+                      y frascos y depositarlos en el contenedor amarillo.</p>
+                    <p class="contenedor-title" style="width:200px">VIDRIO</p>
+                  </div>
+                </swiper-slide>
+                <swiper-slide>
+                  <div>
+                    <img src="../../assets/img/Contenedor_Envases.png" class="foto-contenedor" >
+                    <p class="texto-info" style="width:200px">Envases metálicos: latas, bebidas,
+                      aluminio, aerosoles, tapones metálicos.
+                      <br>Briks: de zumos, caldos, etc.
+                      <br>Envases de plástico: botellas, bolsas,
+                      tarrinas, corcho, y
+                      envoltorios de plástico.<br><br>NO podemos depositar los juguetes de plástico,
+                      pañales, discos de CD o DVD, electrodomésticos,
+                      zapatillas de plástico como las crocs… </p>
+                    <p class="contenedor-title" style="width:200px">ENVASES LIGEROS</p>
+                  </div>
+                </swiper-slide>
+                <swiper-slide>
+                  <div>
+                    <img src="../../assets/img/Contenedor_Papel.png" class="foto-contenedor" >
+                    <p class="texto-info" style="width:200px">Papel: Periódicos, libros, revistas y bolsas de papel.<br>Envases de cartón: cajas de galletas, cereales, hueveras de cartón, etc. Prácticamente todos
+                      los envases de cartón que utilizamos en casa.
+                      <br><br>
+                      NO podemos depositar servilletas usadas, pañuelos
+                      de papel usados, cartón y papel manchados de aceite,
+                      pañales o briks.</p>
+                    <p class="contenedor-title" style="width:200px">PAPEL Y CARTÓN</p>
+                  </div>
+                </swiper-slide>
+                <swiper-slide>
+                  <div>
+                    <img src="../../assets/img/Contenedor_Organico.png" class="foto-contenedor" >
+                    <p class="texto-info" style="width:200px">Residuos biodegradables: Alimentos como cáscaras y pieles de frutas, restos, etc.
+                      <br>Desechos orgánicos: Papeles y cartón manchados, restos vegetales de flores y hojas, tapones de corcho y
+                      serrín.<br><br>NO podemos depositar tiritas, bolsas de infusión con
+                      grapas metálicas, polvo de barrer, toallitas,
+                      bastoncillos, hilo dental, algodón, cenizas, etc</p>
+                    <p class="contenedor-title" style="width:200px">ORGÁNICO</p>
+                  </div>
+                </swiper-slide>
+                <swiper-slide>
+                  <div>
+                    <img src="../../assets/img/Contenedor_Ropa.png" class="foto-contenedor-ropa" >
+                    <p class="texto-info" style="width:200px">Se puede tirar cualquier textil. 
+                      Camisetas, vestidos, pijamas, pantalones, etc. 
+                      También complementos como bolsos o cinturones y calzado.<br><br>
+                      Es habitual que vayan a parar allí prendas muy viejas y deterioradas. Eso no importa, tampoco lo hace el color o el material.
+
+                      Sin embargo, sí es importante que todas las prendas estén limpias.</p>
+                    <p class="contenedor-title" style="width:200px">ROPA</p>
+                  </div>
+                </swiper-slide>
+                <swiper-slide>
+                  <div>
+                    <img src="../../assets/img/Contenedor_Aceite.png" class="foto-contenedor-aceite">
+                    <p class="texto-info" style="width:200px">Arrojar el aceite usado de las frituras por el desagüe o simplemente a la basura es un error considerable. La manera adecuada de desechar este líquido es utilizando los contenedores naranjas destinados para la recolección municipal.</p>
+                    <p class="contenedor-title" style="width:200px">ACEITE</p>
+                  </div>
+                </swiper-slide>
+                <swiper-slide>
+                  <div>
+                    <img src="../../assets/img/Contenedor_otros.png" class="foto-contenedor-otros" >
+                    <p class="texto-info" style="width:200px">En cuanto al resto de residuos, como pañales, toallitas, vajilla, sartenes,
+                    unas zapatillas destrozadas… se pueden tirar al contenedor normal (de no-
+                    reciclaje), pero recordad que las bombillas, tubos fluorescentes, pilas,
+                    baterías, pinturas, barnices o aceite usado son productos muy contaminantes
+                    que deberemos por todos los medios llevar al punto limpio.</p>
+                    <p class="contenedor-title" style="width:200px">OTROS</p>
+                  </div>
+                </swiper-slide>
               </swiper-container>
               <script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-element-bundle.min.js"></script>
               <footer class="footer">
@@ -202,7 +327,7 @@
                     <img src="../../assets/img/Icon_Mis_Incidencias.png"class="footer-button">
                     <img src="../../assets/img/Icon_Reportes_En_El_Mapa.png"class="footer-button">
                     <img src="../../assets/img/icon_VER_MAPA.png"class="footer-button">
-                    <img src="../../assets/img/icon_Info_Reciclaje.png"class="footer-button">
+                    <img src="../../assets/img/icon_Info_Reciclaje_pink.png"class="footer-button">
                     <img src="../../assets/img/icon_User.png"class="footer-button">
                 </div>
                </footer> 
