@@ -47,11 +47,30 @@ display: none;
     cursor: pointer;
 }
 
-.button-top-right label ::after{
-    font-family: "Font Awesome 5 Free";
-    font-weight: 900px;
-    content:"\f00c";
+.button-top-right img{
+    display:none;
+    width:20px;
+    height: 20px; /* Ajusta el tamaño de la imagen según necesites */
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
 }
+
+.button-top-right input[type="checkbox"]:checked + label img{
+    display: block; /* Muestra la imagen */
+}
+
+.button-container .checkbox-selected{
+    display:none;
+    width:20px;
+    height: 20px; /* Ajusta el tamaño de la imagen según necesites */
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+}
+
 
 
 
@@ -81,43 +100,24 @@ display: none;
     border-width: 10px;
 }
 
+.button-container input[type="checkbox"]:checked + label .checkbox-selected {
+    display: block; /* Muestra la imagen */
+}
+
 .button-container input[type="checkbox"] {
     display: none;
 }
 
 .button-container label {
-    display: block;
     width: 20px; 
     height: 25px; 
     border-radius: 5px;
-
     background-color: #3a5e62;
     cursor: pointer;
     position: relative;
     top: -35px
 }
 
-.button-container label::before {
-    content: "";
-    position: absolute;
-    top: 50%;
-    left: 50%;
-    transform: translate(-50%, -50%);
-    width: 20px; 
-    height: 20px; 
-    background-color: #fff; 
-    border: 2px solid #fff; 
-    border-radius: 3px; 
-    visibility: hidden;
-    border-radius: 5px;
-
-}
-
-.button-container input[type="checkbox"]:checked + label::before {
-    visibility: visible;
-    border-radius: 5px;
-
-}
 
 .footer {
     background-color: white; /* Color de fondo del footer */
