@@ -1,0 +1,14 @@
+@font-face {
+    font-family: 'Laura Regular'; /* Nombre de la fuente */
+    src: url('../fonts/Laura-Regular.ttf') format('truetype'); /* Ruta del archivo TTF */
+}
+
+@font-face{
+    font-family: 'Handwriting'; /*Este es para los símbolos que no dio la versión gratis de mi fuente*/
+    src:url('../fonts/Handwriting.ttf') format('truetype');
+}
+
+/* styles.scss */
+
+@import "~swiper/swiper-bundle.css";
+
