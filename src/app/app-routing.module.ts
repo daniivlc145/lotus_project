@@ -5,8 +5,7 @@ import { TutorialAbtComponent } from './tutorial/tutorial-abt/tutorial-abt.compo
 import { TutorialLastComponent } from './tutorial/tutorial-last/tutorial-last.component';
 
 const routes: Routes = [
-  { path: '', redirectTo: '/tutorial-welc', pathMatch: 'full' }, // Redirige a /tutorial-welc por defecto
-  { path: 'tutorial-welc',  component:TutorialWelcComponent },
+  {path:'tutorial-welc', component:TutorialWelcComponent},
   {path: 'tutorial-abt', component:TutorialAbtComponent},
   {path: 'tutorial-last', component:TutorialLastComponent}
 ];
