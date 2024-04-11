@@ -10,29 +10,25 @@ import { supabaseClient } from "../supabase_client";
 
 
 
-
+// info de cada contenedor
 interface ContainerInfo {
     container_id: number
     location: string,
     is_full: boolean
 }
 
-interface ContainerType {
-    container_type: string,
-    container_data: ContainerInfo[]
-}
+//agrupacion de todos los tipos de contendores
+//  Container {
+//     battery: ContainerType,
+//     clothes: ContainerType,
+//     glass: ContainerType,
+//     oil: ContainerType,
+//     paper: ContainerType,
+//     plastic: ContainerType,
+//     organic: ContainerType,
+//     urbanWaste: ContainerType
 
-interface Container {
-    battery: ContainerType,
-    clothes: ContainerType,
-    glass: ContainerType,
-    oil: ContainerType,
-    paper: ContainerType,
-    plastic: ContainerType,
-    organic: ContainerType,
-    urbanWaste: ContainerType
-
-}
+// }
 //v1
 // export async function searchContainers(containers: string[]): Promise<ContainerInfo[]> {
 //     const containersDataList: ContainerInfo[] = [];
@@ -112,7 +108,7 @@ interface Container {
 //     return result;
 // }
 
-export async function searchContainers(): Promise<Container> {
+export async function searchContainers(): Promise<{[clave: string]: ContainerInfo[]}> {
     //tipos de contenedores sobre los que se va a hacer la consulta
     const containers: string [] = [
         'battery_containers', 
@@ -121,35 +117,31 @@ export async function searchContainers(): Promise<Container> {
         'oil_containers',
         'waste_containers', 
     ]
-    let result: any = null;
+    let result: {[clave: string]: ContainerInfo[]} = {}
     try {
-        for (const container of containers) {
-            // estos son los campos que se van a extraer
-            const fieldsNeeded = container === 'waste_containers' ? 'geo_point_2d, objectid, is_full, container_type' : 'geo_point_2d, objectid, is_full';
+        for (const containerTypeSearch of containers) {
+            const fieldsNeeded = containerTypeSearch === 'waste_containers' ? 'geo_point_2d, objectid, is_full, container_type' : 'geo_point_2d, objectid, is_full';
             const { data, error } = await supabaseClient
-                .from(container)
+                .from(containerTypeSearch)
                 .select(fieldsNeeded);
 
             if (error) {
-                throw new Error(`Error al consultar el contenedor ${container}: ${error.message}`);
+                throw new Error(`Error al consultar el contenedor ${containerTypeSearch}: ${error.message}`);
             }
             if (data) {
-                //constante para guardar los datos de cada contenedor en una lista del mismo tipo
-                let containerList: ContainerInfo[] = [];
                 for (const element of data) {
-                    const type = (element as any).container_type || container
-                    containerList.push({
-                        location: (element as any).geo_point_2d,
+                    let type = (element as any).container_type || containerTypeSearch
+                    let container: ContainerInfo = {
                         container_id: (element as any).objectid,
+                        location: (element as any).geo_point_2d,
                         is_full: (element as any).is_full
-                    })
+                    }
+                    if (!result[type]) {
+                        result[type] = [container]
+                    } else {
+                        result[type].push(container)
+                    }
                 }
-                // se guarda el tipo de contenedor y los contenedores
-                // containersList = {
-                //     container_type: type,
-                //     container_data: containerList
-                
-                // }
             }
         }
     } catch (error) {
@@ -159,4 +151,13 @@ export async function searchContainers(): Promise<Container> {
     return result;
 }
 
-searchContainers()
+searchContainers().then((result) => {
+    console.log('Full dictionary:', result);
+  
+    // Print containers for a specific type (e.g., 'battery_containers')
+    if (result['battery_containers']) {
+      console.log('Battery containers:', result['battery_containers']);
+    } else {
+      console.log('No battery containers found.');
+    }
+  });
