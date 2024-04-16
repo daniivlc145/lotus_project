@@ -7,7 +7,8 @@ import { MapComponent } from './map/map.component';
 
 const routes: Routes = [
   {path:'tutorial-welc', component:TutorialWelcComponent},
-  {path: 'tutorial-abt', component:TutorialAbtComponent},
+  { path: 'tutorial-abt', component: TutorialAbtComponent },
+
   {path: 'tutorial-last', component:TutorialLastComponent},
   {path: 'map', component:MapComponent}
 ];

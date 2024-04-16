@@ -6,12 +6,19 @@ import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { MapComponent } from './map/map.component';
 import { TutorialWelcComponent } from './tutorial/tutorial-welc/tutorial-welc.component'; // Importa el componente TutorialWelcComponent
+import { TutorialAbtComponent } from './tutorial/tutorial-abt/tutorial-abt.component';
+import { TutorialLastComponent } from './tutorial/tutorial-last/tutorial-last.component';
+import { InfoRecComponent } from './info-rec/info-rec.component';
+
 
 @NgModule({
   declarations: [
     AppComponent,
     MapComponent,
-    TutorialWelcComponent // Agrega el componente TutorialWelcComponent a las declaraciones
+    TutorialWelcComponent, // Agrega el componente TutorialWelcComponent a las declaraciones
+    TutorialAbtComponent,
+    TutorialLastComponent,
+    InfoRecComponent
   ],
   imports: [
     BrowserModule,
