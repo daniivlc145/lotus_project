@@ -23,3 +23,4 @@ import { TutorialWelcComponent } from './tutorial/tutorial-welc/tutorial-welc.co
   schemas: [CUSTOM_ELEMENTS_SCHEMA],
 })
 export class AppModule { }
+
