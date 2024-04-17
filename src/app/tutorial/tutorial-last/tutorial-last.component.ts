@@ -11,4 +11,6 @@ export class TutorialLastComponent  implements OnInit {
 
   ngOnInit() {}
 
+  
+
 }

@@ -10,6 +10,10 @@ import { TutorialLastComponent } from './tutorial/tutorial-last/tutorial-last.co
 
 import { MapComponent } from './map/map.component';
 
+import { InfoRecComponent } from './info-rec/info-rec.component';
+
+import { loginComponent } from './login/login.component';
+
 const routes: Routes = [
 
   {path:'tutorial-welc', component:TutorialWelcComponent},
@@ -18,7 +22,22 @@ const routes: Routes = [
 
   {path: 'tutorial-last', component:TutorialLastComponent},
 
-  {path: 'map', component:MapComponent}
+  {path: 'map', component:MapComponent},
+
+  {path:'Info-rec', component:InfoRecComponent},
+
+  {path: 'login', component:loginComponent},
+
+  {
+    path: '',
+    redirectTo: 'tutorial-welc',
+    pathMatch: 'full'
+  },
+  {
+    path: '**',
+    redirectTo: '',
+  },
+
 
 ];
 

@@ -31,10 +31,12 @@ color:#84beb0;
 
     .title-container {
         position: absolute;
-        top: 27%;
+        top: 24%;
         left: 50%;
         transform: translate(-50%, -50%);
         z-index: 1; /* Asegura que el título esté sobre el contenedor de formulario */
+        user-select: none;
+        font-weight: 900;
         
     }
     
@@ -56,6 +58,7 @@ color:#84beb0;
     h1 {
         color: white;
         margin: 0; /* Elimina el margen predeterminado del h1 */
+        user-select: none;
     }
     
     
@@ -63,34 +66,60 @@ color:#84beb0;
         display: flex;
         flex-direction: column;
         align-items: center;
-        margin-top: 50px;
+        margin-top: 100px;
+    }
+
+    .registro{
+
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        margin-top: 70px;
+
     }
 
     
     
-    label {
-        margin-bottom: 5px;
-    }
+
     
     #username, #password {
         font-size: 16px;
         width: 200px;
         padding: 8px;
-        margin-bottom: 20px;
+        margin-bottom: 10px;
+        color: #b5b4b8;
+       
+    
         
         
     }
+
+    p{
+
+        text-align: center;
+        a{color: #84beb0;}
+        user-select: none;
+        font-size: large;
+        
+
+
+    }
+
+   
 
     
     
 
     .auth-field {
-        height: 20%;
-        width: 50%;
+        height: 13%;
+        width: 70%;
         margin: auto;
         border-radius: 50px;
         position: absolute;
         box-shadow: 1px 1px 10px 0px #9898;
+        background-color:#e6e5ea;
+        top: 30px;
+        user-select: none;
       }
       
         /* Estilos para los botones signin y signup */
@@ -102,6 +131,21 @@ color:#84beb0;
             border-radius: inherit; /* Hereda el radio de borde del contenedor */
             cursor: pointer;
             border-radius: 50px;
+            font-size: 20px;
+            }
+
+            .signin button{
+                background-color: #3a5e62;
+                color: #e6e5ea;
+                border-radius: 30px 25px 25px 30px;
+            }
+
+            .signup button {
+
+                background-color:#e6e5ea;
+                color:  #3a5e62;
+                border-radius: 0px 30px 30px 0px;
+
             }
 
             .sign-container {

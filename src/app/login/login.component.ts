@@ -11,6 +11,11 @@ export class loginComponent  implements OnInit {
 
   ngOnInit() {}
 
+  usuarioInvertido: boolean = false;
+  orgInvertido: boolean = false;
+
+
+  
 
 
   
