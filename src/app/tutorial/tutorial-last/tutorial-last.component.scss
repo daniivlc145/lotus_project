@@ -11,59 +11,6 @@ body {
     background-color: #f0f0f0;
 }
 
-.iphone {
-    width: 375px; /* iPhone X width */
-    height: 812px; /* iPhone X height */
-    background-color: #000;
-    border-radius: 60px;
-    z-index: 10;
-    position: absolute;
-    box-shadow: 0 0 20px rgba(0, 0, 0, 0.5);
-    overflow: hidden;
-}
-
-.screen {
-    width: 100%;
-    height: 100%;
-    background-color: #000;
-    border-radius: 30px;
-    position: absolute;
-    z-index: 14;
-}
-
-.notch,
-.sensor,
-.camera {
-    position: absolute;
-    z-index: 2; /* Coloca los elementos al frente */
-}
-
-.notch {
-    top: 20px; /* Adjust as needed */
-    left: calc(50% - 75px); /* Adjust as needed */
-    width: 150px;
-    height: 30px;
-    background-color: #000;
-    border-radius: 0 0 15px 15px;
-}
-
-.sensor {
-    top: 30px; /* Adjust as needed */
-    left: calc(50% - 25px); /* Adjust as needed */
-    width: 50px;
-    height: 10px;
-    background-color: #000;
-    border-radius: 5px;
-}
-
-.camera {
-    top: 20px; /* Adjust as needed */
-    left: calc(50% - 5px); /* Adjust as needed */
-    width: 10px;
-    height: 10px;
-    background-color: #000;
-    border-radius: 50%;
-}
 
 
 /*tutoriales*/
@@ -123,14 +70,12 @@ body {
     border: none; /* Sin borde */
     padding: 10px 20px; /* Espacio interno */
     cursor: pointer; /* Cambia el cursor al pasar por encima */
-    z-index: 6px;
+    z-index: 6;
     color: white;
     font-family: 'Laura Regular', sans-serif; /* Utiliza la fuente Laura Regular */
     font-size: 24px; /* Tamaño de la fuente */
     text-align: center; /* Alineación del texto */
-    position:absolute;
-    right:48%;
-    top:78%;
+   
 }
 
 
@@ -142,11 +87,10 @@ body {
 
 
 .contentLast{
-    width: 90%;
-    height: 95%;
+    width: 100%;
+    height: 100%;
     background-color: #c1d7d5;
     position: absolute;
-    border-radius: 40px;
     top: 50%;
     left: 50%;
     transform: translate(-50%, -50%);
@@ -156,23 +100,21 @@ body {
 }
 
 .textoLast{
-font-family: 'Laura Regular', sans-serif; /* Utiliza la fuente Laura Regular */
-font-size: 26px; /* Tamaño de la fuente */
-text-align: left; /* Alineación del texto */
-color: #3a5e62; /* Color del texto */
-position: absolute; /* Posición absoluta */
-letter-spacing: -2.5px;
-top: 60%; /* Lo posiciona en el centro vertical */
-left: 50%; /* Lo posiciona en el centro horizontal */
-transform: translate(-50%, -100%); /* Centra el texto */
-z-index: 2; /* Asegura que el texto esté por encima del SVG */
+    font-family: 'Laura Regular', sans-serif; /* Utiliza la fuente Laura Regular */
+    font-size: 26px; /* Tamaño de la fuente */
+    text-align: left; /* Alineación del texto */
+    color: #3a5e62; /* Color del texto */
+    position: absolute; 
+    top: 43%; 
+    left: 50%; 
+    transform: translate(-50%, -50%);
+    z-index: 2; /* Asegura que el texto esté por encima del SVG */
 }
 
-.frog-lotusLast{
+.frog{
 z-index: 2;
-position: absolute; /* Posición absoluta */
-top: 63%; /* Lo posiciona en el centro vertical */
-left: 30%; /* Lo posiciona en el centro horizontal */
+
+
 
 }
 
@@ -183,17 +125,16 @@ left: 55.5%;
 }
 
 .otherLast{
-color: #5a8d8d; /* Color del texto */
-z-index: 2;
-left: 50%;
+    color: #5a8d8d;
+    z-index: 2;
+    left: 50%; /* Cambia el valor de left para ajustar la posición horizontal */
+    user-select: none;
+    font-family: 'Laura Regular', sans-serif; /* Utiliza la fuente Laura Regular */
+    font-size: 100px; /* Tamaño de la fuente */
+    text-align: center; /* Alineación del texto */
+    font-weight:bold;
+    position: absolute; /* Posición absoluta */
+    top:70%;
+    transform: translate(-50%, -0%); /* Centra el texto */
 }
 
-.dotLast{
-font-family: 'Laura Regular', sans-serif; /* Utiliza la fuente Laura Regular */
-font-size: 100px; /* Tamaño de la fuente */
-text-align: center; /* Alineación del texto */
-font-weight:bold;
-position: absolute; /* Posición absoluta */
-top:70%;
-transform: translate(-50%, -0%); /* Centra el texto */
-}

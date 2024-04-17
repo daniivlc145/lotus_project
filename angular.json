@@ -30,12 +30,13 @@
               "src/assets",
               "src/icons",
               {
-                "glob": "**/*.svg",
-                "input": "node_modules/ionicons/dist/ionicons/svg",
-                "output": "./svg"
+                  "glob": "**/*.svg",
+                  "input": "node_modules/ionicons/dist/ionicons/svg",
+                  "output": "./svg"
               }
             ],
             "styles": [
+              "./node_modules/leaflet/dist/leaflet.css",
               "src/styles.scss",
               {
                 "input": "node_modules/swiper/swiper-bundle.css"
@@ -75,8 +76,12 @@
               }
             ],
             "scripts": [
-              "node_modules/swiper/swiper-bundle.js"
+              "node_modules/swiper/swiper-bundle.js",
+              "./node_modules/leaflet/dist/leaflet.js"
             ]
+            
+  
+            
           },
           "configurations": {
             "production": {
@@ -142,9 +147,13 @@
               }
             ],
             "styles": [
-              "src/styles.scss"
+              "src/styles.scss",
+              "./node_modules/leaflet/dist/leaflet.css"
             ],
-            "scripts": []
+            "scripts": [
+              "./node_modules/leaflet/dist/leaflet.js"
+            ]
+            
           }
         },
         "ionic-cordova-serve": {

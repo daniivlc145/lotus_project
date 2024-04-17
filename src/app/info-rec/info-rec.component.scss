@@ -56,51 +56,7 @@ swiper-slide:nth-child(7n) {
 swiper-slide:nth-child(8n) {
 }
 
-.iphone {
-width: 375px; /* iPhone X width */
-height: 812px; /* iPhone X height */
-background-color: #000;
-border-radius: 60px;
-z-index: 30;
-position: absolute;
-box-shadow: 0 0 20px rgba(0, 0, 0, 0.5);
-overflow: hidden;
-}
 
-.screen {
-width: 100%;
-height: 100%;
-background-color: #000;
-border-radius: 30px;
-position: absolute;
-z-index: 30;
-overflow: hidden;
-}
-
-.notch,
-.sensor,
-.camera {
-position: absolute;
-z-index: 2; /* Coloca los elementos al frente */
-}
-
-.notch {
-top: 20px; /* Adjust as needed */
-left: calc(50% - 75px); /* Adjust as needed */
-width: 150px;
-height: 30px;
-background-color: #000;
-border-radius: 0 0 15px 15px;
-}
-
-.sensor {
-top: 30px; /* Adjust as needed */
-left: calc(50% - 25px); /* Adjust as needed */
-width: 50px;
-height: 10px;
-background-color: #000;
-border-radius: 5px;
-}
 
 .texto-Reciclaje {
 font-family: 'Laura Regular', sans-serif; /* Utiliza la fuente Laura Regular */
@@ -139,11 +95,10 @@ z-index: 20; /* Asegura que el texto esté por encima del SVG */
 }
 
 .content {
-width: 90%;
-height: 95%;
+width: 100%;
+height: 100%;
 background-color: #e6e5ea;
 position: absolute;
-border-radius: 40px;
 top: 50%;
 left: 50%;
 transform: translate(-50%, -50%);
@@ -151,28 +106,32 @@ display: flex;
 justify-content: center; /* Centra horizontalmente */
 align-items: center; /* Centra verticalmente */
 }
-
 .footer {
-background-color: white; /* Color de fondo del footer */
-color: white; /* Color del texto */
-position: absolute;
-width: 100%; /* Ancho completo */
-z-index: 1000;
-bottom: 0;
-border-bottom-left-radius: 40px;
-border-bottom-right-radius: 40px;
-}
+  
+  bottom: 0;
+  width: 100%;
+  background-color: #fff; /* Cambia el color de fondo según tus preferencias */
+  border-top: 1px solid #ccc; /* Agrega un borde superior si lo deseas */
+  
+  position: absolute;
+  
+  z-index: 1000;
+ 
+  }
 
 .footer-buttons {
-display: flex; /* Uso de Flexbox */
-justify-content: space-around; /* Espaciado uniforme entre los botones */
+  display: flex;
+  justify-content: space-around; /* Distribuye los elementos equitativamente en el espacio */
+  align-items: center; /* Centra verticalmente los elementos */
+  padding: 10px; /* Añade un relleno para separar los elementos de los bordes */
 }
+
 
 .footer-button {
 background-color: white; /* Color de fondo de los botones */
 border: none; /* Sin bordes */
 color: white; /* Color del texto */
-padding: 1px 2px; /* Espaciado interno */
+padding: 1px 1px; /* Espaciado interno */
 text-align: center; /* Alineación del texto */
 text-decoration: none;
 display: inline-block;
