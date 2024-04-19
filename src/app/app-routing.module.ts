@@ -14,6 +14,9 @@ import { InfoRecComponent } from './info-rec/info-rec.component';
 
 import { loginComponent } from './login/login.component';
 
+
+
+
 const routes: Routes = [
 
   {path:'tutorial-welc', component:TutorialWelcComponent},
@@ -27,6 +30,7 @@ const routes: Routes = [
   {path:'Info-rec', component:InfoRecComponent},
 
   {path: 'login', component:loginComponent},
+
 
   {
     path: '',

@@ -10,6 +10,8 @@ import { TutorialAbtComponent } from './tutorial/tutorial-abt/tutorial-abt.compo
 import { TutorialLastComponent } from './tutorial/tutorial-last/tutorial-last.component';
 import { InfoRecComponent } from './info-rec/info-rec.component';
 import { loginComponent } from './login/login.component';
+import { FormsModule } from '@angular/forms'; // Asegúrate de que esta línea esté presente
+
 
 
 @NgModule({
@@ -21,10 +23,12 @@ import { loginComponent } from './login/login.component';
     TutorialLastComponent,
     InfoRecComponent,
     loginComponent
+   
   ],
   imports: [
     BrowserModule,
     IonicModule.forRoot(),
+    FormsModule,
     AppRoutingModule
   ], 
   providers: [],
