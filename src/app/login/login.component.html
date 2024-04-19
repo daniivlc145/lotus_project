@@ -42,12 +42,13 @@
                 <form>
                     <input type="text" id="username" name="username" placeholder="USUARIO" required>
                     <input type="password" id="password" name="password" placeholder="CONTRASEÑA" required>
-                    <p>¿Has olvidado tu contraseña? <br>  <a href="sdsadsadsads" >Haz click aqui</a></p>
-                     
-                    <button class="entrar" type="submit"><strong>ENTRAR</strong></button>
+                    <p>¿HAS OLVIDADO TU CONTRASEÑA? <br>  <a href="sdsadsadsads" >HAZ CLICK AQUI</a></p>
+                    
+                    <button class="entrar" type="button" (click)="goToLoginPage();"><strong>ENTRAR</strong></button>
                 </form>
             <div class="registro">
-                <p><strong>¿No tienes una cuenta? <a href="sdsadsadsads" >Regístrate</a></strong></p>
+                <p><strong>¿NO TIENES UNA CUENTA? <a routerLink="/reg" routerLinkActive="active" [routerLinkActiveOptions]="{exact: true}" >
+                REGÍSTRATE</a></strong></p>
             </div>
 
             </div>

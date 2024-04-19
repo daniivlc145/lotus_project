@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { Router } from '@angular/router'; // Importa el módulo Router
 
 @Component({
   selector: 'app-login',
@@ -7,18 +8,15 @@ import { Component, OnInit } from '@angular/core';
 })
 export class loginComponent  implements OnInit {
 
-  constructor() { }
+  constructor(private router: Router) { } // Inyecta el servicio Router en el constructor
 
   ngOnInit() {}
 
-  usuarioInvertido: boolean = false;
-  orgInvertido: boolean = false;
-
-
-  
-
-
+  goToLoginPage() {
+    console.log('goToLoginPage() called');
+    this.router.navigate(['/map']); 
   
   
 
+}
 }

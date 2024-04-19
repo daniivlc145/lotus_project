@@ -10,6 +10,7 @@ import { TutorialAbtComponent } from './tutorial/tutorial-abt/tutorial-abt.compo
 import { TutorialLastComponent } from './tutorial/tutorial-last/tutorial-last.component';
 import { InfoRecComponent } from './info-rec/info-rec.component';
 import { loginComponent } from './login/login.component';
+import { RegistroComponent } from './registro/registro.component';
 import { FormsModule } from '@angular/forms'; // Asegúrate de que esta línea esté presente
 
 
@@ -22,7 +23,8 @@ import { FormsModule } from '@angular/forms'; // Asegúrate de que esta línea e
     TutorialAbtComponent,
     TutorialLastComponent,
     InfoRecComponent,
-    loginComponent
+    loginComponent,
+    RegistroComponent
    
   ],
   imports: [
