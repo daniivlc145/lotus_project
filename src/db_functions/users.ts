@@ -31,7 +31,6 @@ export async function signUpUser (email: string, password: string, fullName: str
     throw error
   }
 } 
-
 export async function signInUser (email: string, password: string): Promise<void> {
   const signInInfo = {
     email,
@@ -48,7 +47,6 @@ export async function signInUser (email: string, password: string): Promise<void
     throw error
   }
 }
-
 export async function signOutUser (): Promise<void> {
   try {
     const {error} = await supabaseClient.auth.signOut()
@@ -61,7 +59,6 @@ export async function signOutUser (): Promise<void> {
     throw error
   }
 }
-
 export async function updateUserData (fullName: string, dni: string, phoneNumber: string): Promise<void> {
   try{
     const {data: {user}} = await supabaseClient.auth.getUser()
@@ -89,7 +86,6 @@ export async function updateUserData (fullName: string, dni: string, phoneNumber
     throw error
   }
 }
-
 export async function deleteUserAccount (): Promise<void> {
   try{
     const {data: {user}} = await supabaseClient.auth.getUser()
