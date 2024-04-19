@@ -4,6 +4,9 @@
     <div class="header-map">
         <label class="button-top-right">
             <input type="checkbox" id="checkbox-top-right" class="filter-checkbox">
+            <div *ngFor="let item of items">
+                <input type="checkbox" [(ngModel)]="item.selected">{{ item.id }}
+             </div>            
             <label for="checkbox-top-right">
                 <img src="../../assets/img/Selected.png" alt="Seleccionado">
             </label>
