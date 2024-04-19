@@ -1,0 +1,45 @@
+<body>
+
+  <div class="container">
+      <div class="background"></div>
+        
+          <div class="logo"> <img 
+              style="position: absolute;
+              top: 12%;
+              left: 50%;
+              transform: translate(-50%, -50%);
+              width: 101px;
+              height: 90pX;
+              user-select: none;"
+                
+              
+              alt="logo" 
+              src="/../icons/Blank_Chiquito_Color.png"> 
+          </div>
+          
+          <div class="form-container">
+              
+            <div class="title">
+
+              <p style="color: black; font-size: 30px; margin-bottom: 5px;"><strong>REGISTRO</strong></p>
+              <p style="color: #b5b4b8; margin-top: 0;">UNETE A LA COMUNIDAD</p>
+
+            </div>
+
+              <form>
+                  <input type="text" id="nombre" name="nombre" placeholder="NOMBRE COMPLETO" required>
+                  <input type="text" id="dni" name="dni" placeholder="DNI" required>
+                  <input type="text" id="correo" name="correo" placeholder="CORREO ELECTRÓNICO" required>
+                  <input type="password" id="password" name="password" placeholder="CONTRASEÑA" required>   
+                  <input type="password" id="rep" name="rep" placeholder="REPITE LA CONTRASEÑA" required>               
+                  <button class="registrarse" type="submit"><strong>REGISTRAR</strong></button>
+              </form>
+          <div class="registro">
+              <p><strong>¿YA TIENES CUENTA? <a routerLink="/login" routerLinkActive="active" [routerLinkActiveOptions]="{exact: true}" >
+              INICIA SESION</a></strong></p>
+          </div>
+
+          </div>
+  </div>
+
+</body>

@@ -14,6 +14,9 @@ import { InfoRecComponent } from './info-rec/info-rec.component';
 
 import { loginComponent } from './login/login.component';
 
+import { RegistroComponent } from './registro/registro.component';
+
+
 
 
 
@@ -30,6 +33,8 @@ const routes: Routes = [
   {path:'Info-rec', component:InfoRecComponent},
 
   {path: 'login', component:loginComponent},
+
+  {path: 'reg', component:RegistroComponent},
 
 
   {
