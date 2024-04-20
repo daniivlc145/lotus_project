@@ -15,6 +15,7 @@ import { FormsModule } from '@angular/forms'; // Asegúrate de que esta línea e
 import { NuevaIncidenciaComponent } from './nueva-incidencia/nueva-incidencia.component';
 import { provideAnimationsAsync } from '@angular/platform-browser/animations/async';
 import { MatAutocompleteModule } from '@angular/material/autocomplete';
+import { ContrasenaOlvidadaComponent } from './contrasena-olvidada/contrasena-olvidada.component';
 
 @NgModule({
   declarations: [
@@ -27,6 +28,7 @@ import { MatAutocompleteModule } from '@angular/material/autocomplete';
     loginComponent,
     RegistroComponent, 
     NuevaIncidenciaComponent,
+    ContrasenaOlvidadaComponent,
    
   ],
   imports: [

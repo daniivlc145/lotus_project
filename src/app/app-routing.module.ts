@@ -18,6 +18,8 @@ import { RegistroComponent } from './registro/registro.component';
 
 import { NuevaIncidenciaComponent }   from './nueva-incidencia/nueva-incidencia.component';
 
+import { ContrasenaOlvidadaComponent } from './contrasena-olvidada/contrasena-olvidada.component';
+
 
 
 
@@ -38,6 +40,8 @@ const routes: Routes = [
   {path: 'reg', component:RegistroComponent},
 
   {path: 'newI', component:NuevaIncidenciaComponent},
+
+  {path: 'contrasenaOlv', component: ContrasenaOlvidadaComponent},
 
 
   {

@@ -8,8 +8,7 @@ import { Router } from '@angular/router';
 })
 
 export class NuevaIncidenciaComponent  implements OnInit {
-  dropdownVisible = false;
-  constructor(private router: Router) { this.selectedOption = '';}
+  constructor(private router: Router) { }
 
   ngOnInit() {}
 
@@ -17,17 +16,5 @@ export class NuevaIncidenciaComponent  implements OnInit {
     console.log('goToHomePage() called');
     this.router.navigate(['/map']);
   }
-
-  selectedOption: string;
-    options = [
-        { value: 'cLlleno', label: 'CONTENEDOR LLENO' },
-        { value: 'refInf', label: 'RECLAMACIÓN/INFORME' },
-        { value: 'pet', label: 'PETICIÓN' },
-        { value: 'preg', label: 'PREGUNTA' }
-    ];
-
-    selectOption(option: string) {
-      this.selectedOption = option;
-    }
 
 }
