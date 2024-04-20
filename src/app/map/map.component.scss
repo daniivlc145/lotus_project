@@ -2,13 +2,13 @@
 
 
 body {
-    margin: 0;
-    font-family: Arial, sans-serif;
+
 }
 
 .header-map{
     width: 500px;
-    height: 130px;
+    height: 152px;
+    clip-path: polygon(0 0, 100% 0, 100% 100%, 0 96%);
     background-color:#84beb0;
     margin: 0 auto;
     display: flex;
@@ -17,6 +17,7 @@ body {
     background{
         opacity: 30%;
     }
+
 }
 
 
@@ -51,7 +52,7 @@ display: none;
     width:15px;
     height: 17px; /* Ajusta el tamaño de la imagen según necesites */
     top: 37px;
-    right: 97px;
+    right: 100px;
     transform: translate(-50%, -50%);
 }
 
@@ -61,23 +62,20 @@ display: none;
 
 .button-container .checkbox-selected{
     display:none;
-    width:13px;
-    height: 15px; /* Ajusta el tamaño de la imagen según necesites */
+    width: 10px;
+    height: 12px; /* Ajusta el tamaño de la imagen según necesites */
     position: absolute;
-    top: 50%;
+    top: 51%;
     left: 50%;
     transform: translate(-50%, -50%);
 }
 
-
-
-
 .filter-buttons {
     display: flex; 
-    flex-wrap: wrap; 
     justify-content: space-between; 
     align-items: center;
-    margin-top: 50px;
+    margin-top: 40px;
+    margin-right: 70px;
     gap: 10px;
 }
 
@@ -86,11 +84,10 @@ display: none;
     display: flex;
     flex-direction: column;
     align-items: center;
-    margin-right: -12px; /* Reduce el margen a la derecha */
-    margin-left: -12px; /* Reduce el margen a la izquierda */
+    margin-right: -7px; /* Reduce el margen a la derecha */
+    margin-left: -7px; /* Reduce el margen a la izquierda */
     justify-content: center; /* Centra los elementos horizontalmente */
     flex-wrap: wrap; /* Permite que los elementos se envuelvan en múltiples líneas si es necesario */
-    right: 70px
 }
 
 .button-container img {
@@ -99,6 +96,8 @@ display: none;
     cursor: pointer;
     border-color: white;
     display: flex;
+    transform: rotate(2deg)
+
 }
 
 .button-container input[type="checkbox"]:checked + label .checkbox-selected {
@@ -110,13 +109,13 @@ display: none;
 }
 
 .button-container label {
-    width: 10px; 
-    height: 15px; 
-    border-radius: 5px;
+    width: 9px; 
+    height: 11px; 
+    border-radius: 2px;
     background-color: #3a5e62;
     cursor: pointer;
     position: relative;
-    top: -25px
+    top: -12px
 }
 
 
@@ -178,6 +177,7 @@ display: none;
 .map{
     width: 1000px;
     height: 1750px;
+    opacity: 0%;
 }
 
 .button-top-right span {
