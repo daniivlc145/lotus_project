@@ -12,8 +12,9 @@ import { InfoRecComponent } from './info-rec/info-rec.component';
 import { loginComponent } from './login/login.component';
 import { RegistroComponent } from './registro/registro.component';
 import { FormsModule } from '@angular/forms'; // Asegúrate de que esta línea esté presente
-
-
+import { NuevaIncidenciaComponent } from './nueva-incidencia/nueva-incidencia.component';
+import { provideAnimationsAsync } from '@angular/platform-browser/animations/async';
+import { MatAutocompleteModule } from '@angular/material/autocomplete';
 
 @NgModule({
   declarations: [
@@ -24,16 +25,20 @@ import { FormsModule } from '@angular/forms'; // Asegúrate de que esta línea e
     TutorialLastComponent,
     InfoRecComponent,
     loginComponent,
-    RegistroComponent
+    RegistroComponent, 
+    NuevaIncidenciaComponent,
    
   ],
   imports: [
     BrowserModule,
     IonicModule.forRoot(),
     FormsModule,
-    AppRoutingModule
+    AppRoutingModule, 
+    MatAutocompleteModule,
   ], 
-  providers: [],
+  providers: [
+    provideAnimationsAsync()
+  ],
   bootstrap: [AppComponent],
   schemas: [CUSTOM_ELEMENTS_SCHEMA],
 })

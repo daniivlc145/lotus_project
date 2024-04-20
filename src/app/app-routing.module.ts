@@ -16,6 +16,7 @@ import { loginComponent } from './login/login.component';
 
 import { RegistroComponent } from './registro/registro.component';
 
+import { NuevaIncidenciaComponent }   from './nueva-incidencia/nueva-incidencia.component';
 
 
 
@@ -35,6 +36,8 @@ const routes: Routes = [
   {path: 'login', component:loginComponent},
 
   {path: 'reg', component:RegistroComponent},
+
+  {path: 'newI', component:NuevaIncidenciaComponent},
 
 
   {
