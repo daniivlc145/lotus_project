@@ -6,6 +6,7 @@ interface ContainerInfo {
     is_full: boolean
 }
 
+
 export async function searchContainers(): Promise<{[clave: string]: ContainerInfo[]}> {
     //tipos de contenedores sobre los que se va a hacer la consulta
     const containers: string [] = [
