@@ -7,8 +7,8 @@ body {
 }
 
 .header-map{
-    width: 1000px;
-    height: 350px;
+    width: 500px;
+    height: 130px;
     background-color:#84beb0;
     margin: 0 auto;
     display: flex;
@@ -23,13 +23,13 @@ body {
 
 .button-top-right{
     position: fixed; 
-    top: 40px; 
-    font-size: 24px; 
+    top: 30px;
+    right: 30px; 
     z-index: 1000;
-    padding-left: 700;
-    padding-top: 10;
     display: flex;
+    align-items: right;
 }
+
 
 
 .button-top-right input[type="checkbox"] {
@@ -37,23 +37,21 @@ display: none;
 }
 
 .button-top-right label {
-    width: 20px;
-    height: 25px;
+    width: 13px;
+    height: 15px;
     background-color: #3a5e62;
     border-radius: 5px;
     cursor: pointer;
-    position: relative;
-    margin-right: 10px; /* Añadido para dar espacio entre el checkbox y el texto */
-    cursor: pointer;
+    margin-right: 3px; /* Añadido para dar espacio entre el checkbox y el texto */
 }
 
 .button-top-right img{
     display:none;
-    width:20px;
-    height: 20px; /* Ajusta el tamaño de la imagen según necesites */
-    position: absolute;
-    top: 50%;
-    left: 50%;
+    position: fixed;
+    width:15px;
+    height: 17px; /* Ajusta el tamaño de la imagen según necesites */
+    top: 37px;
+    right: 97px;
     transform: translate(-50%, -50%);
 }
 
@@ -63,8 +61,8 @@ display: none;
 
 .button-container .checkbox-selected{
     display:none;
-    width:20px;
-    height: 20px; /* Ajusta el tamaño de la imagen según necesites */
+    width:13px;
+    height: 15px; /* Ajusta el tamaño de la imagen según necesites */
     position: absolute;
     top: 50%;
     left: 50%;
@@ -88,16 +86,19 @@ display: none;
     display: flex;
     flex-direction: column;
     align-items: center;
-    margin-right: -17px; /* Reduce el margen a la derecha */
-    margin-left: -17px; /* Reduce el margen a la izquierda */
+    margin-right: -12px; /* Reduce el margen a la derecha */
+    margin-left: -12px; /* Reduce el margen a la izquierda */
+    justify-content: center; /* Centra los elementos horizontalmente */
+    flex-wrap: wrap; /* Permite que los elementos se envuelvan en múltiples líneas si es necesario */
+    right: 70px
 }
 
 .button-container img {
-    width: 145px; 
+    width: 60px; 
     height: auto;
     cursor: pointer;
     border-color: white;
-    border-width: 10px;
+    display: flex;
 }
 
 .button-container input[type="checkbox"]:checked + label .checkbox-selected {
@@ -109,13 +110,13 @@ display: none;
 }
 
 .button-container label {
-    width: 20px; 
-    height: 25px; 
+    width: 10px; 
+    height: 15px; 
     border-radius: 5px;
     background-color: #3a5e62;
     cursor: pointer;
     position: relative;
-    top: -35px
+    top: -25px
 }
 
 
@@ -127,6 +128,29 @@ display: none;
     width: 100%; /* Ancho completo */
     z-index: 1000;
     bottom: 0;
+    height: 100px;
+}
+
+@media (max-width: 600px) {
+    .footer-buttons {
+        align-items: center; /* Centrado horizontalmente */
+    }
+
+    .footer-button {
+        width: 80%; /* Ancho del botón */
+        margin: 10px 0; /* Espaciado vertical */
+    }
+}
+
+@media (max-width: 400px){
+    .footer-buttons {
+        align-items: center; /* Centrado horizontalmente */
+    }
+
+    .footer-button {
+        width: -60%; /* Ancho del botón */
+        margin: 2px 0; /* Espaciado vertical */
+    }
 }
 
 .footer-buttons {
@@ -139,27 +163,17 @@ display: none;
     background-color: white; /* Color de fondo de los botones */
     border: none; /* Sin bordes */
     color: white; /* Color del texto */
-    padding: 10px 20px; /* Espaciado interno */
+    padding: 5px 5px; /* Espaciado interno */
     text-align: center; /* Alineación del texto */
     text-decoration: none;
     display: inline-block;
-    width: 150px;
+    width: 80px;
     margin: 4px 2px;
     cursor: pointer;
     display:flex;
 }
 
-@media (max-width: 600px) {
-    .footer-buttons {
-        flex-direction: column; /* Alineación vertical en pantallas pequeñas */
-        align-items: center; /* Centrado horizontalmente */
-    }
 
-    .footer-button {
-        width: 80%; /* Ancho del botón */
-        margin: 10px 0; /* Espaciado vertical */
-    }
-}
 
 .map{
     width: 1000px;
@@ -170,5 +184,5 @@ display: none;
     font-family: 'Laura Regular', sans-serif;
     color:#3a5e62;
     font-weight: bold;
-    font-size: 30px;
+    font-size: 15px;
 }
