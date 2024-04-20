@@ -1,4 +1,4 @@
-import { supabaseClient } from '../../supabase_client'
+import { supabaseClient } from "src/supabase_client"
 
 export async function updatePassword(password:string) : Promise<void>{
     try {
