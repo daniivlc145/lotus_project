@@ -12,7 +12,7 @@ export async function signInUser (email: string, password: string): Promise<void
       }
       console.log('Exito iniciando sesión')
     } catch (error) {
-      console.log('Error inesperado:', (error as Error).message)
+      console.error('Error inesperado:', (error as Error).message)
       throw error
     }
   }
