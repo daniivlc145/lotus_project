@@ -1,19 +1,13 @@
 import { supabaseClient } from '../supabase_client'
 
-interface NewUserData {
-  fullName?: string,
-  dni?: string,
-  phoneNumber?: string
-}
-
-export async function signUpUser (email: string, password: string, fullName: string, dni: string, phoneNumber: string): Promise<void> {
+// Funcion de registro; en registro
+export async function signUpUser (email: string, password: string, fullName: string, phoneNumber: string): Promise<void> {
   const userData = {
     email,
     password,
     options: {
       data: {
         full_name: fullName,
-        dni,
         phone_number: phoneNumber
       }
     }
@@ -30,8 +24,8 @@ export async function signUpUser (email: string, password: string, fullName: str
     console.error('Error inesperado:', (error as Error).message)
     throw error
   }
-} 
-
+}
+// Funcion de login; en login
 export async function signInUser (email: string, password: string): Promise<void> {
   const signInInfo = {
     email,
@@ -48,7 +42,7 @@ export async function signInUser (email: string, password: string): Promise<void
     throw error
   }
 }
-
+// Funcion de cerrar sesión; en configuacion
 export async function signOutUser (): Promise<void> {
   try {
     const {error} = await supabaseClient.auth.signOut()
@@ -61,13 +55,12 @@ export async function signOutUser (): Promise<void> {
     throw error
   }
 }
-
-export async function updateUserData (fullName: string, dni: string, phoneNumber: string): Promise<void> {
+// Funcion de actualizar datos; en configuracion
+export async function updateUserData (fullName: string, phoneNumber: string): Promise<void> {
   try{
     const {data: {user}} = await supabaseClient.auth.getUser()
-    const updateData: NewUserData = {
+    const updateData = {
       fullName,
-      dni,
       phoneNumber
     }
     
@@ -90,6 +83,7 @@ export async function updateUserData (fullName: string, dni: string, phoneNumber
   }
 }
 
+// Funcion de borrar la cuenta; en confiugración
 export async function deleteUserAccount (): Promise<void> {
   try{
     const {data: {user}} = await supabaseClient.auth.getUser()
