@@ -29,8 +29,9 @@ import { ContrasenaOlvidadaComponent } from './contrasena-olvidada/contrasena-ol
     RegistroComponent, 
     NuevaIncidenciaComponent,
     ContrasenaOlvidadaComponent,
-   
+
   ],
+
   imports: [
     BrowserModule,
     IonicModule.forRoot(),

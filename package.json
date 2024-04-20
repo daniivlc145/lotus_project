@@ -22,6 +22,7 @@
     "@angular/router": "^17.3.5",
     "@ionic/angular": "^7.8.2",
     "@supabase/supabase-js": "^2.39.8",
+    "@types/googlemaps": "^3.43.3",
     "@types/leaflet": "^1.9.11",
     "leaflet": "^1.9.4",
     "rxjs": "~7.8.0",
@@ -71,4 +72,3 @@
     }
   ]
 }
-  

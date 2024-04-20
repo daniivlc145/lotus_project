@@ -19,6 +19,7 @@ import { RegistroComponent } from './registro/registro.component';
 import { NuevaIncidenciaComponent }   from './nueva-incidencia/nueva-incidencia.component';
 
 import { ContrasenaOlvidadaComponent } from './contrasena-olvidada/contrasena-olvidada.component';
+import { StringComparisonComponent } from './string-comparison/string-comparison.component';
 
 
 
@@ -42,6 +43,8 @@ const routes: Routes = [
   {path: 'newI', component:NuevaIncidenciaComponent},
 
   {path: 'contrasenaOlv', component: ContrasenaOlvidadaComponent},
+
+  {path: 'string', component: StringComparisonComponent},
 
 
   {
