@@ -6,7 +6,7 @@ interface NewUserData {
   phoneNumber?: string
 }
 
-export async function signUpUser (email: string, password: string, fullName: string, dni: string, phoneNumber: string): Promise<void> {
+export async function signUpUser (email: string, password: string, fullName: string, phoneNumber: string): Promise<void> {
   const userData = {
     email,
     password,
