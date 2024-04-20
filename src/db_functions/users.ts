@@ -13,7 +13,6 @@ export async function signUpUser (email: string, password: string, fullName: str
     options: {
       data: {
         full_name: fullName,
-        dni,
         phone_number: phoneNumber
       }
     }
@@ -59,12 +58,11 @@ export async function signOutUser (): Promise<void> {
     throw error
   }
 }
-export async function updateUserData (fullName: string, dni: string, phoneNumber: string): Promise<void> {
+export async function updateUserData (fullName: string, phoneNumber: string): Promise<void> {
   try{
     const {data: {user}} = await supabaseClient.auth.getUser()
     const updateData: NewUserData = {
       fullName,
-      dni,
       phoneNumber
     }
     
