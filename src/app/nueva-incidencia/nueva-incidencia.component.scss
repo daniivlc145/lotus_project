@@ -159,6 +159,14 @@ body {
  padding-right: 15px;
  padding-bottom: 10px;
  transform: translate(-50%, -0%);
- overflow:hidden; /* Permite el desplazamiento si el texto excede el área visible */
- resize: none; /* Evita que el usuario redimensione el área de texto manualmente */
+ overflow:auto;
+ resize: none; 
+ /* Estilos para ocultar la barra de desplazamiento */
+ scrollbar-width: none; /* Oculta la barra de desplazamiento en Firefox */
+ -ms-overflow-style: none; /* Oculta la barra de desplazamiento en Internet Explorer y Edge */
+}
+
+/* Estilos para ocultar la barra de desplazamiento en Chrome, Safari y Opera */
+.descripBox::-webkit-scrollbar {
+ display: none;
 }
