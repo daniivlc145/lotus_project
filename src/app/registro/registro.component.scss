@@ -74,7 +74,6 @@ form {
 }
 
 p{
-
     text-align: center;
     a{color: #84beb0;}
     user-select: none;
@@ -82,10 +81,11 @@ p{
     margin-top: 80px;
     color: #3a5e62;
     z-index: 8;
-
 } 
 
-    
+.repeat{
+    top:10px;
+}
 
 .registrarse {
     background-color: #84beb0;
