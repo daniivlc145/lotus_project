@@ -110,17 +110,6 @@ body {
   z-index: 15;
 }
 
-.dropbtnLocation {
-  font-family: 'Laura Regular', sans-serif; 
-  color: #5a8d8d;
-  border-color: #5a8d8d;
-  padding: 10px;
-  font-size: 19px;
-  border: none;
-  border-radius: 15px;
-  z-index: 8;
- 
-}
 
 .dropdown {
   position: absolute;
@@ -200,8 +189,6 @@ body {
  display: none;
 }
 
-
-
 </style>
 
 
@@ -224,16 +211,8 @@ body {
       </div>
 
       <p class="texto_ubi" style="font-family: 'Laura Regular', sans-serif; z-index: 2;">Ubicación</p>
-      
-      <div>
-        <input type="text" [(ngModel)]="textoUsuario" (input)="compararTexto()" placeholder="Escribe aquí..." class="dropbtnLocation" style=" left: 22.5%; top:27%; position:absolute; z-index: 8; border-radius: 30; background:#e6e5ea;border-color: #5a8d8d; width: 218px;">
-        <div *ngIf="callesRecomendadas.length > 0" class="dropdownCalles">
-          <div class="dropdown-content">
-             <a *ngFor="let calle of callesRecomendadas" (click)="seleccionarCalle(calle)">{{ calle }}</a>
-          </div>
-         </div>
-      </div>
-      
+      <input #input type="text" (input)="filter()">
+      <app-autocomplete [arr]="filteredOptions"></app-autocomplete>
       
 
       <p class="texto_desc" style="font-family: 'Laura Regular', sans-serif; z-index: 2;">Descripción</p>
@@ -259,5 +238,8 @@ body {
       });
     });
   </script>
+   <script>
+    autocomplete(document.getElementById("myInput"), countries);
+    </script> 
 </body>
 

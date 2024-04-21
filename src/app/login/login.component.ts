@@ -23,5 +23,5 @@ export class loginComponent  implements OnInit {
       console.error('ERROR CAPTURADO:', (error as Error).message)
       this.errorMessage = (error as Error).message; // Actualiza el mensaje de error
     }
-}
+  }
 }
