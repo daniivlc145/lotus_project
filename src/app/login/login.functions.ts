@@ -20,14 +20,14 @@ export async function signInUser (email: string, password: string): Promise<void
       console.error('Error inesperado:', (error as Error).message)
       throw error
     }
-  
+}
 
-  function validarCorreoElectronico(correo: string): boolean {
+function validarCorreoElectronico(correo: string): boolean {
     console.log("validando email")
     const expresionRegular = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
     return !expresionRegular.test(correo);
-  }
 }
+
 
 function camposVacios(email: string, password: string): boolean {
   console.log("validando email")
