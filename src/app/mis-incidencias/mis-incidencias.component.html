@@ -147,6 +147,80 @@
     font-weight: bold;
     font-size: 15px;
 }
+
+
+.footer {
+    background-color: white; /* Color de fondo del footer */
+    color: white; /* Color del texto */
+    position: fixed; /* Fijo en la parte inferior de la pantalla */
+    width: 100%; /* Ancho completo */
+    bottom: 0;
+    height: 90px;
+    z-index: 1;
+}
+
+
+@media(min-width: 600px){
+    .filter-buttons{
+        align-items: center;
+        width: 70%;
+    }
+    
+}
+
+.footer-buttons button{
+    background-color: transparent; /* Color de fondo de los botones */
+    gap: 10px;
+    margin-right: 20px !important; /* Intenta con un valor más fuerte */
+    bottom: 3px !important;
+
+}
+
+
+
+.footer-buttons {
+    display: flex; /* Uso de Flexbox */
+    justify-content: space-around; /* Espaciado uniforme entre los botones */
+    background-color: white; /* Color de fondo de los botones */
+    bottom: 3px !important;
+
+}
+
+
+
+.mis-incidencias{
+    width: 55px;
+    transform: rotate(-2deg);
+}
+
+.reportes-mapa{
+    width: 65px;
+    transform: rotate(-2deg);
+}
+
+.ver-mapa{
+    width: 85px;
+  
+}
+
+.info-reciclaje{
+    width: 40px;
+    transform: rotate(-2deg);
+}
+
+.icono-usuario{
+    width: 50px;
+    transform: rotate(-2deg);
+}
+
+
+
+.button-top-right span {
+    font-family: 'Laura Regular', sans-serif;
+    color:#3a5e62;
+    font-weight: bold;
+    font-size: 15px;
+}
   
   </style>
   
@@ -175,6 +249,30 @@
         </div>
       </div>
     </div> 
+    <footer class="footer">
+      <div class="footer-buttons">
+          <button class="mis-incidencias">
+              <img src="../../assets/img/Icon_Mis_Incidencias.png" alt="Icono Mis Incidencias">
+          </button>
+          
+          <button class="reportes-mapa">
+              <img src="../../assets/img/Icon_Reportes_En_El_Mapa.png" alt="Icono Reportes en el Mapa">
+          </button>
+          
+          <button class="ver-mapa">
+              <img src="../../assets/img/icon_VER_MAPA_pink.png" alt="Icono Ver Mapa">
+          </button>
+          
+          <button class="info-reciclaje">
+              <img src="../../assets/img/icon_Info_Reciclaje.png" alt="Icono Información de Reciclaje">
+          </button>
+          
+          <button class="icono-usuario">
+              <img src="../../assets/img/icon_User.png" alt="Icono Usuario">
+          </button>
+          
+      </div>
+  </footer>
   </body>
   
   
