@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import * as L from 'leaflet';
+import { searchContainers } from 'src/db_functions/containers';
 
 @Component({
   selector: 'app-map',
@@ -8,13 +9,16 @@ import * as L from 'leaflet';
 })
 export class MapComponent implements OnInit {
 
+  customDiv: HTMLElement | null = null; 
   constructor() { }
 
   map!: L.Map;
   markers: L.Marker[] = []; // Array para almacenar los marcadores
+  customIcon!: L.Icon;
 
   ngOnInit() {
     this.initializeMap();
+ 
   }
 
   private initializeMap() {
@@ -43,11 +47,40 @@ export class MapComponent implements OnInit {
 
   // Función para agregar un marcador al mapa
   addMarker(latlng: L.LatLngLiteral, popupContent: string, icon: L.Icon) {
-    const marker = L.marker(latlng, { icon: icon })
-      .bindPopup(popupContent);
+    const marker = L.marker(latlng, { icon: icon });
     this.markers.push(marker);
     marker.addTo(this.map);
+
+    marker.on('click', (e) => {
+      this.createCustomDiv(e.latlng, popupContent ); // Llama a la función para crear el div
+    });
+
   }
+
+    createCustomDiv(latlng: L.LatLng, popupContent: string) {
+      if (this.customDiv) {
+        this.customDiv.remove();
+      }
+  
+      // Creamos un nuevo div
+      this.customDiv = document.createElement('div');
+      this.customDiv.innerHTML = `
+        <div style="color: #3a5e62; background-color:#84beb0; font-size: 16px; bottom: 20%;">${popupContent}
+        <button onclick="this.parentElement.remove()">Cerrar</button></div>
+        `
+      ;
+  
+      // Encuentra el contenedor en el HTML
+      const container = document.getElementById('customDivContainer');
+  
+      // Agrega el div al contenedor
+      if (container) {
+        container.appendChild(this.customDiv);
+      }
+    }
+  
+
+  
 
   // Función para actualizar los marcadores basados en los límites del mapa visible
   updateMarkers() {
