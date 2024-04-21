@@ -36,7 +36,11 @@ color:#84beb0;
         transform: translate(-50%, -50%);
         z-index: 1; /* Asegura que el título esté sobre el contenedor de formulario */
         user-select: none;
-        font-weight: 900;
+        
+         h1{
+            font-family: 'Laura Regular', sans-serif;
+            font-size: 30px;
+        }
                 
     }
     
@@ -85,7 +89,7 @@ color:#84beb0;
     
 
     
-    #username, #password {
+    #email, #password {
         font-size: 18px;
         width: 200px;
         padding: 8px;

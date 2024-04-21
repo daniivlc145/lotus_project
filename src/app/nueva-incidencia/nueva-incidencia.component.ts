@@ -46,23 +46,23 @@ export class NuevaIncidenciaComponent  implements OnInit {
       // Si el texto del usuario está vacío, no hacemos nada
       if (!this.textoUsuario) {
         this.callesRecomendadas = [];
-        this.toggleDropdownVisibility(false); // Oculta el dropdown
+        //this.toggleDropdownVisibility(false); // Oculta el dropdown
         return;
       }
     
       // Filtramos las calles recomendadas según el texto ingresado
       this.callesRecomendadas = StringComparison.recommendSimilarWords(this.textoUsuario, this.calles);
-      this.toggleDropdownVisibility(this.callesRecomendadas.length > 0); // Muestra el dropdown si hay opciones disponibles
+      //this.toggleDropdownVisibility(this.callesRecomendadas.length > 0); // Muestra el dropdown si hay opciones disponibles
     }
  
     toggleDropdownVisibility(show: boolean) {
-      const dropdownElement = document.querySelector('.dropdownCalles');
+     const dropdownElement = document.querySelector('.dropdownCalles');
       if (show) {
-        //dropdownElement.classList.add('show');
+       // dropdownElement.classList.add('show');
       } else {
-        //dropdownElement.classList.remove('show');
+      //  dropdownElement.classList.remove('show');
       }
-    }
+    }*/
  
 
   goToHomePage() {
