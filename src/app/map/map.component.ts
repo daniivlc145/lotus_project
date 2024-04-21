@@ -2,6 +2,9 @@ import { Component, OnInit } from '@angular/core';
 import * as L from 'leaflet';
 import { searchContainers } from 'src/db_functions/containers';
 
+
+
+
 @Component({
   selector: 'app-map',
   templateUrl: './map.component.html',
@@ -41,7 +44,7 @@ export class MapComponent implements OnInit {
     });
 
     // Agrega un marcador al mapa usando el icono personalizado
-    this.addMarker({ lat: 39.4697, lng: -0.3774 }, 'Ayuntamiento de Valencia', customIcon);
+    this.addMarker({ lat: 39.4697, lng: -0.3774 }, '' , customIcon);
 
   }
 
@@ -65,8 +68,8 @@ export class MapComponent implements OnInit {
       // Creamos un nuevo div
       this.customDiv = document.createElement('div');
       this.customDiv.innerHTML = `
-        <div style="color: #3a5e62; background-color:#84beb0; font-size: 16px; bottom: 20%;">${popupContent}
-        <button onclick="this.parentElement.remove()">Cerrar</button></div>
+        <div style="color: #3a5e62;  font-size: 16px; bottom: 20%;"><h1 id='con' style='font-family: "Laura Regular", sans-serif; color:#3a5e62;'><strong>CONTENEDOR SELECCIONADO</strong></h1>${popupContent}
+        <p><strong>'UBICACIÓN:lat: 39.4697, lng: -0.3774 </strong></p><button style='color:white; background-color:#c1d7d5;'    onclick="this.parentElement.remove()">CERRAR </button></div>
         `
       ;
   
