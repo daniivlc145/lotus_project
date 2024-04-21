@@ -22,6 +22,7 @@
         display: flex;
         justify-content: center; /* Centra horizontalmente */
         align-items: center; /* Centra verticalmente */
+        line-height: 1;
     }
     
     
@@ -79,7 +80,7 @@
     text-align: left; /* Alineación del texto */
     color: #3a5e62; /* Color del texto */
     position: absolute; 
-    top: 38%; 
+    top: 45%; 
     left: 50%; 
     transform: translate(-50%, -50%);
     z-index: 2; /* Asegura que el texto esté por encima del SVG */
@@ -106,6 +107,6 @@
             text-align: center; /* Alineación del texto */
             font-weight:bold;
             position: absolute; /* Posición absoluta */
-            top:70%;
+            top:90%;
             transform: translate(-50%, -0%); /* Centra el texto */
         }

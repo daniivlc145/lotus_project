@@ -13,3 +13,10 @@
 @import "~swiper/swiper-bundle.css";
 
 @import "~@angular/material/prebuilt-themes/purple-green.css";
+.error-message{
+    position: absolute; /* Posicionamiento absoluto */
+    font-family: 'Laura Regular'; /* Nombre de la fuente */
+    src: url('../fonts/Laura-Regular.ttf') format('truetype'); /* Ruta del archivo TTF */
+    color: #a6514b;
+    bottom: 85px;
+}
