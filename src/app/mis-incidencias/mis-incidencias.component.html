@@ -233,7 +233,7 @@
         </svg>
         <p class="textotitle" style="font-family: 'Laura Regular', sans-serif; z-index: 2;">Mis Reportes</p>
         <div id="incidenciaElement">
-          <svg xmlns="http://www.w3.org/2000/svg" viewBox="1.55556 0.75 10.56 5.694" style="height: 200x; width:300px; position:absolute; bottom: 65%; right: 15%; z-index: 1;filter: drop-shadow(0 0 10px rgba(0, 0, 0, 0.15));">
+          <svg id="backgroundSVG" xmlns="http://www.w3.org/2000/svg" viewBox="1.55556 0.75 10.56 5.694" style=" width:300px; position:absolute; bottom: 65%; right: 15%; z-index: 1;filter: drop-shadow(0 0 10px rgba(0, 0, 0, 0.15));">
             <path d="M 3 6 C 3 6 2 6 2 5 C 2 5 1 3 2 2 C 4 0 5 1 9 1 C 13 1 12 3 12 3 C 12 4 11 6 10 6 C 7 7 6 6 3 6" fill="#ffffff"/>
           </svg>
           <p id="tipo" class="texto-TIPO" style="font-family: 'Laura Regular', sans-serif; z-index: 5;">TIPO</p>
@@ -247,6 +247,7 @@
             <path d="M 1 3 C 2 3 1 3 2 2 C 4 0 5 1 9 1 C 13 1 12 3 12 3 C 6 3 7 3 3 3" fill="#5a8d8d"/>
           </svg>
         </div>
+        <div *ngFor="let elemento of elementos"></div>
       </div>
     </div> 
     <footer class="footer">
