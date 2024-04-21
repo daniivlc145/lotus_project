@@ -1,6 +1,8 @@
 import { supabaseClient } from '../../supabase_client'
 
 export async function signInUser (email: string, password: string): Promise<void> {
+
+  
     const signInInfo = {
       email,
       password
