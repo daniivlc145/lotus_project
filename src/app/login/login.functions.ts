@@ -20,12 +20,13 @@ export async function signInUser (email: string, password: string): Promise<void
       console.error('Error inesperado:', (error as Error).message)
       throw error
     }
-  }
+  
 
   function validarCorreoElectronico(correo: string): boolean {
     console.log("validando email")
-  const expresionRegular = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
-  return !expresionRegular.test(correo);
+    const expresionRegular = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+    return !expresionRegular.test(correo);
+  }
 }
 
 function camposVacios(email: string, password: string): boolean {
@@ -33,11 +34,13 @@ function camposVacios(email: string, password: string): boolean {
   return email.trim() === '' || password.trim() === '';
 }
 
+
+// Este metodo tendrá que estar en la parte de la pantalla 
 export async function forgotPassword(email:string) : Promise<void>{
   try{
       const { data, error } = await supabaseClient.auth.resetPasswordForEmail(email, {
           // Habrá que modificar invent por la ruta correcta
-          redirectTo: 'https://localhost:4200/contrasena-olvidada',
+          redirectTo: 'https://localhost:4200/contrasenaOlv',
       })
 
       if(error){
