@@ -6,7 +6,7 @@ body {
 }
 
 .header-map{
-    width: 500px;
+    width: 100%;
     height: 152px;
     clip-path: polygon(0 0, 100% 0, 100% 100%, 0 96%);
     background-color:#84beb0;
@@ -71,11 +71,10 @@ display: none;
 }
 
 .filter-buttons {
-    display: flex; 
+    display: flex;
     justify-content: space-between; 
     align-items: center;
     margin-top: 40px;
-    margin-right: 70px;
     gap: 10px;
 }
 
@@ -119,60 +118,67 @@ display: none;
 }
 
 
+
 .footer {
     background-color: white; /* Color de fondo del footer */
     color: white; /* Color del texto */
-    padding: 10px 0; /* Espaciado interno */
     position: sticky; /* Fijo en la parte inferior de la pantalla */
     width: 100%; /* Ancho completo */
-    z-index: 1000;
     bottom: 0;
-    height: 100px;
+    height: 80px;
 }
 
-@media (max-width: 600px) {
-    .footer-buttons {
-        align-items: center; /* Centrado horizontalmente */
-    }
 
-    .footer-button {
-        width: 80%; /* Ancho del botón */
-        margin: 10px 0; /* Espaciado vertical */
+@media(min-width: 600px){
+    .filter-buttons{
+        align-items: center;
+        width: 70%;
     }
 }
 
-@media (max-width: 400px){
-    .footer-buttons {
-        align-items: center; /* Centrado horizontalmente */
-    }
+.footer-buttons button{
+    background-color: transparent; /* Color de fondo de los botones */
+    gap: 10px;
+    margin-right: 20px !important; /* Intenta con un valor más fuerte */
+    bottom: 3px !important;
 
-    .footer-button {
-        width: -60%; /* Ancho del botón */
-        margin: 2px 0; /* Espaciado vertical */
-    }
 }
+
+
 
 .footer-buttons {
     display: flex; /* Uso de Flexbox */
     justify-content: space-around; /* Espaciado uniforme entre los botones */
-    padding: 0 20px; /* Espaciado interno para los botones */
-}
-
-.footer-button {
     background-color: white; /* Color de fondo de los botones */
-    border: none; /* Sin bordes */
-    color: white; /* Color del texto */
-    padding: 5px 5px; /* Espaciado interno */
-    text-align: center; /* Alineación del texto */
-    text-decoration: none;
-    display: inline-block;
-    width: 80px;
-    margin: 4px 2px;
-    cursor: pointer;
-    display:flex;
+    bottom: 3px !important;
+
 }
 
 
+
+.mis-incidencias{
+    width: 55px;
+    transform: rotate(-2deg);
+}
+
+.reportes-mapa{
+    width: 65px;
+    transform: rotate(-2deg);
+}
+
+.ver-mapa{
+    width: 85px;
+}
+
+.info-reciclaje{
+    width: 40px;
+    transform: rotate(-2deg);
+}
+
+.icono-usuario{
+    width: 50px;
+    transform: rotate(-2deg);
+}
 
 .map{
     width: 1000px;
