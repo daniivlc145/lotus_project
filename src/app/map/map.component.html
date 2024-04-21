@@ -1,63 +1,61 @@
 <link href="map.component.scss" rel="stylesheet">
 <link rel="stylesheet" href="/src/css/style.css">
 <body>
+    <div>
     <div class="header-map">
         <label class="button-top-right">
-            <input type="checkbox" id="checkbox-top-right" class="filter-checkbox">
-            <div *ngFor="let item of items">
-                <input type="checkbox" [(ngModel)]="item.selected">{{ item.id }}
-             </div>            
+            <input type="checkbox" id="checkbox-top-right" class="filter-checkbox" (change)="toggleAll()">
             <label for="checkbox-top-right">
                 <img src="../../assets/img/Selected.png" alt="Seleccionado">
             </label>
-            <span>Seleccionar todos</span>
+            <span>Mostrar todos</span>
         </label>
             <div class="filter-buttons">
                 <div class="button-container">
                 <img src="../../assets/img/Contenedor_Vidrio.png">
-                <input type="checkbox" id="checkbox1" class="filter-checkbox">
+                <input type="checkbox" id="checkbox1" class="filter-checkbox" [(ngModel)]="items[0].selected">
                 <label for="checkbox1">
                     <img src="../../assets/img/Selected.png" alt="Seleccionado" class="checkbox-selected">
                 </label>
                 </div>
             <div class="button-container">
                 <img src="../../assets/img/Contenedor_Aceite.png">
-                <input type="checkbox" id="checkbox2" class="filter-checkbox">
+                <input type="checkbox" id="checkbox2" class="filter-checkbox" [(ngModel)]="items[1].selected">
                 <label for="checkbox2">
                     <img src="../../assets/img/Selected.png" alt="Seleccionado" class="checkbox-selected">
                 </label>
             </div>
             <div class="button-container">
                 <img src="../../assets/img/Contenedor_Ropa.png">
-                <input type="checkbox" id="checkbox3" class="filter-checkbox">
+                <input type="checkbox" id="checkbox3" class="filter-checkbox" [(ngModel)]="items[2].selected">
                 <label for="checkbox3">
                     <img src="../../assets/img/Selected.png" alt="Seleccionado" class="checkbox-selected">
                 </label>
                 </div>
             <div class="button-container">
                 <img src="../../assets/img/Contenedor_Residuos.png">
-                <input type="checkbox" id="checkbox4" class="filter-checkbox" class="checkbox-selected">
+                <input type="checkbox" id="checkbox4" class="filter-checkbox" class="checkbox-selected" [(ngModel)]="items[3].selected">
                 <label for="checkbox4">
                     <img src="../../assets/img/Selected.png" alt="Seleccionado" class="checkbox-selected">
                 </label>
                 </div>
             <div class="button-container">
                 <img src="../../assets/img/Contenedor_Papel.png">
-                <input type="checkbox" id="checkbox5" class="filter-checkbox">
+                <input type="checkbox" id="checkbox5" class="filter-checkbox" [(ngModel)]="items[4].selected">
                 <label for="checkbox5">
                     <img src="../../assets/img/Selected.png" alt="Seleccionado" class="checkbox-selected">
                 </label>
             </div>
                 <div class="button-container">
                 <img src="../../assets/img/Contenedor_Envases.png">
-                <input type="checkbox" id="checkbox6" class="filter-checkbox">
+                <input type="checkbox" id="checkbox6" class="filter-checkbox" [(ngModel)]="items[5].selected">
                 <label for="checkbox6">
                     <img src="../../assets/img/Selected.png" alt="Seleccionado" class="checkbox-selected">
                 </label>
             </div>
             <div class="button-container">
                 <img src="../../assets/img/Contenedor_Organico.png">
-                <input type="checkbox" id="checkbox7" class="filter-checkbox">
+                <input type="checkbox" id="checkbox7" class="filter-checkbox" [(ngModel)]="items[6].selected">
                 <label for="checkbox7">
                     <img src="../../assets/img/Selected.png" alt="Seleccionado" class="checkbox-selected">
                 </label>
@@ -66,7 +64,8 @@
     </div>
    <div class="map">
     <p>mapa</p>
-   </div> <!--este es el hueco para poner el mapa-->
+   </div>
+</div>
    <footer class="footer">
     <div class="footer-buttons">
         <img src="../../assets/img/Icon_Mis_Incidencias.png"class="footer-button">

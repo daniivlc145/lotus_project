@@ -1,0 +1,263 @@
+<style>
+@import url("/src/css/style.css");
+
+body {
+    margin: 0;
+    padding: 0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
+    background-color: #5a8d8d;
+    user-select: none;
+}
+
+
+/*Custom Last*/
+.custom-button-rep {
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='1.55556 0.25 11.69 4.194'%3E%3Cpath d='M 12 4 C 11 4 2 5 2 4 C 2 3 1 1 2 1 C 3 0 14 0 13 1 C 13 0 14 4 12 4' fill='%2384beb0'/%3E%3C/svg%3E");
+    background-repeat: no-repeat;
+    background-color: transparent; /* Establecer el color de fondo como transparente */
+    background-size: cover;
+    border: none; /* Sin borde */
+    padding: 10px 20px; /* Espacio interno */
+    cursor: pointer; /* Cambia el cursor al pasar por encima */
+    z-index: 8;
+    color: white;
+    font-family: 'Laura Regular', sans-serif; /* Utiliza la fuente Laura Regular */
+    font-size: 24px; /* Tamaño de la fuente */
+    text-align: center; /* Alineación del texto */
+    position: absolute;
+   
+}
+
+
+
+.contentLast{
+    width: 100%;
+    height: 100%;
+    background-color: #c1d7d5;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    display: flex;
+    justify-content: center; /* Centra horizontalmente */
+    align-items: center; /* Centra verticalmente */
+}
+
+.textotitle{
+    font-family: 'Laura Regular', sans-serif; /* Utiliza la fuente Laura Regular */
+    font-size: 26px; /* Tamaño de la fuente */
+    text-align: left; /* Alineación del texto */
+    color: #FFFFFF; /* Color del texto */
+    position: absolute; 
+    bottom: 104%; 
+    left: 50%; 
+    transform: translate(-50%, -0%);
+    z-index: 2; /* Asegura que el texto esté por encima del SVG */
+}
+.texto_tipo{
+  font-family: 'Laura Regular', sans-serif; /* Utiliza la fuente Laura Regular */
+    font-size: 20px; /* Tamaño de la fuente */
+    text-align: left; /* Alineación del texto */
+    color: #3a5e62; /* Color del texto */
+    position: absolute; 
+    bottom: 80%; 
+    left: 30%; 
+    transform: translate(-50%, -0%);
+    z-index: 2; 
+}
+.texto_ubi{
+  font-family: 'Laura Regular', sans-serif; /* Utiliza la fuente Laura Regular */
+    font-size: 20px; /* Tamaño de la fuente */
+    text-align: left; /* Alineación del texto */
+    color: #3a5e62; /* Color del texto */
+    position: absolute; 
+    bottom: 70%; 
+    left: 35%; 
+    transform: translate(-50%, -0%);
+    z-index: 2; 
+}
+.texto_desc{
+  font-family: 'Laura Regular', sans-serif; /* Utiliza la fuente Laura Regular */
+    font-size: 20px; /* Tamaño de la fuente */
+    text-align: left; /* Alineación del texto */
+    color: #3a5e62; /* Color del texto */
+    position: absolute; 
+    bottom: 50%; 
+    left: 37%; 
+    transform: translate(-50%, -0%);
+    z-index: 2; 
+}
+.dropbtn::after {
+ content: "\25BC";
+ font-size: 13px;
+ position: relative;
+ top: -2px;
+ left: 5px;
+ z-index: 15;
+}
+
+.dropbtn {
+  background-color: #c1d7d5;
+  font-family: 'Laura Regular', sans-serif; 
+  color: #5a8d8d;
+  padding: 10px;
+  font-size: 19px;
+  border: none;
+  border-radius: 15px;
+  z-index: 15;
+}
+
+.dropbtnLocation {
+  font-family: 'Laura Regular', sans-serif; 
+  color: #5a8d8d;
+  border-color: #5a8d8d;
+  padding: 10px;
+  font-size: 19px;
+  border: none;
+  border-radius: 15px;
+  z-index: 8;
+ 
+}
+
+.dropdown {
+  position: absolute;
+  display: inline-block;
+  z-index: 10;
+  border-radius: 15px;
+}
+
+.dropdownCalles {
+  position: absolute;
+  display: inline-block;
+  z-index: 5;
+  border-radius: 15px;
+  left: 35%; 
+  top:28%;
+}
+
+
+.dropdown-content {
+  display: none;
+  position: absolute;
+  background-color: #e6e5ea;
+  min-width: 160px;
+  box-shadow: 0px 8px 16px 0px rgba(0, 0, 0, 0.2);
+  z-index: 15;
+  border-radius: 15px;
+}
+
+.dropdown-content a {
+  color: black;
+  padding: 12px 16px;
+  text-decoration: none;
+  display: block;
+  z-index: 15;
+}
+
+.dropdown-content a:hover {
+  background-color: #c1d7d5;
+  border-radius: 15px;
+  z-index: 15;
+}
+
+.dropdown:hover .dropdown-content {
+  display: block;
+  z-index: 15;
+}
+
+.dropdown:hover .dropbtn {
+  background-color: #84beb0;
+  z-index: 15;
+}
+
+.descripBox {
+ border-color: #e6e5ea;
+ position: absolute;
+ border-radius: 30px;
+ z-index: 6;
+ text-align: left;
+ height: 175px;
+ width: 220px;
+ bottom: 17%; 
+ left: 50%; 
+ padding-top: 10px;
+ padding-left: 15px;
+ padding-right: 15px;
+ padding-bottom: 10px;
+ transform: translate(-50%, -0%);
+ overflow:auto;
+ resize: none; 
+ /* Estilos para ocultar la barra de desplazamiento */
+ scrollbar-width: none; /* Oculta la barra de desplazamiento en Firefox */
+ -ms-overflow-style: none; /* Oculta la barra de desplazamiento en Internet Explorer y Edge */
+}
+
+/* Estilos para ocultar la barra de desplazamiento en Chrome, Safari y Opera */
+.descripBox::-webkit-scrollbar {
+ display: none;
+}
+
+
+
+</style>
+
+
+<body style="font-family: 'Laura Regular', sans-serif;">
+  <div class="NuevaIncidenciaComponent">
+    <div style="position: relative; width: 400px; height: 490px;">
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="1.55556 1.345299 7.194 5.599"  style="height: 140px; width:160px; position:absolute; bottom: 100%; right: 125px; z-index: 1;" >
+        <path d="M 3 6 C 3 6 2 6 2 5 C 2 5 1 2 2 2 C 4 0 5 1 8 2 C 9 2 9 5 8 6 C 7 7 6 6 3 6" fill="#84beb0"/>
+      </svg>
+      <p class="textotitle" style="font-family: 'Laura Regular', sans-serif; z-index: 2;">Nuevo Reporte </p>
+      <p class="texto_tipo" style="font-family: 'Laura Regular', sans-serif; z-index: 2;">Tipo</p>
+      <div class="dropdown" style="position: absolute; left: 35%; top:9%">
+        <button class="dropbtn">CONTENEDOR LLENO</button>
+        <div class="dropdown-content">
+          <a href="#">CONTENEDOR LLENO</a>
+          <a href="#">RECLAMACIÓN/INFORME</a>
+          <a href="#">PETICIÓN</a>
+          <a href="#">PREGUNTAS</a>
+        </div>
+      </div>
+
+      <p class="texto_ubi" style="font-family: 'Laura Regular', sans-serif; z-index: 2;">Ubicación</p>
+      
+      <div>
+        <input type="text" [(ngModel)]="textoUsuario" (input)="compararTexto()" placeholder="Escribe aquí..." class="dropbtnLocation" style=" left: 22.5%; top:27%; position:absolute; z-index: 8; border-radius: 30; background:#e6e5ea;border-color: #5a8d8d; width: 218px;">
+        <div *ngIf="callesRecomendadas.length > 0" class="dropdownCalles">
+          <div class="dropdown-content">
+             <a *ngFor="let calle of callesRecomendadas" (click)="seleccionarCalle(calle)">{{ calle }}</a>
+          </div>
+         </div>
+      </div>
+      
+      
+
+      <p class="texto_desc" style="font-family: 'Laura Regular', sans-serif; z-index: 2;">Descripción</p>
+      <textarea class="descripBox" id="descrip" name="descrip" rows="4" cols="50" maxlength="850"></textarea>
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="1.55556 -0.584459 16.44 26.33" style="height: 450; width:400px;  filter: drop-shadow(0 0 10px rgba(0, 0, 0, 0.5)); position:absolute; z-index: 1;" >
+        <path d="M 17 25 C 17 26 3 26 3 25 C 2 24 2 24 2 13 C 2 7 1 1 2 1 C 3 0 15 -2 17 1 C 18 2 18 14 18 14 C 18 21 18 24 17 25" fill="#FFFFFF"/>
+      </svg>
+      <input type="button" value="REPORTAR" class="custom-button-rep" (click)="goToHomePage();" style="position: absolute; bottom: 15px; right: 128px; height: 50px; width:140px; font-family: 'Laura Regular', sans-serif; z-index: 2;"/>
+    </div>  
+    <a routerLink="/map" routerLinkActive="active" [routerLinkActiveOptions]="{exact: true}" class="custom-button-before" style="height:50px; width: 50px;"></a>     
+  </div>
+  <script>
+    document.addEventListener('DOMContentLoaded', function() {
+     document.getElementById('dropbtn').textContent = 'CONTENEDOR LLENO';
+    });
+  </script>
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+  <script>
+    $(document).ready(function() {
+      $('.dropdown-content a').click(function() {
+        var selectedText = $(this).text(); // Obtiene el texto del elemento clickeado
+        $('.dropbtn').text(selectedText); // Actualiza el texto del botón
+      });
+    });
+  </script>
+</body>
+
