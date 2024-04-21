@@ -31,7 +31,6 @@ import { MatFormFieldModule } from '@angular/material/form-field';
     NuevaIncidenciaComponent,
     ContrasenaOlvidadaComponent,
     MisIncidenciasComponent,
-
   ],
 
   imports: [

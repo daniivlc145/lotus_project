@@ -10,7 +10,7 @@ import { signUpUser } from './registro.functions';
 export class RegistroComponent  implements OnInit {
   constructor(private router: Router) { } // Inyecta el servicio Router en el constructor
   errorMessage: string | null = null; // Esta es la propiedad que mencionaste
-
+  oculto :boolean = false;
   ngOnInit() {}
   async signUp() {
     const email = (document.getElementById('correo') as HTMLInputElement).value;

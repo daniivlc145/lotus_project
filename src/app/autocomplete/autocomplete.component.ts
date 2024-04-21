@@ -3,7 +3,7 @@ import { Component } from '@angular/core';
 @Component({
   selector: 'app-autocomplete',
   template: `
-   <input type="text" (input)="onInput($event)">
+    <input type="text" (input)="onInput($event)" (keydown)="onKeyDown($event)">
   `,
   styleUrls: ['./autocomplete.component.scss']
 })
@@ -13,6 +13,7 @@ export class AutocompleteComponent {
 
   constructor() { }
 
+  /*
   onInput(event: Event) {
    /* const val: string = (event.target as HTMLInputElement).value;
     this.closeAllLists();
@@ -53,6 +54,7 @@ export class AutocompleteComponent {
     }
   }
 
+  
   addActive(x: HTMLDivElement[] | undefined) {
     if (!x) return false;
     this.removeActive(x);
@@ -67,7 +69,7 @@ export class AutocompleteComponent {
       x[i].classList.remove("autocomplete-active");
     }
   }
-
+* */
   closeAllLists() {
     const x = document.getElementsByClassName("autocomplete-items");
     for (let i = 0; i < x.length; i++) {
