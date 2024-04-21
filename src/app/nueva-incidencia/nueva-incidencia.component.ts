@@ -55,12 +55,12 @@ export class NuevaIncidenciaComponent  implements OnInit {
       //this.toggleDropdownVisibility(this.callesRecomendadas.length > 0); // Muestra el dropdown si hay opciones disponibles
     }
  
-   /* toggleDropdownVisibility(show: boolean) {
-      const dropdownElement = document.querySelector('.dropdownCalles');
+    toggleDropdownVisibility(show: boolean) {
+     const dropdownElement = document.querySelector('.dropdownCalles');
       if (show) {
-        dropdownElement.classList.add('show');
+       // dropdownElement.classList.add('show');
       } else {
-        dropdownElement.classList.remove('show');
+      //  dropdownElement.classList.remove('show');
       }
     }*/
  
