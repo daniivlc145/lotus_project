@@ -27,7 +27,6 @@ import { AutocompleteComponent } from './autocomplete/autocomplete.component';
 
 
 
-
 const routes: Routes = [
 
   {path:'tutorial-welc', component:TutorialWelcComponent},
