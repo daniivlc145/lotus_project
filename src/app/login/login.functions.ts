@@ -7,10 +7,13 @@ export async function signInUser (email: string, password: string): Promise<void
       email,
       password
     }
+
     try {
+      if(await camposVacios(email,password)){throw new Error('Rellena todos los campos')}
+      if(await validarCorreoElectronico(email)){throw new Error('Email incorrecto. Escribe un email válido')}
       const {data, error} = await supabaseClient.auth.signInWithPassword(signInInfo)
       if (error) {
-        throw new Error('Error al iniciar sesión: ' + error.message)
+        throw new Error('El email o la contraseña son incorrecto/S')
       }
       console.log('Exito iniciando sesión')
     } catch (error) {
@@ -19,11 +22,22 @@ export async function signInUser (email: string, password: string): Promise<void
     }
   }
 
+  function validarCorreoElectronico(correo: string): boolean {
+    console.log("validando email")
+  const expresionRegular = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+  return !expresionRegular.test(correo);
+}
+
+function camposVacios(email: string, password: string): boolean {
+  console.log("validando email")
+  return email.trim() === '' || password.trim() === '';
+}
+
 export async function forgotPassword(email:string) : Promise<void>{
   try{
       const { data, error } = await supabaseClient.auth.resetPasswordForEmail(email, {
           // Habrá que modificar invent por la ruta correcta
-          redirectTo: 'https://localhost:4200/invent',
+          redirectTo: 'https://localhost:4200/contrasena-olvidada',
       })
 
       if(error){
