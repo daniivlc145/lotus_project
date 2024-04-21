@@ -96,6 +96,7 @@ body {
  position: relative;
  top: -2px;
  left: 5px;
+ z-index: 15;
 }
 
 .dropbtn {
@@ -106,6 +107,19 @@ body {
   font-size: 19px;
   border: none;
   border-radius: 15px;
+  z-index: 15;
+}
+
+.dropbtnLocation {
+  font-family: 'Laura Regular', sans-serif; 
+  color: #5a8d8d;
+  border-color: #5a8d8d;
+  padding: 10px;
+  font-size: 19px;
+  border: none;
+  border-radius: 15px;
+  z-index: 8;
+ 
 }
 
 .dropdown {
@@ -115,13 +129,23 @@ body {
   border-radius: 15px;
 }
 
+.dropdownCalles {
+  position: absolute;
+  display: inline-block;
+  z-index: 5;
+  border-radius: 15px;
+  left: 35%; 
+  top:28%;
+}
+
+
 .dropdown-content {
   display: none;
   position: absolute;
   background-color: #e6e5ea;
   min-width: 160px;
   box-shadow: 0px 8px 16px 0px rgba(0, 0, 0, 0.2);
-  z-index: 1;
+  z-index: 15;
   border-radius: 15px;
 }
 
@@ -130,19 +154,23 @@ body {
   padding: 12px 16px;
   text-decoration: none;
   display: block;
+  z-index: 15;
 }
 
 .dropdown-content a:hover {
   background-color: #c1d7d5;
   border-radius: 15px;
+  z-index: 15;
 }
 
 .dropdown:hover .dropdown-content {
   display: block;
+  z-index: 15;
 }
 
 .dropdown:hover .dropbtn {
   background-color: #84beb0;
+  z-index: 15;
 }
 
 .descripBox {
@@ -172,6 +200,8 @@ body {
  display: none;
 }
 
+
+
 </style>
 
 
@@ -192,17 +222,16 @@ body {
           <a href="#">PREGUNTAS</a>
         </div>
       </div>
+
       <p class="texto_ubi" style="font-family: 'Laura Regular', sans-serif; z-index: 2;">Ubicación</p>
       
       <div>
-        <input type="text" [(ngModel)]="textoUsuario" (input)="compararTexto()" placeholder="Escribe aquí...">
-        <div *ngIf="callesRecomendadas.length > 0" class="dropdown">
-          <p>Calles recomendadas:</p>
-          <button class="dropbtn">Seleccionar calle</button>
+        <input type="text" [(ngModel)]="textoUsuario" (input)="compararTexto()" placeholder="Escribe aquí..." class="dropbtnLocation" style=" left: 22.5%; top:27%; position:absolute; z-index: 8; border-radius: 30; background:#e6e5ea;border-color: #5a8d8d; width: 218px;">
+        <div *ngIf="callesRecomendadas.length > 0" class="dropdownCalles">
           <div class="dropdown-content">
-            <a *ngFor="let calle of callesRecomendadas" (click)="seleccionarCalle(calle)">{{ calle }}</a>
+             <a *ngFor="let calle of callesRecomendadas" (click)="seleccionarCalle(calle)">{{ calle }}</a>
           </div>
-        </div>
+         </div>
       </div>
       
       

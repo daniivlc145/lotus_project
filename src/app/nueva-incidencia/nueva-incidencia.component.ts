@@ -34,23 +34,36 @@ export class NuevaIncidenciaComponent  implements OnInit {
       .catch(error => console.error('Error al cargar las calles de Valencia:', error));
   }
 
-  // Método para comparar el texto ingresado con la lista de calles
-  compararTexto() {
-    // Si el texto del usuario está vacío, no hacemos nada
-    if (!this.textoUsuario) {
-      this.callesRecomendadas = [];
-      return;
-    }
-
-    // Filtramos las calles recomendadas según el texto ingresado
-    this.callesRecomendadas = StringComparison.recommendSimilarWords(this.textoUsuario, this.calles);
-  }
 
   seleccionarCalle(calle: string) {
     // Al seleccionar una calle, se guarda en la variable ubiActual
     this.ubiActual = calle;
     console.log('Calle seleccionada:', this.ubiActual);
   }
+
+      // En tu componente TypeScript
+    compararTexto() {
+      // Si el texto del usuario está vacío, no hacemos nada
+      if (!this.textoUsuario) {
+        this.callesRecomendadas = [];
+        this.toggleDropdownVisibility(false); // Oculta el dropdown
+        return;
+      }
+    
+      // Filtramos las calles recomendadas según el texto ingresado
+      this.callesRecomendadas = StringComparison.recommendSimilarWords(this.textoUsuario, this.calles);
+      this.toggleDropdownVisibility(this.callesRecomendadas.length > 0); // Muestra el dropdown si hay opciones disponibles
+    }
+ 
+    toggleDropdownVisibility(show: boolean) {
+      const dropdownElement = document.querySelector('.dropdownCalles');
+      if (show) {
+        dropdownElement.classList.add('show');
+      } else {
+        dropdownElement.classList.remove('show');
+      }
+    }
+ 
 
   goToHomePage() {
     console.log('goToHomePage() called');

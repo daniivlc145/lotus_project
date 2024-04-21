@@ -16,6 +16,7 @@ import { NuevaIncidenciaComponent } from './nueva-incidencia/nueva-incidencia.co
 import { provideAnimationsAsync } from '@angular/platform-browser/animations/async';
 import { MatAutocompleteModule } from '@angular/material/autocomplete';
 import { ContrasenaOlvidadaComponent } from './contrasena-olvidada/contrasena-olvidada.component';
+import { MisIncidenciasComponent } from './mis-incidencias/mis-incidencias.component';
 
 @NgModule({
   declarations: [
@@ -29,6 +30,7 @@ import { ContrasenaOlvidadaComponent } from './contrasena-olvidada/contrasena-ol
     RegistroComponent, 
     NuevaIncidenciaComponent,
     ContrasenaOlvidadaComponent,
+    MisIncidenciasComponent,
 
   ],
 
