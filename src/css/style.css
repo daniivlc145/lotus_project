@@ -12,6 +12,7 @@
 
 @import "~swiper/swiper-bundle.css";
 
+@import "~@angular/material/prebuilt-themes/purple-green.css";
 .error-message{
     position: absolute; /* Posicionamiento absoluto */
     font-family: 'Laura Regular'; /* Nombre de la fuente */

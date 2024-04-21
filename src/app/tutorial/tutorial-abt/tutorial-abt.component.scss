@@ -98,15 +98,16 @@
     
     .otherAbt{
         
-            color: #5a8d8d;
-            z-index: 2;
-            left: 50%; /* Cambia el valor de left para ajustar la posición horizontal */
-            user-select: none;
-            font-family: 'Laura Regular', sans-serif; /* Utiliza la fuente Laura Regular */
-            font-size: 100px; /* Tamaño de la fuente */
-            text-align: center; /* Alineación del texto */
-            font-weight:bold;
-            position: absolute; /* Posición absoluta */
-            top:90%;
-            transform: translate(-50%, -0%); /* Centra el texto */
-        }
+        color: #5a8d8d;
+        z-index: 2;
+        left: 50%; /* Cambia el valor de left para ajustar la posición horizontal */
+        user-select: none;
+        font-family: 'Laura Regular', sans-serif; /* Utiliza la fuente Laura Regular */
+        font-size: 100px; /* Tamaño de la fuente */
+        text-align: center; /* Alineación del texto */
+        font-weight:bold;
+        position: absolute; /* Posición absoluta */
+        top:84%;
+        transform: translate(-50%, -0%); /* Centra el texto */
+    
+    }
