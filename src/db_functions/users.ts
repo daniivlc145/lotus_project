@@ -56,7 +56,7 @@ export async function signOutUser (): Promise<void> {
   }
 }
 // Funcion de actualizar datos; en configuracion
-export async function updateUserData (fullName: string, phoneNumber: string): Promise<void> {
+export async function updateUserData (fullName: string): Promise<void> {
   try{
     const {data: {user}} = await supabaseClient.auth.getUser()
     
@@ -64,13 +64,13 @@ export async function updateUserData (fullName: string, phoneNumber: string): Pr
       console.log('No se encontró el usuario')
       throw new Error("Usuario no encontrado")
     }
-    const { error } = await supabaseClient
-      .from('users_info')
-      .update({full_name : fullName, phone_number : phoneNumber})
-      .eq('user_id', "81ea3dda-ebf9-4a86-8a4f-7e19aaed7312")
 
-    if (error) {
-      throw new Error('Error al actualizar datos de usuario: ' + error.message)
+    const { data, error } = await supabaseClient.auth.updateUser({
+      data: { full_name: fullName }
+    })
+
+    if(error){
+      throw new Error("Error al actualizar datos de auth")
     }
 
   } catch (error) {

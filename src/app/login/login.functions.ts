@@ -23,7 +23,7 @@ export async function forgotPassword(email:string) : Promise<void>{
   try{
       const { data, error } = await supabaseClient.auth.resetPasswordForEmail(email, {
           // Habrá que modificar invent por la ruta correcta
-          redirectTo: '/localhost:4200/invent',
+          redirectTo: 'https://localhost:4200/invent',
       })
 
       if(error){
