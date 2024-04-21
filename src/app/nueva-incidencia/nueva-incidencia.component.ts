@@ -62,7 +62,7 @@ export class NuevaIncidenciaComponent  implements OnInit {
       } else {
         //dropdownElement.classList.remove('show');
       }
-    }*/
+    }
  
 
   goToHomePage() {
