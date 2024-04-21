@@ -1,6 +1,6 @@
 import { supabaseClient } from "src/supabase_client";
 
-export async function registerInquiryAboutContainer(containerId: number,containerType: string, description: string, type: string){
+export async function registerInquiryAboutContainer(containerId: number | null,containerType: string, description: string, type: string, location: string | null){
     try{
         if (containerType === 'Residuos Urbanos' || containerType === 'Organico' || containerType === 'Papel / Carton' || containerType === 'Envases Ligeros') {
             containerType = 'waste_containers'
@@ -13,7 +13,7 @@ export async function registerInquiryAboutContainer(containerId: number,containe
 
         const {data, error} = await supabaseClient
             .from('inquiries')
-            .insert({description, type, container_id: containerId, creator_id: user.id})
+            .insert({description, type, container_id: containerId, creator_id: user.id, geo_shape: location})
     
     }catch (error) {
 
