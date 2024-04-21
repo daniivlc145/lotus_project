@@ -10,6 +10,7 @@
       min-height: 100vh;
       background-color:#c1d7d5;
       user-select: none;
+      overflow: scroll;
   }
   
   
@@ -55,31 +56,90 @@
       bottom: 104%; 
       left: 50%; 
       transform: translate(-50%, -0%);
-      z-index: 2; /* Asegura que el texto esté por encima del SVG */
+      z-index: 100; /* Asegura que el texto esté por encima del SVG */
   }
-  .texto_tipo{
+
+  .texto-TIPO{
     font-family: 'Laura Regular', sans-serif; /* Utiliza la fuente Laura Regular */
-      font-size: 20px; /* Tamaño de la fuente */
+      font-size: 25px; /* Tamaño de la fuente */
       text-align: left; /* Alineación del texto */
-      color: #3a5e62; /* Color del texto */
+      color: #ffffff; /* Color del texto */
       position: absolute; 
-      bottom: 80%; 
-      left: 30%; 
-      transform: translate(-50%, -0%);
-      z-index: 2; 
-  }
-  .texto_ubi{
-    font-family: 'Laura Regular', sans-serif; /* Utiliza la fuente Laura Regular */
-      font-size: 20px; /* Tamaño de la fuente */
-      text-align: left; /* Alineación del texto */
-      color: #3a5e62; /* Color del texto */
-      position: absolute; 
-      bottom: 70%; 
-      left: 35%; 
+      bottom: 85%; 
+      left: 25%; 
       transform: translate(-50%, -0%);
       z-index: 2; 
   }
 
+  .texto-DATE{
+    font-family: 'Laura Regular', sans-serif; /* Utiliza la fuente Laura Regular */
+      font-size: 20px; /* Tamaño de la fuente */
+      text-align: left; /* Alineación del texto */
+      color: #ffffff; /* Color del texto */
+      position: absolute; 
+      bottom: 85%; 
+      left: 57%; 
+      transform: translate(-50%, -0%);
+      z-index: 2; 
+  }
+
+  .texto-TIME{
+    font-family: 'Laura Regular', sans-serif; /* Utiliza la fuente Laura Regular */
+      font-size: 18px; /* Tamaño de la fuente */
+      text-align: left; /* Alineación del texto */
+      color: #ffffff; /* Color del texto */
+      position: absolute; 
+      bottom: 85%; 
+      left: 75%; 
+      transform: translate(-50%, -0%);
+      z-index: 2; 
+  }
+
+  .label-Ubi{
+    font-family: 'Laura Regular', sans-serif; /* Utiliza la fuente Laura Regular */
+      font-size: 16px; /* Tamaño de la fuente */
+      text-align: left; /* Alineación del texto */
+      color: #3a5e62; /* Color del texto */
+      position: absolute; 
+      bottom: 78%; 
+      left: 26%; 
+      transform: translate(-50%, -0%);
+      z-index: 2; 
+  }
+  .texto-Ubi{
+    font-family: 'Laura Regular', sans-serif; /* Utiliza la fuente Laura Regular */
+      font-size: 14px; /* Tamaño de la fuente */
+      text-align: left; /* Alineación del texto */
+      color: #b5b4b8; /* Color del texto */
+      position: absolute; 
+      bottom: 75%; 
+      left: 57%; 
+      transform: translate(-50%, -0%);
+      z-index: 2; 
+  }
+
+  .label-desc{
+    font-family: 'Laura Regular', sans-serif; /* Utiliza la fuente Laura Regular */
+      font-size: 16px; /* Tamaño de la fuente */
+      text-align: left; /* Alineación del texto */
+      color: #3a5e62; /* Color del texto */
+      position: absolute; 
+      bottom: 70%; 
+      left: 25%; 
+      transform: translate(-50%, -0%);
+      z-index: 2; 
+  }
+  .texto-desc{
+    font-family: 'Laura Regular', sans-serif; /* Utiliza la fuente Laura Regular */
+      font-size: 14px; /* Tamaño de la fuente */
+      text-align: left; /* Alineación del texto */
+      color: #b5b4b8; /* Color del texto */
+      position: absolute; 
+      bottom: 67%; 
+      left: 57%; 
+      transform: translate(-50%, -0%);
+      z-index: 2; 
+  }
 
 .button-top-right span {
     font-family: 'Laura Regular', sans-serif;
@@ -91,19 +151,28 @@
   </style>
   
   
-  <body style="font-family: 'Laura Regular', sans-serif;">
+  <body style="font-family: 'Laura Regular', sans-serif; ">
     <div class="NuevaIncidenciaComponent">
       <div style="position: relative; width: 400px; height: 490px;">
         <svg xmlns="http://www.w3.org/2000/svg" viewBox="1.55556 1.345299 7.194 5.599"  style="height: 140px; width:160px; position:absolute; bottom: 100%; right: 125px; z-index: 1;" >
           <path d="M 3 6 C 3 6 2 6 2 5 C 2 5 1 2 2 2 C 4 0 5 1 8 2 C 9 2 9 5 8 6 C 7 7 6 6 3 6" fill="#84beb0"/>
         </svg>
         <p class="textotitle" style="font-family: 'Laura Regular', sans-serif; z-index: 2;">Mis Reportes</p>
-        <svg xmlns="http://www.w3.org/2000/svg" viewBox="1.55556 0.75 10.56 5.694" style="height: 200x; width:300px; position:absolute; bottom: 65%; right: 15%; z-index: 1;filter: drop-shadow(0 0 10px rgba(0, 0, 0, 0.15));">
-          <path d="M 3 6 C 3 6 2 6 2 5 C 2 5 1 3 2 2 C 4 0 5 1 9 1 C 13 1 12 3 12 3 C 12 4 11 6 10 6 C 7 7 6 6 3 6" fill="#ffffff"/>
-        </svg>
-        <svg xmlns="http://www.w3.org/2000/svg" viewBox="1 0.75 11.11 2.25" style="height: 140px; width:315px; position:absolute; bottom: 80%; right: 14%; z-index: 2;">
-          <path d="M 1 3 C 2 3 1 3 2 2 C 4 0 5 1 9 1 C 13 1 12 3 12 3 C 6 3 7 3 3 3" fill="#5a8d8d"/>
-        </svg>
+        <div id="incidenciaElement">
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="1.55556 0.75 10.56 5.694" style="height: 200x; width:300px; position:absolute; bottom: 65%; right: 15%; z-index: 1;filter: drop-shadow(0 0 10px rgba(0, 0, 0, 0.15));">
+            <path d="M 3 6 C 3 6 2 6 2 5 C 2 5 1 3 2 2 C 4 0 5 1 9 1 C 13 1 12 3 12 3 C 12 4 11 6 10 6 C 7 7 6 6 3 6" fill="#ffffff"/>
+          </svg>
+          <p id="tipo" class="texto-TIPO" style="font-family: 'Laura Regular', sans-serif; z-index: 5;">TIPO</p>
+          <p id="tipo" class="texto-DATE" style="font-family: 'Laura Regular', sans-serif; z-index: 5;">dd:mm:yyyy</p>
+          <p id="tipo" class="texto-TIME" style="font-family: 'Laura Regular', sans-serif; z-index: 5;">mm:hh</p>
+          <p id="tipo" class="label-Ubi" style="font-family: 'Laura Regular', sans-serif; z-index: 5;">Ubicación:</p>
+          <p id="tipo" class="texto-Ubi" style="font-family: 'Laura Regular', sans-serif; z-index: 5;">ubicación que haya puesto el usuario</p>
+          <p id="tipo" class="label-desc" style="font-family: 'Laura Regular', sans-serif; z-index: 5;">Descripción:</p>
+          <p id="tipo" class="texto-desc" style="font-family: 'Laura Regular', sans-serif; z-index: 5;">quiero un contenedor de vidrio en mi calle</p>
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="1 0.75 11.11 2.25" style="height: 140px; width:315px; position:absolute; bottom: 80%; right: 14%; z-index: 2;">
+            <path d="M 1 3 C 2 3 1 3 2 2 C 4 0 5 1 9 1 C 13 1 12 3 12 3 C 6 3 7 3 3 3" fill="#5a8d8d"/>
+          </svg>
+        </div>
       </div>
     </div> 
   </body>
