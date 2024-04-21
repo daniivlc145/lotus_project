@@ -21,6 +21,7 @@ import { NuevaIncidenciaComponent }   from './nueva-incidencia/nueva-incidencia.
 import { ContrasenaOlvidadaComponent } from './contrasena-olvidada/contrasena-olvidada.component';
 import { StringComparisonComponent } from './string-comparison/string-comparison.component';
 import { MisIncidenciasComponent } from './mis-incidencias/mis-incidencias.component';
+import { AutocompleteComponent } from './autocomplete/autocomplete.component';
 
 
 
@@ -48,6 +49,8 @@ const routes: Routes = [
   {path: 'string', component: StringComparisonComponent},
 
   {path: 'misI', component: MisIncidenciasComponent},
+
+  {path: 'autocomplete', component: AutocompleteComponent},
 
   {
     path: '',

@@ -14,9 +14,9 @@ import { RegistroComponent } from './registro/registro.component';
 import { FormsModule } from '@angular/forms'; // Asegúrate de que esta línea esté presente
 import { NuevaIncidenciaComponent } from './nueva-incidencia/nueva-incidencia.component';
 import { provideAnimationsAsync } from '@angular/platform-browser/animations/async';
-import { MatAutocompleteModule } from '@angular/material/autocomplete';
 import { ContrasenaOlvidadaComponent } from './contrasena-olvidada/contrasena-olvidada.component';
 import { MisIncidenciasComponent } from './mis-incidencias/mis-incidencias.component';
+import { MatFormFieldModule } from '@angular/material/form-field';
 
 @NgModule({
   declarations: [
@@ -39,7 +39,7 @@ import { MisIncidenciasComponent } from './mis-incidencias/mis-incidencias.compo
     IonicModule.forRoot(),
     FormsModule,
     AppRoutingModule, 
-    MatAutocompleteModule,
+    MatFormFieldModule,
   ], 
   providers: [
     provideAnimationsAsync()
