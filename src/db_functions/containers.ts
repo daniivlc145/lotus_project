@@ -49,18 +49,18 @@ export async function searchContainers(): Promise<{[clave: string]: ContainerInf
     }
     return result;
 }
-export async function checkLevel(container_id: number, container_type: string): Promise<boolean> {
-    if (container_type === 'Residuos Urbanos' || container_type === 'Organico' || container_type === 'Papel / Carton' || container_type === 'Envases Ligeros') {
-        container_type = 'waste_containers'
+export async function checkLevel(containerId: number, containerType: string): Promise<boolean> {
+    if (containerType === 'Residuos Urbanos' || containerType === 'Organico' || containerType === 'Papel / Carton' || containerType === 'Envases Ligeros') {
+        containerType = 'waste_containers'
     }
 
     const {data, error} = await supabaseClient
-        .from(container_type)
+        .from(containerType)
         .select('is_full')
-        .eq('objectid', container_id)
+        .eq('objectid', containerId)
 
     if (error) {
-        throw new Error(`Error al consultar el nivel del contenedor ${container_id}: ${error.message}`);
+        throw new Error(`Error al consultar el nivel del contenedor ${containerId}: ${error.message}`);
     }
 
     return (data as any[])[0].is_full

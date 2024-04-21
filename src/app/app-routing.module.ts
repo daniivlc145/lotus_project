@@ -19,7 +19,9 @@ import { RegistroComponent } from './registro/registro.component';
 import { NuevaIncidenciaComponent }   from './nueva-incidencia/nueva-incidencia.component';
 
 import { ContrasenaOlvidadaComponent } from './contrasena-olvidada/contrasena-olvidada.component';
+
 import { StringComparisonComponent } from './string-comparison/string-comparison.component';
+
 import { MisIncidenciasComponent } from './mis-incidencias/mis-incidencias.component';
 
 
