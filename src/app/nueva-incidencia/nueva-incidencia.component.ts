@@ -58,9 +58,9 @@ export class NuevaIncidenciaComponent  implements OnInit {
     toggleDropdownVisibility(show: boolean) {
       const dropdownElement = document.querySelector('.dropdownCalles');
       if (show) {
-        dropdownElement.classList.add('show');
+        //dropdownElement.classList.add('show');
       } else {
-        dropdownElement.classList.remove('show');
+        //dropdownElement.classList.remove('show');
       }
     }
  
