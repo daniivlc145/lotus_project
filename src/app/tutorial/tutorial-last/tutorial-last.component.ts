@@ -13,7 +13,7 @@ export class TutorialLastComponent implements OnInit {
   ngOnInit() {}
 
   goToLoginPage() {
-    console.log('goToLoginPage() called');
+    
     this.router.navigate(['/login']); // Cambia 'login' por la ruta de tu página de inicio de sesión
   }
   

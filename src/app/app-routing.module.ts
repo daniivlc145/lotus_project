@@ -38,7 +38,7 @@ const routes: Routes = [
 
   {path: 'map', component:MapComponent},
 
-  {path:'Info-rec', component:InfoRecComponent},
+  {path:'info-rec', component:InfoRecComponent},
 
   {path: 'login', component:loginComponent},
 

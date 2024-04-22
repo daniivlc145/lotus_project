@@ -1,7 +1,6 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, AfterViewInit } from '@angular/core';
 import * as L from 'leaflet';
-import { searchContainers } from 'src/db_functions/containers';
-
+import { Router } from '@angular/router';
 
 
 
@@ -10,18 +9,18 @@ import { searchContainers } from 'src/db_functions/containers';
   templateUrl: './map.component.html',
   styleUrls: ['./map.component.scss']
 })
-export class MapComponent implements OnInit {
+export class MapComponent implements AfterViewInit {
 
   customDiv: HTMLElement | null = null; 
-  constructor() { }
+  constructor(private router: Router) { }
 
   map!: L.Map;
   markers: L.Marker[] = []; // Array para almacenar los marcadores
   customIcon!: L.Icon;
 
-  ngOnInit() {
+
+  ngAfterViewInit(): void {
     this.initializeMap();
- 
   }
 
   private initializeMap() {
@@ -55,33 +54,51 @@ export class MapComponent implements OnInit {
     marker.addTo(this.map);
 
     marker.on('click', (e) => {
-      this.createCustomDiv(e.latlng, popupContent ); // Llama a la función para crear el div
+      this.createCustomDiv(e.latlng, popupContent );
+      this.mostrarDiv() // Llama a la función para crear el div
     });
 
   }
 
-    createCustomDiv(latlng: L.LatLng, popupContent: string) {
-      if (this.customDiv) {
+  createCustomDiv(latlng: L.LatLng, popupContent: string) {
+    if (this.customDiv) {
         this.customDiv.remove();
-      }
-  
-      // Creamos un nuevo div
-      this.customDiv = document.createElement('div');
-      this.customDiv.innerHTML = `
-        <div style="color: #3a5e62;  font-size: 16px; bottom: 20%;"><h1 id='con' style='font-family: "Laura Regular", sans-serif; color:#3a5e62;'><strong>CONTENEDOR SELECCIONADO</strong></h1>${popupContent}
-        <p><strong>'UBICACIÓN:lat: 39.4697, lng: -0.3774 </strong></p><button style='color:white; background-color:#c1d7d5;'    onclick="this.parentElement.remove()">CERRAR </button></div>
-        `
-      ;
-  
-      // Encuentra el contenedor en el HTML
-      const container = document.getElementById('customDivContainer');
-  
-      // Agrega el div al contenedor
-      if (container) {
-        container.appendChild(this.customDiv);
-      }
     }
+
+    // Creamos un nuevo div
+    this.customDiv = document.createElement('div');
+    this.customDiv.innerHTML = `
+        <div style="color: #3a5e62; font-size: 16px; bottom: 20%;">
+            <h1 id='con' style='font-family: "Laura Regular", sans-serif; color:#3a5e62;'>
+                <strong>CONTENEDOR SELECCIONADO</strong>
+            </h1>
+            <p><strong>UBICACIÓN:${popupContent} </strong></p>
+            <button id="cerrarBtn" style='height:15%; width: 20%; color:white; background-color:#c1d7d5;'>CERRAR</button>
+            <button style='height:15%; width: 20%;  background-color: #3a5e62; right: 0px; position: absolute; color:white;' onclick="this.parentElement.remove()">AÑADIR REPORTE</button>
+        </div>
+    `;
+
+    // Encuentra el contenedor en el HTML
+    const container = document.getElementById('customDivContainer');
+
+    // Agrega el div al contenedor
+    if (container) {
+        container.appendChild(this.customDiv);
+    }
+
+    // Asigna el evento onclick al botón CERRAR
+    const cerrarBtn = this.customDiv.querySelector('#cerrarBtn');
+    if (cerrarBtn) {
+        cerrarBtn.addEventListener('click', () => {
+            this.ocultarDiv();
+            this.customDiv?.remove();
+        });
+    }
+}
+
+
   
+    
 
   
 
@@ -101,6 +118,23 @@ export class MapComponent implements OnInit {
     markersInsideBounds.forEach(marker => marker.addTo(this.map));
   }
 
+
+   mostrarDiv() {
+    const customDivContainer = document.getElementById("customDivContainer");
+    if (customDivContainer) {
+        customDivContainer.style.display = "block";
+    }
+}
+
+  ocultarDiv() {
+    const customDivContainer = document.getElementById("customDivContainer");
+    if (customDivContainer) {
+        customDivContainer.style.display = "none";
+    }
+}
+
+
+
   selectAll = false;
   items = [
     { id: 'checkbox1', selected: false },
@@ -115,5 +149,9 @@ export class MapComponent implements OnInit {
   toggleAll() {
     this.selectAll = !this.selectAll;
     this.items.forEach(item => item.selected = this.selectAll);
+  }
+  goToInfoPage() {
+    console.log('goToLoginPage() called');
+    this.router.navigate(['/info-rec']); 
   }
 }

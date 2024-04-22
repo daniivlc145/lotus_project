@@ -1,5 +1,6 @@
 import { Component, AfterViewInit } from '@angular/core';
 import Swiper from 'swiper';
+import { Router } from '@angular/router'
 
 @Component({
   selector: 'app-info-rec',
@@ -8,7 +9,7 @@ import Swiper from 'swiper';
 })
 export class InfoRecComponent implements AfterViewInit {
 
-  constructor() { }
+  constructor(private router: Router) { }
 
   ngAfterViewInit() {
     // Configuración básica de Swiper
@@ -24,4 +25,5 @@ export class InfoRecComponent implements AfterViewInit {
       },
     });
   }
+
 }
