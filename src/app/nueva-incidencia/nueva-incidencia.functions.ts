@@ -1,6 +1,6 @@
 import { supabaseClient } from "src/supabase_client";
 
-export async function registerInquiry(containerId: number | null,containerType: string, description: string, type: string, location: string | null){
+/*export async function registerInquiry(containerId: number | null,containerType: string, description: string, type: string, location: string | null){
     try{
         if (containerType === 'Residuos Urbanos' || containerType === 'Organico' || containerType === 'Papel / Carton' || containerType === 'Envases Ligeros') {
             containerType = 'waste_containers'
@@ -51,4 +51,4 @@ export async function registerInquiry(containerId: number | null,containerType: 
         console.error('Error inesperado:', (error as Error).message);
         throw error;
     }
-}
+}*/

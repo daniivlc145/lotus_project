@@ -24,7 +24,7 @@ import { StringComparisonComponent } from './string-comparison/string-comparison
 
 import { MisIncidenciasComponent } from './mis-incidencias/mis-incidencias.component';
 
-import { AutocompleteComponent } from './autocomplete/autocomplete.component';
+import { IntroducirEmailComponent } from './introducir-email/introducir-email.component';
 
 
 
@@ -52,8 +52,7 @@ const routes: Routes = [
 
   {path: 'misI', component: MisIncidenciasComponent},
 
-  {path: 'autocomplete', component: AutocompleteComponent},
-
+  {path: 'introducirE', component:IntroducirEmailComponent},
 
   {
     path: '',
