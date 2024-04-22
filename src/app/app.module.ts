@@ -17,7 +17,7 @@ import { provideAnimationsAsync } from '@angular/platform-browser/animations/asy
 import { ContrasenaOlvidadaComponent } from './contrasena-olvidada/contrasena-olvidada.component';
 import { MisIncidenciasComponent } from './mis-incidencias/mis-incidencias.component';
 import { MatFormFieldModule } from '@angular/material/form-field';
-import { IntroducirEmailComponent } from './introducir-email/introducir-email.component';
+
 @NgModule({
   declarations: [
     AppComponent,
@@ -31,7 +31,6 @@ import { IntroducirEmailComponent } from './introducir-email/introducir-email.co
     NuevaIncidenciaComponent,
     ContrasenaOlvidadaComponent,
     MisIncidenciasComponent,
-    IntroducirEmailComponent,
   ],
 
   imports: [

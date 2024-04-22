@@ -26,6 +26,7 @@ import { MisIncidenciasComponent } from './mis-incidencias/mis-incidencias.compo
 
 import { IntroducirEmailComponent } from './introducir-email/introducir-email.component';
 
+import { DialogOneComponent } from './dialog-one/dialog-one.component';
 
 
 const routes: Routes = [
@@ -52,7 +53,9 @@ const routes: Routes = [
 
   {path: 'misI', component: MisIncidenciasComponent},
 
-  {path: 'introducirE', component:IntroducirEmailComponent},
+  {path: 'autocomplete', component: AutocompleteComponent},
+
+  {path: 'dialogOne', component:DialogOneComponent},
 
   {
     path: '',
