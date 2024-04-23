@@ -47,15 +47,16 @@
   }
   
   .textotitle{
-      font-family: 'Laura Regular', sans-serif; /* Utiliza la fuente Laura Regular */
-      font-size: 26px; /* Tamaño de la fuente */
-      text-align: left; /* Alineación del texto */
-      color: #FFFFFF; /* Color del texto */
-      position: absolute; 
-      bottom: 104%; 
-      left: 50%; 
-      transform: translate(-50%, -0%);
-      z-index: 100; /* Asegura que el texto esté por encima del SVG */
+    font-family: 'Laura Regular', sans-serif; /* Utiliza la fuente Laura Regular */
+    font-size: 28px; /* Tamaño de la fuente */
+    text-align: left; /* Alineación del texto */
+    color: #FFFFFF; /* Color del texto */
+    position: absolute; 
+    bottom: 90%; 
+    left: 49%; 
+    transform: translate(-50%, 5%);
+    margin-bottom: 27px;
+    z-index: 2; /* Asegura que el texto esté por encima del SVG */
   }
 
   .texto-TIPO{
