@@ -239,3 +239,63 @@ scrollbar-width: none; /* Oculta la barra de desplazamiento en Firefox */
 
   
 }
+
+.footer {
+  background-color: white; /* Color de fondo del footer */
+  color: white; /* Color del texto */
+  position: fixed; /* Fijo en la parte inferior de la pantalla */
+  width: 100%; /* Ancho completo */
+  bottom: 0;
+  height: 90px;
+  z-index:1001;
+  padding-left: 1px;
+  padding-right: 1px;
+}
+
+
+
+.footer-buttons button{
+  background-color: transparent; /* Color de fondo de los botones */
+  gap: 10px;
+  margin-right: 10px !important; /* Intenta con un valor más fuerte */
+  bottom: 3px !important;
+
+}
+
+
+
+.footer-buttons {
+  display: flex; /* Uso de Flexbox */
+  justify-content: space-around; /* Espaciado uniforme entre los botones */
+  background-color: white; /* Color de fondo de los botones */
+  bottom: 3px !important;
+  
+
+}
+
+
+
+.mis-incidencias{
+  width: 50px;
+  transform: rotate(-2deg);
+}
+
+.reportes-mapa{
+  width: 60px;
+  transform: rotate(-2deg);
+}
+
+.ver-mapa{
+  width: 80px;
+
+}
+
+.info-reciclaje{
+  width: 35px;
+  transform: rotate(-2deg);
+}
+
+.icono-usuario{
+  width: 45px;
+  transform: rotate(-2deg);
+}

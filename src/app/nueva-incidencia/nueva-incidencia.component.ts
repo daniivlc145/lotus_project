@@ -28,8 +28,7 @@ export class NuevaIncidenciaComponent {
           const lines = data.split('\n'); // Dividir el texto en líneas
           this.calles = lines.map(line => line.trim()); // Si necesitas quitar espacios en blanco alrededor de cada línea, puedes hacerlo aquí
           
-          // Verificar si las calles se cargaron correctamente
-          console.log('Calles cargadas:', this.calles);
+         
         })
         .catch(error => console.error('Error al cargar las calles de Valencia:', error));
     }    
@@ -37,13 +36,11 @@ export class NuevaIncidenciaComponent {
     filter(): void {
       const filterValue = this.input.nativeElement.value.toLowerCase();
       
-      // Verificar el valor del filtro
-      console.log('Valor del filtro:', filterValue);
+
       
       const similarWords = StringComparison.recommendSimilarWords(filterValue, this.calles);
       
-      // Verificar si las opciones filtradas se están generando correctamente
-      console.log('Opciones filtradas:', similarWords);
+      
       
       this.filteredOptions = similarWords.slice(0, 4); // Mostrar solo las 4 más similares
     }
@@ -60,6 +57,29 @@ export class NuevaIncidenciaComponent {
     
     goToHomePage() {
       this.router.navigate(['/map']); // Cambia 'map' por la ruta de tu página de inicio de sesión
+    }
+
+    goToInfoPage() {
+  
+      this.router.navigate(['/info-rec']);
+    }
+  
+    goToNuevaIncPage() {
+  
+      window.location.reload();
+    }
+  
+    goToMisPage() {
+  
+      this.router.navigate(['/misI']);
+    }
+  
+
+  
+    goToProfPage(){
+  
+      this.router.navigate(['/profUser']);
+  
     }
     
   }

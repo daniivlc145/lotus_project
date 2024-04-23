@@ -26,9 +26,34 @@ export class InfoRecComponent implements AfterViewInit {
     });
   }
 
-  ngOnInit():void{
-    setTimeout(() => {
-  }, 500);
+ 
+
+  goToInfoPage() {
+
+    window.location.reload();
+  
+  }
+
+  goToNuevaIncPage() {
+
+    this.router.navigate(['/newI']);
+  }
+
+  goToMisPage() {
+
+    this.router.navigate(['/misI']);
+  }
+
+  goToMapPage() {
+
+    this.router.navigate(['/map']);
+    
+  }
+
+  goToProfPage(){
+
+    this.router.navigate(['/profUser']);
+
   }
 
 }

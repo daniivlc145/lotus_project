@@ -34,4 +34,34 @@ export class MisIncidenciasComponent implements OnInit, AfterViewInit {
     // Agregar el nuevo elemento clonado al DOM
     elementoOriginal.parentElement?.appendChild(nuevoElemento);
   }
+
+  goToInfoPage() {
+
+    this.router.navigate(['/info-rec']);
+  
+  }
+
+  goToNuevaIncPage() {
+
+    this.router.navigate(['/newI']);
+  }
+
+  goToMisPage() {
+    
+    window.location.reload();
+
+  }
+
+  goToMapPage() {
+
+    this.router.navigate(['/map']);
+    
+  }
+
+  goToProfPage(){
+
+    this.router.navigate(['/profUser']);
+
+  }
+
 }
