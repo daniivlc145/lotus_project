@@ -142,14 +142,15 @@ color:#84beb0;
             z-index: 8;
             }
 
-            .signin button{
+            .signin button{ //active
                 background-color: #3a5e62;
                 color: #e6e5ea;
                 border-radius: 30px 25px 25px 30px;
                 z-index: 8;
+                font-weight: bold;
             }
 
-            .signup button {
+            .signup button { //inactive
 
                 background-color:#e6e5ea;
                 color:  #3a5e62;

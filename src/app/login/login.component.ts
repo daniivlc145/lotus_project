@@ -9,8 +9,6 @@ import { signInUser } from './login.functions';
 })
 export class loginComponent  implements OnInit {
 
-  
-
   constructor(private router: Router) { } // Inyecta el servicio Router en el constructor
   errorMessage: string | null = null; // Esta es la propiedad que mencionaste
   ngOnInit() {
@@ -65,4 +63,26 @@ export class loginComponent  implements OnInit {
     }
   
     inputElement.style.fontFamily = font;
-  }}
+  }
+  swapStyles() {
+    
+    const userbutton = document.getElementById('signinbutton');
+    const orgbutton = document.getElementById('signupbutton');
+    console.log(userbutton)
+ if (userbutton && orgbutton) {
+    if (userbutton.classList.contains('signin')) {
+      userbutton.classList.remove('signin');
+      userbutton.classList.add('signup');
+      orgbutton.classList.remove('signup');
+      orgbutton.classList.add('signin');
+    } else {
+      userbutton.classList.remove('signup');
+      userbutton.classList.add('signin');
+      orgbutton.classList.remove('signin');
+      orgbutton.classList.add('signup');
+    }
+ }
+  }
+
+}
+  
