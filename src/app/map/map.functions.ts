@@ -1,5 +1,4 @@
-import { supabaseClient } from 'src/supabase_client';
-
+import { supabaseClient } from '../../supabase_client';
 
 interface ContainerInfo {
     container_id: number
