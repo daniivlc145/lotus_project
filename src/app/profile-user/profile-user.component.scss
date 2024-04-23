@@ -1,0 +1,104 @@
+@import url("/src/css/style.css");
+
+.content { /*Es el div q engloba todo*/
+    width: 100%;
+    height: 100%;
+    background-color: #3a5e62;
+    position: relative;
+    
+    top: 45%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    display: flex;
+    justify-content: center; /* Centra horizontalmente */
+    align-items: center; /* Centra verticalmente */
+    z-index: 0;
+}
+
+.footer {
+    background-color: white; /* Color de fondo del footer */
+    color: white; /* Color del texto */
+    position: fixed; /* Fijo en la parte inferior de la pantalla */
+    width: 100%; /* Ancho completo */
+    bottom: 0;
+    height: 90px;
+    z-index:1001;
+}
+
+
+.footer-buttons button{
+    background-color: transparent; /* Color de fondo de los botones */
+    gap: 10px;
+    margin-right: 20px !important; /* Intenta con un valor más fuerte */
+    bottom: 3px !important;
+
+}
+
+
+
+.footer-buttons {
+    display: flex; /* Uso de Flexbox */
+    justify-content: space-around; /* Espaciado uniforme entre los botones */
+    background-color: white; /* Color de fondo de los botones */
+    bottom: 3px !important;
+    
+
+}
+
+
+
+.mis-incidencias{
+    width: 55px;
+    transform: rotate(-2deg);
+}
+
+.reportes-mapa{
+    width: 65px;
+    transform: rotate(-2deg);
+}
+
+.ver-mapa{
+    width: 85px;
+  
+}
+
+.info-reciclaje{
+    width: 40px;
+    transform: rotate(-2deg);
+}
+
+.icono-usuario{
+    width: 50px;
+    transform: rotate(-2deg);
+}
+
+.circulo {
+    width: 110px; /* Tamaño del círculo en píxeles */
+    height: 110px; /* Tamaño del círculo en píxeles */
+    background-color: #c1d7d5; /* Cambia esto al color que desees */
+    border-radius: 50%; /* Hace que el div sea un círculo */
+    z-index: 2;
+    position: absolute;
+    top: 25%;
+    left: 50%;
+    transform: translate(-50%, -50%); /* Centra el círculo horizontal y verticalmente */
+    border: 5px solid #5a8d8d; /* Define el borde con ancho, estilo y color */
+    overflow: hidden;
+}
+
+#name{
+    
+    color: #5a8d8d;
+    position: absolute;
+    top: 36%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    z-index: 10000;
+    font-weight: bold;
+
+
+}
+
+
+
+

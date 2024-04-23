@@ -20,8 +20,17 @@
       <p class="texto_ubi" style="font-family: 'Laura Regular', sans-serif; z-index: 2;">Ubicación</p>
       
       
-      <textarea class="input" id="ubi" name="ubi" maxlength="50"></textarea>
-      
+      <!--<textarea class="input" id="ubi" name="ubi" maxlength="50"></textarea>-->
+      <form class="form">
+        <mat-form-field class="form">
+          <input type="text" matInput [matAutocomplete]="auto" class="input2">
+          <mat-autocomplete #auto="matAutocomplete">
+            <mat-option *ngFor="let option of filteredOptions" [value]="option">
+            {{option}}
+            </mat-option>  
+          </mat-autocomplete>
+        </mat-form-field>
+      </form>
 
       <p class="texto_desc" style="font-family: 'Laura Regular', sans-serif; z-index: 2;">Descripción</p>
       <textarea class="descripBox" id="descrip" name="descrip" rows="4" cols="50" maxlength="850"></textarea>

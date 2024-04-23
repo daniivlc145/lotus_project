@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import * as L from 'leaflet';
 import { Router } from '@angular/router';
+import { filtrarMapa, searchContainers } from './map.functions';
 
 @Component({
   selector: 'app-map',
@@ -14,21 +15,90 @@ export class MapComponent implements OnInit {
   markers: L.Marker[] = []; // Array para almacenar los marcadores
   customIcon!: L.Icon;
 
+  vidrio = L.icon({
+    iconUrl: '../../assets/img/Contenedor_Vidrio.png',
+    iconSize: [30, 47],
+    iconAnchor: [19, 38],
+    popupAnchor: [0, -38]
+  });
+
+  aceite = L.icon({
+    iconUrl: '../../assets/img/Contenedor_Aceite.png',
+    iconSize: [30, 47],
+    iconAnchor: [19, 38],
+    popupAnchor: [0, -38]
+  });
+
+  envases = L.icon({
+    iconUrl: '../../assets/img/Contenedor_Envases.png',
+    iconSize: [30, 47],
+    iconAnchor: [19, 38],
+    popupAnchor: [0, -38]
+  });
+
+  organico = L.icon({
+    iconUrl: '../../assets/img/Contenedor_Organico.png',
+    iconSize: [30, 47],
+    iconAnchor: [19, 38],
+    popupAnchor: [0, -38]
+  });
+
+  papel = L.icon({
+    iconUrl: '../../assets/img/Contenedor_Papel.png',
+    iconSize: [30, 47],
+    iconAnchor: [19, 38],
+    popupAnchor: [0, -38]
+  });
+
+  residuos = L.icon({
+    iconUrl: '../../assets/img/Contenedor_Residuos.png',
+    iconSize: [30, 47],
+    iconAnchor: [19, 38],
+    popupAnchor: [0, -38]
+  });
+
+  ropa = L.icon({
+    iconUrl: '../../assets/img/Contenedor_Ropa.png',
+    iconSize: [30, 47],
+    iconAnchor: [19, 38],
+    popupAnchor: [0, -38]
+  });
+  
+  diccionario_imagenes : {[clave:string] : L.Icon}= {
+    "glass_containers"    : this.vidrio,
+    "oil_containers"      : this.aceite,
+    "clothes_containers"  : this.ropa,
+    "Residuos Urbanos"    : this.residuos,
+    "Papel / Carton"      : this.papel,
+    "Envases Ligeros"     : this.envases,
+    "Organico"            : this.organico
+  }
+
+  tipos_contenedor = [      
+    "glass_containers",    
+    "oil_containers",      
+    "clothes_containers",  
+    "Residuos Urbanos",    
+    "Papel / Carton",      
+    "Envases Ligeros",     
+    "Organico"
+  ]
+
+
   constructor(private router: Router) { }
 
   ngOnInit(): void {
     setTimeout(() => {
       this.initializeMap();
     }, 500);
+    const checkbox = document.getElementById('checkbox-top-right') as HTMLInputElement;
+    checkbox.checked = true;
   }
 
   private initializeMap() {
-    const customIcon = L.icon({
-      iconUrl: '../../assets/img/Marker.png',
-      iconSize: [38, 50],
-      iconAnchor: [19, 38],
-      popupAnchor: [0, -38]
-    });
+
+
+
 
     this.map = L.map('map', {
       zoomControl: false // Desactiva el control de zoom predeterminado
@@ -43,8 +113,24 @@ export class MapComponent implements OnInit {
       this.updateMarkers(); // Actualiza los marcadores cuando cambia la vista del mapa
     });
 
-    // Agrega un marcador al mapa usando el icono personalizado
-    this.addMarker({ lat: 39.4697, lng: -0.3774 }, '', customIcon);
+  
+    // Agrega marcadores marcador al mapa usando el icono personalizado
+    const container_info = searchContainers().then(
+      (result)=> {
+        for(let basura of this.tipos_contenedor){
+          for(let basura_array of result[basura]){
+             let coordenadas = basura_array.location
+             let location = coordenadas.split(",").map(item => parseFloat(item))
+             let tipo = this.diccionario_imagenes[basura]
+             this.addMarker({lat: location[0], lng: location[1]},coordenadas,tipo)
+          }
+
+        }
+
+
+
+      })
+
   }
 
   // Función para agregar un marcador al mapa
@@ -71,9 +157,11 @@ export class MapComponent implements OnInit {
         <h1 id='con' style='font-family: "Laura Regular", sans-serif; color:#3a5e62;'>
           <strong>CONTENEDOR SELECCIONADO</strong>
         </h1>
-        <p><strong>UBICACIÓN:${popupContent} </strong></p>
-        <button id="cerrarBtn" style='height:15%; width: 20%; color:white; background-color:#c1d7d5;'>CERRAR</button>
-        <button style='height:15%; width: 20%;  background-color: #3a5e62; right: 0px; position: absolute; color:white;' onclick="this.parentElement.remove()">AÑADIR REPORTE</button>
+        <p style="position:absolute; top:35%;"><strong>UBICACIÓN:${popupContent} </strong></p>
+        <br>
+        <button id="cerrarBtn" style='height: 21%; width: 30%; color: white; background-color: #c1d7d5; position: absolute; left: 15%; border-radius: 15px; font-size: 18px; text-align: center; line-height: 100%; bottom:13px;'>CERRAR</button>
+        <button id="anadirBtn" style='height: 21%; width: 30%; background-color: #3a5e62; right: 15%; position: absolute; color: white; border-radius: 15px; font-size: 18px; text-align: center; line-height: 100%; bottom:13px;'>AÑADIR REPORTE</button>
+        
       </div>
     `;
 
@@ -91,6 +179,12 @@ export class MapComponent implements OnInit {
       cerrarBtn.addEventListener('click', () => {
         this.ocultarDiv();
         this.customDiv?.remove();
+      });
+    }
+    const anadirBtn = this.customDiv.querySelector('#anadirBtn');
+    if (anadirBtn) {
+      anadirBtn.addEventListener('click', () => {
+        this.goToNuevaIncPage();
       });
     }
   }
@@ -125,24 +219,106 @@ export class MapComponent implements OnInit {
     }
   }
 
-  selectAll = false;
+  selectAll = true;
+  selectedItems: string[] = [];
+  
   items = [
-    { id: 'checkbox1', selected: false },
-    { id: 'checkbox2', selected: false },
-    { id: 'checkbox3', selected: false },
-    { id: 'checkbox4', selected: false },
-    { id: 'checkbox5', selected: false },
-    { id: 'checkbox6', selected: false },
-    { id: 'checkbox7', selected: false },
+    { id: 'glass_containers', selected: true },
+    { id: 'oil_containers', selected: true },
+    { id: 'clothes_containers', selected: true },
+    { id: 'Residuos Urbanos', selected: true },
+    { id: 'Papel / Carton', selected: true },
+    { id: 'Envases Ligeros', selected: true },
+    { id: 'Organico', selected: true },
   ];
-
+  
   toggleAll() {
     this.selectAll = !this.selectAll;
-    this.items.forEach(item => item.selected = this.selectAll);
+    this.items.forEach(item => {
+      item.selected = this.selectAll;
+    });
+    this.updateSelectedItems();
   }
+  
+  itemChanged(item: any) {
+    if (this.selectAll && !item.selected) {
+      // Si selectAll es true y un elemento se deselecciona,
+      // desactiva la opción de seleccionar todos
+      this.selectAll = false;
+      // Desactiva el checkbox "checkbox-top-right"
+      const checkbox = document.getElementById('checkbox-top-right') as HTMLInputElement;
+      if (checkbox) {
+        checkbox.checked = false;
+      }
+    } else if (!this.selectAll && this.items.every(item => item.selected)) {
+      // Si selectAll es false y todos los elementos están seleccionados,
+      // activa la opción de seleccionar todos
+      this.selectAll = true;
+      // Activa el checkbox "checkbox-top-right"
+      const checkbox = document.getElementById('checkbox-top-right') as HTMLInputElement;
+      if (checkbox) {
+        checkbox.checked = true;
+      }
+    }
+    this.updateSelectedItems();
+  }
+  
+  
+  
+  updateSelectedItems() {
+    this.selectedItems = this.items
+      .filter(item => item.selected)
+      .map(item => item.id);
+   
+    
+    this.markers.forEach(marker => marker.remove());
+    this.markers = [];
+
+    const container_info = filtrarMapa(this.selectedItems).then(
+      (result)=> {
+       
+        for(let basura of this.selectedItems){
+          for(let basura_array of result[basura]){
+             let coordenadas = basura_array.location
+             let location = coordenadas.split(",").map(item => parseFloat(item))
+             let tipo = this.diccionario_imagenes[basura]
+             this.addMarker({lat: location[0], lng: location[1]},coordenadas,tipo)
+          }
+
+        }
+
+
+
+      })
+
+  }
+  
+
 
   goToInfoPage() {
-    console.log('goToLoginPage() called');
+  
     this.router.navigate(['/info-rec']);
+  }
+
+  goToNuevaIncPage() {
+
+    this.router.navigate(['/newI']);
+  }
+
+  goToMisPage() {
+
+    this.router.navigate(['/misI']);
+  }
+
+  goToMapPage() {
+
+      window.location.reload();
+    
+  }
+
+  goToProfPage(){
+
+    this.router.navigate(['/profUser']);
+
   }
 }

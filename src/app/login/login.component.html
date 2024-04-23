@@ -1,5 +1,5 @@
 
-<link rel="stylesheet" href="/src/css/style.css">
+
 <body>
     <div class="container">
         <div class="background"></div>
@@ -18,19 +18,19 @@
                 src="/../icons/Blank_Chiquito_White.png"> 
             </div>
             <div class="title-container">
-                <h1><strong>INICIO DE SESIÓN</strong></h1>
+                <h1 style="font-family: 'Laura Regular', sans-serif;"><strong>INICIO DE SESIÓN</strong></h1>
             </div>
 
 
             <div class="form-container">
-                <div class="auth-field">
+                <div id="auth-field">
                     <div class="sign-container">
-                      <div class="signin">
-                     <button type="button"><strong>USUARIO</strong></button>
-                      </div>
-                      <div class="signup" >
-                        <button type="button" >ORG.</button>
-                      </div>
+                      <div id="signin">
+                        <button type="button" id="userbutton" (click)="handleButtonClick('userbutton')">USUARIO</button>
+                    </div>
+                    <div id="signup">
+                        <button type="button" id="orgbutton" (click)="handleButtonClick('orgbutton')">ORG.</button>
+                    </div>
                     </div>
                     <div class="board"></div>
                   </div>  

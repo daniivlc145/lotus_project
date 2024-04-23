@@ -23,6 +23,10 @@ import { animation } from '@angular/animations';
 import { MatButtonModule } from '@angular/material/button';
 import {MatDialogModule}  from '@angular/material/dialog'
 import { DialogOneComponent } from './dialog-one/dialog-one.component';
+import { profileUserComponent } from './profile-user/profile-user.component';
+import { MatAutocompleteModule } from '@angular/material/autocomplete';
+import { StringComparison } from './string-comparison/string-comparison.service';
+import {MatInputModule} from '@angular/material/input';
 
 @NgModule({
   declarations: [
@@ -38,7 +42,8 @@ import { DialogOneComponent } from './dialog-one/dialog-one.component';
     ContrasenaOlvidadaComponent,
     MisIncidenciasComponent,
     IntroducirEmailComponent,
-    DialogOneComponent
+    DialogOneComponent,
+    profileUserComponent,
   ],
 
   imports: [
@@ -49,11 +54,14 @@ import { DialogOneComponent } from './dialog-one/dialog-one.component';
     MatFormFieldModule,
     BrowserAnimationsModule,
     MatButtonModule,
-    MatDialogModule
+    MatDialogModule,
+    MatAutocompleteModule,
+    MatInputModule,
   ], 
   providers: [
-    provideAnimationsAsync()
-  ],
+    provideAnimationsAsync(),
+    StringComparison,
+  ], 
   bootstrap: [AppComponent],
   schemas: [CUSTOM_ELEMENTS_SCHEMA],
 })

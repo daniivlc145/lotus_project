@@ -1,9 +1,6 @@
 import { Component, ElementRef, ViewChild } from '@angular/core';
-import { StringComparison } from '../string-comparison/string-comparison';
+import { StringComparison } from '../string-comparison/string-comparison.service';
 import {FormControl, FormsModule, ReactiveFormsModule} from '@angular/forms';
-import {MatAutocompleteModule} from '@angular/material/autocomplete';
-import {MatInputModule} from '@angular/material/input';
-import {MatFormFieldModule} from '@angular/material/form-field';
 import { Router } from '@angular/router';
 
 
@@ -11,6 +8,7 @@ import { Router } from '@angular/router';
   selector: 'app-nueva-incidencia',
   templateUrl: './nueva-incidencia.component.html',
   styleUrls: ['./nueva-incidencia.component.scss'],
+
 })
 export class NuevaIncidenciaComponent {
   @ViewChild('myInput') input!: ElementRef<HTMLInputElement>;
