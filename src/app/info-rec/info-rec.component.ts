@@ -9,51 +9,51 @@ import { Router } from '@angular/router'
 })
 export class InfoRecComponent implements AfterViewInit {
 
+  mySwiper: Swiper | undefined; // Referencia a la instancia de Swiper
+
   constructor(private router: Router) { }
 
   ngAfterViewInit() {
+    this.initSwiper(); // Inicializar Swiper al cargar la vista
+  }
+
+  private initSwiper() {
+    if (this.mySwiper) {
+      this.mySwiper.destroy(true, true); // Destruir la instancia existente de Swiper
+    }
     // Configuración básica de Swiper
-    const mySwiper = new Swiper('.swiper-container', {
+    this.mySwiper = new Swiper('.swiper-container', {
       effect: 'cards',
       grabCursor: true,
       loop: true,
       pagination: {
-      el: '.swiper-pagination', // Elemento que contendrá la paginación
-      clickable: true, // Permite hacer clic en los puntos de paginación para navegar
-      bulletClass: 'swiper-pagination-bullet', // Clase para cada punto de paginación
-      bulletActiveClass: 'swiper-pagination-bullet-active', // Clase para el punto de paginación activo
+        el: '.swiper-pagination', // Elemento que contendrá la paginación
+        clickable: true, // Permite hacer clic en los puntos de paginación para navegar
+        bulletClass: 'swiper-pagination-bullet', // Clase para cada punto de paginación
+        bulletActiveClass: 'swiper-pagination-bullet-active', // Clase para el punto de paginación activo
       },
     });
   }
 
- 
-
   goToInfoPage() {
-
+    // Recargar la página actual
+    this.initSwiper(); // Reinicializar Swiper después de recargar la página
     window.location.reload();
-  
   }
 
   goToNuevaIncPage() {
-
     this.router.navigate(['/newI']);
   }
 
   goToMisPage() {
-
     this.router.navigate(['/misI']);
   }
 
   goToMapPage() {
-
     this.router.navigate(['/map']);
-    
   }
 
   goToProfPage(){
-
     this.router.navigate(['/profUser']);
-
   }
-
 }

@@ -61,22 +61,25 @@ swiper-slide:nth-child(8n) {
 
 .texto-Reciclaje {
 font-family: 'Laura Regular', sans-serif; /* Utiliza la fuente Laura Regular */
-font-size: 23px; /* Tamaño de la fuente */
+font-size: 35px; /* Tamaño de la fuente */
 text-align: center; /* Alineación del texto */
 color: #000; /* Color del texto */
 font-weight:bold;
+line-height: 1.2;
 position: absolute; /* Posición absoluta */
-top: 10%; /* Lo posiciona en el centro vertical */
+top: 20%; /* Lo posiciona en el centro vertical */
 left: 50%; /* Lo posiciona en el centro horizontal */
 transform: translate(-50%, -100%); /* Centra el texto */
 z-index: 2; /* Asegura que el texto esté por encima del SVG */
 }
 .contenedor-title {
 font-family: 'Laura Regular', sans-serif; /* Utiliza la fuente Laura Regular */
-font-size: 27; /* Tamaño de la fuente */
+font-size: 30px; /* Tamaño de la fuente */
 text-align: center; /* Alineación del texto */
-color:#3a5e62; /* Color del texto */
-background-color: #fff;
+color:#ffffff; /* Color del texto */
+background-color: #3a5e62;
+margin-top: 15px;
+height: 20px;
 font-weight:bold;
 position: absolute; /* Posición absoluta */
 top: 93px; /* Lo posiciona en el centro vertical */
