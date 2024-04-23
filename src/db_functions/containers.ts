@@ -104,12 +104,16 @@ export async function modifyLevel(container_id: number, container_type: string, 
     
 }
 
-export async function filtrarMapa(contenedores : string[]) : Promise<{[clave: string]: ContainerInfo[]}>{
+export async function filtrarMapa(contenedores : {[clave: string]: boolean}) : Promise<{[clave: string]: ContainerInfo[]}>{
     const data : string =  readFileSync("../utils/diccionario_contenedores",{encoding : "utf-8"})
     const diccionario : {[clave: string]: ContainerInfo[]} = JSON.parse(data)
     const res : {[clave:string]: ContainerInfo[]}= {}
     for(const element in contenedores){
-        res[element] = diccionario[element]
+        let value = contenedores[element]
+        
+        if(value){
+            res[element] = diccionario[element]
+        }
     }
     return res;
 }
