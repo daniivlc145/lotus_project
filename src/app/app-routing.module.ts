@@ -54,11 +54,6 @@ const routes: Routes = [
 
   {path: 'misI', component: MisIncidenciasComponent},
 
-<<<<<<< HEAD
-=======
-  //{path: 'autocomplete', component: AutocompleteComponent},
-
->>>>>>> 1a57cc4 (confirmo no sé el que)
   {path: 'dialogOne', component:DialogOneComponent},
 
   {path: 'email', component:IntroducirEmailComponent},
