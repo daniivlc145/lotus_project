@@ -1,8 +1,6 @@
-import { Component,  OnInit } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
 import * as L from 'leaflet';
 import { Router } from '@angular/router';
-
-
 
 @Component({
   selector: 'app-map',
@@ -11,21 +9,19 @@ import { Router } from '@angular/router';
 })
 export class MapComponent implements OnInit {
 
-  customDiv: HTMLElement | null = null; 
-  constructor(private router: Router) { }
-
+  customDiv: HTMLElement | null = null;
   map!: L.Map;
   markers: L.Marker[] = []; // Array para almacenar los marcadores
   customIcon!: L.Icon;
 
+  constructor(private router: Router) { }
+
   ngOnInit(): void {
     setTimeout(() => {
-        this.initializeMap();
+      this.initializeMap();
     }, 500);
-}
+  }
 
-
-  
   private initializeMap() {
     const customIcon = L.icon({
       iconUrl: '../../assets/img/Marker.png',
@@ -34,13 +30,13 @@ export class MapComponent implements OnInit {
       popupAnchor: [0, -38]
     });
 
-    this.map = L.map('map').setView([39.4697, -0.3774], 50);
+    this.map = L.map('map', {
+      zoomControl: false // Desactiva el control de zoom predeterminado
+    }).setView([39.4697, -0.3774], 50);
 
     L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
       attribution: '&copy; OpenStreetMap contributors'
     }).addTo(this.map);
-
-    
 
     // Escucha el evento de cambio de vista del mapa
     this.map.on('moveend', () => {
@@ -48,8 +44,7 @@ export class MapComponent implements OnInit {
     });
 
     // Agrega un marcador al mapa usando el icono personalizado
-    this.addMarker({ lat: 39.4697, lng: -0.3774 }, '' , customIcon);
-
+    this.addMarker({ lat: 39.4697, lng: -0.3774 }, '', customIcon);
   }
 
   // Función para agregar un marcador al mapa
@@ -59,28 +54,27 @@ export class MapComponent implements OnInit {
     marker.addTo(this.map);
 
     marker.on('click', (e) => {
-      this.createCustomDiv(e.latlng, popupContent );
-      this.mostrarDiv() // Llama a la función para crear el div
+      this.createCustomDiv(e.latlng, popupContent);
+      this.mostrarDiv(); // Llama a la función para crear el div
     });
-
   }
 
   createCustomDiv(latlng: L.LatLng, popupContent: string) {
     if (this.customDiv) {
-        this.customDiv.remove();
+      this.customDiv.remove();
     }
 
     // Creamos un nuevo div
     this.customDiv = document.createElement('div');
     this.customDiv.innerHTML = `
-        <div style="color: #3a5e62; font-size: 16px; bottom: 20%;">
-            <h1 id='con' style='font-family: "Laura Regular", sans-serif; color:#3a5e62;'>
-                <strong>CONTENEDOR SELECCIONADO</strong>
-            </h1>
-            <p><strong>UBICACIÓN:${popupContent} </strong></p>
-            <button id="cerrarBtn" style='height:15%; width: 20%; color:white; background-color:#c1d7d5;'>CERRAR</button>
-            <button style='height:15%; width: 20%;  background-color: #3a5e62; right: 0px; position: absolute; color:white;' onclick="this.parentElement.remove()">AÑADIR REPORTE</button>
-        </div>
+      <div style="color: #3a5e62; font-size: 16px; bottom: 20%;">
+        <h1 id='con' style='font-family: "Laura Regular", sans-serif; color:#3a5e62;'>
+          <strong>CONTENEDOR SELECCIONADO</strong>
+        </h1>
+        <p><strong>UBICACIÓN:${popupContent} </strong></p>
+        <button id="cerrarBtn" style='height:15%; width: 20%; color:white; background-color:#c1d7d5;'>CERRAR</button>
+        <button style='height:15%; width: 20%;  background-color: #3a5e62; right: 0px; position: absolute; color:white;' onclick="this.parentElement.remove()">AÑADIR REPORTE</button>
+      </div>
     `;
 
     // Encuentra el contenedor en el HTML
@@ -88,24 +82,18 @@ export class MapComponent implements OnInit {
 
     // Agrega el div al contenedor
     if (container) {
-        container.appendChild(this.customDiv);
+      container.appendChild(this.customDiv);
     }
 
     // Asigna el evento onclick al botón CERRAR
     const cerrarBtn = this.customDiv.querySelector('#cerrarBtn');
     if (cerrarBtn) {
-        cerrarBtn.addEventListener('click', () => {
-            this.ocultarDiv();
-            this.customDiv?.remove();
-        });
+      cerrarBtn.addEventListener('click', () => {
+        this.ocultarDiv();
+        this.customDiv?.remove();
+      });
     }
-}
-
-
-  
-    
-
-  
+  }
 
   // Función para actualizar los marcadores basados en los límites del mapa visible
   updateMarkers() {
@@ -123,22 +111,19 @@ export class MapComponent implements OnInit {
     markersInsideBounds.forEach(marker => marker.addTo(this.map));
   }
 
-
-   mostrarDiv() {
+  mostrarDiv() {
     const customDivContainer = document.getElementById("customDivContainer");
     if (customDivContainer) {
-        customDivContainer.style.display = "block";
+      customDivContainer.style.display = "block";
     }
-}
+  }
 
   ocultarDiv() {
     const customDivContainer = document.getElementById("customDivContainer");
     if (customDivContainer) {
-        customDivContainer.style.display = "none";
+      customDivContainer.style.display = "none";
     }
-}
-
-
+  }
 
   selectAll = false;
   items = [
@@ -155,8 +140,9 @@ export class MapComponent implements OnInit {
     this.selectAll = !this.selectAll;
     this.items.forEach(item => item.selected = this.selectAll);
   }
+
   goToInfoPage() {
     console.log('goToLoginPage() called');
-    this.router.navigate(['/info-rec']); 
+    this.router.navigate(['/info-rec']);
   }
 }
