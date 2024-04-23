@@ -21,9 +21,9 @@
       
       
       <!--<textarea class="input" id="ubi" name="ubi" maxlength="50"></textarea>-->
-      <form class="form">
+      <form class="form" style="height:18px; margin-top: 10px; border-radius: 30px;">
         <mat-form-field class="form">
-          <input type="text" matInput [matAutocomplete]="auto" class="input2">
+          <input type="text" matInput [matAutocomplete]="auto" #myInput (input)="onInputChange($event)" class="input2" style="font-family: 'Laura Regular', sans-serif; ">
           <mat-autocomplete #auto="matAutocomplete">
             <mat-option *ngFor="let option of filteredOptions" [value]="option">
             {{option}}
