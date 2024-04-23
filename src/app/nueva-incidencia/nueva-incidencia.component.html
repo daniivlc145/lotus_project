@@ -7,15 +7,16 @@
       </svg>
       <p class="textotitle" style="font-family: 'Laura Regular', sans-serif; z-index: 2;">Nuevo Reporte </p>
       <p class="texto_tipo" style="font-family: 'Laura Regular', sans-serif; z-index: 2;">Tipo</p>
-      <div class="dropdown" style="position: absolute; left: 35%; top:9%">
-        <button class="dropbtn">CONTENEDOR LLENO</button>
-        <div class="dropdown-content">
-          <a href="#">CONTENEDOR LLENO</a>
-          <a href="#">RECLAMACIÓN/INFORME</a>
-          <a href="#">PETICIÓN</a>
-          <a href="#">PREGUNTAS</a>
+      <div class="dropdown" [class.open]="dropdownOpen" (click)="toggleDropdown()">
+        <button class="dropbtn">{{ selectedOption }}</button>
+        <div class="dropdown-content" *ngIf="dropdownOpen">
+          <div *ngFor="let option of ['CONTENEDOR LLENO', 'RECLAMACIÓN/INFORME', 'PETICIÓN', 'PREGUNTAS']" (click)="selectOption(option); closeDropdown()">
+            {{ option }}
+          </div>
         </div>
       </div>
+      
+      
 
       <p class="texto_ubi" style="font-family: 'Laura Regular', sans-serif; z-index: 2;">Ubicación</p>
       
@@ -47,17 +48,15 @@
     });
   </script>
   <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
-  <script>
+<!--  <script>
     $(document).ready(function() {
-      $('.dropdown-content a').click(function() {
-        var selectedText = $(this).text(); // Obtiene el texto del elemento clickeado
-        $('.dropbtn').text(selectedText); // Actualiza el texto del botón
-      });
-    });
-  </script>
-   <!--<script>
-    autocomplete(document.getElementById("myInput"), countries);
-    </script> -->
+  $('.dropdown-content div').click(function() {
+    var selectedText = $(this).text(); // Obtiene el texto del elemento clickeado
+    $('.dropbtn').text(selectedText); // Actualiza el texto del botón
+    $('.dropdown-content').hide(); // Oculta el menú desplegable después de hacer clic
+  });
+});
+  </script>-->
 
 
     <footer class="footer">

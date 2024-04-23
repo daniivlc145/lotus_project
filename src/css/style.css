@@ -28,3 +28,10 @@
     color: #f56f5d;
     bottom: 35px;
 }
+
+::ng-deep .mat-autocomplete-panel {
+    font-family: 'Laura Regular', sans-serif; /* Cambia el tipo de fuente */
+  }
+  .mat-autocomplete-panel {
+    font-family: 'Laura Regular', sans-serif;
+  }

@@ -90,12 +90,12 @@ body {
     z-index: 2; 
 }
 .dropbtn::after {
- content: "\25BC";
- font-size: 13px;
- position: relative;
- top: -2px;
- left: 5px;
- z-index: 30;
+  content: "\25BC";
+  font-size: 13px;
+  position: relative;
+  top: -2px;
+  left: 5px;
+  z-index: 30;
 }
 
 .dropbtn {
@@ -115,6 +115,8 @@ body {
   display: inline-block;
   z-index: 30;
   border-radius: 15px;
+  top: 12%;
+  left: 36%;
 }
 
 .dropdownCalles {
@@ -126,7 +128,6 @@ body {
   top:28%;
 }
 
-
 .dropdown-content {
   display: none;
   position: absolute;
@@ -137,12 +138,18 @@ body {
   border-radius: 15px;
 }
 
-.dropdown-content a {
+.dropdown-content div {
   color: black;
   padding: 12px 16px;
   text-decoration: none;
   display: block;
   z-index: 30;
+  margin-left: 5px;
+  border-bottom: 1px solid #c1d7d5; /* Añade un borde inferior */
+}
+
+.dropdown-content div:last-child {
+  border-bottom: none; /* Elimina el borde inferior del último elemento */
 }
 
 .dropdown-content a:hover {
@@ -160,6 +167,7 @@ body {
   background-color: #84beb0;
   z-index: 31;
 }
+
 
 .descripBox {
  border-color: #e6e5ea;
@@ -195,6 +203,7 @@ body {
   height: 22px;
   width: 190px;
 }
+
 
 .form{
   left: 22.5%;

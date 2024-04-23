@@ -19,7 +19,22 @@ export class NuevaIncidenciaComponent {
     constructor(private stringComparison: StringComparison, private router: Router) {
       this.cargarCallesDeValencia();
     }
-  
+    
+    dropdownOpen: boolean = false;
+  selectedOption: string = 'CONTENEDOR LLENO';
+
+  toggleDropdown() {
+    this.dropdownOpen = !this.dropdownOpen;
+  }
+
+  selectOption(option: string) {
+    this.selectedOption = option;
+  }
+
+  closeDropdown() {
+    this.dropdownOpen = false;
+  }
+
     cargarCallesDeValencia() {
       const filePath = '../assets/CdVOUT.txt';
       fetch(filePath)
