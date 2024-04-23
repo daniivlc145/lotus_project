@@ -48,12 +48,18 @@ export class NuevaIncidenciaComponent {
       this.filteredOptions = similarWords.slice(0, 4); // Mostrar solo las 4 más similares
     }
     
+    
+
     onInputChange(event: Event): void {
-      const inputValue = (event.target as HTMLInputElement).value.toLowerCase();
+      const inputValue = this.removeAccents((event.target as HTMLInputElement).value.toLowerCase());
       // Filtrar las opciones basadas en el valor de entrada
       this.filteredOptions = this.calles.filter(calle =>
-        calle.toLowerCase().includes(inputValue)
+        this.removeAccents(calle.toLowerCase()).includes(inputValue)
       ).slice(0, 4); // Mostrar solo las 4 primeras opciones
+    }
+    
+    removeAccents(str: string): string {
+      return str.normalize("NFD").replace(/[\u0300-\u036f]/g, "");
     }
     
     
