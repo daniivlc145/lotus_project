@@ -15,11 +15,12 @@ export class loginComponent  implements OnInit {
   errorMessage: string | null = null; // Esta es la propiedad que mencionaste
   ngOnInit() {
     const emailInput = document.getElementById('email') as HTMLInputElement;
+    const passwordInput = document.getElementById('password') as HTMLInputElement;
     emailInput.addEventListener('input', () => {
       this.applyFontStyle(emailInput);
     });
-    emailInput.addEventListener('keyup', () => {
-      this.applyFontStyle(emailInput);
+    passwordInput.addEventListener('input', () => {
+      this.applyFontStyle(passwordInput);
     });
   
   

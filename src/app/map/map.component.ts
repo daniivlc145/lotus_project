@@ -23,9 +23,51 @@ export class MapComponent implements OnInit {
   }
 
   private initializeMap() {
-    const customIcon = L.icon({
-      iconUrl: '../../assets/img/Marker.png',
-      iconSize: [38, 50],
+    const vidrio = L.icon({
+      iconUrl: '../../assets/img/Contenedor_Vidrio.png',
+      iconSize: [30, 47],
+      iconAnchor: [19, 38],
+      popupAnchor: [0, -38]
+    });
+
+    const aceite = L.icon({
+      iconUrl: '../../assets/img/Contenedor_Aceite.png',
+      iconSize: [30, 47],
+      iconAnchor: [19, 38],
+      popupAnchor: [0, -38]
+    });
+
+    const envases = L.icon({
+      iconUrl: '../../assets/img/Contenedor_Envases.png',
+      iconSize: [30, 47],
+      iconAnchor: [19, 38],
+      popupAnchor: [0, -38]
+    });
+
+    const organico = L.icon({
+      iconUrl: '../../assets/img/Contenedor_Organico.png',
+      iconSize: [30, 47],
+      iconAnchor: [19, 38],
+      popupAnchor: [0, -38]
+    });
+
+    const papel = L.icon({
+      iconUrl: '../../assets/img/Contenedor_Papel.png',
+      iconSize: [30, 47],
+      iconAnchor: [19, 38],
+      popupAnchor: [0, -38]
+    });
+
+    const residuos = L.icon({
+      iconUrl: '../../assets/img/Contenedor_Residuos.png',
+      iconSize: [30, 47],
+      iconAnchor: [19, 38],
+      popupAnchor: [0, -38]
+    });
+
+    const ropa = L.icon({
+      iconUrl: '../../assets/img/Contenedor_Ropa.png',
+      iconSize: [30, 47],
       iconAnchor: [19, 38],
       popupAnchor: [0, -38]
     });
@@ -44,7 +86,9 @@ export class MapComponent implements OnInit {
     });
 
     // Agrega un marcador al mapa usando el icono personalizado
-    this.addMarker({ lat: 39.4697, lng: -0.3774 }, '', customIcon);
+
+   
+    this.addMarker({ lat: 39.4697, lng: -0.3774 }, '', vidrio);
   }
 
   // Función para agregar un marcador al mapa
@@ -71,9 +115,11 @@ export class MapComponent implements OnInit {
         <h1 id='con' style='font-family: "Laura Regular", sans-serif; color:#3a5e62;'>
           <strong>CONTENEDOR SELECCIONADO</strong>
         </h1>
-        <p><strong>UBICACIÓN:${popupContent} </strong></p>
-        <button id="cerrarBtn" style='height:15%; width: 20%; color:white; background-color:#c1d7d5;'>CERRAR</button>
-        <button style='height:15%; width: 20%;  background-color: #3a5e62; right: 0px; position: absolute; color:white;' onclick="this.parentElement.remove()">AÑADIR REPORTE</button>
+        <p style="position:absolute; top:35%;"><strong>UBICACIÓN:${popupContent} </strong></p>
+        <br>
+        <button id="cerrarBtn" style='height: 21%; width: 30%; color: white; background-color: #c1d7d5; position: absolute; left: 15%; border-radius: 15px; font-size: 18px; text-align: center; line-height: 100%; bottom:13px;'>CERRAR</button>
+        <button id="anadirBtn" style='height: 21%; width: 30%; background-color: #3a5e62; right: 15%; position: absolute; color: white; border-radius: 15px; font-size: 18px; text-align: center; line-height: 100%; bottom:13px;'>AÑADIR REPORTE</button>
+        
       </div>
     `;
 
@@ -91,6 +137,12 @@ export class MapComponent implements OnInit {
       cerrarBtn.addEventListener('click', () => {
         this.ocultarDiv();
         this.customDiv?.remove();
+      });
+    }
+    const anadirBtn = this.customDiv.querySelector('#anadirBtn');
+    if (anadirBtn) {
+      anadirBtn.addEventListener('click', () => {
+        this.goToNuevaIncPage();
       });
     }
   }
@@ -127,13 +179,13 @@ export class MapComponent implements OnInit {
 
   selectAll = false;
   items = [
-    { id: 'checkbox1', selected: false },
-    { id: 'checkbox2', selected: false },
-    { id: 'checkbox3', selected: false },
-    { id: 'checkbox4', selected: false },
-    { id: 'checkbox5', selected: false },
-    { id: 'checkbox6', selected: false },
-    { id: 'checkbox7', selected: false },
+    { id: 'checkvidrio', selected: false },
+    { id: 'checkaceite', selected: false },
+    { id: 'checkropa', selected: false },
+    { id: 'checkresiduos', selected: false },
+    { id: 'checkpapel', selected: false },
+    { id: 'checkenvases', selected: false },
+    { id: 'checkorganico', selected: false },
   ];
 
   toggleAll() {
@@ -142,7 +194,23 @@ export class MapComponent implements OnInit {
   }
 
   goToInfoPage() {
-    console.log('goToLoginPage() called');
+  
     this.router.navigate(['/info-rec']);
+  }
+
+  goToNuevaIncPage() {
+
+    this.router.navigate(['/newI']);
+  }
+
+  goToMisPage() {
+
+    this.router.navigate(['/misI']);
+  }
+
+  goToMapPage() {
+
+      window.location.reload();
+    
   }
 }
