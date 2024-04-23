@@ -26,4 +26,9 @@ export class InfoRecComponent implements AfterViewInit {
     });
   }
 
+  ngOnInit():void{
+    setTimeout(() => {
+  }, 500);
+  }
+
 }

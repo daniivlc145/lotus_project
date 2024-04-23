@@ -56,6 +56,8 @@ const routes: Routes = [
 
   {path: 'dialogOne', component:DialogOneComponent},
 
+  {path: 'email', component:IntroducirEmailComponent},
+
   {
     path: '',
     redirectTo: 'tutorial-welc',
