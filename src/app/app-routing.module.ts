@@ -29,6 +29,7 @@ import { IntroducirEmailComponent } from './introducir-email/introducir-email.co
 import { DialogOneComponent } from './dialog-one/dialog-one.component';
 
 
+
 const routes: Routes = [
 
   {path:'tutorial-welc', component:TutorialWelcComponent},
@@ -53,7 +54,7 @@ const routes: Routes = [
 
   {path: 'misI', component: MisIncidenciasComponent},
 
-  {path: 'autocomplete', component: AutocompleteComponent},
+  //{path: 'autocomplete', component: AutocompleteComponent},
 
   {path: 'dialogOne', component:DialogOneComponent},
 

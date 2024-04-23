@@ -35,8 +35,8 @@
                     <div class="board"></div>
                   </div>  
                 <form id="f"  (ngSubmit)="signIn();">
-                    <input type="text" id="email" name="email" placeholder="CORREO" required="required">
-                    <input type="password" id="password" name="password" placeholder="CONTRASEÑA" required="required">
+                    <input type="text" id="email" class="font-email" name="email" placeholder="CORREO" required="required" >
+                    <input type="password" id="password" class="font-password" name="password" placeholder="CONTRASEÑA" required="required">
                     <div *ngIf="errorMessage" class="error-message">
                       {{ errorMessage }}
                      </div>
