@@ -1,5 +1,5 @@
 import { supabaseClient } from 'src/supabase_client';
-import {writeFileSync, readFileSync} from 'fs';
+// import {writeFileSync, readFileSync} from 'fs';
 
 interface ContainerInfo {
     container_id: number
@@ -54,29 +54,29 @@ export async function searchContainers(): Promise<{[clave: string]: ContainerInf
     
     const data : string = JSON.stringify(result,null,2)
 
-    try{
-        writeFileSync(path,data, {flag: "w+"})
-        console.log("Diccionario creado correctamente")
-    }
-    catch(error){
-        console.error("Error inesperado: ", (error as Error).message)
-        throw error
-    }
+    // try{
+    //     writeFileSync(path,data, {flag: "w+"})
+    //     console.log("Diccionario creado correctamente")
+    // }
+    // catch(error){
+    //     console.error("Error inesperado: ", (error as Error).message)
+    //     throw error
+    // }
     
     return result;
 
 }
 
-export async function filtrarMapa(contenedores : {[clave: string]: boolean}) : Promise<{[clave: string]: ContainerInfo[]}>{
-    const data : string =  readFileSync("../utils/diccionario_contenedores",{encoding : "utf-8"})
-    const diccionario : {[clave: string]: ContainerInfo[]} = JSON.parse(data)
-    const res : {[clave:string]: ContainerInfo[]}= {}
-    for(const element in contenedores){
-        let value = contenedores[element]
+// export async function filtrarMapa(contenedores : {[clave: string]: boolean}) : Promise<{[clave: string]: ContainerInfo[]}>{
+//     const data : string =  readFileSync("../utils/diccionario_contenedores",{encoding : "utf-8"})
+//     const diccionario : {[clave: string]: ContainerInfo[]} = JSON.parse(data)
+//     const res : {[clave:string]: ContainerInfo[]}= {}
+//     for(const element in contenedores){
+//         let value = contenedores[element]
         
-        if(value){
-            res[element] = diccionario[element]
-        }
-    }
-    return res;
-}
+//         if(value){
+//             res[element] = diccionario[element]
+//         }
+//     }
+//     return res;
+// }

@@ -292,4 +292,10 @@ export class MapComponent implements OnInit {
       window.location.reload();
     
   }
+
+  goToProfPage(){
+
+    this.router.navigate(['/profUser']);
+
+  }
 }

@@ -10,7 +10,7 @@ export class TutorialAbtComponent  implements OnInit {
   constructor() { }
 
   ngOnInit() {
-    console.log('El componente TutorialAbtComponent se ha inicializado.');
+   
 
   }
 

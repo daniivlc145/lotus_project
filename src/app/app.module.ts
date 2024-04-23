@@ -23,6 +23,7 @@ import { animation } from '@angular/animations';
 import { MatButtonModule } from '@angular/material/button';
 import {MatDialogModule}  from '@angular/material/dialog'
 import { DialogOneComponent } from './dialog-one/dialog-one.component';
+import { profileUserComponent } from './profile-user/profile-user.component';
 
 @NgModule({
   declarations: [
@@ -38,7 +39,8 @@ import { DialogOneComponent } from './dialog-one/dialog-one.component';
     ContrasenaOlvidadaComponent,
     MisIncidenciasComponent,
     IntroducirEmailComponent,
-    DialogOneComponent
+    DialogOneComponent,
+    profileUserComponent
   ],
 
   imports: [
