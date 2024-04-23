@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import * as L from 'leaflet';
 import { Router } from '@angular/router';
+import { searchContainers } from './map.functions';
 
 @Component({
   selector: 'app-map',
@@ -14,6 +15,7 @@ export class MapComponent implements OnInit {
   markers: L.Marker[] = []; // Array para almacenar los marcadores
   customIcon!: L.Icon;
   
+
 
   constructor(private router: Router) { }
 
@@ -73,6 +75,16 @@ export class MapComponent implements OnInit {
       popupAnchor: [0, -38]
     });
 
+    const diccionario_imagenes : {[clave:string] : L.Icon}= {
+      "glass_containers"    : vidrio,
+      "oil_containers"      : aceite,
+      "clothes_containers"  : ropa,
+      "Residuos Urbanos"    : residuos,
+      "Papel / Carton"     : papel,
+      "Envases Ligeros"    : envases,
+      "Organico"            : organico
+    }
+
     this.map = L.map('map', {
       zoomControl: false // Desactiva el control de zoom predeterminado
     }).setView([39.4697, -0.3774], 50);
@@ -86,9 +98,33 @@ export class MapComponent implements OnInit {
       this.updateMarkers(); // Actualiza los marcadores cuando cambia la vista del mapa
     });
 
-    // Agrega un marcador al mapa usando el icono personalizado
+    const tipos_contenedor = [      
+      "glass_containers",    
+      "oil_containers",      
+      "clothes_containers",  
+      "Residuos Urbanos",    
+      "Papel / Carton",      
+      "Envases Ligeros",     
+      "Organico"
+    ]
+    const container_info = searchContainers().then(
+      (result)=> {
+        for(let basura of tipos_contenedor){
+          for(let basura_array of result[basura]){
+             let coordenadas = basura_array.location
+             let location = coordenadas.split(",").map(item => parseFloat(item))
+             let tipo = diccionario_imagenes[basura]
+             this.addMarker({lat: location[0], lng: location[1]},coordenadas,tipo)
+          }
 
-   
+        }
+
+
+
+      })
+
+
+    // Agrega un marcador al mapa usando el icono personalizado
 
     this.addMarker({ lat: 39.4697, lng: -0.3774 }, '', vidrio);
   }
@@ -230,6 +266,8 @@ export class MapComponent implements OnInit {
       .filter(item => item.selected)
       .map(item => item.id);
     console.log(this.selectedItems);
+
+
   }
   
 

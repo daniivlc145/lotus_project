@@ -9,5 +9,5 @@ import { searchContainers } from "../app/map/map.functions";
 //signInUser("danielibanezlopez1@gmail.com","123456")//.then(() => updateUserData("Carlitos gordo GORDO"))
 //forgotPassword("info2maxkaidanov2017@gmail.com")
 
-searchContainers()
+//searchContainers()
 
