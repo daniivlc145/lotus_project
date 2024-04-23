@@ -66,10 +66,14 @@ export async function searchContainers(): Promise<{[clave: string]: ContainerInf
     return result;
 
 }
-export async function checkLevel(containerId: number, containerType: string): Promise<boolean> {
+export function conversionWasteContainers (containerType: string): string {
     if (containerType === 'Residuos Urbanos' || containerType === 'Organico' || containerType === 'Papel / Carton' || containerType === 'Envases Ligeros') {
         containerType = 'waste_containers'
     }
+    return containerType
+}
+export async function checkLevel(containerId: number, containerType: string): Promise<boolean> {
+    containerType = conversionWasteContainers(containerType)
 
     const {data, error} = await supabaseClient
         .from(containerType)
