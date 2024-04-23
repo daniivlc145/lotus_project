@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import * as L from 'leaflet';
 import { Router } from '@angular/router';
-import { searchContainers } from './map.functions';
+import { filtrarMapa, searchContainers } from './map.functions';
 
 @Component({
   selector: 'app-map',
@@ -14,7 +14,75 @@ export class MapComponent implements OnInit {
   map!: L.Map;
   markers: L.Marker[] = []; // Array para almacenar los marcadores
   customIcon!: L.Icon;
+
+  vidrio = L.icon({
+    iconUrl: '../../assets/img/Contenedor_Vidrio.png',
+    iconSize: [30, 47],
+    iconAnchor: [19, 38],
+    popupAnchor: [0, -38]
+  });
+
+  aceite = L.icon({
+    iconUrl: '../../assets/img/Contenedor_Aceite.png',
+    iconSize: [30, 47],
+    iconAnchor: [19, 38],
+    popupAnchor: [0, -38]
+  });
+
+  envases = L.icon({
+    iconUrl: '../../assets/img/Contenedor_Envases.png',
+    iconSize: [30, 47],
+    iconAnchor: [19, 38],
+    popupAnchor: [0, -38]
+  });
+
+  organico = L.icon({
+    iconUrl: '../../assets/img/Contenedor_Organico.png',
+    iconSize: [30, 47],
+    iconAnchor: [19, 38],
+    popupAnchor: [0, -38]
+  });
+
+  papel = L.icon({
+    iconUrl: '../../assets/img/Contenedor_Papel.png',
+    iconSize: [30, 47],
+    iconAnchor: [19, 38],
+    popupAnchor: [0, -38]
+  });
+
+  residuos = L.icon({
+    iconUrl: '../../assets/img/Contenedor_Residuos.png',
+    iconSize: [30, 47],
+    iconAnchor: [19, 38],
+    popupAnchor: [0, -38]
+  });
+
+  ropa = L.icon({
+    iconUrl: '../../assets/img/Contenedor_Ropa.png',
+    iconSize: [30, 47],
+    iconAnchor: [19, 38],
+    popupAnchor: [0, -38]
+  });
   
+  diccionario_imagenes : {[clave:string] : L.Icon}= {
+    "glass_containers"    : this.vidrio,
+    "oil_containers"      : this.aceite,
+    "clothes_containers"  : this.ropa,
+    "Residuos Urbanos"    : this.residuos,
+    "Papel / Carton"      : this.papel,
+    "Envases Ligeros"     : this.envases,
+    "Organico"            : this.organico
+  }
+
+  tipos_contenedor = [      
+    "glass_containers",    
+    "oil_containers",      
+    "clothes_containers",  
+    "Residuos Urbanos",    
+    "Papel / Carton",      
+    "Envases Ligeros",     
+    "Organico"
+  ]
 
 
   constructor(private router: Router) { }
@@ -23,67 +91,14 @@ export class MapComponent implements OnInit {
     setTimeout(() => {
       this.initializeMap();
     }, 500);
+    const checkbox = document.getElementById('checkbox-top-right') as HTMLInputElement;
+    checkbox.checked = true;
   }
 
   private initializeMap() {
-    const vidrio = L.icon({
-      iconUrl: '../../assets/img/Contenedor_Vidrio.png',
-      iconSize: [30, 47],
-      iconAnchor: [19, 38],
-      popupAnchor: [0, -38]
-    });
 
-    const aceite = L.icon({
-      iconUrl: '../../assets/img/Contenedor_Aceite.png',
-      iconSize: [30, 47],
-      iconAnchor: [19, 38],
-      popupAnchor: [0, -38]
-    });
 
-    const envases = L.icon({
-      iconUrl: '../../assets/img/Contenedor_Envases.png',
-      iconSize: [30, 47],
-      iconAnchor: [19, 38],
-      popupAnchor: [0, -38]
-    });
 
-    const organico = L.icon({
-      iconUrl: '../../assets/img/Contenedor_Organico.png',
-      iconSize: [30, 47],
-      iconAnchor: [19, 38],
-      popupAnchor: [0, -38]
-    });
-
-    const papel = L.icon({
-      iconUrl: '../../assets/img/Contenedor_Papel.png',
-      iconSize: [30, 47],
-      iconAnchor: [19, 38],
-      popupAnchor: [0, -38]
-    });
-
-    const residuos = L.icon({
-      iconUrl: '../../assets/img/Contenedor_Residuos.png',
-      iconSize: [30, 47],
-      iconAnchor: [19, 38],
-      popupAnchor: [0, -38]
-    });
-
-    const ropa = L.icon({
-      iconUrl: '../../assets/img/Contenedor_Ropa.png',
-      iconSize: [30, 47],
-      iconAnchor: [19, 38],
-      popupAnchor: [0, -38]
-    });
-
-    const diccionario_imagenes : {[clave:string] : L.Icon}= {
-      "glass_containers"    : vidrio,
-      "oil_containers"      : aceite,
-      "clothes_containers"  : ropa,
-      "Residuos Urbanos"    : residuos,
-      "Papel / Carton"     : papel,
-      "Envases Ligeros"    : envases,
-      "Organico"            : organico
-    }
 
     this.map = L.map('map', {
       zoomControl: false // Desactiva el control de zoom predeterminado
@@ -98,22 +113,15 @@ export class MapComponent implements OnInit {
       this.updateMarkers(); // Actualiza los marcadores cuando cambia la vista del mapa
     });
 
-    const tipos_contenedor = [      
-      "glass_containers",    
-      "oil_containers",      
-      "clothes_containers",  
-      "Residuos Urbanos",    
-      "Papel / Carton",      
-      "Envases Ligeros",     
-      "Organico"
-    ]
+  
+    // Agrega marcadores marcador al mapa usando el icono personalizado
     const container_info = searchContainers().then(
       (result)=> {
-        for(let basura of tipos_contenedor){
+        for(let basura of this.tipos_contenedor){
           for(let basura_array of result[basura]){
              let coordenadas = basura_array.location
              let location = coordenadas.split(",").map(item => parseFloat(item))
-             let tipo = diccionario_imagenes[basura]
+             let tipo = this.diccionario_imagenes[basura]
              this.addMarker({lat: location[0], lng: location[1]},coordenadas,tipo)
           }
 
@@ -123,10 +131,6 @@ export class MapComponent implements OnInit {
 
       })
 
-
-    // Agrega un marcador al mapa usando el icono personalizado
-
-    this.addMarker({ lat: 39.4697, lng: -0.3774 }, '', vidrio);
   }
 
   // Función para agregar un marcador al mapa
@@ -215,17 +219,17 @@ export class MapComponent implements OnInit {
     }
   }
 
-  selectAll = false;
+  selectAll = true;
   selectedItems: string[] = [];
   
   items = [
-    { id: 'glass_containers', selected: false },
-    { id: 'oil_containers', selected: false },
-    { id: 'clothes_containers', selected: false },
-    { id: 'Residuos Urbanos', selected: false },
-    { id: 'Papel / Carton', selected: false },
-    { id: 'Envases Ligeros', selected: false },
-    { id: 'Organico', selected: false },
+    { id: 'glass_containers', selected: true },
+    { id: 'oil_containers', selected: true },
+    { id: 'clothes_containers', selected: true },
+    { id: 'Residuos Urbanos', selected: true },
+    { id: 'Papel / Carton', selected: true },
+    { id: 'Envases Ligeros', selected: true },
+    { id: 'Organico', selected: true },
   ];
   
   toggleAll() {
@@ -265,8 +269,27 @@ export class MapComponent implements OnInit {
     this.selectedItems = this.items
       .filter(item => item.selected)
       .map(item => item.id);
-    console.log(this.selectedItems);
+   
+    
+    this.markers.forEach(marker => marker.remove());
+    this.markers = [];
 
+    const container_info = filtrarMapa(this.selectedItems).then(
+      (result)=> {
+       
+        for(let basura of this.selectedItems){
+          for(let basura_array of result[basura]){
+             let coordenadas = basura_array.location
+             let location = coordenadas.split(",").map(item => parseFloat(item))
+             let tipo = this.diccionario_imagenes[basura]
+             this.addMarker({lat: location[0], lng: location[1]},coordenadas,tipo)
+          }
+
+        }
+
+
+
+      })
 
   }
   

@@ -66,10 +66,14 @@ export async function searchContainers(): Promise<{[clave: string]: ContainerInf
     return result;
 
 }
-export async function checkLevel(containerId: number, containerType: string): Promise<boolean> {
+export function conversionWasteContainers (containerType: string): string {
     if (containerType === 'Residuos Urbanos' || containerType === 'Organico' || containerType === 'Papel / Carton' || containerType === 'Envases Ligeros') {
         containerType = 'waste_containers'
     }
+    return containerType
+}
+export async function checkLevel(containerId: number, containerType: string): Promise<boolean> {
+    containerType = conversionWasteContainers(containerType)
 
     const {data, error} = await supabaseClient
         .from(containerType)
@@ -104,12 +108,16 @@ export async function modifyLevel(container_id: number, container_type: string, 
     
 }
 
-export async function filtrarMapa(contenedores : string[]) : Promise<{[clave: string]: ContainerInfo[]}>{
+export async function filtrarMapa(contenedores : {[clave: string]: boolean}) : Promise<{[clave: string]: ContainerInfo[]}>{
     const data : string =  readFileSync("../utils/diccionario_contenedores",{encoding : "utf-8"})
     const diccionario : {[clave: string]: ContainerInfo[]} = JSON.parse(data)
     const res : {[clave:string]: ContainerInfo[]}= {}
     for(const element in contenedores){
-        res[element] = diccionario[element]
+        let value = contenedores[element]
+        
+        if(value){
+            res[element] = diccionario[element]
+        }
     }
     return res;
 }
