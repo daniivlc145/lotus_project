@@ -201,8 +201,29 @@ export class MapComponent implements OnInit {
   }
   
   itemChanged(item: any) {
+    if (this.selectAll && !item.selected) {
+      // Si selectAll es true y un elemento se deselecciona,
+      // desactiva la opción de seleccionar todos
+      this.selectAll = false;
+      // Desactiva el checkbox "checkbox-top-right"
+      const checkbox = document.getElementById('checkbox-top-right') as HTMLInputElement;
+      if (checkbox) {
+        checkbox.checked = false;
+      }
+    } else if (!this.selectAll && this.items.every(item => item.selected)) {
+      // Si selectAll es false y todos los elementos están seleccionados,
+      // activa la opción de seleccionar todos
+      this.selectAll = true;
+      // Activa el checkbox "checkbox-top-right"
+      const checkbox = document.getElementById('checkbox-top-right') as HTMLInputElement;
+      if (checkbox) {
+        checkbox.checked = true;
+      }
+    }
     this.updateSelectedItems();
   }
+  
+  
   
   updateSelectedItems() {
     this.selectedItems = this.items
