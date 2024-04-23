@@ -49,7 +49,6 @@ export async function searchContainers(): Promise<{[clave: string]: ContainerInf
     }
     
     // Una vez se guarda el diccionario con todos los contenedores, lo transformamos a un objeto local
-    const path : string = "../utils/diccionario_contenedores.json"
     
     const data : string = JSON.stringify(result,null,2)
     try{
