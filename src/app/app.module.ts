@@ -18,6 +18,12 @@ import { ContrasenaOlvidadaComponent } from './contrasena-olvidada/contrasena-ol
 import { MisIncidenciasComponent } from './mis-incidencias/mis-incidencias.component';
 import { MatFormFieldModule } from '@angular/material/form-field';
 import { IntroducirEmailComponent } from './introducir-email/introducir-email.component';
+import {BrowserAnimationsModule } from '@angular/platform-browser/animations';
+import { animation } from '@angular/animations';
+import { MatButtonModule } from '@angular/material/button';
+import {MatDialogModule}  from '@angular/material/dialog'
+import { DialogOneComponent } from './dialog-one/dialog-one.component';
+
 @NgModule({
   declarations: [
     AppComponent,
@@ -32,6 +38,7 @@ import { IntroducirEmailComponent } from './introducir-email/introducir-email.co
     ContrasenaOlvidadaComponent,
     MisIncidenciasComponent,
     IntroducirEmailComponent,
+    DialogOneComponent
   ],
 
   imports: [
@@ -40,6 +47,9 @@ import { IntroducirEmailComponent } from './introducir-email/introducir-email.co
     FormsModule,
     AppRoutingModule, 
     MatFormFieldModule,
+    BrowserAnimationsModule,
+    MatButtonModule,
+    MatDialogModule
   ], 
   providers: [
     provideAnimationsAsync()
