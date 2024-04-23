@@ -1,4 +1,4 @@
-import { Component, AfterViewInit } from '@angular/core';
+import { Component,  OnInit } from '@angular/core';
 import * as L from 'leaflet';
 import { Router } from '@angular/router';
 
@@ -9,7 +9,7 @@ import { Router } from '@angular/router';
   templateUrl: './map.component.html',
   styleUrls: ['./map.component.scss']
 })
-export class MapComponent implements AfterViewInit {
+export class MapComponent implements OnInit {
 
   customDiv: HTMLElement | null = null; 
   constructor(private router: Router) { }
@@ -18,11 +18,14 @@ export class MapComponent implements AfterViewInit {
   markers: L.Marker[] = []; // Array para almacenar los marcadores
   customIcon!: L.Icon;
 
+  ngOnInit(): void {
+    setTimeout(() => {
+        this.initializeMap();
+    }, 500);
+}
 
-  ngAfterViewInit(): void {
-    this.initializeMap();
-  }
 
+  
   private initializeMap() {
     const customIcon = L.icon({
       iconUrl: '../../assets/img/Marker.png',
@@ -36,6 +39,8 @@ export class MapComponent implements AfterViewInit {
     L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
       attribution: '&copy; OpenStreetMap contributors'
     }).addTo(this.map);
+
+    
 
     // Escucha el evento de cambio de vista del mapa
     this.map.on('moveend', () => {
