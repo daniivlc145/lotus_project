@@ -13,6 +13,7 @@ export class MapComponent implements OnInit {
   map!: L.Map;
   markers: L.Marker[] = []; // Array para almacenar los marcadores
   customIcon!: L.Icon;
+  
 
   constructor(private router: Router) { }
 
@@ -179,20 +180,38 @@ export class MapComponent implements OnInit {
   }
 
   selectAll = false;
+  selectedItems: string[] = [];
+  
   items = [
-    { id: 'checkvidrio', selected: false },
-    { id: 'checkaceite', selected: false },
-    { id: 'checkropa', selected: false },
-    { id: 'checkresiduos', selected: false },
-    { id: 'checkpapel', selected: false },
-    { id: 'checkenvases', selected: false },
-    { id: 'checkorganico', selected: false },
+    { id: 'glass_containers', selected: false },
+    { id: 'oil_containers', selected: false },
+    { id: 'clothes_containers', selected: false },
+    { id: 'Residuos Urbanos', selected: false },
+    { id: 'Papel / Carton', selected: false },
+    { id: 'Envases Ligeros', selected: false },
+    { id: 'Organico', selected: false },
   ];
-
+  
   toggleAll() {
     this.selectAll = !this.selectAll;
-    this.items.forEach(item => item.selected = this.selectAll);
+    this.items.forEach(item => {
+      item.selected = this.selectAll;
+    });
+    this.updateSelectedItems();
   }
+  
+  itemChanged(item: any) {
+    this.updateSelectedItems();
+  }
+  
+  updateSelectedItems() {
+    this.selectedItems = this.items
+      .filter(item => item.selected)
+      .map(item => item.id);
+    console.log(this.selectedItems);
+  }
+  
+
 
   goToInfoPage() {
   
