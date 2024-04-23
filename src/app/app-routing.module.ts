@@ -27,6 +27,7 @@ import { MisIncidenciasComponent } from './mis-incidencias/mis-incidencias.compo
 import { IntroducirEmailComponent } from './introducir-email/introducir-email.component';
 
 import { DialogOneComponent } from './dialog-one/dialog-one.component';
+import { profileUserComponent } from './profile-user/profile-user.component';
 
 
 
@@ -57,6 +58,8 @@ const routes: Routes = [
   {path: 'dialogOne', component:DialogOneComponent},
 
   {path: 'email', component:IntroducirEmailComponent},
+
+  {path: 'profUser', component:profileUserComponent},
 
   {
     path: '',

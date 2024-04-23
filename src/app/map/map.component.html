@@ -1,5 +1,4 @@
 <link href="map.component.scss" rel="stylesheet">
-<link rel="stylesheet" href="/src/css/style.css">
 <link rel="stylesheet" href="https://unpkg.com/leaflet@1.7.1/dist/leaflet.css" integrity="sha512-xodZBNTC5n17Xt2atTPuE1HxjVMSvLVW9ocqUKLsCC5CXdbqCmblAshOMAS6/keqq/sMZMZ19scR4PsZChSR7A==" crossorigin=""/>
 <script src="https://unpkg.com/leaflet@1.7.1/dist/leaflet.js" integrity="sha512-XQoYMqMTK8LvdxXYG3nZ448hOEQiglfqkJs1NOQV44cWnUrBc8PkAOcXy20w0vlaXaVUearIOBhiXZ5V3ynxwA==" crossorigin=""></script>
 
@@ -24,50 +23,50 @@
             <div class="filter-buttons">
                 <div class="button-container">
                 <img src="../../assets/img/Contenedor_Vidrio.png">
-                <input type="checkbox" id="checkbox1" class="filter-checkbox" [(ngModel)]="items[0].selected">
-                <label for="checkbox1">
+                <input type="checkbox" id="glass_containers" class="filter-checkbox" [(ngModel)]="items[0].selected" (change)="itemChanged(items)" >
+                <label for="glass_containers">
                     <img src="../../assets/img/Selected.png" alt="Seleccionado" class="checkbox-selected">
                 </label>
                 </div>
             <div class="button-container">
                 <img src="../../assets/img/Contenedor_Aceite.png">
-                <input type="checkbox" id="checkbox2" class="filter-checkbox" [(ngModel)]="items[1].selected">
-                <label for="checkbox2">
+                <input type="checkbox" id="oil_containers" class="filter-checkbox" [(ngModel)]="items[1].selected" (change)="itemChanged(items)">
+                <label for="oil_containers">
                     <img src="../../assets/img/Selected.png" alt="Seleccionado" class="checkbox-selected">
                 </label>
             </div>
             <div class="button-container">
                 <img src="../../assets/img/Contenedor_Ropa.png">
-                <input type="checkbox" id="checkbox3" class="filter-checkbox" [(ngModel)]="items[2].selected">
-                <label for="checkbox3">
+                <input type="checkbox" id="clothes_containers" class="filter-checkbox" [(ngModel)]="items[2].selected" (change)="itemChanged(items)">
+                <label for="clothes_containers">
                     <img src="../../assets/img/Selected.png" alt="Seleccionado" class="checkbox-selected">
                 </label>
                 </div>
             <div class="button-container">
                 <img src="../../assets/img/Contenedor_Residuos.png">
-                <input type="checkbox" id="checkbox4" class="filter-checkbox" class="checkbox-selected" [(ngModel)]="items[3].selected">
-                <label for="checkbox4">
+                <input type="checkbox" id="Residuos Urbanos" class="filter-checkbox" class="checkbox-selected" [(ngModel)]="items[3].selected" (change)="itemChanged(items)">
+                <label for="Residuos Urbanos">
                     <img src="../../assets/img/Selected.png" alt="Seleccionado" class="checkbox-selected">
                 </label>
                 </div>
             <div class="button-container">
                 <img src="../../assets/img/Contenedor_Papel.png">
-                <input type="checkbox" id="checkbox5" class="filter-checkbox" [(ngModel)]="items[4].selected">
-                <label for="checkbox5">
+                <input type="checkbox" id="Papel / Carton" class="filter-checkbox" [(ngModel)]="items[4].selected" (change)="itemChanged(items)">
+                <label for="Papel / Carton">
                     <img src="../../assets/img/Selected.png" alt="Seleccionado" class="checkbox-selected">
                 </label>
             </div>
                 <div class="button-container">
                 <img src="../../assets/img/Contenedor_Envases.png">
-                <input type="checkbox" id="checkbox6" class="filter-checkbox" [(ngModel)]="items[5].selected">
-                <label for="checkbox6">
+                <input type="checkbox" id="Envases Ligeros" class="filter-checkbox" [(ngModel)]="items[5].selected" (change)="itemChanged(items)">
+                <label for="Envases Ligeros">
                     <img src="../../assets/img/Selected.png" alt="Seleccionado" class="checkbox-selected">
                 </label>
             </div>
             <div class="button-container">
                 <img src="../../assets/img/Contenedor_Organico.png">
-                <input type="checkbox" id="checkbox7" class="filter-checkbox" [(ngModel)]="items[6].selected">
-                <label for="checkbox7">
+                <input type="checkbox" id="Organico" class="filter-checkbox" [(ngModel)]="items[6].selected" (change)="itemChanged(items)">
+                <label for="Organico">
                     <img src="../../assets/img/Selected.png" alt="Seleccionado" class="checkbox-selected">
                 </label>
             </div>
@@ -80,15 +79,15 @@
 
    <footer class="footer">
     <div class="footer-buttons">
-        <button class="mis-incidencias">
+        <button class="mis-incidencias" (click)="goToMisPage();">
             <img src="../../assets/img/Icon_Mis_Incidencias.png" alt="Icono Mis Incidencias">
         </button>
         
-        <button class="reportes-mapa">
+        <button class="reportes-mapa" (click)="goToNuevaIncPage();">
             <img src="../../assets/img/Icon_Reportes_En_El_Mapa.png" alt="Icono Reportes en el Mapa">
         </button>
         
-        <button class="ver-mapa">
+        <button class="ver-mapa" (click)="goToMapPage();">
             <img src="../../assets/img/icon_VER_MAPA_pink.png" alt="Icono Ver Mapa">
         </button>
         
@@ -96,7 +95,7 @@
             <img src="../../assets/img/icon_Info_Reciclaje.png" alt="Icono Información de Reciclaje">
         </button>
         
-        <button class="icono-usuario">
+        <button class="icono-usuario" (click)="goToProfPage();">
             <img src="../../assets/img/icon_User.png" alt="Icono Usuario">
         </button>
         
