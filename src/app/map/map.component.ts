@@ -88,6 +88,7 @@ export class MapComponent implements OnInit {
     // Agrega un marcador al mapa usando el icono personalizado
 
    
+
     this.addMarker({ lat: 39.4697, lng: -0.3774 }, '', vidrio);
   }
 

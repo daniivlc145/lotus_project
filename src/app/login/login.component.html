@@ -23,14 +23,14 @@
 
 
             <div class="form-container">
-                <div class="auth-field">
+                <div id="auth-field">
                     <div class="sign-container">
-                      <div class="signin">
-                     <button type="button" id="userbutton" (click)="swapStyles()">USUARIO></button>
-                      </div>
-                      <div class="signup" >
-                        <button type="button" id="orgbutton" (click)="swapStyles()" >ORG.</button>
-                      </div>
+                      <div id="signin">
+                        <button type="button" id="userbutton" (click)="handleButtonClick('userbutton')">USUARIO</button>
+                    </div>
+                    <div id="signup">
+                        <button type="button" id="orgbutton" (click)="handleButtonClick('orgbutton')">ORG.</button>
+                    </div>
                     </div>
                     <div class="board"></div>
                   </div>  
