@@ -54,8 +54,6 @@ const routes: Routes = [
 
   {path: 'misI', component: MisIncidenciasComponent},
 
-  //{path: 'autocomplete', component: AutocompleteComponent},
-
   {path: 'dialogOne', component:DialogOneComponent},
 
   {
