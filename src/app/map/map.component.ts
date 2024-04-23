@@ -269,13 +269,14 @@ export class MapComponent implements OnInit {
     this.selectedItems = this.items
       .filter(item => item.selected)
       .map(item => item.id);
-    console.log(this.selectedItems);
+   
     
     this.markers.forEach(marker => marker.remove());
+    this.markers = [];
 
     const container_info = filtrarMapa(this.selectedItems).then(
       (result)=> {
-        console.log("El resultado tras el filtrado es: ", result)
+       
         for(let basura of this.selectedItems){
           for(let basura_array of result[basura]){
              let coordenadas = basura_array.location

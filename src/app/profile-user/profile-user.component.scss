@@ -12,6 +12,7 @@
     display: flex;
     justify-content: center; /* Centra horizontalmente */
     align-items: center; /* Centra verticalmente */
+    z-index: 0;
 }
 
 .footer {
@@ -70,4 +71,34 @@
     width: 50px;
     transform: rotate(-2deg);
 }
+
+.circulo {
+    width: 110px; /* Tamaño del círculo en píxeles */
+    height: 110px; /* Tamaño del círculo en píxeles */
+    background-color: #c1d7d5; /* Cambia esto al color que desees */
+    border-radius: 50%; /* Hace que el div sea un círculo */
+    z-index: 2;
+    position: absolute;
+    top: 25%;
+    left: 50%;
+    transform: translate(-50%, -50%); /* Centra el círculo horizontal y verticalmente */
+    border: 5px solid #5a8d8d; /* Define el borde con ancho, estilo y color */
+    overflow: hidden;
+}
+
+#name{
+    
+    color: #5a8d8d;
+    position: absolute;
+    top: 36%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    z-index: 10000;
+    font-weight: bold;
+
+
+}
+
+
+
 

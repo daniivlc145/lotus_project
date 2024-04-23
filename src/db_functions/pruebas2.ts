@@ -1,3 +1,3 @@
-import { searchContainers } from "src/app/map/map.functions"
+import { searchContainers } from "../app/map/map.functions"
 
 searchContainers()
