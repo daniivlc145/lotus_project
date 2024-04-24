@@ -1,8 +1,8 @@
 import { supabaseClient } from "../../supabase_client";
 
-export async function muestraMisIncidencias(){
+export async function muestraMisIncidencias(): Promise<{[clave:string]:string}[]>{
     try{
-        let result = []
+        let result : {[clave:string]:string}[] = []
         // const {data: {user}} = await supabaseClient.auth.getUser()
         // if (!user) {
         //     throw new Error('No se ha encontrado un usuario autenticado')
@@ -37,6 +37,7 @@ export async function muestraMisIncidencias(){
             })
         }
         return result
+
     } catch (error) {
         console.error('Error inesperado:', (error as Error).message);
         throw error;

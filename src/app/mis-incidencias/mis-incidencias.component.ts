@@ -17,7 +17,20 @@ export class MisIncidenciasComponent implements OnInit, AfterViewInit {
   constructor(private router: Router) {}
 
   ngOnInit(): void {
-    muestraMisIncidencias;
+    muestraMisIncidencias().then((result) =>
+      {
+          for (let elem of result){
+            elem['fecha']
+            elem['hora']
+            elem['descripcion']
+            elem['type']
+            elem['geo_shape']
+          }
+
+
+      }
+
+    );
   }
 
   ngAfterViewInit(): void {
