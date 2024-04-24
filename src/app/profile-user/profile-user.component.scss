@@ -1,5 +1,7 @@
 @import url("/src/css/style.css");
 
+body{user-select: none;}
+
 .content { /*Es el div q engloba todo*/
     width: 100%;
     height: 100%;
