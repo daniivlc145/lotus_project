@@ -1,4 +1,4 @@
-import { supabaseClient } from "src/supabase_client";
+import { supabaseClient } from "../../supabase_client";
 
 export async function muestraMisIncidencias(){
     try{
