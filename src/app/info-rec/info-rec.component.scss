@@ -8,20 +8,21 @@ justify-content: center;
 align-items: center;
 min-height: 100vh;
 background-color: #f0f0f0;
+user-select: none;
 }
 
 swiper-container {
   top:6%;
-  width: 260px;
-  height: 440px;
+  width: 70%;
+  height: 55%;
   border:none;
+  align-items: center;
 }
 
 swiper-slide {
   display: flex;
   align-items: center;
   border-radius: 25px;
-  font-size: 22px;
   font-weight: bold;
   font-family:'Laura Regular', sans-serif;
   color: #fff;
@@ -29,8 +30,11 @@ swiper-slide {
   overflow:visible;
   box-shadow: none;
   border:none;
+  
  
 }
+
+.sli {align-items: center;}
 
 /*swiper-slide:nth-child(1n) {
  
@@ -67,37 +71,52 @@ color: #000; /* Color del texto */
 font-weight:bold;
 line-height: 1.2;
 position: absolute; /* Posición absoluta */
-top: 20%; /* Lo posiciona en el centro vertical */
+top: 17%; /* Lo posiciona en el centro vertical */
 left: 50%; /* Lo posiciona en el centro horizontal */
 transform: translate(-50%, -100%); /* Centra el texto */
 z-index: 2; /* Asegura que el texto esté por encima del SVG */
+
 }
 .contenedor-title {
 font-family: 'Laura Regular', sans-serif; /* Utiliza la fuente Laura Regular */
-font-size: 30px; /* Tamaño de la fuente */
-text-align: center; /* Alineación del texto */
+font-size: 6vw; /* Tamaño de la fuente */
+text-align: center;
 color:#ffffff; /* Color del texto */
 background-color: #3a5e62;
-margin-top: 15px;
-height: 20px;
 font-weight:bold;
 position: absolute; /* Posición absoluta */
-top: 93px; /* Lo posiciona en el centro vertical */
-left:30px; /* Lo posiciona en el centro horizontal */
 z-index: 20; /* Asegura que el texto esté por encima del SVG */
 border-radius: 30px 30px 30px 30px;
+left: 10%;
+top: 25%;
+width: 80%;
+
+
 }
 
 .texto-info{
 font-family: 'Laura Regular', sans-serif; /* Utiliza la fuente Laura Regular */
-font-size: 18px; /* Tamaño de la fuente */
+line-height: 1;
 text-align: left; /* Alineación del texto */
 font-weight: lighter;
 color: #fff; /* Color del texto */
 position: absolute; /* Posición absoluta */
-top: 131px; /* Lo posiciona en el centro vertical */
-left:30px; /* Lo posiciona en el centro horizontal */
 z-index: 20; /* Asegura que el texto esté por encima del SVG */
+letter-spacing: 1px;
+font-size: 4.5vw; /* Ajusta este valor según sea necesario */
+right: 8%;
+left: 8%;
+top: 35%;
+ 
+
+}
+
+.texto{
+
+  height: 100%;
+  width: 100%;
+   
+
 }
 
 .content {
