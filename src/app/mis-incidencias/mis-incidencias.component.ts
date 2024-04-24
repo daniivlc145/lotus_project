@@ -6,6 +6,7 @@ import { Router } from '@angular/router';
   templateUrl: './mis-incidencias.component.html',
   styleUrls: ['./mis-incidencias.component.scss'],
 })
+
 export class MisIncidenciasComponent implements OnInit, AfterViewInit {
   @ViewChild('incidenciaElement') incidenciaElement!: ElementRef<HTMLElement>;
   elementos: number[] = [1, 2, 3];
