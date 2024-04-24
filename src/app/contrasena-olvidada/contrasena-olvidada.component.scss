@@ -7,226 +7,113 @@ display: flex;
 justify-content: center;
 align-items: center;
 min-height: 100vh;
-background-color: #f0f0f0;
+background-color: #c1d7d5;
 font-family: 'Laura Regular', sans-serif;
 color:#84beb0;
 user-select: none;
 }
 
-.background {
+ 
+
+.title-container {
     position: absolute;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 50%;
+    top: 38%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    z-index: 1; /* Asegura que el título esté sobre el contenedor de formulario */
+    user-select: none;
+    font-weight: 900;
+            
+}
+
+.form-container {
+    background-color: #ffffff00;
+    border-radius: 25% 25% 25% 25% / 17% 17% 17% 17%;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    height: 300px;
+    width: 250px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    z-index: 0; /* Asegura que el contenedor de formulario esté detrás del título */
+}
+
+h1 {
+    color: #3a5e62;
+    margin: 0; /* Elimina el margen predeterminado del h1 */
+    user-select: none;
+    z-index: 8;
+    font-size: 18px;
+    text-align: center;
+    font-family: 'Laura Regular', sans-serif;
+    font-weight: bold;
+}
+
+
+form {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin-top: 50%;
+    z-index: 8;
+}
+
+    
+
+
+#new, #rep {
+    font-size: 14px;
+    font-family: 'Laura merged', sans-serif;
+    width: 200px;
+    padding: 8px;
+    margin-bottom: 10px;
+    color: #b5b4b8;
+    border-color: #e6e5ea;
+    border-radius: 15px  ;
+    z-index: 8;
+}
+    
+
+
+.aceptar {
     background-color: #84beb0;
-    border-radius: 0px 0px 30px 30px;
-    
-} 
+    font-family: 'Laura Regular', sans-serif;
+    border: none; /* Eliminar el borde */
+    border-radius: 15% 15% 15% 15% / 20% 20% 20% 20%;
+    color: white; /* Cambiar el color del texto a blanco */
+    left: 50%; /* Centrar horizontalmente */
+    transform: translateX(-50%); /* Centrar exactamente */
+    text-align: center;
+    font-size: 27px;
+    position: absolute; 
+    bottom: -15px; 
+    right:50%; 
+    height: 40px; 
+    width:125px;
+    padding: 10px 20px; /* Espacio interno */
+    cursor: pointer; /* Cambia el cursor al pasar por encima */ 
+    z-index: 8;
+}
 
+.custom-button-before{
+    background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='4 0.555556 3.444 3.733'%3E%3Cpath d='M 7 4 C 7 5 4 3 4 4 L 4 1 C 4 0 7 1 7 1 C 7 1 8 4 7 4' fill='%235a8d8d'/%3E%3C/svg%3E");
+    background-repeat: no-repeat;
+    background-color: transparent; /* Establecer el color de fondo como transparente */
+    background-size: cover;
+    border: none; /* Sin borde */
+    padding: 10px 20px; /* Espacio interno */
+    cursor: pointer; /* Cambia el cursor al pasar por encima */
+    color: white;
+    font-family: 'Handwriting', sans-serif; /* Utiliza la fuente Laura Regular */
+    font-size: 24px; /* Tamaño de la fuente */
+    text-align: center; /* Alineación del texto */
+    position:absolute;
+}
 
-
-   
-
-    
-
-    .title-container {
-        position: absolute;
-        top: 40%;
-        left: 50%;
-        transform: translate(-50%, -50%);
-        z-index: 1; /* Asegura que el título esté sobre el contenedor de formulario */
-        user-select: none;
-        font-weight: 900;
-                
-    }
-    
-    .form-container {
-        background-color: #ffffff00;
-        border-radius: 25% 25% 25% 25% / 17% 17% 17% 17%;
-        position: absolute;
-        top: 50%;
-        left: 50%;
-        transform: translate(-50%, -50%);
-        height: 300px;
-        width: 250px;
-        display: flex;
-        flex-direction: column;
-        align-items: center;
-        z-index: 0; /* Asegura que el contenedor de formulario esté detrás del título */
-    }
-    
-    h1 {
-        color: #3a5e62;
-        margin: 0; /* Elimina el margen predeterminado del h1 */
-        user-select: none;
-        z-index: 8;
-        font-size: 20px;
-        font-family: 'Laura Regular', sans-serif;
-        font-weight: bold;
-    }
-    
-    
-    form {
-        display: flex;
-        flex-direction: column;
-        align-items: center;
-        margin-top: 100px;
-        z-index: 8;
-    }
-
-    .registro{
-
-        display: flex;
-        flex-direction: column;
-        align-items: center;
-        margin-top: 130px;
-        z-index: 8;
-
-    }
-
-    
-    
-
-    
-    #username, #password {
-        font-size: 14px;
-        font-family: 'Laura merged', sans-serif;
-        width: 200px;
-        padding: 8px;
-        margin-bottom: 10px;
-        color: #b5b4b8;
-        border-color: #e6e5ea;
-        border-radius: 15px  ;
-        z-index: 8;
-    }
-
-    p{
-
-        text-align: center;
-        a{color: #84beb0;}
-        user-select: none;
-        font-size: 95%;
-        margin-top: 30px;
-        color: #3a5e62;
-        z-index: 8;
-
-
-    } 
-
-    
-    
-
-    .auth-field {
-        height: 13%;
-        width: 70%;
-        margin: auto;
-        border-radius: 50px;
-        position: absolute;
-        box-shadow: 1px 1px 10px 0px #9898;
-        background-color:#e6e5ea;
-        top: 30px;
-        user-select: none;
-        z-index: 8;
-      }
-      
-        /* Estilos para los botones signin y signup */
-            .signin button,
-            .signup button {
-            width: 100%; /* Ajusta el ancho de los botones al 100% del contenedor */
-            height: 100%; /* Ajusta la altura de los botones al 100% del contenedor */
-            border: none;
-            border-radius: inherit; /* Hereda el radio de borde del contenedor */
-            cursor: pointer;
-            border-radius: 50px;
-            font-size: 20px;
-            z-index: 8;
-            }
-
-            .signin button{
-                background-color: #3a5e62;
-                color: #e6e5ea;
-                border-radius: 30px 25px 25px 30px;
-                z-index: 8;
-            }
-
-            .signup button {
-
-                background-color:#e6e5ea;
-                color:  #3a5e62;
-                border-radius: 0px 30px 30px 0px;
-                z-index: 8;
-            }
-
-            .sign-container {
-            display: flex;
-            z-index: 8;
-            height: 100%; /* Asegura que el contenedor de botones ocupe toda la altura */
-            }
-
-            .signin,
-            .signup {
-            flex: 1;
-            height: 100%; /* Asegura que los botones ocupen toda la altura */
-            z-index: 8;
-            }
-
-      
-      .board {
-        position: absolute;
-        background-color: #3a5e62;
-        opacity: 0.6;
-        z-index: 0;
-        transition: border-radius 0.4s, transform 0.3s;
-        box-shadow: 1px 1px 10px 0px;
-        z-index: 8;
-      }
-      
-    
-      
-      
-
-    
-   
-  
-    
-    .aceptar {
-        background-color: #84beb0;
-        font-family: 'Laura Regular', sans-serif;
-        border: none; /* Eliminar el borde */
-        border-radius: 15% 15% 15% 15% / 20% 20% 20% 20%;
-        color: white; /* Cambiar el color del texto a blanco */
-        left: 50%; /* Centrar horizontalmente */
-        transform: translateX(-50%); /* Centrar exactamente */
-        text-align: center;
-        font-size: 27px;
-        position: absolute; 
-        bottom: -15px; 
-        right:50%; 
-        height: 40px; 
-        width:125px;
-        padding: 10px 20px; /* Espacio interno */
-        cursor: pointer; /* Cambia el cursor al pasar por encima */ 
-        z-index: 8;
-    }
-
-    .custom-button-before{
-        background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='4 0.555556 3.444 3.733'%3E%3Cpath d='M 7 4 C 7 5 4 3 4 4 L 4 1 C 4 0 7 1 7 1 C 7 1 8 4 7 4' fill='%235a8d8d'/%3E%3C/svg%3E");
-        background-repeat: no-repeat;
-        background-color: transparent; /* Establecer el color de fondo como transparente */
-        background-size: cover;
-        border: none; /* Sin borde */
-        padding: 10px 20px; /* Espacio interno */
-        cursor: pointer; /* Cambia el cursor al pasar por encima */
-        color: white;
-        font-family: 'Handwriting', sans-serif; /* Utiliza la fuente Laura Regular */
-        font-size: 24px; /* Tamaño de la fuente */
-        text-align: center; /* Alineación del texto */
-        position:absolute;
-    }
-    
-    .custom-button-before:hover{
-        background-color: transparent;/* Color de fondo al pasar por encima */
-        background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='4 0.555556 3.444 3.733'%3E%3Cpath d='M 7 4 C 7 5 4 3 4 4 L 4 1 C 4 0 7 1 7 1 C 7 1 8 4 7 4' fill='%235a8d8d'/%3E%3C/svg%3E");
-    }
-    
+.custom-button-before:hover{
+    background-color: transparent;/* Color de fondo al pasar por encima */
+    background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='4 0.555556 3.444 3.733'%3E%3Cpath d='M 7 4 C 7 5 4 3 4 4 L 4 1 C 4 0 7 1 7 1 C 7 1 8 4 7 4' fill='%235a8d8d'/%3E%3C/svg%3E");
+}
