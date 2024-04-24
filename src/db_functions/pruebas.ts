@@ -12,16 +12,16 @@ import { muestraMisIncidencias } from "../app/mis-incidencias/mis-incidencias.fu
 //searchContainers()
 //insertInquiry('Esto es una prueba de reporte','suggestion', null, null, 'glass_containers')
 //imprime mis incidencias
-muestraMisIncidencias().then((data) => {
-    if(data.length == 0){
-        console.log("No hay incidencias")
-    }else{
-        for (let elem of data){
-            console.log(elem)
-        }
-    }
+// muestraMisIncidencias().then((data) => {
+//     if(data.length == 0){
+//         console.log("No hay incidencias")
+//     }else{
+//         for (let elem of data){
+//             console.log(elem)
+//         }
+//     }
     
-})
+// })
 
 insertInquiry('Esto es una prueba de reporte','suggestion', 312, null, 'battery_containers')
 insertInquiry('Esto es una prueba de reporte','suggestion', 1120161, null, 'Residuos Urbanos')
