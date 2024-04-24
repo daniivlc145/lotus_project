@@ -23,3 +23,6 @@ muestraMisIncidencias().then((data) => {
     
 })
 
+insertInquiry('Esto es una prueba de reporte','suggestion', 312, null, 'battery_containers')
+insertInquiry('Esto es una prueba de reporte','suggestion', 1120161, null, 'Residuos Urbanos')
+
