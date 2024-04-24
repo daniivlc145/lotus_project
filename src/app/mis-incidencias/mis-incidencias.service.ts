@@ -27,16 +27,16 @@ export class IncidenciasService {
             throw error;
         }
         for (let elem of data){
-            let [date, hour] = elem.created_at.split('T');
-            let [year, month, day] = date.split('-');
-            let fecha = `${day}-${month}-${year}`;
-            let [hours, minutes] = hour.split(':');
-            let hora = `${hours}:${minutes}`;
+
+            let date = new Date(elem.created_at * 1000);
+            date.toLocaleDateString('en-GB')
+            let hora = `${date.getHours()}:${date.getMinutes()}`;
             elem.type = elem.type === 'reclamation' ? 'RECLAMACIÓN/INFORME' 
                 : elem.type === 'suggestion' ? 'PETICIÓN' 
                 : 'CONSULTA'
+                
             result.push({
-                'fecha': fecha,
+                'fecha': date.toLocaleDateString('en-GB'),
                 'hora': hora,
                 'descripcion': elem.description,
                 'type': elem.type,
