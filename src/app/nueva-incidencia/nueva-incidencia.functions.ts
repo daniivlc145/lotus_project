@@ -1,5 +1,5 @@
-import { supabaseClient } from "src/supabase_client";
-import {conversionWasteContainers} from "src/db_functions/containers";
+import { supabaseClient } from "../../supabase_client";
+import {conversionWasteContainers} from "../../db_functions/containers";
 
 export async function insertInquiry(description: string, type: string, container_id: number | null, geo_shape: string | null, containerType: string) {
     try {
