@@ -1,13 +1,6 @@
-import { Injectable } from '@angular/core';
 import { supabaseClient } from "../../supabase_client";
 
-@Injectable({
- providedIn: 'root'
-})
-export class IncidenciasService {
- constructor() { }
-
- async muestraMisIncidencias() {
+export async function muestraMisIncidencias(){
     try{
         let result = []
         // const {data: {user}} = await supabaseClient.auth.getUser()
@@ -27,16 +20,16 @@ export class IncidenciasService {
             throw error;
         }
         for (let elem of data){
-
-            let date = new Date(elem.created_at * 1000);
-            date.toLocaleDateString('en-GB')
-            let hora = `${date.getHours()}:${date.getMinutes()}`;
+            let [date, hour] = elem.created_at.split('T');
+            let [year, month, day] = date.split('-');
+            let fecha = `${day}-${month}-${year}`;
+            let [hours, minutes] = hour.split(':');
+            let hora = `${hours}:${minutes}`;
             elem.type = elem.type === 'reclamation' ? 'RECLAMACIÓN/INFORME' 
                 : elem.type === 'suggestion' ? 'PETICIÓN' 
                 : 'CONSULTA'
-                
             result.push({
-                'fecha': date.toLocaleDateString('en-GB'),
+                'fecha': fecha,
                 'hora': hora,
                 'descripcion': elem.description,
                 'type': elem.type,
@@ -48,6 +41,4 @@ export class IncidenciasService {
         console.error('Error inesperado:', (error as Error).message);
         throw error;
     }
- 
-}
 }
