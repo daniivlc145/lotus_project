@@ -2,28 +2,29 @@
 <body style="font-family: 'Laura Regular', sans-serif;">
   <div class="NuevaIncidenciaComponent">
     <div style="position: relative; width: 400px; height: 490px;">
-      <svg xmlns="http://www.w3.org/2000/svg" viewBox="1.55556 1.345299 7.194 5.599"  style="height: 140px; width:160px; position:absolute; bottom: 100%; right: 125px; z-index: 1;" >
-        <path d="M 3 6 C 3 6 2 6 2 5 C 2 5 1 2 2 2 C 4 0 5 1 8 2 C 9 2 9 5 8 6 C 7 7 6 6 3 6" fill="#84beb0"/>
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="1.71221 2.87944 6.896 3.565" style="height: 140px; width:170px; position:absolute; bottom: 100%; left: 28%; z-index: 1;">
+        <path d="M 3 6 C 3 6 2 6 2 5 C 2 5 1.264 3.211 2.146 3.276 C 4.083 2.903 5.137 2.473 8.35 3.634 C 8.501 3.972 9 5 8 6 C 7 7 6 6 3 6" fill="#84beb0"/>
       </svg>
       <p class="textotitle" style="font-family: 'Laura Regular', sans-serif; z-index: 2;">Nuevo Reporte </p>
       <p class="texto_tipo" style="font-family: 'Laura Regular', sans-serif; z-index: 2;">Tipo</p>
-      <div class="dropdown" style="position: absolute; left: 35%; top:9%">
-        <button class="dropbtn">CONTENEDOR LLENO</button>
-        <div class="dropdown-content">
-          <a href="#">CONTENEDOR LLENO</a>
-          <a href="#">RECLAMACIÓN/INFORME</a>
-          <a href="#">PETICIÓN</a>
-          <a href="#">PREGUNTAS</a>
+      <div class="dropdown" [class.open]="dropdownOpen" (click)="toggleDropdown()">
+        <button class="dropbtn">{{ selectedOption }}</button>
+        <div class="dropdown-content" *ngIf="dropdownOpen">
+          <div *ngFor="let option of ['CONTENEDOR LLENO', 'RECLAMACIÓN/INFORME', 'PETICIÓN', 'PREGUNTAS']" (click)="selectOption(option); closeDropdown()">
+            {{ option }}
+          </div>
         </div>
       </div>
+      
+      
 
       <p class="texto_ubi" style="font-family: 'Laura Regular', sans-serif; z-index: 2;">Ubicación</p>
       
       
       <!--<textarea class="input" id="ubi" name="ubi" maxlength="50"></textarea>-->
-      <form class="form">
+      <form class="form" style="height:18px; margin-top: 10px; border-radius: 30px;">
         <mat-form-field class="form">
-          <input type="text" matInput [matAutocomplete]="auto" class="input2">
+          <input type="text" matInput [matAutocomplete]="auto" #myInput (input)="onInputChange($event)" class="input2" style="font-family: 'Laura Regular', sans-serif; ">
           <mat-autocomplete #auto="matAutocomplete">
             <mat-option *ngFor="let option of filteredOptions" [value]="option">
             {{option}}
@@ -47,16 +48,40 @@
     });
   </script>
   <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
-  <script>
+<!--  <script>
     $(document).ready(function() {
-      $('.dropdown-content a').click(function() {
-        var selectedText = $(this).text(); // Obtiene el texto del elemento clickeado
-        $('.dropbtn').text(selectedText); // Actualiza el texto del botón
-      });
-    });
-  </script>
-   <!--<script>
-    autocomplete(document.getElementById("myInput"), countries);
-    </script> -->
+  $('.dropdown-content div').click(function() {
+    var selectedText = $(this).text(); // Obtiene el texto del elemento clickeado
+    $('.dropbtn').text(selectedText); // Actualiza el texto del botón
+    $('.dropdown-content').hide(); // Oculta el menú desplegable después de hacer clic
+  });
+});
+  </script>-->
+
+
+    <footer class="footer">
+      <div class="footer-buttons">
+          <button class="mis-incidencias" (click)="goToMisPage();">
+              <img src="../../assets/img/Icon_Mis_Incidencias.png" alt="Icono Mis Incidencias">
+          </button>
+          
+          <button class="reportes-mapa" (click)="goToNuevaIncPage();">
+              <img src="../../assets/img/Icon_Reportes_En_El_Mapa_pink.png" alt="Icono Reportes en el Mapa">
+          </button>
+          
+          <button class="ver-mapa" (click)="goToHomePage();">
+              <img src="../../assets/img/icon_VER_MAPA.png" alt="Icono Ver Mapa">
+          </button>
+          
+          <button class="info-reciclaje" (click)="goToInfoPage();">
+              <img src="../../assets/img/icon_Info_Reciclaje.png" alt="Icono Información de Reciclaje">
+          </button>
+          
+          <button class="icono-usuario" (click)="goToProfPage();">
+              <img src="../../assets/img/icon_User.png" alt="Icono Usuario">
+          </button>
+          
+      </div>
+  </footer>
 </body>
 

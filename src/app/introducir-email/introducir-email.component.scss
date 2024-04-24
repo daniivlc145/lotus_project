@@ -26,12 +26,16 @@ color:#84beb0;
 
     .title-container {
         position: absolute;
-        top:40%;
+        top:32%;
         left: 50%;
         transform: translate(-50%, -50%);
         z-index: 1; /* Asegura que el título esté sobre el contenedor de formulario */
         user-select: none;
         font-weight: 900;
+        text-align: center;
+        width: 80%; /* Por ejemplo, establece un ancho del 80% */
+        margin: 0 auto;
+        
                 
     }
     
@@ -48,6 +52,7 @@ color:#84beb0;
         flex-direction: column;
         align-items: center;
         z-index: 0; /* Asegura que el contenedor de formulario esté detrás del título */
+        
     }
     
     h1 {
@@ -69,16 +74,6 @@ color:#84beb0;
         z-index: 8;
     }
 
-    .registro{
-
-        display: flex;
-        flex-direction: column;
-        align-items: center;
-        margin-top: 130px;
-        z-index: 8;
-
-    }
-
     
     
 
@@ -88,7 +83,7 @@ color:#84beb0;
         font-family: 'Laura Regular', sans-serif;
         width: 200px;
         padding: 8px;
-        margin-top: 40px;
+        margin-top: 70px;
         margin-bottom: 10px;
         color: #b5b4b8;
         border-color: #e6e5ea;

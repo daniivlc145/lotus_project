@@ -157,7 +157,8 @@ export class MapComponent implements OnInit {
         <h1 id='con' style='font-family: "Laura Regular", sans-serif; color:#3a5e62;'>
           <strong>CONTENEDOR SELECCIONADO</strong>
         </h1>
-        <p style="position:absolute; top:35%;"><strong>UBICACIÓN:${popupContent} </strong></p>
+        <p style="position:absolute; top:35%;"><strong>UBICACIÓN: <span style="font-family: 'Handwriting', sans-serif; letter-spacing: 2px;">${popupContent}</span>
+        </strong></p>
         <br>
         <button id="cerrarBtn" style='height: 21%; width: 30%; color: white; background-color: #c1d7d5; position: absolute; left: 15%; border-radius: 15px; font-size: 18px; text-align: center; line-height: 100%; bottom:13px;'>CERRAR</button>
         <button id="anadirBtn" style='height: 21%; width: 30%; background-color: #3a5e62; right: 15%; position: absolute; color: white; border-radius: 15px; font-size: 18px; text-align: center; line-height: 100%; bottom:13px;'>AÑADIR REPORTE</button>
@@ -239,6 +240,15 @@ export class MapComponent implements OnInit {
     });
     this.updateSelectedItems();
   }
+
+  toggleCheckbox(itemId: string) {
+    const item = this.items.find(item => item.id === itemId);
+    if (item) {
+        item.selected = !item.selected;
+        this.itemChanged(item);
+    }
+}
+
   
   itemChanged(item: any) {
     if (this.selectAll && !item.selected) {

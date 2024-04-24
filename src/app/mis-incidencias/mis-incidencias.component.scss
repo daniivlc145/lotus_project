@@ -1,0 +1,215 @@
+@import url("/src/css/style.css");
+  
+  body {
+      margin: 0;
+      padding: 0;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      min-height: 100vh;
+      background-color:#c1d7d5;
+      user-select: none;
+      overflow: scroll;
+  }
+  
+  
+  /*Custom Last*/
+  .custom-button-rep {
+    background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='1.55556 0.25 11.69 4.194'%3E%3Cpath d='M 12 4 C 11 4 2 5 2 4 C 2 3 1 1 2 1 C 3 0 14 0 13 1 C 13 0 14 4 12 4' fill='%2384beb0'/%3E%3C/svg%3E");
+      background-repeat: no-repeat;
+      background-color: transparent; /* Establecer el color de fondo como transparente */
+      background-size: cover;
+      border: none; /* Sin borde */
+      padding: 10px 20px; /* Espacio interno */
+      cursor: pointer; /* Cambia el cursor al pasar por encima */
+      z-index: 8;
+      color: white;
+      font-family: 'Laura Regular', sans-serif; /* Utiliza la fuente Laura Regular */
+      font-size: 24px; /* Tamaño de la fuente */
+      text-align: center; /* Alineación del texto */
+      position: absolute;
+     
+  }
+  
+  
+  
+  .contentLast{
+      width: 100%;
+      height: 100%;
+      background-color: #c1d7d5;
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -50%);
+      display: flex;
+      justify-content: center; /* Centra horizontalmente */
+      align-items: center; /* Centra verticalmente */
+  }
+  
+  .textotitle{
+    font-family: 'Laura Regular', sans-serif; /* Utiliza la fuente Laura Regular */
+    font-size: 28px; /* Tamaño de la fuente */
+    text-align: left; /* Alineación del texto */
+    color: #FFFFFF; /* Color del texto */
+    position: absolute; 
+    bottom: 90%; 
+    left: 49%; 
+    transform: translate(-50%, 5%);
+    margin-bottom: 27px;
+    z-index: 2; /* Asegura que el texto esté por encima del SVG */
+  }
+
+  .texto-TIPO{
+    font-family: 'Laura Regular', sans-serif; /* Utiliza la fuente Laura Regular */
+      font-size: 25px; /* Tamaño de la fuente */
+      text-align: left; /* Alineación del texto */
+      color: #ffffff; /* Color del texto */
+      position: absolute; 
+      bottom: 85%; 
+      left: 25%; 
+      transform: translate(-50%, -0%);
+      z-index: 2; 
+  }
+
+  .texto-DATE{
+    font-family: 'Laura Regular', sans-serif; /* Utiliza la fuente Laura Regular */
+      font-size: 20px; /* Tamaño de la fuente */
+      text-align: left; /* Alineación del texto */
+      color: #ffffff; /* Color del texto */
+      position: absolute; 
+      bottom: 85%; 
+      left: 57%; 
+      transform: translate(-50%, -0%);
+      z-index: 2; 
+  }
+
+  .texto-TIME{
+    font-family: 'Laura Regular', sans-serif; /* Utiliza la fuente Laura Regular */
+      font-size: 18px; /* Tamaño de la fuente */
+      text-align: left; /* Alineación del texto */
+      color: #ffffff; /* Color del texto */
+      position: absolute; 
+      bottom: 85%; 
+      left: 75%; 
+      transform: translate(-50%, -0%);
+      z-index: 2; 
+  }
+
+  .label-Ubi{
+    font-family: 'Laura Regular', sans-serif; /* Utiliza la fuente Laura Regular */
+      font-size: 16px; /* Tamaño de la fuente */
+      text-align: left; /* Alineación del texto */
+      color: #3a5e62; /* Color del texto */
+      position: absolute; 
+      bottom: 78%; 
+      left: 26%; 
+      transform: translate(-50%, -0%);
+      z-index: 2; 
+  }
+  .texto-Ubi{
+    font-family: 'Laura Regular', sans-serif; /* Utiliza la fuente Laura Regular */
+      font-size: 14px; /* Tamaño de la fuente */
+      text-align: left; /* Alineación del texto */
+      color: #b5b4b8; /* Color del texto */
+      position: absolute; 
+      bottom: 75%; 
+      left: 57%; 
+      transform: translate(-50%, -0%);
+      z-index: 2; 
+  }
+
+  .label-desc{
+    font-family: 'Laura Regular', sans-serif; /* Utiliza la fuente Laura Regular */
+      font-size: 16px; /* Tamaño de la fuente */
+      text-align: left; /* Alineación del texto */
+      color: #3a5e62; /* Color del texto */
+      position: absolute; 
+      bottom: 70%; 
+      left: 25%; 
+      transform: translate(-50%, -0%);
+      z-index: 2; 
+  }
+  .texto-desc{
+    font-family: 'Laura Regular', sans-serif; /* Utiliza la fuente Laura Regular */
+      font-size: 14px; /* Tamaño de la fuente */
+      text-align: left; /* Alineación del texto */
+      color: #b5b4b8; /* Color del texto */
+      position: absolute; 
+      bottom: 67%; 
+      left: 57%; 
+      transform: translate(-50%, -0%);
+      z-index: 2; 
+  }
+
+.button-top-right span {
+    font-family: 'Laura Regular', sans-serif;
+    color:#3a5e62;
+    font-weight: bold;
+    font-size: 15px;
+}
+
+
+.footer {
+    background-color: white; /* Color de fondo del footer */
+    color: white; /* Color del texto */
+    position: fixed; /* Fijo en la parte inferior de la pantalla */
+    width: 100%; /* Ancho completo */
+    bottom: 0;
+    height: 90px;
+    z-index: 1;
+}
+
+
+.footer-buttons button{
+    background-color: transparent; /* Color de fondo de los botones */
+    gap: 10px;
+    margin-right: 20px !important; /* Intenta con un valor más fuerte */
+    bottom: 3px !important;
+
+}
+
+
+
+.footer-buttons {
+    display: flex; /* Uso de Flexbox */
+    justify-content: space-around; /* Espaciado uniforme entre los botones */
+    background-color: white; /* Color de fondo de los botones */
+    bottom: 3px !important;
+
+}
+
+
+
+.mis-incidencias{
+  width: 50px;
+  transform: rotate(-2deg);
+}
+
+.reportes-mapa{
+  width: 60px;
+  transform: rotate(-2deg);
+}
+
+.ver-mapa{
+  width: 80px;
+
+}
+
+.info-reciclaje{
+  width: 35px;
+  transform: rotate(-2deg);
+}
+
+.icono-usuario{
+  width: 45px;
+  transform: rotate(-2deg);
+}
+
+
+
+.button-top-right span {
+    font-family: 'Laura Regular', sans-serif;
+    color:#3a5e62;
+    font-weight: bold;
+    font-size: 15px;
+}

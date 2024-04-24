@@ -29,6 +29,7 @@ swiper-slide {
   overflow:visible;
   box-shadow: none;
   border:none;
+ 
 }
 
 /*swiper-slide:nth-child(1n) {
@@ -60,31 +61,36 @@ swiper-slide:nth-child(8n) {
 
 .texto-Reciclaje {
 font-family: 'Laura Regular', sans-serif; /* Utiliza la fuente Laura Regular */
-font-size: 35; /* Tamaño de la fuente */
+font-size: 35px; /* Tamaño de la fuente */
 text-align: center; /* Alineación del texto */
 color: #000; /* Color del texto */
 font-weight:bold;
+line-height: 1.2;
 position: absolute; /* Posición absoluta */
-top: 12%; /* Lo posiciona en el centro vertical */
+top: 20%; /* Lo posiciona en el centro vertical */
 left: 50%; /* Lo posiciona en el centro horizontal */
 transform: translate(-50%, -100%); /* Centra el texto */
 z-index: 2; /* Asegura que el texto esté por encima del SVG */
 }
 .contenedor-title {
 font-family: 'Laura Regular', sans-serif; /* Utiliza la fuente Laura Regular */
-font-size: 27; /* Tamaño de la fuente */
+font-size: 30px; /* Tamaño de la fuente */
 text-align: center; /* Alineación del texto */
-color: #fff; /* Color del texto */
+color:#ffffff; /* Color del texto */
+background-color: #3a5e62;
+margin-top: 15px;
+height: 20px;
 font-weight:bold;
 position: absolute; /* Posición absoluta */
 top: 93px; /* Lo posiciona en el centro vertical */
 left:30px; /* Lo posiciona en el centro horizontal */
 z-index: 20; /* Asegura que el texto esté por encima del SVG */
+border-radius: 30px 30px 30px 30px;
 }
 
 .texto-info{
 font-family: 'Laura Regular', sans-serif; /* Utiliza la fuente Laura Regular */
-font-size: 18; /* Tamaño de la fuente */
+font-size: 18px; /* Tamaño de la fuente */
 text-align: left; /* Alineación del texto */
 font-weight: lighter;
 color: #fff; /* Color del texto */
@@ -105,53 +111,6 @@ transform: translate(-50%, -50%);
 display: flex;
 justify-content: center; /* Centra horizontalmente */
 align-items: center; /* Centra verticalmente */
-}
-.footer {
-  
-  bottom: 0;
-  width: 100%;
-  background-color: #fff; /* Cambia el color de fondo según tus preferencias */
-  border-top: 1px solid #ccc; /* Agrega un borde superior si lo deseas */
-  
-  position: absolute;
-  
-  z-index: 1000;
- 
-  }
-
-.footer-buttons {
-  display: flex;
-  justify-content: space-around; /* Distribuye los elementos equitativamente en el espacio */
-  align-items: center; /* Centra verticalmente los elementos */
-  padding: 10px; /* Añade un relleno para separar los elementos de los bordes */
-}
-
-
-.footer-button {
-background-color: white; /* Color de fondo de los botones */
-border: none; /* Sin bordes */
-color: white; /* Color del texto */
-padding: 1px 1px; /* Espaciado interno */
-text-align: center; /* Alineación del texto */
-text-decoration: none;
-display: inline-block;
-width: 43px;
-margin: 4px 2px;
-cursor: pointer;
-display:flex;
-border-radius: 40px;
-}
-
-@media (max-width: 600px) {
-.footer-buttons {
-    flex-direction: column; /* Alineación vertical en pantallas pequeñas */
-    align-items: center; /* Centrado horizontalmente */
-}
-
-.footer-button {
-    width: 80%; /* Ancho del botón */
-    margin: 10px 0; /* Espaciado vertical */
-}
 }
 
 
@@ -185,4 +144,63 @@ position: absolute; /* Utiliza posicionamiento absoluto */
 top: -85px; /* Ajusta la posición vertical según sea necesario */
 right:40px; /* Ajusta la posición horizontal según sea necesario */
 z-index: 15; /* Asegura que la imagen esté por encima de otras capas */
+}
+
+.footer {
+  background-color: white; /* Color de fondo del footer */
+  color: white; /* Color del texto */
+  position: fixed; /* Fijo en la parte inferior de la pantalla */
+  width: 100%; /* Ancho completo */
+  bottom: 0;
+  height: 90px;
+  z-index:1001;
+}
+
+
+
+
+.footer-buttons button{
+  background-color: transparent; /* Color de fondo de los botones */
+  gap: 10px;
+  margin-right: 20px !important; /* Intenta con un valor más fuerte */
+  bottom: 3px !important;
+
+}
+
+
+
+.footer-buttons {
+  display: flex; /* Uso de Flexbox */
+  justify-content: space-around; /* Espaciado uniforme entre los botones */
+  background-color: white; /* Color de fondo de los botones */
+  bottom: 3px !important;
+  
+
+}
+
+
+
+.mis-incidencias{
+  width: 50px;
+  transform: rotate(-2deg);
+}
+
+.reportes-mapa{
+  width: 60px;
+  transform: rotate(-2deg);
+}
+
+.ver-mapa{
+  width: 80px;
+
+}
+
+.info-reciclaje{
+  width: 35px;
+  transform: rotate(-2deg);
+}
+
+.icono-usuario{
+  width: 45px;
+  transform: rotate(-2deg);
 }

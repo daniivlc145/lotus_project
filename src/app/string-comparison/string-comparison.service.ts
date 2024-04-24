@@ -47,13 +47,17 @@ export class StringComparison {
 
   public static recommendSimilarWords(input: string, words: string[]): string[] {
     const similarWords: string[] = [];
-
+  
     for (const word of words) {
       if (StringComparison.areSimilar(input, word)) {
         similarWords.push(word);
       }
     }
-
+    
+    // Verificar si se están generando las palabras similares correctamente
+    console.log('Palabras similares generadas:', similarWords);
+  
     return similarWords;
   }
+  
 }
