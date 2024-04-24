@@ -25,8 +25,8 @@
       <form class="form" style="height:18px; margin-top: 10px; border-radius: 30px;">
         <mat-form-field class="form">
           <input type="text" matInput [matAutocomplete]="auto" #myInput (input)="onInputChange($event)" class="input2" style="font-family: 'Laura Regular', sans-serif; ">
-          <mat-autocomplete #auto="matAutocomplete">
-            <mat-option *ngFor="let option of filteredOptions" [value]="option">
+          <mat-autocomplete #auto="matAutocomplete" style="font-family: 'Laura Regular', sans-serif;">
+            <mat-option *ngFor="let option of filteredOptions" [value]="option" style="font-family: 'Laura Regular', sans-serif;">
             {{option}}
             </mat-option>  
           </mat-autocomplete>
