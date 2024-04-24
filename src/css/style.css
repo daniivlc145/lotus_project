@@ -35,6 +35,14 @@
     bottom: 35px;
 }
 
+.error-message-email{
+    position: absolute; /* Posicionamiento absoluto */
+    font-family: 'Laura Regular'; /* Nombre de la fuente */
+    src: url('../fonts/Laura-Regular.ttf') format('truetype'); /* Ruta del archivo TTF */
+    color: #f56f5d;
+    bottom: 68px;
+}
+
 ::ng-deep .mat-autocomplete-panel {
     font-family: 'Laura Regular', sans-serif; /* Cambia el tipo de fuente */
   }
