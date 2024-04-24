@@ -1,5 +1,6 @@
 import { Component, OnInit, AfterViewInit, ElementRef, ViewChild } from '@angular/core';
 import { Router } from '@angular/router';
+import { muestraMisIncidencias } from './mis-incidencias.functions';
 
 @Component({
   selector: 'app-mis-incidencias',
@@ -15,7 +16,9 @@ export class MisIncidenciasComponent implements OnInit, AfterViewInit {
 
   constructor(private router: Router) {}
 
-  ngOnInit(): void {}
+  ngOnInit(): void {
+    muestraMisIncidencias;
+  }
 
   ngAfterViewInit(): void {
     this.replicarElemento();

@@ -1,13 +1,6 @@
-import { Injectable } from '@angular/core';
 import { supabaseClient } from "../../supabase_client";
 
-@Injectable({
- providedIn: 'root'
-})
-export class IncidenciasService {
- constructor() { }
-
- async muestraMisIncidencias() {
+export async function muestraMisIncidencias(){
     try{
         let result = []
         // const {data: {user}} = await supabaseClient.auth.getUser()
@@ -48,6 +41,4 @@ export class IncidenciasService {
         console.error('Error inesperado:', (error as Error).message);
         throw error;
     }
- 
-}
 }
