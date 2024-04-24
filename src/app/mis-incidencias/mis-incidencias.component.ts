@@ -27,47 +27,35 @@ export class MisIncidenciasComponent implements OnInit {
   
   replicarElementos(): void {
     setTimeout(() => {
-      if (this.elementos) {
-        this.elementos.forEach(elem => this.replicarElemento(elem)); // Replicar el elemento para cada incidencia
-        console.log(this.elementos);
-      }
+        if (this.elementos) {
+            this.elementos.forEach(elem => this.crearNuevoElemento(elem)); // Crear un nuevo elemento para cada incidencia
+        }
     });
-  }
-  
+}
 
-  private replicarElemento(elem: {[clave:string]:string}): void {
-    // Verificar si incidenciaElement está definido antes de usarlo
-    if (!this.incidenciaElement) {
-      console.error('Elemento de incidencia no encontrado.');
-      return;
-    }
-  
-    // Clonar el elemento original
-    const elementoOriginal = this.incidenciaElement.nativeElement;
-    const nuevoElemento = elementoOriginal.cloneNode(true) as HTMLElement;
-  
-    // Calcular el nuevo margen
-    const margen = this.margenInicial + this.incrementoMargen;
-  
-    // Aplicar el nuevo margen al nuevo elemento clonado
-    nuevoElemento.style.marginTop = `${margen}px`;
-  
-    // Actualizar los labels correspondientes a la fecha, hora, descripción, type y geo-shape
-    const fechaElement = nuevoElemento.querySelector('.texto-DATE')!;
-    const horaElement = nuevoElemento.querySelector('.texto-TIME')!;
-    const descripcionElement = nuevoElemento.querySelector('.texto-desc')!;
-    const tipoElement = nuevoElemento.querySelector('.texto-TIPO')!;
-    const geoShapeElement = nuevoElemento.querySelector('.texto-geo-shape')!;
-  
+private crearNuevoElemento(elem: {[clave:string]:string}): void {
+    // Crear un nuevo elemento div
+    const nuevoElemento = document.createElement('div');
+    nuevoElemento.className = 'nuevo-incidencia-elemento'; // Asignar una clase para estilos CSS
+    
+    // Crear elementos para cada dato y agregarlos al nuevo elemento
+    const fechaElement = document.createElement('div');
+    fechaElement.className = 'texto-DATE';
     fechaElement.textContent = elem['fecha'];
-    horaElement.textContent = elem['hora'];
-    descripcionElement.textContent = elem['descripcion'];
-    tipoElement.textContent = elem['type'];
-    geoShapeElement.textContent = elem['geo_shape'];
-  
-    // Agregar el nuevo elemento clonado al DOM
-    elementoOriginal.parentElement?.appendChild(nuevoElemento);
-  }  
+    nuevoElemento.appendChild(fechaElement);
+
+    // Repetir este proceso para los demás datos (hora, descripción, tipo, etc.)
+
+    // Agregar el nuevo elemento al DOM
+    const contenedor = document.getElementById('contenedor-incidencias'); // Supongamos que hay un div contenedor con id "contenedor-incidencias"
+    if (contenedor) {
+        contenedor.appendChild(nuevoElemento);
+    } else {
+        console.error('Contenedor de incidencias no encontrado en el DOM.');
+    }
+}
+
+
 
   goToInfoPage() {
 
