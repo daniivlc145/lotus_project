@@ -20,9 +20,18 @@ export async function muestraMisIncidencias(){
             throw error;
         }
         for (let elem of data){
+            let [date, hour] = elem.created_at.split('T');
+            let [year, month, day] = date.split('-');
+            let fecha = `${day}-${month}-${year}`;
+            let [hours, minutes] = hour.split(':');
+            let hora = `${hours}:${minutes}`;
+            elem.type = elem.type === 'reclamation' ? 'RECLAMACIÓN/INFORME' 
+                : elem.type === 'suggestion' ? 'PETICIÓN' 
+                : 'CONSULTA'
             result.push({
-                'created_at': elem.created_at,
-                'description': elem.description,
+                'fecha': fecha,
+                'hora': hora,
+                'descripcion': elem.description,
                 'type': elem.type,
                 'geo_shape': elem.geo_shape
             })
