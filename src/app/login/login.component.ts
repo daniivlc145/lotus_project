@@ -14,11 +14,7 @@ export class loginComponent  implements OnInit {
   ngOnInit() {
     const emailInput = document.getElementById('email') as HTMLInputElement;
     const passwordInput = document.getElementById('password') as HTMLInputElement;
-    emailInput.addEventListener('input', () => {
-      this.applyFontStyle(emailInput);
-    });
-  
-  
+   
   }
 
 
@@ -37,29 +33,6 @@ export class loginComponent  implements OnInit {
     
     
     
-  }
-
-  applyFontStyle(inputElement: HTMLInputElement) {
-    const inputValue = inputElement.value;
-  
-    // Aplicar estilos de fuente dependiendo del tipo de carácter ingresado
-    let font = '';
-  
-    for (let char of inputValue) {  
-      
-      if (/[0-9!@#$%^&*()_+\-=\[\]{};':"\\|,.<>\/?]/.test(char)) {
-        font = "'Handwriting', sans-serif"; // Fuente para números y símbolos
-        break;
-      }
-      if (/[a-zA-Z]/.test(char)) {
-        font = "'Laura Regular', sans-serif"; // Fuente para letras
-        break;
-      } 
-      
-    
-    }
-  
-    inputElement.style.fontFamily = font;
   }
 
 

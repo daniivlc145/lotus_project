@@ -8,7 +8,7 @@ justify-content: center;
 align-items: center;
 min-height: 100vh;
 background-color: #f0f0f0;
-font-family: 'Laura Regular', sans-serif;
+font-family: 'Laura merged', sans-serif;
 color:#84beb0;
 }
 
@@ -38,7 +38,7 @@ color:#84beb0;
         user-select: none;
         
          h1{
-            font-family: 'Laura Regular', sans-serif;
+            font-family: 'Laura merged', sans-serif;
             font-size: 30px;
         }
                 
@@ -64,7 +64,7 @@ color:#84beb0;
         margin: 0; /* Elimina el margen predeterminado del h1 */
         user-select: none;
         z-index: 8;
-        font-family: 'Laura Regular', sans-serif;
+        font-family: 'Laura merged', sans-serif;
     }
     
     
@@ -98,6 +98,7 @@ color:#84beb0;
         border-color: #e6e5ea;
         border-radius: 15px  ;
         z-index: 8;
+        font-family: 'Laura merged', sans-serif;
     }
 
     p{
@@ -127,6 +128,7 @@ color:#84beb0;
         top: 30px;
         user-select: none;
         z-index: 8;
+        font-family: 'Laura merged', sans-serif;
       }
       
         /* Estilos para los botones signin y signup */

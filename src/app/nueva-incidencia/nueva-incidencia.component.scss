@@ -186,6 +186,7 @@ body {
  transform: translate(-50%, -0%);
  overflow:auto;
  resize: none; 
+ font-family: 'Laura merged', sans-serif;
  /* Estilos para ocultar la barra de desplazamiento */
  scrollbar-width: none; /* Oculta la barra de desplazamiento en Firefox */
  -ms-overflow-style: none; /* Oculta la barra de desplazamiento en Internet Explorer y Edge */
@@ -197,7 +198,7 @@ body {
 }
 
 .input2{
-  font-family: 'Laura Regular', sans-serif; 
+  font-family: 'Laura merged', sans-serif; 
   position: absolute;
   z-index:10;
   height: 22px;

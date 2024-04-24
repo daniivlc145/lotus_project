@@ -8,6 +8,12 @@
     src:url('../fonts/Handwriting.ttf') format('truetype');
 }
 
+@font-face{
+    font-family: 'Laura merged'; /*Este es para los símbolos que no dio la versión gratis de mi fuente*/
+    src:url('../fonts/Laura-merged.ttf') format('truetype');
+}
+
+
 /* styles.scss */
 
 @import "~swiper/swiper-bundle.css";
