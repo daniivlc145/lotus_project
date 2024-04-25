@@ -34,6 +34,8 @@ import { DialogTwoComponent } from './dialog-two/dialog-two.component';
 
 import { mapaCalorComponent } from './mapa-calor/mapa-calor.component';
 
+import { AboutUsComponent } from './about-us/about-us.component';
+
 
 const routes: Routes = [
 
@@ -68,6 +70,8 @@ const routes: Routes = [
   {path: 'profUser', component:profileUserComponent},
 
   {path: 'mapCalor', component:mapaCalorComponent},
+
+  {path: 'abt', component:AboutUsComponent},
 
   {
     path: '',
