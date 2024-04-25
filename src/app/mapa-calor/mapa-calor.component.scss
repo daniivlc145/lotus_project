@@ -1,0 +1,67 @@
+@import url("/src/css/style.css");
+
+
+.footer {
+    background-color: white; /* Color de fondo del footer */
+    color: white; /* Color del texto */
+    position: fixed; /* Fijo en la parte inferior de la pantalla */
+    width: 100%; /* Ancho completo */
+    bottom: 0;
+    height: 90px;
+    z-index:1001;
+}
+
+
+@media(min-width: 600px){
+    .filter-buttons{
+        align-items: center;
+        width: 70%;
+    }
+    
+}
+
+.footer-buttons button{
+    background-color: transparent; /* Color de fondo de los botones */
+    gap: 10px;
+    margin-right: 20px !important; /* Intenta con un valor más fuerte */
+    bottom: 3px !important;
+
+}
+
+
+
+.footer-buttons {
+    display: flex; /* Uso de Flexbox */
+    justify-content: space-around; /* Espaciado uniforme entre los botones */
+    background-color: white; /* Color de fondo de los botones */
+    bottom: 3px !important;
+    
+
+}
+
+
+
+.mis-incidencias{
+    width: 50px;
+    transform: rotate(-2deg);
+  }
+  
+  .reportes-mapa{
+    width: 60px;
+    transform: rotate(-2deg);
+  }
+  
+  .ver-mapa{
+    width: 80px;
+  
+  }
+  
+  .info-reciclaje{
+    width: 35px;
+    transform: rotate(-2deg);
+  }
+  
+  .icono-usuario{
+    width: 45px;
+    transform: rotate(-2deg);
+  }

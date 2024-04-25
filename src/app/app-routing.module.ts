@@ -27,8 +27,12 @@ import { MisIncidenciasComponent } from './mis-incidencias/mis-incidencias.compo
 import { IntroducirEmailComponent } from './introducir-email/introducir-email.component';
 
 import { DialogOneComponent } from './dialog-one/dialog-one.component';
+
 import { profileUserComponent } from './profile-user/profile-user.component';
+
 import { DialogTwoComponent } from './dialog-two/dialog-two.component';
+
+import { mapaCalorComponent } from './mapa-calor/mapa-calor.component';
 
 
 const routes: Routes = [
@@ -56,12 +60,14 @@ const routes: Routes = [
   {path: 'misI', component: MisIncidenciasComponent},
 
   {path: 'dialogOne', component:DialogOneComponent},
-  {path: 'dialogTwo', component:DialogTwoComponent},
 
+  {path: 'dialogTwo', component:DialogTwoComponent},
 
   {path: 'email', component:IntroducirEmailComponent},
 
   {path: 'profUser', component:profileUserComponent},
+
+  {path: 'mapCalor', component:mapaCalorComponent},
 
   {
     path: '',
