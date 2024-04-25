@@ -12,8 +12,6 @@ import { Router } from '@angular/router';
     constructor(private router: Router) { }
   
     ngOnInit() {
-      
-  
     }
 
 
