@@ -1,7 +1,7 @@
 import { supabaseClient } from '../../supabase_client'
 
 // Funcion de registro; en registro
-export async function signUpUser (email: string, password: string, fullName: string, phoneNumber: string, rep: string): Promise<void> {
+export async function signUpUser (email: string, password: string, fullName: string, phoneNumber: string): Promise<void> {
   const userData = {
     email,
     password,
