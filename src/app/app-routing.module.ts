@@ -33,6 +33,8 @@ import { profileUserComponent } from './profile-user/profile-user.component';
 import { DialogTwoComponent } from './dialog-two/dialog-two.component';
 
 import { mapaCalorComponent } from './mapa-calor/mapa-calor.component';
+
+import { AboutUsComponent } from './about-us/about-us.component';
 import { profileOrgComponent } from './profile-org/profile-org.component';
 
 
@@ -69,6 +71,8 @@ const routes: Routes = [
   {path: 'profUser', component:profileUserComponent},
 
   {path: 'mapCalor', component:mapaCalorComponent},
+
+  {path: 'abt', component:AboutUsComponent},
 
   {path: 'profOrg', component:profileOrgComponent},
 
