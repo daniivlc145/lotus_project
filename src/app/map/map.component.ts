@@ -247,6 +247,36 @@ export class MapComponent implements OnInit {
         item.selected = !item.selected;
         this.itemChanged(item);
     }
+
+    let containerName: string;
+    switch (itemId) {
+        case 'glass_containers':
+            containerName = 'Vidrio';
+            break;
+        case 'oil_containers':
+            containerName = 'Aceite';
+            break;
+        case 'clothes_containers':
+            containerName = 'Ropa';
+            break;
+        case 'Residuos Urbanos':
+            containerName = 'Residuos';
+            break;
+        case 'Papel / Carton':
+            containerName = 'Papel';
+            break;
+        case 'Envases Ligeros':
+            containerName = 'Envases';
+            break;
+        case 'Organico':
+            containerName = 'Organico';
+            break;
+        default:
+            // Si el itemId no coincide con ninguno de los nombres de contenedor conocidos, se deja igual
+            containerName = itemId;
+            break;
+    }
+    const imageName = this.getContainerImage(containerName);
 }
 
   
@@ -271,6 +301,7 @@ export class MapComponent implements OnInit {
       }
     }
     this.updateSelectedItems();
+    
   }
   
   
@@ -303,7 +334,29 @@ export class MapComponent implements OnInit {
 
   }
   
-
+ 
+  getContainerImage(containerId: string): string {
+    switch (containerId) {
+      case 'glass_containers':
+        return this.items[0].selected ? '../../assets/img/Contenedor_Vidrio_White.png' : '../../assets/img/Contenedor_Vidrio.png';
+      case 'oil_containers':
+        return this.items[1].selected ? '../../assets/img/Contenedor_Aceite_White.png' : '../../assets/img/Contenedor_Aceite.png';
+      case 'clothes_containers':
+        return this.items[2].selected ? '../../assets/img/Contenedor_Ropa_White.png' : '../../assets/img/Contenedor_Ropa.png';
+      case 'Residuos Urbanos':
+        return this.items[3].selected ? '../../assets/img/Contenedor_Residuos_White.png' : '../../assets/img/Contenedor_Residuos.png';
+      case 'Papel / Carton':
+        return this.items[4].selected ? '../../assets/img/Contenedor_Papel_White.png' : '../../assets/img/Contenedor_Papel.png';
+      case 'Envases Ligeros':
+        return this.items[5].selected ? '../../assets/img/Contenedor_Envases_White.png' : '../../assets/img/Contenedor_Envases.png';
+      case 'Organico':
+        return this.items[6].selected ? '../../assets/img/Contenedor_Organico_White.png' : '../../assets/img/Contenedor_Organico.png';
+      default:
+        return '';
+    }
+  }
+  
+  
 
   goToInfoPage() {
   

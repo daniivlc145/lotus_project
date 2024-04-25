@@ -22,49 +22,49 @@
         </label>
         <div class="filter-buttons">
             <div class="button-container">
-                <img src="../../assets/img/Contenedor_Vidrio.png" (click)="toggleCheckbox('glass_containers')">
+                <img [src]="getContainerImage('glass_containers')" (click)="toggleCheckbox('glass_containers')">
                 <input type="checkbox" id="glass_containers" class="filter-checkbox" [(ngModel)]="items[0].selected" (change)="itemChanged(items)">
                 <label for="glass_containers">
                     <img src="../../assets/img/Selected.png" alt="Seleccionado" class="checkbox-selected">
                 </label>
             </div>
             <div class="button-container">
-                <img src="../../assets/img/Contenedor_Aceite.png" (click)="toggleCheckbox('oil_containers')">
+                <img [src]="getContainerImage('oil_containers')" (click)="toggleCheckbox('oil_containers')" style="margin-bottom: 5px;">
                 <input type="checkbox" id="oil_containers" class="filter-checkbox" [(ngModel)]="items[1].selected" (change)="itemChanged(items)">
                 <label for="oil_containers">
                     <img src="../../assets/img/Selected.png" alt="Seleccionado" class="checkbox-selected">
                 </label>
             </div>
             <div class="button-container">
-                <img src="../../assets/img/Contenedor_Ropa.png" (click)="toggleCheckbox('clothes_containers')">
+                <img [src]="getContainerImage('clothes_containers')" (click)="toggleCheckbox('clothes_containers')">
                 <input type="checkbox" id="clothes_containers" class="filter-checkbox" [(ngModel)]="items[2].selected" (change)="itemChanged(items)">
                 <label for="clothes_containers">
                     <img src="../../assets/img/Selected.png" alt="Seleccionado" class="checkbox-selected">
                 </label>
             </div>
             <div class="button-container">
-                <img src="../../assets/img/Contenedor_Residuos.png" (click)="toggleCheckbox('Residuos Urbanos')">
+                <img [src]="getContainerImage('Residuos Urbanos')" (click)="toggleCheckbox('Residuos Urbanos')">
                 <input type="checkbox" id="Residuos Urbanos" class="filter-checkbox" [(ngModel)]="items[3].selected" (change)="itemChanged(items)">
                 <label for="Residuos Urbanos">
                     <img src="../../assets/img/Selected.png" alt="Seleccionado" class="checkbox-selected">
                 </label>
             </div>
             <div class="button-container">
-                <img src="../../assets/img/Contenedor_Papel.png" (click)="toggleCheckbox('Papel / Carton')">
+                <img [src]="getContainerImage('Papel / Carton')" (click)="toggleCheckbox('Papel / Carton')">
                 <input type="checkbox" id="Papel / Carton" class="filter-checkbox" [(ngModel)]="items[4].selected" (change)="itemChanged(items)">
                 <label for="Papel / Carton">
                     <img src="../../assets/img/Selected.png" alt="Seleccionado" class="checkbox-selected">
                 </label>
             </div>
             <div class="button-container">
-                <img src="../../assets/img/Contenedor_Envases.png" (click)="toggleCheckbox('Envases Ligeros')">
+                <img [src]="getContainerImage('Envases Ligeros')" (click)="toggleCheckbox('Envases Ligeros')">
                 <input type="checkbox" id="Envases Ligeros" class="filter-checkbox" [(ngModel)]="items[5].selected" (change)="itemChanged(items)">
                 <label for="Envases Ligeros">
                     <img src="../../assets/img/Selected.png" alt="Seleccionado" class="checkbox-selected">
                 </label>
             </div>
             <div class="button-container">
-                <img src="../../assets/img/Contenedor_Organico.png" (click)="toggleCheckbox('Organico')">
+                <img [src]="getContainerImage('Organico')" (click)="toggleCheckbox('Organico')">
                 <input type="checkbox" id="Organico" class="filter-checkbox" [(ngModel)]="items[6].selected" (change)="itemChanged(items)">
                 <label for="Organico">
                     <img src="../../assets/img/Selected.png" alt="Seleccionado" class="checkbox-selected">
