@@ -6,7 +6,7 @@
         <path d="M 3 6 C 3 6 2 6 2 5 C 2 5 1.264 3.211 2.146 3.276 C 4.083 2.903 5.137 2.473 8.35 3.634 C 8.501 3.972 9 5 8 6 C 7 7 6 6 3 6" fill="#84beb0"/>
       </svg>
       <p class="textotitle" style="font-family: 'Laura merged', sans-serif; z-index: 4;">Mis Reportes</p>
-      <div #contenedorIncidencias id="contenedorIncidencias" style="overflow: auto; width:100%; height:120%; align-items: center; margin-left: 7%; padding:5%" >
+      <div #contenedorIncidencias id="contenedorIncidencias" style="overflow: auto; width:100%; height:100%; align-items: center; margin-left: 7%; padding:5%" >
           <!-- Mover el ngFor aquí -->
           <div *ngFor="let elemento of elementos">
             <!-- Clonar y actualizar elementos aquí -->
@@ -15,14 +15,14 @@
                 <path d="M 3 6 C 3 6 2 6 2 5 C 2 5 1 3 2 2 C 4 0 5 1 9 1 C 13 1 12 3 12 3 C 12 4 11 6 10 6 C 7 7 6 6 3 6" fill="#ffffff"/>
               </svg>
               <!-- Utiliza la notación de corchetes para acceder a la propiedad 'type' -->
-              <p id="tipoElement" class="texto-TIPO" style="font-family: 'Laura merged', sans-serif; z-index: 5;">{{ elemento['type'] }}</p>
-              <p id="fechaElement" class="texto-DATE" style="font-family: 'Laura merged', sans-serif; z-index: 5;">{{ elemento['fecha'] }}</p>
-              <p id="horaElement" class="texto-TIME" style="font-family: 'Laura merged', sans-serif; z-index: 5;">{{ elemento['hora'] }}</p>
-              <p id= "labelUbi" class="label-Ubi" style="font-family: 'Laura merged', sans-serif; z-index: 5;">Ubicación:</p>
-              <p id="geoShapeElement" class="texto-Ubi" style="font-family: 'Laura merged', sans-serif; z-index: 5;">{{ elemento['geo_shape'] }}</p>
-              <p  id= "labeldesc"class="label-desc" style="font-family: 'Laura merged', sans-serif; z-index: 5;">Descripción:</p>
-              <p id="descripcionElement" class="texto-desc" style="font-family: 'Laura merged', sans-serif; z-index: 5;">{{ elemento['descripcion'] }}</p>
-              <svg #svgHeader xmlns="http://www.w3.org/2000/svg" viewBox="1 0.75 11.11 2.25" style="height: 140px; width:315px; position:absolute; bottom: 80%; right: 14%; z-index: 2;">
+              <p id="tipoElement" class="texto-TIPO" style="font-family: 'Laura merged', sans-serif;">{{ elemento['type'] }}</p>
+              <p id="fechaElement" class="texto-DATE" style="font-family: 'Laura merged', sans-serif;">{{ elemento['fecha'] }}</p>
+              <p id="horaElement" class="texto-TIME" style="font-family: 'Laura merged', sans-serif; ">{{ elemento['hora'] }}</p>
+              <p id= "labelUbi" class="label-Ubi" style="font-family: 'Laura merged', sans-serif; ">Ubicación:</p>
+              <p id="geoShapeElement" class="texto-Ubi" style="font-family: 'Laura merged', sans-serif; ">{{ elemento['geo_shape'] }}</p>
+              <p  id= "labeldesc"class="label-desc" style="font-family: 'Laura merged', sans-serif;">Descripción:</p>
+              <p id="descripcionElement" class="texto-desc" style="font-family: 'Laura merged', sans-serif;">{{ elemento['descripcion'] }}</p>
+              <svg #svgHeader xmlns="http://www.w3.org/2000/svg" viewBox="1 0.75 11.11 2.25" style="height: 140px; width:315px; position:absolute; bottom: 80%; right: 14%;">
                 <path d="M 1 3 C 2 3 1 3 2 2 C 4 0 5 1 9 1 C 13 1 12 3 12 3 C 6 3 7 3 3 3" fill="#5a8d8d"/>
               </svg>
             </div>
