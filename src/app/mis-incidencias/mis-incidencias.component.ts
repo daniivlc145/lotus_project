@@ -7,37 +7,55 @@ import { muestraMisIncidencias } from './mis-incidencias.functions';
   templateUrl: './mis-incidencias.component.html',
   styleUrls: ['./mis-incidencias.component.scss'],
 })
-
-export class MisIncidenciasComponent implements OnInit, AfterViewInit {
+export class MisIncidenciasComponent implements OnInit {
   @ViewChild('incidenciaElement') incidenciaElement!: ElementRef<HTMLElement>;
-  elementos: number[] = [1, 2, 3];
-  private margenInicial = 10; // Margen inicial
-  private incrementoMargen = 25; // Incremento de margen cada vez que se replica
+  elementos: {[clave:string]:string}[] = []; // Almacenar los resultados de muestraMisIncidencias
+  protected margenInicial = 10; // Margen inicial
+  protected incrementoMargen = 25; // Incremento de margen cada vez que se replica
 
   constructor(private router: Router) {}
 
   ngOnInit(): void {
-    muestraMisIncidencias;
+    muestraMisIncidencias().then((result) => {
+      this.elementos = result; // Almacenar los resultados
+      console.log(result);
+  
+      // Replicar el elemento para cada incidencia después de que se resuelva muestraMisIncidencias()
+      this.replicarElementos();
+    });
   }
+  
+  replicarElementos(): void {
+    setTimeout(() => {
+        if (this.elementos) {
+            this.elementos.forEach(elem => this.crearNuevoElemento(elem)); // Crear un nuevo elemento para cada incidencia
+        }
+    });
+}
 
-  ngAfterViewInit(): void {
-    this.replicarElemento();
-  }
+private crearNuevoElemento(elem: {[clave:string]:string}): void {
+    // Crear un nuevo elemento div
+    const nuevoElemento = document.createElement('div');
+    nuevoElemento.className = 'nuevo-incidencia-elemento'; // Asignar una clase para estilos CSS
+    
+    // Crear elementos para cada dato y agregarlos al nuevo elemento
+    const fechaElement = document.createElement('div');
+    fechaElement.className = 'texto-DATE';
+    fechaElement.textContent = elem['fecha'];
+    nuevoElemento.appendChild(fechaElement);
 
-  private replicarElemento(): void {
-    // Clonar el elemento original
-    const elementoOriginal = this.incidenciaElement.nativeElement;
-    const nuevoElemento = elementoOriginal.cloneNode(true) as HTMLElement;
+    // Repetir este proceso para los demás datos (hora, descripción, tipo, etc.)
 
-    // Calcular el nuevo margen
-    const margen = this.margenInicial + this.incrementoMargen;
+    // Agregar el nuevo elemento al DOM
+    const contenedor = document.getElementById('contenedor-incidencias'); // Supongamos que hay un div contenedor con id "contenedor-incidencias"
+    if (contenedor) {
+        contenedor.appendChild(nuevoElemento);
+    } else {
+        console.error('Contenedor de incidencias no encontrado en el DOM.');
+    }
+}
 
-    // Aplicar el nuevo margen al nuevo elemento clonado
-    nuevoElemento.style.marginTop = `${margen}px`;
 
-    // Agregar el nuevo elemento clonado al DOM
-    elementoOriginal.parentElement?.appendChild(nuevoElemento);
-  }
 
   goToInfoPage() {
 
