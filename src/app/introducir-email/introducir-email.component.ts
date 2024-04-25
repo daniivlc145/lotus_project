@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
-import { supabaseClient } from 'src/supabase_client';
+import { forgotPassword } from './introducir-email.functions';
+import { existsEmail } from './introducir-email.functions';
 import { DialogOneComponent } from '../dialog-one/dialog-one.component';
 import {MatDialog} from '@angular/material/dialog'
 
@@ -22,13 +23,16 @@ errorMessage: string | null = null; // Esta es la propiedad que mencionaste
     const email = (document.getElementById('email') as HTMLInputElement).value
     if(camposVacios(email)){this.errorMessage = 'Rellena el campo obligatoriamente';return}
     if(validarCorreoElectronico(email)){this.errorMessage = 'Introduce un correo válido';return}
-    const {data, error} = await supabaseClient.auth.getUser(email) //usar SignInWithPasswordlessCredentials pero me daba error
-    if (error) {
-      this.errorMessage = 'El correo no está registrado' // Actualiza el mensaje de error
-    }
-    else{
-      this.openDialog();
-    }
+    await  existsEmail(email).then((existeBool) =>
+      {
+        if(existeBool){
+          this.openDialog();
+          forgotPassword(email);
+        }
+        else this.errorMessage = 'El correo no está registrado'
+
+      }
+    )
 
   }
   openDialog():void{

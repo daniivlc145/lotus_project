@@ -5,8 +5,13 @@ import { forgotPassword } from "src/app/login/login.functions";
 import { searchContainers } from "./containers";
 import { insertInquiry } from "../app/nueva-incidencia/nueva-incidencia.functions";
 import {muestraMisIncidencias } from "../app/mis-incidencias/mis-incidencias.functions";
+import { supabaseClient } from "../supabase_client";
+//signUpUser("maxkaidanov2@gmail.com","00000000","Max Chulisimo Latoncioso", "000111222")
 
-signUpUser("jmarreq@gmail.com","000000", "Lato Latoncio Chulon", "23456781")
+
+// prueba().then((result)=> console.log("El correo especificado existe en la base de datos: ", result))
+
+//signUpUser("jmarreq@gmail.com","000000", "Lato Latoncio Chulon", "23456781")
 //signInUser("danielibanezlopez1@gmail.com","123456")//.then(() => updateUserData("Carlitos gordo GORDO"))
 //forgotPassword("info2maxkaidanov2017@gmail.com")
 //searchContainers()

@@ -28,6 +28,7 @@ import { profileUserComponent } from './profile-user/profile-user.component';
 import { MatAutocompleteModule } from '@angular/material/autocomplete';
 import { StringComparison } from './string-comparison/string-comparison.service';
 import {MatInputModule} from '@angular/material/input';
+import { mapaCalorComponent } from './mapa-calor/mapa-calor.component';
 
 @NgModule({
   declarations: [
@@ -45,7 +46,8 @@ import {MatInputModule} from '@angular/material/input';
     IntroducirEmailComponent,
     DialogOneComponent,
     DialogTwoComponent,
-    profileUserComponent
+    profileUserComponent,
+    mapaCalorComponent
   ],
 
   imports: [
