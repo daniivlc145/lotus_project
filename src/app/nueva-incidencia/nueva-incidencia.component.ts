@@ -2,6 +2,9 @@ import { Component, ElementRef, ViewChild } from '@angular/core';
 import { StringComparison } from '../string-comparison/string-comparison.service';
 import {FormControl, FormsModule, ReactiveFormsModule} from '@angular/forms';
 import { Router } from '@angular/router';
+import {MatDialog} from '@angular/material/dialog'
+import { DialogTwoComponent } from '../dialog-two/dialog-two.component';
+import { DialogOneComponent } from '../dialog-one/dialog-one.component';
 
 
 @Component({
@@ -16,7 +19,7 @@ export class NuevaIncidenciaComponent {
     calles: string[] = [];
     filteredOptions: string[] = [];
   
-    constructor(private stringComparison: StringComparison, private router: Router) {
+    constructor(private stringComparison: StringComparison, private router: Router,public dialog: MatDialog) {
       this.cargarCallesDeValencia();
     }
     
@@ -102,5 +105,36 @@ export class NuevaIncidenciaComponent {
       this.router.navigate(['/profUser']);
   
     }
-    
+
+    openDialog():void{
+      console.log('abre')
+      const dialogRef = this.dialog.open(DialogTwoComponent, {
+        data:{
+          title:'Registrar incidencia',
+          content:'¿Deseas notificar el problema seleccionado?',
+          route: '/newl'
+        }
+      });
+      dialogRef.afterClosed().subscribe(async result => {
+        if (result) { // Si se seleccionó "OK" en DialogTwoComponent
+          await this.router.navigate(['/newI']);
+          this.openDialogFeed(); // Abre DialogOneComponent
+          
+        }
+        
+      });
+        
+    }
+    openDialogFeed():void{
+      console.log('abre')
+      const dialog = this.dialog.open(DialogOneComponent, {
+        data:{
+          title:'Reporte enviado',
+          content:'Hemos recibido tu reporte correctamente! Gracias por hacer un mundo más limpio.',
+          route: '/map'
+        }
+      })
+    }
   }
+
+  
