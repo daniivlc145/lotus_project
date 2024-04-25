@@ -94,7 +94,6 @@ body{user-select: none;}
 
 
 
-
 .footer {
   background-color: white; /* Color de fondo del footer */
   color: white; /* Color del texto */
@@ -103,6 +102,7 @@ body{user-select: none;}
   bottom: 0;
   height: 90px;
   z-index:1001;
+  padding-top: 10px;
 }
 
 
@@ -150,8 +150,8 @@ body{user-select: none;}
 
 }
 
-.info-reciclaje{
-  width: 35px;
+.mapa_calor   {
+  width: 50px;
   transform: rotate(-2deg);
 }
 

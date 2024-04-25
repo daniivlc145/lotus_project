@@ -15,31 +15,34 @@ import { Router } from '@angular/router';
     }
 
 
+    
+    
     goToInfoPage() {
   
-        this.router.navigate(['/info-rec']);
-      }
-    
-      goToNuevaIncPage() {
-    
-        this.router.navigate(['/newI']);
-      }
-    
-      goToMisPage() {
-    
-        this.router.navigate(['/misI']);
-      }
-    
-      goToMapPage() {
-    
-        this.router.navigate(['/map']);
-        
-      }
-    
-      goToProfPage(){
-    
-        window.location.reload();
-    
-      }
+      this.router.navigate(['/info-rec']);
+    }
   
+    goToNuevaIncPage() {
+  
+      this.router.navigate(['/newI']);
+    }
+  
+    goToMisPage() {
+  
+      this.router.navigate(['/misI']);
+    }
+  
+    goToMapPage() {
+  
+        this.router.navigate(['/map']);
+    }
+  
+    goToProfPage(){
+  
+      window.location.reload();
+      
+  
+    }
+    
+      
   }
