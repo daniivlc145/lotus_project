@@ -31,6 +31,6 @@ import { getFullName } from "../app/profile-user/profile-user.functions";
     
 // })
 
-//signInUser("maxkaidanov2@gmail.com","00000000").then(() => insertInquiry('Esto es una prueba de reporte','suggestion', 312, null, 'battery_containers'))
+signInUser("maxkaidanov2@gmail.com","00000000").then(() => insertInquiry('Esto es una prueba de reporte','suggestion', 312, null, 'battery_containers'))
 //signInUser("maxkaidanov2@gmail.com","00000000").then(() => getFullName() )
 // insertInquiry('Esto es una prueba de reporte','suggestion', 1120161, null, 'Residuos Urbanos')
