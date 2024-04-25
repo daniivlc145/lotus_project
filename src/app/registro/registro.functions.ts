@@ -1,7 +1,7 @@
 import { supabaseClient } from '../../supabase_client'
 
 // Funcion de registro; en registro
-export async function signUpUser (email: string, password: string, fullName: string, phoneNumber: string, rep: string): Promise<void> {
+export async function signUpUser (email: string, password: string, fullName: string, phoneNumber: string): Promise<void> {
   const userData = {
     email,
     password,
@@ -16,7 +16,7 @@ export async function signUpUser (email: string, password: string, fullName: str
   try {
     const { data, error} = await supabaseClient.auth.signUp(userData)
     if (error) {
-      throw new Error('Email o teléfono registrado/s')
+      throw error
     }
     console.log('Usuario registrado con éxito')
   } catch (error) {

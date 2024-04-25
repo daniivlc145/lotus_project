@@ -1,4 +1,4 @@
-import { signUpUser } from "src/app/registro/registro.functions";
+import { signUpUser } from "../app/registro/registro.functions";
 import { updateUserData } from "./users";
 import { signInUser } from "src/app/login/login.functions";
 import { forgotPassword } from "src/app/login/login.functions";
@@ -6,7 +6,7 @@ import { searchContainers } from "./containers";
 import { insertInquiry } from "../app/nueva-incidencia/nueva-incidencia.functions";
 import {muestraMisIncidencias } from "../app/mis-incidencias/mis-incidencias.functions";
 
-//signUpUser("maxkaidanov2@gmail.com","000000", "M")
+signUpUser("jmarreq@gmail.com","000000", "Lato Latoncio Chulon", "23456781")
 //signInUser("danielibanezlopez1@gmail.com","123456")//.then(() => updateUserData("Carlitos gordo GORDO"))
 //forgotPassword("info2maxkaidanov2017@gmail.com")
 //searchContainers()
@@ -23,6 +23,6 @@ import {muestraMisIncidencias } from "../app/mis-incidencias/mis-incidencias.fun
     
 // })
 
-insertInquiry('Esto es una prueba de reporte','suggestion', 312, null, 'battery_containers')
-insertInquiry('Esto es una prueba de reporte','suggestion', 1120161, null, 'Residuos Urbanos')
+// insertInquiry('Esto es una prueba de reporte','suggestion', 312, null, 'battery_containers')
+// insertInquiry('Esto es una prueba de reporte','suggestion', 1120161, null, 'Residuos Urbanos')
 

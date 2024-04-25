@@ -34,7 +34,7 @@ export class RegistroComponent  implements OnInit {
       if(this.validarLongitudContrasena(password)){throw new Error('La contrasña debe tener 8-16 caracteres')}
       
       console.log("Intento Registrar")
-      await signUpUser(email,password,fullName,phoneNumber,rep);
+      await signUpUser(email,password,fullName,phoneNumber);
       console.log('goToLoginPage() called');
       this.openDialog();
     }catch(error){
