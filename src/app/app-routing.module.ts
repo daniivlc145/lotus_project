@@ -28,7 +28,7 @@ import { IntroducirEmailComponent } from './introducir-email/introducir-email.co
 
 import { DialogOneComponent } from './dialog-one/dialog-one.component';
 import { profileUserComponent } from './profile-user/profile-user.component';
-
+import { DialogTwoComponent } from './dialog-two/dialog-two.component';
 
 
 const routes: Routes = [
@@ -56,6 +56,8 @@ const routes: Routes = [
   {path: 'misI', component: MisIncidenciasComponent},
 
   {path: 'dialogOne', component:DialogOneComponent},
+  {path: 'dialogTwo', component:DialogTwoComponent},
+
 
   {path: 'email', component:IntroducirEmailComponent},
 
