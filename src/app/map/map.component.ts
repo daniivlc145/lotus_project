@@ -8,7 +8,9 @@ import { filtrarMapa, searchContainers } from './map.functions';
   templateUrl: './map.component.html',
   styleUrls: ['./map.component.scss']
 })
+
 export class MapComponent implements OnInit {
+
 
   customDiv: HTMLElement | null = null;
   map!: L.Map;
@@ -85,6 +87,8 @@ export class MapComponent implements OnInit {
   ]
 
 
+
+
   constructor(private router: Router) { }
 
   ngOnInit(): void {
@@ -122,7 +126,7 @@ export class MapComponent implements OnInit {
              let coordenadas = basura_array.location
              let location = coordenadas.split(",").map(item => parseFloat(item))
              let tipo = this.diccionario_imagenes[basura]
-             this.addMarker({lat: location[0], lng: location[1]},coordenadas,tipo)
+             this.addMarker({lat: location[0], lng: location[1]},coordenadas,tipo, basura_array.container_id)
           }
 
         }
@@ -134,8 +138,9 @@ export class MapComponent implements OnInit {
   }
 
   // Función para agregar un marcador al mapa
-  addMarker(latlng: L.LatLngLiteral, popupContent: string, icon: L.Icon) {
-    const marker = L.marker(latlng, { icon: icon });
+  addMarker(latlng: L.LatLngLiteral, popupContent: string, icon: L.Icon, containerId : number) {
+    const marker = L.marker(latlng, { icon: icon, alt : String(containerId)});
+
     this.markers.push(marker);
     marker.addTo(this.map);
 
@@ -323,7 +328,7 @@ export class MapComponent implements OnInit {
              let coordenadas = basura_array.location
              let location = coordenadas.split(",").map(item => parseFloat(item))
              let tipo = this.diccionario_imagenes[basura]
-             this.addMarker({lat: location[0], lng: location[1]},coordenadas,tipo)
+             this.addMarker({lat: location[0], lng: location[1]},coordenadas,tipo, basura_array.container_id)
           }
 
         }
