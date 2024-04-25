@@ -26,6 +26,8 @@ export class InfoRecComponent implements AfterViewInit {
       effect: 'cards',
       grabCursor: true,
       loop: true,
+      slidesPerView: 1,
+      slidesPerGroup:3,
       pagination: {
         el: '.swiper-pagination', // Elemento que contendrá la paginación
         clickable: true, // Permite hacer clic en los puntos de paginación para navegar
