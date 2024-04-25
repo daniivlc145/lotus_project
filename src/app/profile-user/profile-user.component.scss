@@ -7,7 +7,6 @@ body{user-select: none;}
     height: 100%;
     background-color: #3a5e62;
     position: relative;
-    
     top: 45%;
     left: 50%;
     transform: translate(-50%, -50%);
@@ -15,6 +14,12 @@ body{user-select: none;}
     justify-content: center; /* Centra horizontalmente */
     align-items: center; /* Centra verticalmente */
     z-index: 0;
+}
+
+.circulo{
+
+  position: absolute;
+
 }
 
 .footer {
@@ -116,7 +121,6 @@ body{user-select: none;}
   background-repeat: no-repeat;
   position: absolute;
   left: 53%;
-  margin-top:10%;
   transform: translate(-50%, -50%);
 }
 
