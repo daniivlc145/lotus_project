@@ -22,6 +22,11 @@ import { Router } from '@angular/router';
         this.router.navigate(['/mapCalor']);
         
       }
+      
+      goToAbtPage(){
+
+        this.router.navigate(['/abt']);
+      }
     
       
   }

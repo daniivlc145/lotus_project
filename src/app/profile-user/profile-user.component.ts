@@ -41,8 +41,17 @@ import { Router } from '@angular/router';
   
       window.location.reload();
       
-  
+      
     }
+
+         
+    goToAbtPage(){
+
+      this.router.navigate(['/abt']);
+    }
+  
+
+
     
       
   }
