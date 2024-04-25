@@ -9,7 +9,7 @@
       min-height: 100vh;
       background-color:#c1d7d5;
       user-select: none;
-      overflow: scroll;
+      overflow: auto;
       font-family: 'Laura merged', sans-serif;
   }
   
@@ -57,7 +57,7 @@
     left: 49%; 
     transform: translate(-50%, 5%);
     margin-bottom: 27px;
-    z-index: 2; /* Asegura que el texto esté por encima del SVG */
+    z-index: 6; /* Asegura que el texto esté por encima del SVG */
   }
 
   .texto-TIPO{
@@ -69,7 +69,7 @@
       bottom: 86%; 
       left: 25%; 
       transform: translate(-50%, -0%);
-      z-index: 2; 
+      z-index: 6; 
   }
 
   .texto-DATE{
@@ -81,7 +81,7 @@
       bottom: 86%; 
       left: 57%; 
       transform: translate(-50%, -0%);
-      z-index: 2; 
+      z-index: 6; 
   }
 
   .texto-TIME{
@@ -93,7 +93,7 @@
       bottom: 86%; 
       left: 75%; 
       transform: translate(-50%, -0%);
-      z-index: 2; 
+      z-index: 6; 
   }
 
   .label-Ubi{
@@ -105,7 +105,7 @@
       bottom: 78%; 
       left: 26%; 
       transform: translate(-50%, -0%);
-      z-index: 2; 
+      z-index: 6; 
   }
   .texto-Ubi{
     font-family: 'Laura merged', sans-serif; /* Utiliza la fuente Laura Regular */
@@ -116,7 +116,7 @@
       bottom: 75%; 
       left: 57%; 
       transform: translate(-50%, -0%);
-      z-index: 2; 
+      z-index: 6; 
   }
 
   .label-desc{
@@ -128,7 +128,7 @@
       bottom: 70%; 
       left: 25%; 
       transform: translate(-50%, -0%);
-      z-index: 2; 
+      z-index: 6; 
   }
   .texto-desc{
     font-family: 'Laura merged', sans-serif; /* Utiliza la fuente Laura Regular */
@@ -139,7 +139,7 @@
       bottom: 70%; 
       left: 57%; 
       transform: translate(-50%, -0%);
-      z-index: 2; 
+      z-index: 6; 
   }
 
 .button-top-right span {
@@ -213,4 +213,8 @@
     color:#3a5e62;
     font-weight: bold;
     font-size: 15px;
+}
+
+.incidencia-element{
+  right:30%;
 }
