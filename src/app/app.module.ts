@@ -23,6 +23,7 @@ import { animation } from '@angular/animations';
 import { MatButtonModule } from '@angular/material/button';
 import {MatDialogModule}  from '@angular/material/dialog'
 import { DialogOneComponent } from './dialog-one/dialog-one.component';
+import { DialogTwoComponent } from './dialog-two/dialog-two.component';
 import { profileUserComponent } from './profile-user/profile-user.component';
 import { MatAutocompleteModule } from '@angular/material/autocomplete';
 import { StringComparison } from './string-comparison/string-comparison.service';
@@ -43,7 +44,8 @@ import {MatInputModule} from '@angular/material/input';
     MisIncidenciasComponent,
     IntroducirEmailComponent,
     DialogOneComponent,
-    profileUserComponent,
+    DialogTwoComponent,
+    profileUserComponent
   ],
 
   imports: [
