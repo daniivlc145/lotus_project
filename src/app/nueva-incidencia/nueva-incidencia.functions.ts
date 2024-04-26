@@ -44,10 +44,10 @@ export async function seleccionarImagen() {
     return image;
 }
 
-export async function subirImagenYGuardar(imagen: File) {
+export async function subirImagenYGuardar(imagen: any) {
     try {
        // Genera un nombre de archivo único
-       const fileName = `${uuidv4()}-${imagen.name}`;
+       const fileName = `${uuidv4()}`;
    
        // Sube la imagen al bucket de Supabase Storage
        const { data, error } = await supabaseClient.storage.from('inquiries_images').upload(fileName, imagen);
