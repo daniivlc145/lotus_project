@@ -21,6 +21,7 @@
     "@angular/platform-browser-dynamic": "^17.3.5",
     "@angular/pwa": "^17.3.5",
     "@angular/router": "^17.3.5",
+    "@capacitor/camera": "^6.0.0",
     "@ionic/angular": "^8.0.0",
     "@supabase/supabase-js": "^2.42.5",
     "@types/googlemaps": "^3.43.3",

@@ -7,6 +7,7 @@ import { insertInquiry } from "../app/nueva-incidencia/nueva-incidencia.function
 import {muestraMisIncidencias } from "../app/mis-incidencias/mis-incidencias.functions";
 import { supabaseClient } from "../supabase_client";
 import { getFullName } from "../app/profile-user/profile-user.functions";
+import { seleccionarImagen } from "../app/nueva-incidencia/nueva-incidencia.functions";
 
 
 //signUpUser("maxkaidanov2@gmail.com","00000000","Max Chulisimo Latoncioso", "000111222")
@@ -34,3 +35,4 @@ import { getFullName } from "../app/profile-user/profile-user.functions";
 signInUser("maxkaidanov2@gmail.com","00000000").then(() => insertInquiry('Esto es una prueba de reporte','suggestion', 312, null, 'battery_containers'))
 //signInUser("maxkaidanov2@gmail.com","00000000").then(() => getFullName() )
 // insertInquiry('Esto es una prueba de reporte','suggestion', 1120161, null, 'Residuos Urbanos')
+
