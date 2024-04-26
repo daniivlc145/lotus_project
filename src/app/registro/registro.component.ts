@@ -3,6 +3,8 @@ import { Router } from '@angular/router'; // Importa el módulo Router
 import { signUpUser } from './registro.functions';
 import {MatDialog} from '@angular/material/dialog'
 import { DialogOneComponent } from '../dialog-one/dialog-one.component';
+import { PopoverController } from '@ionic/angular';
+import { PopinfoOneComponent } from '../popinfo-one/popinfo-one.component';
 
 @Component({
   selector: 'app-registro',
@@ -10,7 +12,7 @@ import { DialogOneComponent } from '../dialog-one/dialog-one.component';
   styleUrls: ['./registro.component.scss'],
 })
 export class RegistroComponent  implements OnInit {
-  constructor(private router: Router, public dialog: MatDialog) { } // Inyecta el servicio Router en el constructor
+  constructor(private router: Router, public dialog: MatDialog, private popoverCntrl: PopoverController) { } // Inyecta el servicio Router en el constructor
   errorMessage: string | null = null; // Esta es la propiedad que mencionaste
   oculto :boolean = false;
   ngOnInit() {}
@@ -46,8 +48,6 @@ export class RegistroComponent  implements OnInit {
     console.log('abre')
     const dialog = this.dialog.open(DialogOneComponent, {
       data:{
-        title:'Validación del correo',
-        content:'Acabamos de enviarte un correo electrónico para que verifiques la dirección propuesta. Una vez hecho esto, podrás acceder a la aplicación.',
         route: '/login'
       }
     })
@@ -79,4 +79,22 @@ export class RegistroComponent  implements OnInit {
     const longitudValida = password.length >= 8 && password.length <= 16;
     return !longitudValida;
   }
+
+  async showPop(){
+    const popover = await this.popoverCntrl.create({
+      component: PopinfoOneComponent,
+      backdropDismiss:false,
+      componentProps: {
+        title: 'Verificación de correo',
+        content: 'Te hemos enviado un correo electrónico para que verifiques la dirección. Una vez hecho esto, podrás disfrutar al máximo los servicios de Lotus!'
+      }
+    });
+    await popover.present();
+
+    return popover.onWillDismiss().then(() => {
+      console.log('Navegando a: /ruta-deseada');
+      this.router.navigateByUrl('/login');
+    });
+  }
+
 }

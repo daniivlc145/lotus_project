@@ -31,6 +31,8 @@ import {MatInputModule} from '@angular/material/input';
 import { mapaCalorComponent } from './mapa-calor/mapa-calor.component';
 import { AboutUsComponent } from './about-us/about-us.component';
 import { profileOrgComponent } from './profile-org/profile-org.component';
+import { SugerenciaComponent } from './sugerencia/sugerencia.component';
+import { PopinfoOneComponent } from './popinfo-one/popinfo-one.component';
 
 @NgModule({
   declarations: [
@@ -52,9 +54,10 @@ import { profileOrgComponent } from './profile-org/profile-org.component';
     mapaCalorComponent,
     AboutUsComponent,
     mapaCalorComponent,
+    PopinfoOneComponent,
     profileOrgComponent
   ],
-
+  
   imports: [
     BrowserModule,
     IonicModule.forRoot(),
@@ -67,6 +70,9 @@ import { profileOrgComponent } from './profile-org/profile-org.component';
     MatAutocompleteModule,
     MatInputModule,
   ], 
+  exports:[
+    PopinfoOneComponent
+  ],
   providers: [
     provideAnimationsAsync(),
     StringComparison,
