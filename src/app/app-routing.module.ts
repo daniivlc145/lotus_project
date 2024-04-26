@@ -35,7 +35,10 @@ import { DialogTwoComponent } from './dialog-two/dialog-two.component';
 import { mapaCalorComponent } from './mapa-calor/mapa-calor.component';
 
 import { AboutUsComponent } from './about-us/about-us.component';
+
 import { profileOrgComponent } from './profile-org/profile-org.component';
+
+import { SugerenciaComponent } from './sugerencia/sugerencia.component';
 
 
 const routes: Routes = [
@@ -75,6 +78,8 @@ const routes: Routes = [
   {path: 'abt', component:AboutUsComponent},
 
   {path: 'profOrg', component:profileOrgComponent},
+
+  {path: 'sug', component:SugerenciaComponent},
 
   {
     path: '',

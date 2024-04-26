@@ -31,6 +31,7 @@ import {MatInputModule} from '@angular/material/input';
 import { mapaCalorComponent } from './mapa-calor/mapa-calor.component';
 import { AboutUsComponent } from './about-us/about-us.component';
 import { profileOrgComponent } from './profile-org/profile-org.component';
+import { SugerenciaComponent } from './sugerencia/sugerencia.component';
 
 @NgModule({
   declarations: [
@@ -52,7 +53,8 @@ import { profileOrgComponent } from './profile-org/profile-org.component';
     mapaCalorComponent,
     AboutUsComponent,
     mapaCalorComponent,
-    profileOrgComponent
+    profileOrgComponent,
+    SugerenciaComponent
   ],
 
   imports: [
