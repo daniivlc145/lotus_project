@@ -30,6 +30,49 @@ body {
    
 }
 
+.camera{
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0.812327 4.61966 13.11 13.11'%3E%3Cpath d='M 3.264 17.127 C 1.725 17.127 0.793 16.235 1.135 11.424 C 1.077 11.414 0.401 8.947 1.198 6.957 C 1.482 5.377 3.994 4.445 11.125 4.647 C 12.502 4.688 14.407 5.377 13.807 9.418 C 13.61 12.839 13.883 15.406 13.047 16.229 C 12.687 16.839 5.858 18.707 3.264 17.086' fill='%233a5e62'/%3E%3C/svg%3E");
+  background-repeat: no-repeat;
+  background-color: transparent;
+  border:none;
+  background-size: cover;
+  z-index: 22;
+  position:absolute;
+  align-self: center;
+  bottom:36%;
+  left:70%;
+  height: 40px;
+  width:40px;
+}
+.cameraicon{
+  background-image: src='/src/assets/img/iconCamera.png';
+  background-repeat: no-repeat;
+  background-color: transparent;
+  border:none;
+  background-size: cover;
+  z-index: 22;
+  position:absolute;
+  align-self: center;
+  bottom:36%;
+  left:70%;
+  height: 40px;
+  width:40px;
+}
+
+.uploadI{
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0.812327 4.61966 13.11 13.11'%3E%3Cpath d='M 3.264 17.127 C 1.725 17.127 0.793 16.235 1.135 11.424 C 1.077 11.414 0.401 8.947 1.198 6.957 C 1.482 5.377 3.994 4.445 11.125 4.647 C 12.502 4.688 14.407 5.377 13.807 9.418 C 13.61 12.839 13.883 15.406 13.047 16.229 C 12.687 16.839 5.858 18.707 3.264 17.086' fill='%233a5e62'/%3E%3C/svg%3E");
+  background-repeat: no-repeat;
+  background-color: transparent;
+  border:none;
+  background-size: cover;
+  z-index: 22;
+  position:absolute;
+  align-self: center;
+  bottom:26%;
+  left:70%;
+  height: 40px;
+  width:40px;
+}
 
 
 .contentLast{
@@ -176,12 +219,13 @@ body {
  z-index: 6;
  text-align: left;
  height: 175px;
- width: 220px;
+ width: 190px;
  bottom: 17%; 
- left: 50%; 
+ left: 46%; 
  padding-top: 10px;
+ color: #b5b4b8;
  padding-left: 15px;
- padding-right: 15px;
+ padding-right: 25px;
  padding-bottom: 10px;
  transform: translate(-50%, -0%);
  overflow:auto;
