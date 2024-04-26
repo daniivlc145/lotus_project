@@ -70,20 +70,22 @@
         transform: translate(-50%, -0%); /* Centra el texto */
     
     }
-    swiper-container {
-        width: 300px;
-        height: 300px;
-        padding: 50px;
-      }
+    .custom-button-before{
+      background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='4 0.555556 3.444 3.733'%3E%3Cpath d='M 7 4 C 7 5 4 3 4 4 L 4 1 C 4 0 7 1 7 1 C 7 1 8 4 7 4' fill='%235a8d8d'/%3E%3C/svg%3E");
+      background-repeat: no-repeat;
+      background-color: transparent; /* Establecer el color de fondo como transparente */
+      background-size: cover;
+      border: none; /* Sin borde */
+      padding: 10px 20px; /* Espacio interno */
+      cursor: pointer; /* Cambia el cursor al pasar por encima */
+      color: white;
+      font-family: 'Handwriting', sans-serif; /* Utiliza la fuente Laura Regular */
+      font-size: 24px; /* Tamaño de la fuente */
+      text-align: center; /* Alineación del texto */
+      position:absolute;
+  }
   
-      swiper-slide {
-        background-position: center;
-        background-size: cover;
-        width: 300px;
-        height: 300px;
-      }
-  
-      swiper-slide img {
-        display: block;
-        width: 100%;
-      }
+  .custom-button-before:hover{
+      background-color: transparent;/* Color de fondo al pasar por encima */
+      background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='4 0.555556 3.444 3.733'%3E%3Cpath d='M 7 4 C 7 5 4 3 4 4 L 4 1 C 4 0 7 1 7 1 C 7 1 8 4 7 4' fill='%235a8d8d'/%3E%3C/svg%3E");
+  }
