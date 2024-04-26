@@ -27,6 +27,12 @@ import { Router } from '@angular/router';
 
         this.router.navigate(['/abt']);
       }
+
+      goToSugPage(){
+
+        this.router.navigate(['/sug']);
+
+      }
     
       
   }

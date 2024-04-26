@@ -44,6 +44,12 @@ import { Router } from '@angular/router';
       
     }
 
+    goToSugPage(){
+
+      this.router.navigate(['/sug']);
+
+    }
+
          
     goToAbtPage(){
 
