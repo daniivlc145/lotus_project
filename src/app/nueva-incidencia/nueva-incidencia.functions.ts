@@ -17,7 +17,6 @@ export async function insertInquiry(description: string, type: string, container
         }
         // CODIGO A QUITAR
         
-
         const {error} = await supabaseClient
         .from('inquiries')
         .insert({ description, type, container_id, creator_id: user?.id, geo_shape, datos_relacion: containerType, imagen_adjunta: imageURL});

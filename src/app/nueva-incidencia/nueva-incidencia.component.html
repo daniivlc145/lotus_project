@@ -7,7 +7,7 @@
       </svg>
       <p class="textotitle" style="font-family: 'Laura Regular', sans-serif; z-index: 2;">Nuevo Reporte </p>
       <p class="texto_tipo" style="font-family: 'Laura Regular', sans-serif; z-index: 2;">Tipo</p>
-      <div class="dropdown" [class.open]="dropdownOpen" (click)="toggleDropdown()">
+      <div class="dropdown" id="tipo" [class.open]="dropdownOpen" (click)="toggleDropdown()">
         <button class="dropbtn">{{ selectedOption }}</button>
         <div class="dropdown-content" *ngIf="dropdownOpen">
           <div *ngFor="let option of ['CONTENEDOR LLENO', 'RECLAMACIÓN/INFORME', 'PETICIÓN', 'CONSULTA']" (click)="selectOption(option); closeDropdown()">
@@ -22,7 +22,7 @@
       
       
       <!--<textarea class="input" id="ubi" name="ubi" maxlength="50"></textarea>-->
-      <form class="form" style="height:18px; margin-top: 10px; border-radius: 30px;">
+      <form class="form" id="ubi" style="height:18px; margin-top: 10px; border-radius: 30px;">
         <mat-form-field class="form">
           <input type="text" matInput [matAutocomplete]="auto" #myInput (input)="onInputChange($event)" class="input2" style="font-family: 'Laura merged', sans-serif; ">
           <mat-autocomplete #auto="matAutocomplete" style="font-family: 'Laura merged', sans-serif;">
@@ -34,9 +34,14 @@
       </form>
       <p class="texto_desc" style="font-family: 'Laura Regular', sans-serif; z-index: 2;">Descripción</p>
       <textarea class="descripBox" id="descrip" name="descrip" rows="4" cols="50" maxlength="850"></textarea>
-      <input type="button" id="camera" class="camera"/>
-      <img src="/src/assets/img/iconCamera.png" style="position:absolute;  z-index: 23;bottom:36%;left:70%;height: 40px;width:40px;">
-      <input type="button" id="uploadImage" class="uploadI"/>
+      <input type="button" id="camera" class="camera" style="margin-left: 2px;"/>
+      <figure>
+      <img src="../assets/img/icon_Camera.png" style="position:absolute;margin-left: 2px;  z-index: 23;bottom:36%;left:70%;height: 40px;width:40px;">
+      </figure>
+      <input type="button" id="uploadImage" class="uploadI" style="margin-left: 2px;"/>
+      <figure>
+        <img src="../assets/img/uploadImage.png" style="position:absolute; margin-left: 2px;z-index: 23;bottom:26%;left:70%;height: 40px;width:40px;">
+        </figure>
       <svg xmlns="http://www.w3.org/2000/svg" viewBox="1.55556 -0.584459 16.44 26.33" style="height: 450; width:400px;  filter: drop-shadow(0 0 10px rgba(0, 0, 0, 0.5)); position:absolute; z-index: 1;" >
         <path d="M 17 25 C 17 26 3 26 3 25 C 2 24 2 24 2 13 C 2 7 1 1 2 1 C 3 0 15 -2 17 1 C 18 2 18 14 18 14 C 18 21 18 24 17 25" fill="#FFFFFF"/>
       </svg>
