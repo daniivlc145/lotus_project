@@ -2,9 +2,6 @@ import { Component, ElementRef, ViewChild } from '@angular/core';
 import { StringComparison } from '../string-comparison/string-comparison.service';
 import {FormControl, FormsModule, ReactiveFormsModule} from '@angular/forms';
 import { Router } from '@angular/router';
-import {MatDialog} from '@angular/material/dialog'
-import { DialogTwoComponent } from '../dialog-two/dialog-two.component';
-import { DialogOneComponent } from '../dialog-one/dialog-one.component';
 import { PopinfoOneComponent } from '../popinfo-one/popinfo-one.component';
 import { PopinfoTwoComponent } from '../popinfo-two/popinfo-two.component';
 import { PopoverController } from '@ionic/angular';

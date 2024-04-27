@@ -21,9 +21,6 @@ import { IntroducirEmailComponent } from './introducir-email/introducir-email.co
 import {BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { animation } from '@angular/animations';
 import { MatButtonModule } from '@angular/material/button';
-import {MatDialogModule}  from '@angular/material/dialog'
-import { DialogOneComponent } from './dialog-one/dialog-one.component';
-import { DialogTwoComponent } from './dialog-two/dialog-two.component';
 import { profileUserComponent } from './profile-user/profile-user.component';
 import { MatAutocompleteModule } from '@angular/material/autocomplete';
 import { StringComparison } from './string-comparison/string-comparison.service';
@@ -49,8 +46,6 @@ import {PopinfoTwoComponent} from './popinfo-two/popinfo-two.component';
     ContrasenaOlvidadaComponent,
     MisIncidenciasComponent,
     IntroducirEmailComponent,
-    DialogOneComponent,
-    DialogTwoComponent,
     profileUserComponent,
     mapaCalorComponent,
     AboutUsComponent,
@@ -68,7 +63,6 @@ import {PopinfoTwoComponent} from './popinfo-two/popinfo-two.component';
     MatFormFieldModule,
     BrowserAnimationsModule,
     MatButtonModule,
-    MatDialogModule,
     MatAutocompleteModule,
     MatInputModule,
   ], 
