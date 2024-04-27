@@ -5,6 +5,9 @@ import { Router } from '@angular/router';
 import {MatDialog} from '@angular/material/dialog'
 import { DialogTwoComponent } from '../dialog-two/dialog-two.component';
 import { DialogOneComponent } from '../dialog-one/dialog-one.component';
+import { PopinfoOneComponent } from '../popinfo-one/popinfo-one.component';
+import { PopinfoTwoComponent } from '../popinfo-two/popinfo-two.component';
+import { PopoverController } from '@ionic/angular';
 
 
 @Component({
@@ -19,7 +22,7 @@ export class NuevaIncidenciaComponent {
     calles: string[] = [];
     filteredOptions: string[] = [];
   
-    constructor(private stringComparison: StringComparison, private router: Router,public dialog: MatDialog) {
+    constructor(private stringComparison: StringComparison, private router: Router,private popoverCntrl: PopoverController) {
       this.cargarCallesDeValencia();
     }
     
@@ -106,34 +109,36 @@ export class NuevaIncidenciaComponent {
   
     }
 
-    openDialog():void{
-      console.log('abre')
-      const dialogRef = this.dialog.open(DialogTwoComponent, {
-        data:{
-          title:'Registrar incidencia',
-          content:'¿Deseas notificar el problema seleccionado?',
-          route: '/newl'
+    async showPop(){
+      const popover = await this.popoverCntrl.create({
+        component: PopinfoTwoComponent,
+        backdropDismiss:false,
+        componentProps: {
+          title: 'Nueva incidencia',
+          content: '¿Desea registrar la incidencia tal en la ubicación tal?'
         }
       });
-      dialogRef.afterClosed().subscribe(async result => {
-        if (result) { // Si se seleccionó "OK" en DialogTwoComponent
-          await this.router.navigate(['/newI']);
-          this.openDialogFeed(); // Abre DialogOneComponent
-          
+      await popover.present();
+  
+      popover.onWillDismiss().then(async (detail) => {
+        if (detail.data && detail.data.action === 'accept') {
+          console.log('popover ONE')
+          const popoverone = await this.popoverCntrl.create({
+            component: PopinfoOneComponent,
+            backdropDismiss:false,
+            componentProps: {
+              title: '¡Incidencia notificada!',
+              content: 'Gracias por ayudarnos a hacer un mundo más limpio y mejor'
+            }
+          });
+          await popoverone.present();
+          return popoverone.onWillDismiss().then(() => {
+            console.log('Navegando a: /ruta-deseada');
+            this.router.navigateByUrl('/map');
+          });
         }
-        
       });
-        
-    }
-    openDialogFeed():void{
-      console.log('abre')
-      const dialog = this.dialog.open(DialogOneComponent, {
-        data:{
-          title:'Reporte enviado',
-          content:'Hemos recibido tu reporte correctamente! Gracias por hacer un mundo más limpio.',
-          route: '/map'
-        }
-      })
+      
     }
   }
 

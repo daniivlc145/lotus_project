@@ -1,8 +1,6 @@
 import { Component, Inject, OnInit } from '@angular/core';
 import { Router } from '@angular/router'; // Importa el módulo Router
 import { signUpUser } from './registro.functions';
-import {MatDialog} from '@angular/material/dialog'
-import { DialogOneComponent } from '../dialog-one/dialog-one.component';
 import { PopoverController } from '@ionic/angular';
 import { PopinfoOneComponent } from '../popinfo-one/popinfo-one.component';
 
@@ -12,13 +10,13 @@ import { PopinfoOneComponent } from '../popinfo-one/popinfo-one.component';
   styleUrls: ['./registro.component.scss'],
 })
 export class RegistroComponent  implements OnInit {
-  constructor(private router: Router, public dialog: MatDialog, private popoverCntrl: PopoverController) { } // Inyecta el servicio Router en el constructor
+  constructor(private router: Router, private popoverCntrl: PopoverController) { } // Inyecta el servicio Router en el constructor
   errorMessage: string | null = null; // Esta es la propiedad que mencionaste
   oculto :boolean = false;
   ngOnInit() {}
 
   llamada(): void{
-    this.signUp().then(() => this.openDialog)
+    this.signUp().then(() => this.showPop)
   }
 
   async signUp(): Promise<void> {
@@ -38,19 +36,11 @@ export class RegistroComponent  implements OnInit {
       console.log("Intento Registrar")
       await signUpUser(email,password,fullName,phoneNumber);
       console.log('goToLoginPage() called');
-      this.openDialog();
+      this.showPop();
     }catch(error){
       console.error('ERROR CAPTURADO:', (error as Error).message)
       this.errorMessage = (error as Error).message; // Actualiza el mensaje de error
     }
-  }
-  openDialog():void{
-    console.log('abre')
-    const dialog = this.dialog.open(DialogOneComponent, {
-      data:{
-        route: '/login'
-      }
-    })
   }
   validarCorreoElectronico(correo: string): boolean {
     console.log("validando email")

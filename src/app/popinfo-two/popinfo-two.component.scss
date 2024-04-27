@@ -1,0 +1,80 @@
+@import url("/src/css/style.css");
+
+body{user-select: none;}
+
+
+
+.popup{
+    background-color: transparent;
+    filter: drop-shadow(0 0 10px rgba(1, 0, 0, 0)); 
+    width: 300px;
+    height: 300px;
+    left: 50%;
+    bottom: 15%;
+    position: fixed;
+    transform: translate(-50%, -50%);
+}
+
+.title{
+    color: black;
+    font-size: 28px;
+    z-index: 5;
+    position: absolute;
+    bottom: 78%;
+    left: 22%;
+    font-family: 'Laura Regular', sans-serif;
+    width: max-content; /* Para ajustar el tamaño del contenedor al contenido */
+    text-align: center;
+}
+
+
+.okbutton{
+    background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 8 6.063 4'%3E%3Cpath d='M 6 9 C 6 12 7 12 1 12 C 1 12 1 12 1 12 C 0 12 0 11 0 9 C 0.3333 8.6667 0 8 3 8 C 4.3333 8.3333 5 8 6 9' fill='%2384beb0'/%3E%3C/svg%3E");
+    background-repeat: no-repeat;
+    background-color: transparent; /* Establecer el color de fondo como transparente */
+    background-size: cover;
+    border: none; /* Sin borde */
+    padding: 10px 20px; /* Espacio interno */
+    cursor: pointer; /* Cambia el cursor al pasar por encima */
+    z-index: 8;
+    color: white;
+    font-family: 'Laura Regular', sans-serif; /* Utiliza la fuente Laura Regular */
+    font-size: 24px; /* Tamaño de la fuente */
+    text-align: center; /* Alineación del texto */
+    position: absolute;
+    bottom: 21%;
+    right:10%;
+    font-weight: bold;
+}
+
+.cancelbutton{
+    background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='-0.605 9.64451 0.8816 0.4455'%3E%3Cpath d='M -0.005 10.09 C -0.664 10.04 -0.598 10.043 -0.605 9.95 C -0.518 9.539 -0.542 9.68 0.095 9.645 C 0.387 9.627 0.267 10.109 0.148 10.071' fill='%23e5cec8'/%3E%3C/svg%3E");
+    background-repeat: no-repeat;
+    background-color: transparent; /* Establecer el color de fondo como transparente */
+    background-size: cover;
+    border: none; /* Sin borde */
+    padding: 10px 20px; /* Espacio interno */
+    cursor: pointer; /* Cambia el cursor al pasar por encima */
+    z-index: 8;
+    color: white;
+    font-family: 'Laura Regular', sans-serif; /* Utiliza la fuente Laura Regular */
+    font-size: 20px; /* Tamaño de la fuente */
+    text-align: center; /* Alineación del texto */
+    position: absolute;
+    bottom: 21%;
+    left:10%;
+    font-weight: bold;
+}
+
+.text{
+    font-family: 'Laura Regular', sans-serif; /* Utiliza la fuente Laura Regular */
+    font-size: 24px; /* Tamaño de la fuente */
+    text-align: center; /* Alineación del texto */
+    color: #3a5e62; /* Color del texto */
+    position: absolute; 
+    top: 39%; 
+    left: 49%; 
+    transform: translate(-50%, -50%);
+    z-index: 2; /* Asegura que el texto esté por encima del SVG */
+    width: 90%;
+}

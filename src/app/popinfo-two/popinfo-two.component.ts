@@ -1,4 +1,5 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, EventEmitter, Input, OnInit, Output } from '@angular/core';
+import { PopoverController } from '@ionic/angular';
 
 @Component({
   selector: 'app-popinfo-two',
@@ -7,8 +8,19 @@ import { Component, OnInit } from '@angular/core';
 })
 export class PopinfoTwoComponent  implements OnInit {
 
-  constructor() { }
-
+  @Input() title: string | undefined;
+  @Input() content: string | undefined;
+  @Output() acceptClicked = new EventEmitter<void>();
+  constructor(private popoverCntrl: PopoverController){}
   ngOnInit() {}
+
+  onClickOK(){
+    this.acceptClicked.emit();
+    this.popoverCntrl.dismiss({action: 'accept'});
+  }
+
+  onClickCancel(){
+    this.popoverCntrl.dismiss();
+  }
 
 }
