@@ -33,6 +33,7 @@ import { AboutUsComponent } from './about-us/about-us.component';
 import { profileOrgComponent } from './profile-org/profile-org.component';
 import { SugerenciaComponent } from './sugerencia/sugerencia.component';
 import { PopinfoOneComponent } from './popinfo-one/popinfo-one.component';
+import {PopinfoTwoComponent} from './popinfo-two/popinfo-two.component';
 
 @NgModule({
   declarations: [
@@ -55,7 +56,8 @@ import { PopinfoOneComponent } from './popinfo-one/popinfo-one.component';
     AboutUsComponent,
     mapaCalorComponent,
     PopinfoOneComponent,
-    profileOrgComponent
+    profileOrgComponent,
+    PopinfoTwoComponent
   ],
   
   imports: [
@@ -71,7 +73,8 @@ import { PopinfoOneComponent } from './popinfo-one/popinfo-one.component';
     MatInputModule,
   ], 
   exports:[
-    PopinfoOneComponent
+    PopinfoOneComponent,
+    PopinfoTwoComponent
   ],
   providers: [
     provideAnimationsAsync(),
