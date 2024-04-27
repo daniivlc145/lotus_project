@@ -18,7 +18,10 @@ import { PopinfoTwoComponent } from '../popinfo-two/popinfo-two.component';
     }
 
 
-    
+    goToConfigPage() {
+  
+      this.router.navigate(['/config']);
+    }
     
     goToInfoPage() {
   
