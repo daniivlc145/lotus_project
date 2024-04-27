@@ -2,8 +2,8 @@ import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
 import { forgotPassword } from './introducir-email.functions';
 import { existsEmail } from './introducir-email.functions';
-import { DialogOneComponent } from '../dialog-one/dialog-one.component';
-import {MatDialog} from '@angular/material/dialog'
+import { PopoverController } from '@ionic/angular';
+import { PopinfoOneComponent } from '../popinfo-one/popinfo-one.component';
 
 
 @Component({
@@ -14,7 +14,7 @@ import {MatDialog} from '@angular/material/dialog'
 export class IntroducirEmailComponent  implements OnInit {
 errorMessage: string | null = null; // Esta es la propiedad que mencionaste
 
-  constructor(private router: Router,public dialog: MatDialog) { }
+  constructor(private router: Router,public popovercntrl: PopoverController) { }
 
   ngOnInit() {}
 
@@ -26,7 +26,7 @@ errorMessage: string | null = null; // Esta es la propiedad que mencionaste
     await  existsEmail(email).then((existeBool) =>
       {
         if(existeBool){
-          this.openDialog();
+          this.showPop();
           forgotPassword(email);
         }
         else this.errorMessage = 'El correo no está registrado'
@@ -35,19 +35,23 @@ errorMessage: string | null = null; // Esta es la propiedad que mencionaste
     )
 
   }
-  openDialog():void{
-    console.log('abre')
-    const dialog = this.dialog.open(DialogOneComponent, {
-      data:{
-        title:'Recuperar contraseña',
-        content:'Acabamos de enviarte un correo electrónico para que puedas cambiar tu contraseña anterior',
-        route: '/login'
+  async showPop(){
+    const popover = await this.popovercntrl.create({
+      component: PopinfoOneComponent,
+      backdropDismiss:false,
+      componentProps: {
+        title: 'Recuperar contraseña',
+        content: 'Te hemos enviado un correo electrónico para que puedas cambiar tu contraseña, ¡revísalo cuanto antes!'
       }
-    })
+    });
+    await popover.present();
+
+    return popover.onWillDismiss().then(() => {
+      console.log('Navegando a: /ruta-deseada');
+      this.router.navigateByUrl('/login');
+    });
   }
-
 }
-
 function validarCorreoElectronico(correo: string): boolean {
   const expresionRegular = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
   return !expresionRegular.test(correo);

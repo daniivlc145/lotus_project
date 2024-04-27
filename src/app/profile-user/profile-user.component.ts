@@ -1,5 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
+import { PopoverController } from '@ionic/angular';
+import { PopinfoTwoComponent } from '../popinfo-two/popinfo-two.component';
 
 @Component({
     selector: 'app-profile-user',
@@ -8,8 +10,9 @@ import { Router } from '@angular/router';
     
   })
   export class profileUserComponent  implements OnInit {
+
   
-    constructor(private router: Router) { }
+    constructor(private router: Router,private popoverCntrl: PopoverController) { }
   
     ngOnInit() {
     }
@@ -56,8 +59,23 @@ import { Router } from '@angular/router';
       this.router.navigate(['/abt']);
     }
   
-
-
-    
+    async logOut(){
+      const popover = await this.popoverCntrl.create({
+        component: PopinfoTwoComponent,
+        backdropDismiss:false,
+        componentProps: {
+          title: 'Cerrar sesión',
+          content: '¿Estás seguro de que quieres cerrar sesión?'
+        }
+      });
+      await popover.present();
+  
+      popover.onWillDismiss().then(async (detail) => {
+        if (detail.data && detail.data.action === 'accept') {
+          this.router.navigateByUrl('/login');
+      } });
+          
+      
+    }
       
   }
