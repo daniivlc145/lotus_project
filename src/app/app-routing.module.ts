@@ -36,6 +36,8 @@ import { profileOrgComponent } from './profile-org/profile-org.component';
 
 import { SugerenciaComponent } from './sugerencia/sugerencia.component';
 
+import { ConfigComponent } from './config/config.component';
+
 
 const routes: Routes = [
 
@@ -72,6 +74,8 @@ const routes: Routes = [
   {path: 'profOrg', component:profileOrgComponent},
 
   {path: 'sug', component:SugerenciaComponent},
+
+  {path: 'config', component:ConfigComponent},
 
   {
     path: '',

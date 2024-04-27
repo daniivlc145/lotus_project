@@ -1,0 +1,82 @@
+@import url("/src/css/style.css");
+
+body{
+
+    background-color: #3a5e62;
+    font-family: 'Laura Regular', sans-serif;
+
+}
+
+.container{
+
+    position: relative;
+    width: 100%;
+    height: 100%;
+    display: flex;
+    flex-direction: column
+
+}
+
+.ubi{
+    font-family: 'Laura Regular', sans-serif; /* Utiliza la fuente Laura Regular */
+      font-size: 20px; /* Tamaño de la fuente */
+      text-align: left; /* Alineación del texto */
+      color: #3a5e62; /* Color del texto */
+      position: absolute; 
+      bottom: 65%; 
+      left: 37%; 
+      transform: translate(-50%, -0%);
+      z-index: 2; 
+  }
+  .cam{
+    font-family: 'Laura Regular', sans-serif; /* Utiliza la fuente Laura Regular */
+      font-size: 20px; /* Tamaño de la fuente */
+      text-align: left; /* Alineación del texto */
+      color: #3a5e62; /* Color del texto */
+      position: absolute; 
+      bottom: 59%; 
+      left: 35%; 
+      transform: translate(-50%, -0%);
+      z-index: 2; 
+  }
+  .gal{
+    font-family: 'Laura Regular', sans-serif; /* Utiliza la fuente Laura Regular */
+      font-size: 20px; /* Tamaño de la fuente */
+      text-align: left; /* Alineación del texto */
+      color: #3a5e62; /* Color del texto */
+      position: absolute; 
+      bottom: 53%; 
+      left: 35%; 
+      transform: translate(-50%, -0%);
+      z-index: 2; 
+  }
+  .textotitle{
+    font-family: 'Laura Regular', sans-serif; /* Utiliza la fuente Laura Regular */
+    font-size: 30px; /* Tamaño de la fuente */
+    text-align: left; /* Alineación del texto */
+    color: #FFFFFF; /* Color del texto */
+    position: absolute; 
+    top: 12%; 
+    left: 43%; 
+    transform: translate(-50%, -0%);
+    z-index: 20; /* Asegura que el texto esté por encima del SVG */
+}
+  .custom-button-before{
+    background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='4 0.555556 3.444 3.733'%3E%3Cpath d='M 7 4 C 7 5 4 3 4 4 L 4 1 C 4 0 7 1 7 1 C 7 1 8 4 7 4' fill='%235a8d8d'/%3E%3C/svg%3E");
+    background-repeat: no-repeat;
+    background-color: transparent; /* Establecer el color de fondo como transparente */
+    background-size: cover;
+    border: none; /* Sin borde */
+    padding: 10px 20px; /* Espacio interno */
+    cursor: pointer; /* Cambia el cursor al pasar por encima */
+    color: white;
+    font-family: 'Handwriting', sans-serif; /* Utiliza la fuente Laura Regular */
+    font-size: 24px; /* Tamaño de la fuente */
+    text-align: center; /* Alineación del texto */
+    position:absolute;
+}
+
+.custom-button-before:hover{
+    background-color: transparent;/* Color de fondo al pasar por encima */
+    background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='4 0.555556 3.444 3.733'%3E%3Cpath d='M 7 4 C 7 5 4 3 4 4 L 4 1 C 4 0 7 1 7 1 C 7 1 8 4 7 4' fill='%235a8d8d'/%3E%3C/svg%3E");
+}

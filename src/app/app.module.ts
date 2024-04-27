@@ -31,6 +31,7 @@ import { profileOrgComponent } from './profile-org/profile-org.component';
 import { SugerenciaComponent } from './sugerencia/sugerencia.component';
 import { PopinfoOneComponent } from './popinfo-one/popinfo-one.component';
 import {PopinfoTwoComponent} from './popinfo-two/popinfo-two.component';
+import { ConfigComponent } from './config/config.component';
 
 @NgModule({
   declarations: [
@@ -52,7 +53,9 @@ import {PopinfoTwoComponent} from './popinfo-two/popinfo-two.component';
     mapaCalorComponent,
     PopinfoOneComponent,
     profileOrgComponent,
-    PopinfoTwoComponent
+    PopinfoTwoComponent,
+    SugerenciaComponent,
+    ConfigComponent,
   ],
   
   imports: [
