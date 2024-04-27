@@ -9,8 +9,16 @@ import { supabaseClient } from "../supabase_client";
 import { getFullName } from "../app/profile-user/profile-user.functions";
 import { seleccionarImagen } from "../app/nueva-incidencia/nueva-incidencia.functions";
 
+//  async function prueba(){
+//      const {data, error} =  await supabaseClient.auth.signUp({ email: "valencia@organizacion.com", password : "00000000", options: {data : { CIF : "VALENCIAC42G02", city : "Valencia", organization_name : "GVA", phone_number : "654123798"}}  })
 
-//signUpUser("maxkaidanov2@gmail.com","00000000","Max Chulisimo Latoncioso", "000111222")
+//      if (error){
+//          console.log("Ha habido un error")
+//          console.log(error)
+//      }
+//  }
+//  prueba()
+signUpUser("info2maxkaidanov2017@gmail.com","00000000","Max Latoncioso", "000641222")
 
 
 // prueba().then((result)=> console.log("El correo especificado existe en la base de datos: ", result))
@@ -32,7 +40,7 @@ import { seleccionarImagen } from "../app/nueva-incidencia/nueva-incidencia.func
     
 // })
 
-signInUser("maxkaidanov2@gmail.com","00000000").then(() => insertInquiry('Esto es una prueba de reporte','suggestion', 312, null, 'battery_containers'))
+//signInUser("maxkaidanov2@gmail.com","00000000").then(() => insertInquiry('Esto es una prueba de reporte','suggestion', 312, null, 'battery_containers'))
 //signInUser("maxkaidanov2@gmail.com","00000000").then(() => getFullName() )
 // insertInquiry('Esto es una prueba de reporte','suggestion', 1120161, null, 'Residuos Urbanos')
 
