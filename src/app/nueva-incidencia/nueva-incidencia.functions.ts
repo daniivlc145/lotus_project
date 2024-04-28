@@ -1,6 +1,5 @@
 import { v4 as uuidv4 } from 'uuid';
 import { supabaseClient } from "../../supabase_client";
-import {conversionWasteContainers} from "../../db_functions/containers";
 import { Camera, CameraResultType, CameraSource } from '@capacitor/camera';
 
 export async function insertInquiry(description: string, type: string, container_id: number | null, geo_shape: string | null, containerType: string) {
@@ -31,6 +30,13 @@ export async function insertInquiry(description: string, type: string, container
         console.error('Error inesperado:', (error as Error).message);
         throw error;
     }
+}
+
+export function conversionWasteContainers (containerType: string): string {
+    if (containerType === 'Residuos Urbanos' || containerType === 'Organico' || containerType === 'Papel / Carton' || containerType === 'Envases Ligeros') {
+        containerType = 'waste_containers'
+    }
+    return containerType
 }
 
 export async function seleccionarImagen() {
