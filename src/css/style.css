@@ -21,31 +21,46 @@
 @import "~@angular/material/prebuilt-themes/purple-green.css";
 .error-message{
     position: absolute; /* Posicionamiento absoluto */
-    font-family: 'Laura Regular'; /* Nombre de la fuente */
-    src: url('../fonts/Laura-Regular.ttf') format('truetype'); /* Ruta del archivo TTF */
+    font-family: 'Laura merged'; /* Nombre de la fuente */
+    src: url('../fonts/Laura-merged.ttf') format('truetype'); /* Ruta del archivo TTF */
     color: #f56f5d;
     bottom: 85px;
+    z-index: 100;
+    transform: translateX(-50);
+    text-align: center;
+    max-width: 210px;
+    text-wrap:wrap;
 }
 
 .error-message-register{
     position: absolute; /* Posicionamiento absoluto */
-    font-family: 'Laura Regular'; /* Nombre de la fuente */
-    src: url('../fonts/Laura-Regular.ttf') format('truetype'); /* Ruta del archivo TTF */
+    font-family: 'Laura merged'; /* Nombre de la fuente */
+    src: url('../fonts/Laura-merged.ttf') format('truetype'); /* Ruta del archivo TTF */
     color: #f56f5d;
     bottom: 35px;
+    z-index: 100;
+    transform: translateX(-50);
+    text-align: center;
+    max-width: 210px;
+    text-wrap:wrap;
 }
 
 .error-message-email{
     position: absolute; /* Posicionamiento absoluto */
-    font-family: 'Laura Regular'; /* Nombre de la fuente */
-    src: url('../fonts/Laura-Regular.ttf') format('truetype'); /* Ruta del archivo TTF */
+    font-family: 'Laura merged'; /* Nombre de la fuente */
+    src: url('../fonts/Laura-merged.ttf') format('truetype'); /* Ruta del archivo TTF */
     color: #f56f5d;
     bottom: 68px;
+    z-index: 100;
+    transform: translateX(-50);
+    text-align: center;
+    max-width: 210px;
+    text-wrap:wrap;
 }
 
 ::ng-deep .mat-autocomplete-panel {
-    font-family: 'Laura Regular', sans-serif; /* Cambia el tipo de fuente */
+    font-family: 'Laura merged', sans-serif; /* Cambia el tipo de fuente */
   }
   .mat-autocomplete-panel {
-    font-family: 'Laura Regular', sans-serif;
+    font-family: 'Laura merged', sans-serif;
   }
