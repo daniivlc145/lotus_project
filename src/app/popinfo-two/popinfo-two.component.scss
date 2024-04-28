@@ -29,7 +29,7 @@ body{user-select: none;}
 
 
 .okbutton{
-    background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 8 6.063 4'%3E%3Cpath d='M 6 9 C 6 12 7 12 1 12 C 1 12 1 12 1 12 C 0 12 0 11 0 9 C 0.3333 8.6667 0 8 3 8 C 4.3333 8.3333 5 8 6 9' fill='%2384beb0'/%3E%3C/svg%3E");
+    background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='-0.0277126 8 4.573 3.327'%3E%3Cpath d='M 4.395 8.571 C 4.78 12.073 4.67 10.935 1.081 11.327 C -0.301 10.887 0 11 0 9 C 0.3333 8.6667 0 8 3 8 C 4.3333 8.3333 3.712 8.131 4.38 8.547' fill='%2384beb0'/%3E%3C/svg%3E");
     background-repeat: no-repeat;
     background-color: transparent; /* Establecer el color de fondo como transparente */
     background-size: cover;
@@ -39,16 +39,16 @@ body{user-select: none;}
     z-index: 8;
     color: white;
     font-family: 'Laura Regular', sans-serif; /* Utiliza la fuente Laura Regular */
-    font-size: 27px; /* Tamaño de la fuente */
+    font-size: 22px; /* Tamaño de la fuente */
     text-align: center; /* Alineación del texto */
     position: absolute;
-    bottom: 21%;
-    right:10%;
+    bottom: 22%;
+    right:12%;
     font-weight: bold;
 }
 
 .cancelbutton{
-    background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='-0.605 9.64451 0.8816 0.4455'%3E%3Cpath d='M -0.005 10.09 C -0.664 10.04 -0.598 10.043 -0.605 9.95 C -0.518 9.539 -0.542 9.68 0.095 9.645 C 0.387 9.627 0.267 10.109 0.148 10.071' fill='%23e5cec8'/%3E%3C/svg%3E");
+    background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='-0.605 9.64435 0.8647 0.3796'%3E%3Cpath d='M -0.158 10.015 C -0.321 10.034 -0.574 10.027 -0.605 9.95 C -0.518 9.539 -0.542 9.68 0.095 9.645 C 0.197 9.627 0.453 9.986 0 10' fill='%23e5cec8'/%3E%3C/svg%3E");
     background-repeat: no-repeat;
     background-color: transparent; /* Establecer el color de fondo como transparente */
     background-size: cover;
