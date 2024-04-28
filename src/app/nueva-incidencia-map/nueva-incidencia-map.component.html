@@ -10,7 +10,7 @@
       <div class="dropdown" id="tipo" [class.open]="dropdownOpen" (click)="toggleDropdown()">
         <button class="dropbtn">{{ selectedOption }}</button>
         <div class="dropdown-content" *ngIf="dropdownOpen">
-          <div *ngFor="let option of ['RECLAMACIÓN/INFORME', 'PETICIÓN', 'CONSULTA']" (click)="selectOption(option); closeDropdown()">
+          <div *ngFor="let option of ['CONTENEDOR LLENO', 'RECLAMACIÓN/INFORME', 'PETICIÓN', 'CONSULTA']" (click)="selectOption(option); closeDropdown()">
             {{ option }}
           </div>
         </div>
@@ -22,16 +22,14 @@
       
       
       <!--<textarea class="input" id="ubi" name="ubi" maxlength="50"></textarea>-->
-      <form class="form" id="ubi" style="height:18px; margin-top: 10px; border-radius: 30px;">
+      <form class="form" id="ubiubi" style="height:18px; margin-top: 10px; border-radius: 30px;">
         <mat-form-field class="form">
           <input type="text" matInput [matAutocomplete]="auto" #myInput (input)="onInputChange($event)" class="input2" style="font-family: 'Laura merged', sans-serif; ">
           <mat-autocomplete #auto="matAutocomplete" style="font-family: 'Laura merged', sans-serif;">
-            <mat-option *ngFor="let option of filteredOptions" [value]="option" style="font-family: 'Laura merged', sans-serif;">
-            {{option}}
-            </mat-option>  
           </mat-autocomplete>
         </mat-form-field>
       </form>
+      
       <p class="texto_desc" style="font-family: 'Laura Regular', sans-serif; z-index: 2;">Descripción</p>
       <textarea class="descripBox" id="descrip" name="descrip" rows="4" cols="50" maxlength="850"></textarea>
       <input type="button" id="camera" class="camera" style="margin-left: 2px;"/>

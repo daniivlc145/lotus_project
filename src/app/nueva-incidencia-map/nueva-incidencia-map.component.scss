@@ -1,0 +1,307 @@
+@import url("/src/css/style.css");
+
+body {
+    margin: 0;
+    padding: 0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
+    background-color: #5a8d8d;
+    user-select: none;
+}
+
+
+/*Custom Last*/
+.custom-button-rep {
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='1.55556 0.25 11.69 4.194'%3E%3Cpath d='M 12 4 C 11 4 2 5 2 4 C 2 3 1 1 2 1 C 3 0 14 0 13 1 C 13 0 14 4 12 4' fill='%2384beb0'/%3E%3C/svg%3E");
+    background-repeat: no-repeat;
+    background-color: transparent; /* Establecer el color de fondo como transparente */
+    background-size: cover;
+    border: none; /* Sin borde */
+    padding: 10px 20px; /* Espacio interno */
+    cursor: pointer; /* Cambia el cursor al pasar por encima */
+    z-index: 8;
+    color: white;
+    font-family: 'Laura Regular', sans-serif; /* Utiliza la fuente Laura Regular */
+    font-size: 24px; /* Tamaño de la fuente */
+    text-align: center; /* Alineación del texto */
+    position: absolute;
+   
+}
+
+.camera{
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0.812327 4.61966 13.11 13.11'%3E%3Cpath d='M 3.264 17.127 C 1.725 17.127 0.793 16.235 1.135 11.424 C 1.077 11.414 0.401 8.947 1.198 6.957 C 1.482 5.377 3.994 4.445 11.125 4.647 C 12.502 4.688 14.407 5.377 13.807 9.418 C 13.61 12.839 13.883 15.406 13.047 16.229 C 12.687 16.839 5.858 18.707 3.264 17.086' fill='%235a8d8d'/%3E%3C/svg%3E");
+  background-repeat: no-repeat;
+  background-color: transparent;
+  border:none;
+  background-size: cover;
+  z-index: 22;
+  position:absolute;
+  align-self: center;
+  bottom:36%;
+  left:70%;
+  height: 40px;
+  width:40px;
+}
+
+.uploadI{
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0.812327 4.61966 13.11 13.11'%3E%3Cpath d='M 3.264 17.127 C 1.725 17.127 0.793 16.235 1.135 11.424 C 1.077 11.414 0.401 8.947 1.198 6.957 C 1.482 5.377 3.994 4.445 11.125 4.647 C 12.502 4.688 14.407 5.377 13.807 9.418 C 13.61 12.839 13.883 15.406 13.047 16.229 C 12.687 16.839 5.858 18.707 3.264 17.086' fill='%235a8d8d'/%3E%3C/svg%3E");
+  background-repeat: no-repeat;
+  background-color: transparent;
+  border:none;
+  background-size: cover;
+  z-index: 22;
+  position:absolute;
+  align-self: center;
+  bottom:26%;
+  left:70%;
+  height: 40px;
+  width:40px;
+}
+
+
+.contentLast{
+    width: 100%;
+    height: 100%;
+    background-color: #c1d7d5;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    display: flex;
+    justify-content: center; /* Centra horizontalmente */
+    align-items: center; /* Centra verticalmente */
+}
+
+.textotitle{
+  font-family: 'Laura Regular', sans-serif; /* Utiliza la fuente Laura Regular */
+  font-size: 26px; /* Tamaño de la fuente */
+  text-align: left; /* Alineación del texto */
+  color: #FFFFFF; /* Color del texto */
+  position: absolute; 
+  bottom: 108%; 
+  left: 49%; 
+  transform: translate(-50%, -0%);
+  z-index: 2; /* Asegura que el texto esté por encima del SVG */
+}
+.texto_tipo{
+  font-family: 'Laura Regular', sans-serif; /* Utiliza la fuente Laura Regular */
+    font-size: 20px; /* Tamaño de la fuente */
+    text-align: left; /* Alineación del texto */
+    color: #3a5e62; /* Color del texto */
+    position: absolute; 
+    bottom: 80%; 
+    left: 30%; 
+    transform: translate(-50%, -0%);
+    z-index: 2; 
+}
+.texto_ubi{
+  font-family: 'Laura Regular', sans-serif; /* Utiliza la fuente Laura Regular */
+    font-size: 20px; /* Tamaño de la fuente */
+    text-align: left; /* Alineación del texto */
+    color: #3a5e62; /* Color del texto */
+    position: absolute; 
+    bottom: 70%; 
+    left: 35%; 
+    transform: translate(-50%, -0%);
+    z-index: 2; 
+}
+.texto_desc{
+  font-family: 'Laura Regular', sans-serif; /* Utiliza la fuente Laura Regular */
+    font-size: 20px; /* Tamaño de la fuente */
+    text-align: left; /* Alineación del texto */
+    color: #3a5e62; /* Color del texto */
+    position: absolute; 
+    bottom: 50%; 
+    left: 37%; 
+    transform: translate(-50%, -0%);
+    z-index: 2; 
+}
+.dropbtn::after {
+  content: "\25BC";
+  font-size: 13px;
+  position: relative;
+  top: -2px;
+  left: 5px;
+  z-index: 30;
+}
+
+.dropbtn {
+  background-color: #c1d7d5;
+  font-family: 'Laura Regular', sans-serif; 
+  color: #5a8d8d;
+  padding: 10px;
+  font-size: 19px;
+  border: none;
+  border-radius: 15px;
+  z-index: 40;
+}
+
+
+.dropdown {
+  position: absolute;
+  display: inline-block;
+  z-index: 30;
+  border-radius: 15px;
+  top: 12%;
+  left: 36%;
+}
+
+.dropdownCalles {
+  position: absolute;
+  display: inline-block;
+  z-index: 5;
+  border-radius: 15px;
+  left: 35%; 
+  top:28%;
+}
+
+.dropdown-content {
+  display: none;
+  position: absolute;
+  background-color: #e6e5ea;
+  min-width: 160px;
+  box-shadow: 0px 8px 16px 0px rgba(0, 0, 0, 0.2);
+  z-index: 30;
+  border-radius: 15px;
+}
+
+.dropdown-content div {
+  color: black;
+  padding: 12px 16px;
+  text-decoration: none;
+  display: block;
+  z-index: 30;
+  margin-left: 5px;
+  border-bottom: 1px solid #c1d7d5; /* Añade un borde inferior */
+}
+
+.dropdown-content div:last-child {
+  border-bottom: none; /* Elimina el borde inferior del último elemento */
+}
+
+.dropdown-content a:hover {
+  background-color: #c1d7d5;
+  border-radius: 15px;
+  z-index: 31;
+}
+
+.dropdown:hover .dropdown-content {
+  display: block;
+  z-index: 31;
+}
+
+.dropdown:hover .dropbtn {
+  background-color: #84beb0;
+  z-index: 31;
+}
+
+
+.descripBox {
+ border-color: #e6e5ea;
+ position: absolute;
+ border-radius: 30px;
+ z-index: 6;
+ text-align: left;
+ height: 175px;
+ width: 190px;
+ bottom: 17%; 
+ left: 46%; 
+ margin-top: 5px;
+ color: #b5b4b8;
+ margin-top: 5px;
+ padding-left: 15px;
+ padding-right: 15px;
+ padding-bottom: 10px;
+ transform: translate(-50%, -0%);
+ overflow:auto;
+ resize: none; 
+ font-family: 'Laura merged', sans-serif;
+ /* Estilos para ocultar la barra de desplazamiento */
+ scrollbar-width: none; /* Oculta la barra de desplazamiento en Firefox */
+ -ms-overflow-style: none; /* Oculta la barra de desplazamiento en Internet Explorer y Edge */
+}
+
+/* Estilos para ocultar la barra de desplazamiento en Chrome, Safari y Opera */
+.descripBox::-webkit-scrollbar {
+ display: none;
+}
+
+.input2{
+  font-family: 'Laura merged', sans-serif; 
+  position: absolute;
+  z-index:10;
+  height: 22px;
+  width: 190px;
+}
+
+
+.form{
+  left: 22.5%;
+  top:25%;
+  position:absolute;
+  z-index:10;
+
+  
+}
+
+.footer {
+  background-color: white; /* Color de fondo del footer */
+  color: white; /* Color del texto */
+  position: fixed; /* Fijo en la parte inferior de la pantalla */
+  width: 100%; /* Ancho completo */
+  bottom: 0;
+  height: 90px;
+  z-index:1001;
+  padding-left: 1px;
+  padding-right: 1px;
+}
+
+
+
+.footer-buttons button{
+  background-color: transparent; /* Color de fondo de los botones */
+  gap: 10px;
+  margin-right: 10px !important; /* Intenta con un valor más fuerte */
+  bottom: 3px !important;
+
+}
+
+
+
+.footer-buttons {
+  display: flex; /* Uso de Flexbox */
+  justify-content: space-around; /* Espaciado uniforme entre los botones */
+  background-color: white; /* Color de fondo de los botones */
+  bottom: 3px !important;
+  
+
+}
+
+
+
+.mis-incidencias{
+  width: 50px;
+  transform: rotate(-2deg);
+}
+
+.reportes-mapa{
+  width: 60px;
+  transform: rotate(-2deg);
+}
+
+.ver-mapa{
+  width: 80px;
+
+}
+
+.info-reciclaje{
+  width: 35px;
+  transform: rotate(-2deg);
+}
+
+.icono-usuario{
+  width: 45px;
+  transform: rotate(-2deg);
+}

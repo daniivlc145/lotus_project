@@ -38,6 +38,9 @@ import { SugerenciaComponent } from './sugerencia/sugerencia.component';
 
 import { ConfigComponent } from './config/config.component';
 
+import { NuevaIncidenciaMAPComponent } from './nueva-incidencia-map/nueva-incidencia-map.component';
+
+
 
 const routes: Routes = [
 
@@ -76,6 +79,8 @@ const routes: Routes = [
   {path: 'sug', component:SugerenciaComponent},
 
   {path: 'config', component:ConfigComponent},
+
+  {path: 'newImap', component: NuevaIncidenciaMAPComponent},
 
   {
     path: '',

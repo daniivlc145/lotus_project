@@ -32,6 +32,7 @@ import { SugerenciaComponent } from './sugerencia/sugerencia.component';
 import { PopinfoOneComponent } from './popinfo-one/popinfo-one.component';
 import {PopinfoTwoComponent} from './popinfo-two/popinfo-two.component';
 import { ConfigComponent } from './config/config.component';
+import { NuevaIncidenciaMAPComponent } from './nueva-incidencia-map/nueva-incidencia-map.component';
 
 @NgModule({
   declarations: [
@@ -56,6 +57,7 @@ import { ConfigComponent } from './config/config.component';
     PopinfoTwoComponent,
     SugerenciaComponent,
     ConfigComponent,
+    NuevaIncidenciaMAPComponent,
   ],
   
   imports: [

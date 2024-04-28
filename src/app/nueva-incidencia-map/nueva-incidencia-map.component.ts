@@ -1,23 +1,24 @@
-import { Component, ElementRef, ViewChild } from '@angular/core';
+
+import { AfterViewInit, Component, ElementRef, OnInit, SimpleChanges, ViewChild } from '@angular/core';
 import { StringComparison } from '../string-comparison/string-comparison.service';
 import {FormControl, FormsModule, ReactiveFormsModule} from '@angular/forms';
 import { Router } from '@angular/router';
 import { PopinfoOneComponent } from '../popinfo-one/popinfo-one.component';
 import { PopinfoTwoComponent } from '../popinfo-two/popinfo-two.component';
 import { PopoverController } from '@ionic/angular';
-import { insertInquiry } from './nueva-incidencia.functions';
+import { insertInquiry } from '../nueva-incidencia/nueva-incidencia.functions';
+import { MapComponent } from '../map/map.component';
 
 
 @Component({
-  selector: 'app-nueva-incidencia',
-  templateUrl: './nueva-incidencia.component.html',
-  styleUrls: ['./nueva-incidencia.component.scss'],
-
+  selector: 'app-nueva-incidencia-map',
+  templateUrl: './nueva-incidencia-map.component.html',
+  styleUrls: ['./nueva-incidencia-map.component.scss'],
 })
-export class NuevaIncidenciaComponent {
+export class NuevaIncidenciaMAPComponent{
+  @ViewChild(MapComponent) mapComponent!: MapComponent;
   @ViewChild('myInput') input!: ElementRef<HTMLInputElement>;
   @ViewChild('tipo') tipoRef!: ElementRef;
-  @ViewChild('ubi') ubiRef!: ElementRef;
   @ViewChild('descrip') descripRef!: ElementRef;
     myControl = new FormControl('');
     calles: string[] = [];
@@ -28,8 +29,8 @@ export class NuevaIncidenciaComponent {
     }
     
     dropdownOpen: boolean = false;
-  selectedOption: string = 'RECLAMACIÓN/INFORME';
-
+  selectedOption: string = 'CONTENEDOR LLENO';
+ 
   toggleDropdown() {
     this.dropdownOpen = !this.dropdownOpen;
   }
@@ -93,8 +94,8 @@ export class NuevaIncidenciaComponent {
     }
   
     goToNuevaIncPage() {
-  
-      window.location.reload();
+      
+      this.router.navigate(['/newI']);
     }
   
     goToMisPage() {
@@ -147,7 +148,7 @@ export class NuevaIncidenciaComponent {
       const tipo = this.tipoRef.nativeElement.textContent;
     
       // Obtener el contenido de texto del elemento ubi
-      const ubi = this.ubiRef.nativeElement.textContent;
+      const ubi = this.mapComponent.coords;
     
       // Obtener el contenido de texto del elemento descrip
       const descrip = this.descripRef.nativeElement.textContent;

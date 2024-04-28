@@ -11,7 +11,7 @@ import { filtrarMapa, searchContainers } from './map.functions';
 
 export class MapComponent implements OnInit {
 
-
+  public coords:string='';
   customDiv: HTMLElement | null = null;
   map!: L.Map;
   markers: L.Marker[] = []; // Array para almacenar los marcadores
@@ -162,7 +162,7 @@ export class MapComponent implements OnInit {
         <h1 id='con' style='font-family: "Laura Regular", sans-serif; color:#3a5e62;'>
           <strong>CONTENEDOR SELECCIONADO</strong>
         </h1>
-        <p style="position:absolute; top:35%;"><strong>UBICACIÓN: <span style="font-family: 'Handwriting', sans-serif; letter-spacing: 2px;">${popupContent}</span>
+        <p style="position:absolute; top:35%;"><strong>UBICACIÓN: <span style="font-family: 'Laura merged', sans-serif; letter-spacing: 2px;">${popupContent}</span>
         </strong></p>
         <br>
         <button id="cerrarBtn" style='height: 21%; width: 30%; color: white; background-color: #c1d7d5; position: absolute; left: 15%; border-radius: 15px; font-size: 18px; text-align: center; line-height: 100%; bottom:13px;'>CERRAR</button>
@@ -170,6 +170,8 @@ export class MapComponent implements OnInit {
         
       </div>
     `;
+    this.coords= popupContent;
+    console.log(popupContent);
 
     // Encuentra el contenedor en el HTML
     const container = document.getElementById('customDivContainer');
@@ -190,7 +192,7 @@ export class MapComponent implements OnInit {
     const anadirBtn = this.customDiv.querySelector('#anadirBtn');
     if (anadirBtn) {
       anadirBtn.addEventListener('click', () => {
-        this.goToNuevaIncPage();
+        this.goToNuevaIncMAPPage();
       });
     }
   }
@@ -388,5 +390,9 @@ export class MapComponent implements OnInit {
 
     this.router.navigate(['/profUser']);
 
+  }
+
+  goToNuevaIncMAPPage(){
+    this.router.navigate(['newImap']);
   }
 }
