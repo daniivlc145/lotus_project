@@ -39,6 +39,19 @@ export function conversionWasteContainers (containerType: string): string {
     return containerType
 }
 
+export async function modifyLevel(container_id: number, container_type: string, level: boolean): Promise<void> {
+    try{
+        const {error} = await supabaseClient
+            .from(container_type)
+            .update({is_full: level})
+            .eq('objectid', container_id)
+    } catch (error) {
+        console.error('Error inesperado:', (error as Error).message);
+        throw error;
+    }
+    
+}
+
 export async function seleccionarImagen() {
     const image = await Camera.getPhoto({
        quality: 80,

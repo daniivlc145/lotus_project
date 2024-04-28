@@ -88,15 +88,7 @@ export async function checkLevel(containerId: number, containerType: string): Pr
 
 }
 export async function modifyLevel(container_id: number, container_type: string, level: boolean): Promise<void> {
-    if (container_type === 'Residuos Urbanos' || container_type === 'Organico' || container_type === 'Papel / Carton' || container_type === 'Envases Ligeros') {
-        container_type = 'waste_containers'
-    }
     try{
-        let current_level = await checkLevel(container_id, container_type)
-        if (level === current_level) {
-            return
-        }
-
         const {error} = await supabaseClient
             .from(container_type)
             .update({is_full: level})

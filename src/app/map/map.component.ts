@@ -3,6 +3,7 @@ import * as L from 'leaflet';
 import { Router } from '@angular/router';
 import { filtrarMapa, searchContainers } from './map.functions';
 import { MediatorService } from '../mediator.service';
+import { conversionWasteContainers } from '../nueva-incidencia/nueva-incidencia.functions';
 
 @Component({
   selector: 'app-map',
@@ -153,7 +154,7 @@ export class MapComponent implements OnInit {
     marker.addTo(this.map);
 
     marker.on('click', (e) => {
-      this.createCustomDiv(e.latlng, popupContent, icon.options.className || "", containerId);
+      this.createCustomDiv(e.latlng, popupContent, conversionWasteContainers(icon.options.className || "") , containerId);
       this.mostrarDiv(); // Llama a la función para crear el div
     });
   }

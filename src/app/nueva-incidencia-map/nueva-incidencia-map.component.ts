@@ -6,7 +6,7 @@ import { Router } from '@angular/router';
 import { PopinfoOneComponent } from '../popinfo-one/popinfo-one.component';
 import { PopinfoTwoComponent } from '../popinfo-two/popinfo-two.component';
 import { PopoverController } from '@ionic/angular';
-import { insertInquiry } from '../nueva-incidencia/nueva-incidencia.functions';
+import { insertInquiry, modifyLevel } from '../nueva-incidencia/nueva-incidencia.functions';
 import { MapComponent } from '../map/map.component';
 import { MediatorService } from '../mediator.service';
 import { NONE_TYPE } from '@angular/compiler';
@@ -192,7 +192,10 @@ export class NuevaIncidenciaMAPComponent implements OnInit{
         const { tipo, ubi, descrip } = await this.obtenerContenidoElementos();
     
         // Llamar a insertInquiry con los valores obtenidos
-        await insertInquiry(descrip, tipo, this.containerID, ubi, this.containerType);
+        if (tipo == "CONTENEDOR LLENO"){
+            modifyLevel(this.containerID, this.containerType, true)
+        }
+        else await insertInquiry(descrip, tipo, this.containerID, ubi, this.containerType);
     
         // Muestra un mensaje o navega a otra página después de guardar la incidencia
         await this.showPop();
