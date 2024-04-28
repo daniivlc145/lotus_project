@@ -15,6 +15,7 @@ export class ContrasenaOlvidadaComponent implements OnInit {
   ngOnInit() {}
   
   async onClickAceptar() {
+    
     const newPass = (document.getElementById('new') as HTMLInputElement)?.value;
     const repPass = (document.getElementById('rep') as HTMLInputElement)?.value;
 
@@ -24,6 +25,7 @@ export class ContrasenaOlvidadaComponent implements OnInit {
           await updatePassword(newPass);
           this.errorMessage = null; // Reinicia el mensaje de error si se actualiza la contraseña correctamente
           console.log("Contraseña actualizada correctamente");
+          this.router.navigate(['/login']);
           // Aquí puedes redirigir al usuario a la página de éxito o hacer cualquier otra acción necesaria
         } catch (error: any) {
           if (error.message.includes('coinciden')) {
