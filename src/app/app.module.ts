@@ -34,6 +34,7 @@ import {PopinfoTwoComponent} from './popinfo-two/popinfo-two.component';
 import { ConfigComponent } from './config/config.component';
 import { NuevaIncidenciaMAPComponent } from './nueva-incidencia-map/nueva-incidencia-map.component';
 import {PoplogOutComponent} from './poplog-out/poplog-out.component';
+import { EditarPerfilComponent } from './editar-perfil/editar-perfil.component';
 
 
 @NgModule({
@@ -60,7 +61,8 @@ import {PoplogOutComponent} from './poplog-out/poplog-out.component';
     SugerenciaComponent,
     ConfigComponent,
     NuevaIncidenciaMAPComponent,
-    PoplogOutComponent
+    PoplogOutComponent,
+    EditarPerfilComponent
   ],
   
   imports: [
