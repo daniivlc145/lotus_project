@@ -141,7 +141,7 @@ export class MapComponent implements OnInit {
   // Función para agregar un marcador al mapa
   addMarker(latlng: L.LatLngLiteral, popupContent: string, icon: L.Icon, containerId : number) {
     const marker = L.marker(latlng, { icon: icon, alt : String(containerId)});
-
+    this.mediatorService.markerContainerID=containerId; //se lo pasamos al mediador para pasarlo al nueva-incidencia-map.component
     this.markers.push(marker);
     marker.addTo(this.map);
 

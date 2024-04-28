@@ -36,6 +36,7 @@ export class NuevaIncidenciaMAPComponent implements OnInit{
 
   ngOnInit(): void {
     this.setCoordsToInput();
+    console.log(this.mediatorService.markerContainerID);
   }
 
   setCoordsToInput(): void {
