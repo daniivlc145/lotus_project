@@ -159,7 +159,7 @@ export class NuevaIncidenciaComponent {
       return { tipo, ubi, descrip };
     }
     
-   /* async guardarIncidencia() {
+    async guardarIncidencia() {
       try {
         // Obtener los valores de tipo, ubi y descrip
         const { tipo, ubi, descrip } = await this.obtenerContenidoElementos();
@@ -174,7 +174,7 @@ export class NuevaIncidenciaComponent {
         // Maneja el error de manera adecuada
       }
       this.router.navigateByUrl('/map');
-    }*/
+    }
   }
 
   

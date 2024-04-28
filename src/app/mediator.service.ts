@@ -6,6 +6,7 @@ import { Injectable } from '@angular/core';
 export class MediatorService {
   coords: string = '';
   markerContainerID: number | null = null;
+  markerContainerType : string | null = null; 
 
   constructor() { }
 }

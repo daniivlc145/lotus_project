@@ -22,49 +22,57 @@ export class MapComponent implements OnInit {
     iconUrl: '../../assets/img/Contenedor_Vidrio.png',
     iconSize: [30, 47],
     iconAnchor: [19, 38],
-    popupAnchor: [0, -38]
+    popupAnchor: [0, -38],
+    className : "glass_containers"
   });
 
   aceite = L.icon({
     iconUrl: '../../assets/img/Contenedor_Aceite.png',
     iconSize: [30, 47],
     iconAnchor: [19, 38],
-    popupAnchor: [0, -38]
+    popupAnchor: [0, -38],
+    className : "oil_containers"
   });
 
   envases = L.icon({
     iconUrl: '../../assets/img/Contenedor_Envases.png',
     iconSize: [30, 47],
     iconAnchor: [19, 38],
-    popupAnchor: [0, -38]
+    popupAnchor: [0, -38],
+    className : "Envases Ligeros"
   });
 
   organico = L.icon({
     iconUrl: '../../assets/img/Contenedor_Organico.png',
     iconSize: [30, 47],
     iconAnchor: [19, 38],
-    popupAnchor: [0, -38]
+    popupAnchor: [0, -38],
+    className : "Organico"
   });
 
   papel = L.icon({
     iconUrl: '../../assets/img/Contenedor_Papel.png',
     iconSize: [30, 47],
     iconAnchor: [19, 38],
-    popupAnchor: [0, -38]
+    popupAnchor: [0, -38],
+    className : "Papel / Carton"
   });
 
   residuos = L.icon({
     iconUrl: '../../assets/img/Contenedor_Residuos.png',
     iconSize: [30, 47],
     iconAnchor: [19, 38],
-    popupAnchor: [0, -38]
+    popupAnchor: [0, -38],
+    className : "Residuos Urbanos"
+
   });
 
   ropa = L.icon({
     iconUrl: '../../assets/img/Contenedor_Ropa.png',
     iconSize: [30, 47],
     iconAnchor: [19, 38],
-    popupAnchor: [0, -38]
+    popupAnchor: [0, -38],
+    className : "clothes_container"
   });
   
   diccionario_imagenes : {[clave:string] : L.Icon}= {
@@ -141,22 +149,22 @@ export class MapComponent implements OnInit {
   // Función para agregar un marcador al mapa
   addMarker(latlng: L.LatLngLiteral, popupContent: string, icon: L.Icon, containerId : number) {
     const marker = L.marker(latlng, { icon: icon, alt : String(containerId)});
-    this.mediatorService.markerContainerID=containerId; //se lo pasamos al mediador para pasarlo al nueva-incidencia-map.component
     this.markers.push(marker);
     marker.addTo(this.map);
 
     marker.on('click', (e) => {
-      this.createCustomDiv(e.latlng, popupContent);
+      this.createCustomDiv(e.latlng, popupContent, icon.options.className || "", containerId);
       this.mostrarDiv(); // Llama a la función para crear el div
     });
   }
 
-  createCustomDiv(latlng: L.LatLng, popupContent: string) {
+  createCustomDiv(latlng: L.LatLng, popupContent: string, type : string, containerId : number) {
     if (this.customDiv) {
       this.customDiv.remove();
     }
-    this.mediatorService.coords = popupContent;
-
+    this.mediatorService.coords = popupContent //se lo pasamos al mediador para pasarlo al nueva-incidencia-map.component
+    this.mediatorService.markerContainerType = type //se lo pasamos al mediador para pasarlo al nueva-incidencia-map.component
+    this.mediatorService.markerContainerID= containerId; //se lo pasamos al mediador para pasarlo al nueva-incidencia-map.component
     // Creamos un nuevo div
     this.customDiv = document.createElement('div');
     this.customDiv.innerHTML = `

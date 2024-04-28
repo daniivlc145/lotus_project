@@ -9,6 +9,7 @@ import { PopoverController } from '@ionic/angular';
 import { insertInquiry } from '../nueva-incidencia/nueva-incidencia.functions';
 import { MapComponent } from '../map/map.component';
 import { MediatorService } from '../mediator.service';
+import { NONE_TYPE } from '@angular/compiler';
 
 
 @Component({
@@ -25,6 +26,8 @@ export class NuevaIncidenciaMAPComponent implements OnInit{
     calles: string[] = [];
     filteredOptions: string[] = [];
     coords:string='';
+    containerID : number  = 0;
+    containerType : string = ""
   
     constructor(private stringComparison: StringComparison, private router: Router,private popoverCntrl: PopoverController, private mediatorService:MediatorService) {
       this.cargarCallesDeValencia();
@@ -36,9 +39,15 @@ export class NuevaIncidenciaMAPComponent implements OnInit{
 
   ngOnInit(): void {
     this.setCoordsToInput();
-    console.log(this.mediatorService.markerContainerID);
+    this.setContainerID();
+    this.setContainerType();
   }
-
+  setContainerType() : void{
+    this.containerType = this.mediatorService.markerContainerType || ""
+  }
+  setContainerID() : void{
+    this.containerID = this.mediatorService.markerContainerID || 0
+  }
   setCoordsToInput(): void {
     // Obtener el valor de la variable coords del servicio Mediator
     this.coords = this.mediatorService.coords;
@@ -177,13 +186,13 @@ export class NuevaIncidenciaMAPComponent implements OnInit{
       return { tipo, ubi, descrip };
     }
     
-   /* async guardarIncidencia() {
+    async guardarIncidencia() {
       try {
         // Obtener los valores de tipo, ubi y descrip
         const { tipo, ubi, descrip } = await this.obtenerContenidoElementos();
     
         // Llamar a insertInquiry con los valores obtenidos
-        await insertInquiry(descrip, tipo, null, ubi, "");
+        await insertInquiry(descrip, tipo, this.containerID, ubi, this.containerType);
     
         // Muestra un mensaje o navega a otra página después de guardar la incidencia
         await this.showPop();
@@ -192,7 +201,7 @@ export class NuevaIncidenciaMAPComponent implements OnInit{
         // Maneja el error de manera adecuada
       }
       this.router.navigateByUrl('/map');
-    }*/
+    }
   }
 
   
