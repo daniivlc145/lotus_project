@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import * as L from 'leaflet';
 import { Router } from '@angular/router';
 import { filtrarMapa, searchContainers } from './map.functions';
+import { MediatorService } from '../mediator.service';
 
 @Component({
   selector: 'app-map',
@@ -89,7 +90,7 @@ export class MapComponent implements OnInit {
 
 
 
-  constructor(private router: Router) { }
+  constructor(private router: Router, private mediatorService:MediatorService) { }
 
   ngOnInit(): void {
     setTimeout(() => {
@@ -154,6 +155,7 @@ export class MapComponent implements OnInit {
     if (this.customDiv) {
       this.customDiv.remove();
     }
+    this.mediatorService.coords = popupContent;
 
     // Creamos un nuevo div
     this.customDiv = document.createElement('div');
@@ -170,8 +172,6 @@ export class MapComponent implements OnInit {
         
       </div>
     `;
-    this.coords= popupContent;
-    console.log(popupContent);
 
     // Encuentra el contenedor en el HTML
     const container = document.getElementById('customDivContainer');

@@ -8,6 +8,7 @@ import { PopinfoTwoComponent } from '../popinfo-two/popinfo-two.component';
 import { PopoverController } from '@ionic/angular';
 import { insertInquiry } from '../nueva-incidencia/nueva-incidencia.functions';
 import { MapComponent } from '../map/map.component';
+import { MediatorService } from '../mediator.service';
 
 
 @Component({
@@ -15,7 +16,7 @@ import { MapComponent } from '../map/map.component';
   templateUrl: './nueva-incidencia-map.component.html',
   styleUrls: ['./nueva-incidencia-map.component.scss'],
 })
-export class NuevaIncidenciaMAPComponent{
+export class NuevaIncidenciaMAPComponent implements OnInit{
   @ViewChild(MapComponent) mapComponent!: MapComponent;
   @ViewChild('myInput') input!: ElementRef<HTMLInputElement>;
   @ViewChild('tipo') tipoRef!: ElementRef;
@@ -23,13 +24,28 @@ export class NuevaIncidenciaMAPComponent{
     myControl = new FormControl('');
     calles: string[] = [];
     filteredOptions: string[] = [];
+    coords:string='';
   
-    constructor(private stringComparison: StringComparison, private router: Router,private popoverCntrl: PopoverController) {
+    constructor(private stringComparison: StringComparison, private router: Router,private popoverCntrl: PopoverController, private mediatorService:MediatorService) {
       this.cargarCallesDeValencia();
+      
     }
-    
+
     dropdownOpen: boolean = false;
   selectedOption: string = 'CONTENEDOR LLENO';
+
+  ngOnInit(): void {
+    this.setCoordsToInput();
+  }
+
+  setCoordsToInput(): void {
+    // Obtener el valor de la variable coords del servicio Mediator
+    this.coords = this.mediatorService.coords;
+    // Verificar si la referencia input está definida antes de acceder a nativeElement
+    if (this.input) {
+      this.input.nativeElement.value = this.coords;
+    }
+  }
  
   toggleDropdown() {
     this.dropdownOpen = !this.dropdownOpen;
