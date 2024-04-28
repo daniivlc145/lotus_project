@@ -39,7 +39,10 @@ import { SugerenciaComponent } from './sugerencia/sugerencia.component';
 import { ConfigComponent } from './config/config.component';
 
 import { NuevaIncidenciaMAPComponent } from './nueva-incidencia-map/nueva-incidencia-map.component';
+
 import { EditarPerfilComponent } from './editar-perfil/editar-perfil.component';
+
+import { StatsComponent } from './stats/stats.component';
 
 
 const routes: Routes = [
@@ -81,7 +84,10 @@ const routes: Routes = [
   {path: 'config', component:ConfigComponent},
 
   {path: 'newImap', component: NuevaIncidenciaMAPComponent},
+
   {path:'editarPerfil', component: EditarPerfilComponent},
+
+  {path: 'stats', component:StatsComponent},
 
   {
     path: '',

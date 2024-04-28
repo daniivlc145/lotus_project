@@ -35,6 +35,7 @@ import { ConfigComponent } from './config/config.component';
 import { NuevaIncidenciaMAPComponent } from './nueva-incidencia-map/nueva-incidencia-map.component';
 import {PoplogOutComponent} from './poplog-out/poplog-out.component';
 import { EditarPerfilComponent } from './editar-perfil/editar-perfil.component';
+import { StatsComponent } from './stats/stats.component';
 
 
 @NgModule({
@@ -62,7 +63,8 @@ import { EditarPerfilComponent } from './editar-perfil/editar-perfil.component';
     ConfigComponent,
     NuevaIncidenciaMAPComponent,
     PoplogOutComponent,
-    EditarPerfilComponent
+    EditarPerfilComponent,
+    StatsComponent,
   ],
   
   imports: [

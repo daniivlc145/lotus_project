@@ -2,7 +2,7 @@ import { Component, EventEmitter, Input, OnInit, Output } from '@angular/core';
 import { PopoverController } from '@ionic/angular';
 
 @Component({
-  selector: 'app-popinfo-two',
+  selector: 'app-popinfo-out',
   templateUrl: './poplog-out.component.html',
   styleUrls: ['./poplog-out.component.scss'],
 })
