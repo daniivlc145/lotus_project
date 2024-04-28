@@ -33,6 +33,8 @@ import { PopinfoOneComponent } from './popinfo-one/popinfo-one.component';
 import {PopinfoTwoComponent} from './popinfo-two/popinfo-two.component';
 import { ConfigComponent } from './config/config.component';
 import { NuevaIncidenciaMAPComponent } from './nueva-incidencia-map/nueva-incidencia-map.component';
+import {PoplogOutComponent} from './poplog-out/poplog-out.component';
+
 
 @NgModule({
   declarations: [
@@ -58,6 +60,7 @@ import { NuevaIncidenciaMAPComponent } from './nueva-incidencia-map/nueva-incide
     SugerenciaComponent,
     ConfigComponent,
     NuevaIncidenciaMAPComponent,
+    PoplogOutComponent
   ],
   
   imports: [
@@ -73,7 +76,8 @@ import { NuevaIncidenciaMAPComponent } from './nueva-incidencia-map/nueva-incide
   ], 
   exports:[
     PopinfoOneComponent,
-    PopinfoTwoComponent
+    PopinfoTwoComponent,
+    PoplogOutComponent
   ],
   providers: [
     provideAnimationsAsync(),

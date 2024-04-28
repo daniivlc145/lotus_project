@@ -154,6 +154,10 @@ export class NuevaIncidenciaMAPComponent implements OnInit{
               }
             });
             await popoverone.present();
+            return popoverone.onWillDismiss().then(() => {
+              console.log('Navegando a: /ruta-deseada');
+              this.router.navigateByUrl('/map');
+            });
           } catch (error) {
             console.error('Error al guardar la incidencia:', error);
           }

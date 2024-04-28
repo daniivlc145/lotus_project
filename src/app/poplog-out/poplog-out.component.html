@@ -1,0 +1,15 @@
+<body class="popup">
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 6.55556 7.222 5.444" class="svg">
+    <path d="M 7 7 C 7 12 9 12 1 12 C 0 12 0 11 0 7 C 1 7 5 6 7 7" fill="#ffffff"/>
+  </svg>
+<div mat-dialog-content class="title">{{title}}</div>
+<p class="text">{{content}}</p>
+<div mat-dialog-actions>
+  <form id="f"  (ngSubmit)="onClickOK();">
+    <button type="submit" class="okbutton">SÍ</button>
+  </form>
+ <form id="f" (ngSubmit)="onClickCancel();">
+  <button type="submit" class="cancelbutton">Cancelar</button>
+</form>
+</div>
+</body>

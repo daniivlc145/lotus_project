@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
 import { PopoverController } from '@ionic/angular';
 import { PopinfoTwoComponent } from '../popinfo-two/popinfo-two.component';
+import { PoplogOutComponent } from '../poplog-out/poplog-out.component';
 
 @Component({
     selector: 'app-profile-user',
@@ -64,7 +65,7 @@ import { PopinfoTwoComponent } from '../popinfo-two/popinfo-two.component';
   
     async logOut(){
       const popover = await this.popoverCntrl.create({
-        component: PopinfoTwoComponent,
+        component: PoplogOutComponent,
         backdropDismiss:false,
         componentProps: {
           title: 'Cerrar sesión',
