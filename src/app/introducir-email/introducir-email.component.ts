@@ -23,11 +23,16 @@ errorMessage: string | null = null; // Esta es la propiedad que mencionaste
     const email = (document.getElementById('email') as HTMLInputElement).value
     if(camposVacios(email)){this.errorMessage = 'Rellena el campo obligatoriamente';return}
     if(validarCorreoElectronico(email)){this.errorMessage = 'Introduce un correo válido';return}
-    await  existsEmail(email).then((existeBool) =>
+    await  existsEmail(email).then(async (existeBool) =>
       {
         if(existeBool){
-          this.showPop();
-          forgotPassword(email);
+          try{  
+            await forgotPassword(email);
+            this.showPop();
+
+          }catch{
+             this.errorMessage = 'Error al enviar el correo'
+          }
         }
         else this.errorMessage = 'El correo no está registrado'
 
