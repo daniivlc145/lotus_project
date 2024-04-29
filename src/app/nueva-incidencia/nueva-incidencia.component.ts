@@ -110,10 +110,10 @@ export class NuevaIncidenciaComponent {
   
     }
 
-    async showPop(){
+    async showPop() {
       const popover = await this.popoverCntrl.create({
         component: PopinfoTwoComponent,
-        backdropDismiss:false,
+        backdropDismiss: false,
         componentProps: {
           title: 'Nueva incidencia',
           content: '¿Desea registrar la incidencia tal en la ubicación tal?'
@@ -125,38 +125,42 @@ export class NuevaIncidenciaComponent {
         if (detail.data && detail.data.action === 'accept') {
           console.log('popover ONE');
           try {
-            //await this.guardarIncidencia();
-            console.log('Incidencia guardada con éxito');
-            const popoverone = await this.popoverCntrl.create({
-              component: PopinfoOneComponent,
-              backdropDismiss:false,
-              componentProps: {
-                title: '¡Incidencia notificada!',
-                content: 'Gracias por ayudarnos a hacer un mundo más limpio y mejor'
-              }
-            });
-            await popoverone.present();
-            return popoverone.onWillDismiss().then(() => {
-              console.log('Navegando a: /ruta-deseada');
-              this.router.navigateByUrl('/map');
-            });
+            await this.guardarIncidencia();
           } catch (error) {
             console.error('Error al guardar la incidencia:', error);
           }
         }
       });
     }
+
     async obtenerContenidoElementos(): Promise<{ tipo: string, ubi: string, descrip: string }> {
       // Obtener el contenido de texto del elemento tipo
-      const tipo = this.tipoRef.nativeElement.textContent;
-    
+      var tipo = this.selectedOption;
+      tipo=this.traducirTipoInquiry(tipo); // Llamada al método de traducción
+      
       // Obtener el contenido de texto del elemento ubi
       const ubi = this.ubiRef.nativeElement.textContent;
-    
+      
       // Obtener el contenido de texto del elemento descrip
-      const descrip = this.descripRef.nativeElement.textContent;
-    
+      const descrip = this.descripRef.nativeElement.value;
+      
       return { tipo, ubi, descrip };
+    }
+    
+    // Método para traducir tipos de inquiry
+    private traducirTipoInquiry(tipo: string): string {
+      switch (tipo.toUpperCase()) {
+        case 'CONTENEDOR LLENO':
+          return 'contenedor_lleno';
+        case 'CONSULTA':
+          return 'query';
+        case 'RECLAMACIÓN/INFORME':
+          return 'reclamation';
+        case 'PETICIÓN':
+          return 'suggestion';
+        default:
+          return tipo; 
+      }
     }
     
     async guardarIncidencia() {
@@ -166,9 +170,24 @@ export class NuevaIncidenciaComponent {
     
         // Llamar a insertInquiry con los valores obtenidos
         await insertInquiry(descrip, tipo, null, ubi, "");
+        console.log(descrip);
+        console.log(tipo);
+        console.log(ubi);
     
-        // Muestra un mensaje o navega a otra página después de guardar la incidencia
-        await this.showPop();
+        const popoverone = await this.popoverCntrl.create({
+            component: PopinfoOneComponent,
+            backdropDismiss: false,
+            componentProps: {
+              title: '¡Incidencia notificada!',
+              content: 'Gracias por ayudarnos a hacer un mundo más limpio y mejor'
+            }
+          });
+          await popoverone.present();
+
+          popoverone.onWillDismiss().then(() => {
+            console.log('Navegando a: /ruta-deseada');
+            this.router.navigateByUrl('/map');
+          });
       } catch (error) {
         console.error('Error al guardar la incidencia:', error);
         // Maneja el error de manera adecuada

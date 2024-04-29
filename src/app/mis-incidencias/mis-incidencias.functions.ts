@@ -22,13 +22,27 @@ export async function muestraMisIncidencias(): Promise<{[clave:string]:string}[]
             console.error('Error al obtener las incidencias:', error.message);
             throw error;
         }
+        
+        // Ordenar las incidencias por fecha y hora más reciente
+        data.sort((a, b) => {
+            const dateA = new Date(a.created_at).getTime();
+            const dateB = new Date(b.created_at).getTime();
+            return dateB - dateA;
+        });
+        
         for (let elem of data){
             let [date, hour] = elem.created_at.split('T');
             let [year, month, day] = date.split('-');
             let fecha = `${day}-${month}-${year}`;
             let [hours, minutes] = hour.split(':');
             let hora = `${hours}:${minutes}`;
-            elem.type = elem.type === 'reclamation' ? 'RECLAMACIÓN/INFORME' 
+            if (elem.type === 'CONTENEDOR LLENO') {
+                elem.description = 'El contenedor está lleno.';
+            }
+            if(elem.type=== 'RECLAMACIÓN/INFORME'){
+                elem.type='RECLAMACIÓN';
+            }
+            elem.type = elem.type === 'reclamation' ? 'RECLAMACIÓN' 
                 : elem.type === 'suggestion' ? 'PETICIÓN' 
                 : 'CONSULTA'
             result.push({
@@ -38,9 +52,7 @@ export async function muestraMisIncidencias(): Promise<{[clave:string]:string}[]
                 'type': elem.type,
                 'geo_shape': elem.geo_shape
             })
-            if (elem.type === 'CONTENEDOR LLENO') {
-                elem.description = 'El contenedor está lleno.';
-            }
+           
         }
         return result
 
