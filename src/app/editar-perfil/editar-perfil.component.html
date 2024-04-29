@@ -1,49 +1,25 @@
 <body>
   <div class="content">
-      <div style="position: relative; width: 400px; height: 500px; z-index: 1;">
-        <svg xmlns="http://www.w3.org/2000/svg" viewBox="-0.409138 -0.989595 18.41 26.75">
-          <path d="M 17 25 C 17 26 3 26 1.019 25.096 C 1.019 23.908 0.544 22.642 0.185 12.955 C -0.149 5.908 -1.751 -0.391 2.286 -0.312 C 3.552 -0.866 15 -2 17 1 C 18 2 18 14 18 14 C 18 21 18 24 17 25" fill="#FFFFFF"/>
-        </svg>
-          
-          <div class="circulo">
-          <div class="frog" style="position: absolute; top: 5%; ">
-              <img src="../../assets/img/frogUser.png" height="100" width="120"/>
-          </div>
-      </div>
-
-      <div class="nombre"><h2 id="name">CHULI CHULONA</h2></div>
-      
-      <div class="buttons">
-          <button class="buttonedit">
-              <img src="../../assets/img/icon_Edit.png" alt="Descripción de la imagen">
-                  <p>Editar Perfil</p>
-          </button>
-          <button class="buttonedit"(click)="goToConfigPage()">
-              <img src="../../assets/img/icon_Config.png" alt="Descripción de la imagen">
-                  <p>Configuración</p>
-          </button>
-          <button class="buttonedit" (click)="goToAbtPage()">
-              <img src="../../assets/img/icon_About_Us.png" alt="Descripción de la imagen">
-                  <p>Sobre nosotros</p>
-          </button>
-          
-          <button class="buttonedit"  (click)="goToSugPage()">
-              <img src="../../assets/img/sugerencia.png" alt="Descripción de la imagen">
-                  <p>Sugerencia</p>
-          </button>
-
-          <button class="buttonedit">
-              <img src="../../assets/img/icon_Log_Out.png" alt="Descripción de la imagen">
-                  <p>Cerrar sesión</p>
-          </button>
-
-
-      </div>
-      
-      </div>
-  
-     
-      
+    <div style="position: relative; width: 400px; height: 500px; z-index: 1;">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="1.55556 -0.584459 16.44 26.33" style="height: 100%; width: 100%; filter: drop-shadow(0 0 10px rgba(0, 0, 0, 0.5)); position: absolute;">
+            <path d="M 17 25 C 17 26 3 26 3 25 C 2 24 2 24 2 13 C 2 7 1 1 2 1 C 3 0 15 -2 17 1 C 18 2 18 14 18 14 C 18 21 18 24 17 25" fill="#FFFFFF"/>
+        </svg> 
+          <div class="photo">
+                <div class="circulo">
+                    <div class="frog" style="position: absolute; top: 5%; ">
+                        <img src="../../assets/img/frogUser.png" height="100" width="120"/>
+                    </div>
+                </div>
+                <div class="nombre"><h2 id="name">CHULI CHULONA</h2></div>
+            </div>
+      <div class="textboxes">
+        <input type="text" id="email" class="font-email" name="email" placeholder="correo electrónico" required="required" style="font-family: 'Laura merged', sans-serif;" >
+        <input type="text" id="numero" class="font-email" name="numero" placeholder="número de teléfono" required="required" style="font-family: 'Laura merged', sans-serif;" >
+        <input type="password" id="password" class="font-email" name="password" placeholder="Contraseña" required="required" style="font-family: 'Laura merged', sans-serif;" >
+        <input type="password" id="newpassword" class="font-email" name="newpassword" placeholder="repetir contraseña" required="required" style="font-family: 'Laura merged', sans-serif;" >
+      </div> 
+    </div>
+    <button class="saveChanges" type="submit" style="font-family: 'Laura merged', sans-serif;" ><strong>GUARDAR CAMBIOS</strong></button>   
   </div>
   <footer class="footer">
       <div class="footer-buttons">
