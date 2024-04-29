@@ -1,5 +1,6 @@
-import { Component, OnInit } from '@angular/core';
+import { Component,  OnInit, ElementRef, ViewChild } from '@angular/core';
 import { Router } from '@angular/router';
+import { getFullName } from './profile-org.functions';
 
 @Component({
     selector: 'app-profile-org',
@@ -8,14 +9,14 @@ import { Router } from '@angular/router';
     
   })
   export class profileOrgComponent  implements OnInit {
-  
+    @ViewChild('nombre') nombreRef!: ElementRef<HTMLInputElement>;
     constructor(private router: Router) { }
   
-    ngOnInit() {
+    async ngOnInit() {
+      const fullName = await getFullName();
+      this.nombreRef.nativeElement.textContent = fullName;
+      console.log(fullName);
     }
-
-
-    
     
       goToMapPage() {
     
