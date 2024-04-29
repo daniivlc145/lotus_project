@@ -1,8 +1,9 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, ElementRef, ViewChild } from '@angular/core';
 import { Router } from '@angular/router';
 import { PopoverController } from '@ionic/angular';
 import { PopinfoTwoComponent } from '../popinfo-two/popinfo-two.component';
 import { PoplogOutComponent } from '../poplog-out/poplog-out.component';
+import { getFullName } from './profile-user.functions';
 
 @Component({
     selector: 'app-profile-user',
@@ -11,11 +12,15 @@ import { PoplogOutComponent } from '../poplog-out/poplog-out.component';
     
   })
   export class profileUserComponent  implements OnInit {
+    @ViewChild('nombre') nombreRef!: ElementRef<HTMLInputElement>;
 
   
     constructor(private router: Router,private popoverCntrl: PopoverController) { }
   
-    ngOnInit() {
+   async ngOnInit() {
+      const fullName = await getFullName();
+      this.nombreRef.nativeElement.textContent = fullName;
+      console.log(fullName);
     }
 
 
