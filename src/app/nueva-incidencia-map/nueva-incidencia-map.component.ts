@@ -1,5 +1,5 @@
 
-import { AfterViewInit, Component, ElementRef, OnInit, SimpleChanges, ViewChild } from '@angular/core';
+import { AfterViewInit, Component, ElementRef,Renderer2, OnInit, SimpleChanges, ViewChild } from '@angular/core';
 import { StringComparison } from '../string-comparison/string-comparison.service';
 import {FormControl, FormsModule, ReactiveFormsModule} from '@angular/forms';
 import { Router } from '@angular/router';
@@ -10,14 +10,17 @@ import { insertInquiry, modifyLevel } from '../nueva-incidencia/nueva-incidencia
 import { MapComponent } from '../map/map.component';
 import { MediatorService } from '../mediator.service';
 import { NONE_TYPE } from '@angular/compiler';
+import { ChangeDetectionStrategy } from '@angular/core';
+import { NgZone } from '@angular/core';
 
 
 @Component({
   selector: 'app-nueva-incidencia-map',
   templateUrl: './nueva-incidencia-map.component.html',
   styleUrls: ['./nueva-incidencia-map.component.scss'],
+  changeDetection: ChangeDetectionStrategy.OnPush
 })
-export class NuevaIncidenciaMAPComponent implements OnInit{
+export class NuevaIncidenciaMAPComponent implements AfterViewInit{
   @ViewChild(MapComponent) mapComponent!: MapComponent;
   @ViewChild('myInput') input!: ElementRef<HTMLInputElement>;
   @ViewChild('tipo') tipoRef!: ElementRef;
@@ -26,22 +29,26 @@ export class NuevaIncidenciaMAPComponent implements OnInit{
     calles: string[] = [];
     filteredOptions: string[] = [];
     coords:string='';
+    full:string='El contenedor está lleno';
     containerID : number  = 0;
     containerType : string = ""
   
-    constructor(private stringComparison: StringComparison, private router: Router,private popoverCntrl: PopoverController, private mediatorService:MediatorService) {
+    constructor(private stringComparison: StringComparison, private ngZone: NgZone, private router: Router,private popoverCntrl: PopoverController, private mediatorService:MediatorService,private renderer: Renderer2, private elementRef: ElementRef) {
       this.cargarCallesDeValencia();
       
     }
 
-    dropdownOpen: boolean = false;
+  dropdownOpen: boolean = false;
   selectedOption: string = 'CONTENEDOR LLENO';
-
-  ngOnInit(): void {
+    
+  ngAfterViewInit(): void {
     this.setCoordsToInput();
     this.setContainerID();
     this.setContainerType();
+    this.descripRef.nativeElement.disabled = true;
+    this.descripRef.nativeElement.value = this.full;
   }
+
   setContainerType() : void{
     this.containerType = this.mediatorService.markerContainerType || ""
   }
@@ -49,21 +56,28 @@ export class NuevaIncidenciaMAPComponent implements OnInit{
     this.containerID = this.mediatorService.markerContainerID || 0
   }
   setCoordsToInput(): void {
-    // Obtener el valor de la variable coords del servicio Mediator
-    this.coords = this.mediatorService.coords;
-    // Verificar si la referencia input está definida antes de acceder a nativeElement
-    if (this.input) {
+    this.ngZone.runOutsideAngular(() => {
+      this.coords = this.mediatorService.coords;
+      // No es necesario verificar la referencia input aquí
       this.input.nativeElement.value = this.coords;
-    }
+    });
   }
  
   toggleDropdown() {
     this.dropdownOpen = !this.dropdownOpen;
   }
 
-  selectOption(option: string) {
+ selectOption(option: string) {
     this.selectedOption = option;
+    if (this.selectedOption === 'CONTENEDOR LLENO') {
+      this.descripRef.nativeElement.disabled = true;
+      this.descripRef.nativeElement.value = this.full;
+    } else {
+      this.descripRef.nativeElement.disabled = false;
+      this.descripRef.nativeElement.value = '';
+    }
   }
+  
 
   closeDropdown() {
     this.dropdownOpen = false;

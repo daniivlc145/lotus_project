@@ -7,7 +7,7 @@
       </svg>
       <p class="textotitle" style="font-family: 'Laura Regular', sans-serif; z-index: 2; text-align: center; line-height: 25px;">Nuevo Reporte<br>CONTENEDOR</p>
       <p class="texto_tipo" style="font-family: 'Laura Regular', sans-serif; z-index: 2;">Tipo</p>
-      <div class="dropdown" id="tipo" [class.open]="dropdownOpen" (click)="toggleDropdown()">
+      <div class="dropdown" #tipo id="tipo" [class.open]="dropdownOpen" (click)="toggleDropdown()">
         <button class="dropbtn">{{ selectedOption }}</button>
         <div class="dropdown-content" *ngIf="dropdownOpen">
           <div *ngFor="let option of ['CONTENEDOR LLENO', 'RECLAMACIÓN/INFORME', 'PETICIÓN', 'CONSULTA']" (click)="selectOption(option); closeDropdown()">
@@ -22,7 +22,7 @@
       
       
       <!--<textarea class="input" id="ubi" name="ubi" maxlength="50"></textarea>-->
-      <form class="form" id="ubiubi" style="height:18px; margin-top: 10px; border-radius: 30px;">
+      <form class="form" #ubiubi id="ubiubi" style="height:18px; margin-top: 10px; border-radius: 30px;">
         <mat-form-field class="form">
           <input type="text" matInput #myInput class="input2" style="font-family: 'Laura merged', sans-serif;" [disabled]="true" [value]="coords">
           <mat-autocomplete #auto="matAutocomplete" style="font-family: 'Laura merged', sans-serif;">
@@ -32,7 +32,7 @@
       
       
       <p class="texto_desc" style="font-family: 'Laura Regular', sans-serif; z-index: 2;">Descripción</p>
-      <textarea class="descripBox" id="descrip" name="descrip" rows="4" cols="50" maxlength="850"></textarea>
+      <textarea class="descripBox" #descrip id="descrip" name="descrip" rows="4" cols="50" maxlength="850" ></textarea>
       <input type="button" id="camera" class="camera" style="margin-left: 2px;"/>
       <figure>
       <img src="../assets/img/icon_Camera.png" style="position:absolute;margin-left: 2px;  z-index: 23;bottom:36%;left:70%;height: 40px;width:40px;">
