@@ -18,7 +18,7 @@ export async function insertInquiry(description: string, type: string, container
         
         const {error} = await supabaseClient
         .from('inquiries')
-        .insert({ description, type, container_id, creator_id: user?.id, geo_shape}); //datos_relacion: containerType, imagen_adjunta: imageURL (sacado provisionalmente)
+        .insert({ description, type, container_id, creator_id: user?.id, geo_shape, datos_relacion: containerType}); //imagen_adjunta: imageURL (sacado provisionalmente)
 
         if (error) {
             console.error('Error al insertar la incidencia:', error.message);

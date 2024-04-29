@@ -1,4 +1,4 @@
-import { Component, ElementRef, ViewChild } from '@angular/core';
+import { AfterViewInit, Component, ElementRef, ViewChild } from '@angular/core';
 import { StringComparison } from '../string-comparison/string-comparison.service';
 import {FormControl, FormsModule, ReactiveFormsModule} from '@angular/forms';
 import { Router } from '@angular/router';
@@ -14,10 +14,9 @@ import { insertInquiry } from './nueva-incidencia.functions';
   styleUrls: ['./nueva-incidencia.component.scss'],
 
 })
-export class NuevaIncidenciaComponent {
+export class NuevaIncidenciaComponent{
   @ViewChild('myInput') input!: ElementRef<HTMLInputElement>;
   @ViewChild('tipo') tipoRef!: ElementRef;
-  @ViewChild('ubi') ubiRef!: ElementRef;
   @ViewChild('descrip') descripRef!: ElementRef;
     myControl = new FormControl('');
     calles: string[] = [];
@@ -133,18 +132,17 @@ export class NuevaIncidenciaComponent {
       });
     }
 
-    async obtenerContenidoElementos(): Promise<{ tipo: string, ubi: string, descrip: string }> {
+    async obtenerContenidoElementos(): Promise<{ tipo: string, descrip: string }> {
       // Obtener el contenido de texto del elemento tipo
       var tipo = this.selectedOption;
       tipo=this.traducirTipoInquiry(tipo); // Llamada al método de traducción
       
-      // Obtener el contenido de texto del elemento ubi
-      const ubi = this.ubiRef.nativeElement.textContent;
-      
+  
       // Obtener el contenido de texto del elemento descrip
       const descrip = this.descripRef.nativeElement.value;
+      console.log(descrip);
       
-      return { tipo, ubi, descrip };
+      return { tipo, descrip };
     }
     
     // Método para traducir tipos de inquiry
@@ -165,8 +163,11 @@ export class NuevaIncidenciaComponent {
     
     async guardarIncidencia() {
       try {
-        // Obtener los valores de tipo, ubi y descrip
-        const { tipo, ubi, descrip } = await this.obtenerContenidoElementos();
+        // Obtener el valor de ubi
+        const ubi = this.input.nativeElement.value;
+    
+        // Obtener los valores de tipo, descrip
+        const { tipo, descrip } = await this.obtenerContenidoElementos();
     
         // Llamar a insertInquiry con los valores obtenidos
         await insertInquiry(descrip, tipo, null, ubi, "");
@@ -175,25 +176,26 @@ export class NuevaIncidenciaComponent {
         console.log(ubi);
     
         const popoverone = await this.popoverCntrl.create({
-            component: PopinfoOneComponent,
-            backdropDismiss: false,
-            componentProps: {
-              title: '¡Incidencia notificada!',
-              content: 'Gracias por ayudarnos a hacer un mundo más limpio y mejor'
-            }
-          });
-          await popoverone.present();
-
-          popoverone.onWillDismiss().then(() => {
-            console.log('Navegando a: /ruta-deseada');
-            this.router.navigateByUrl('/map');
-          });
+          component: PopinfoOneComponent,
+          backdropDismiss: false,
+          componentProps: {
+            title: '¡Incidencia notificada!',
+            content: 'Gracias por ayudarnos a hacer un mundo más limpio y mejor'
+          }
+        });
+        await popoverone.present();
+    
+        popoverone.onWillDismiss().then(() => {
+          console.log('Navegando a: /ruta-deseada');
+          this.router.navigateByUrl('/map');
+        });
       } catch (error) {
         console.error('Error al guardar la incidencia:', error);
         // Maneja el error de manera adecuada
       }
       this.router.navigateByUrl('/map');
     }
+    
   }
 
   

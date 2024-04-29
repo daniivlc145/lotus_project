@@ -6,7 +6,7 @@ import { Router } from '@angular/router';
 import { PopinfoOneComponent } from '../popinfo-one/popinfo-one.component';
 import { PopinfoTwoComponent } from '../popinfo-two/popinfo-two.component';
 import { PopoverController } from '@ionic/angular';
-import { insertInquiry, modifyLevel } from '../nueva-incidencia/nueva-incidencia.functions';
+import { insertInquiry, modifyLevel } from './nueva-incidencia-map.functions';
 import { MapComponent } from '../map/map.component';
 import { MediatorService } from '../mediator.service';
 import { NONE_TYPE } from '@angular/compiler';
