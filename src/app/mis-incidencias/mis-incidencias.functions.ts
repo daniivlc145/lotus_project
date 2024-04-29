@@ -38,6 +38,9 @@ export async function muestraMisIncidencias(): Promise<{[clave:string]:string}[]
                 'type': elem.type,
                 'geo_shape': elem.geo_shape
             })
+            if (elem.type === 'CONTENEDOR LLENO') {
+                elem.description = 'El contenedor está lleno.';
+            }
         }
         return result
 

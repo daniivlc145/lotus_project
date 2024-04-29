@@ -29,7 +29,7 @@ export class NuevaIncidenciaMAPComponent implements AfterViewInit{
     calles: string[] = [];
     filteredOptions: string[] = [];
     coords:string='';
-    full:string='El contenedor está lleno';
+    full:string='El contenedor está lleno.';
     containerID : number  = 0;
     containerType : string = ""
   
