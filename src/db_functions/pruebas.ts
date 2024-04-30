@@ -7,7 +7,7 @@ import { insertInquiry } from "../app/nueva-incidencia/nueva-incidencia.function
 import {muestraMisIncidencias } from "../app/mis-incidencias/mis-incidencias.functions";
 import { supabaseClient } from "../supabase_client";
 import { getFullName } from "../app/profile-user/profile-user.functions";
-import { seleccionarImagen } from "../app/nueva-incidencia/nueva-incidencia.functions";
+//import { seleccionarImagen } from "../app/nueva-incidencia/nueva-incidencia.functions";
 
 //  async function prueba(){
 //      const {data, error} =  await supabaseClient.auth.signUp({ email: "valencia@organizacion.com", password : "00000000", options: {data : { CIF : "VALENCIAC42G02", city : "Valencia", organization_name : "GVA", phone_number : "654123798"}}  })
@@ -24,7 +24,7 @@ signUpUser("maxkaidanov2@gmail.com","00000000","Max Latoncioso", "000641222")
 // prueba().then((result)=> console.log("El correo especificado existe en la base de datos: ", result))
 
 //signUpUser("jmarreq@gmail.com","000000", "Lato Latoncio Chulon", "23456781")
-//signInUser("danielibanezlopez1@gmail.com","123456")//.then(() => updateUserData("Carlitos gordo GORDO"))
+//signInUser("lyf4accs@gmail.com","12345678").then(() => console.log("HOLAAAA"))
 //forgotPassword("info2maxkaidanov2017@gmail.com")
 //searchContainers()
 //insertInquiry('Esto es una prueba de reporte','suggestion', null, null, 'glass_containers')

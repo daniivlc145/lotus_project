@@ -53,6 +53,11 @@ export async function getAllInquiries() : Promise<{[clave:string]:string}[]> {
             })
            
         }
+        const datasetInquiries : string = JSON.stringify(result,null,2)
+        
+        localStorage.setItem("diccionario_InquiriesJSON",datasetInquiries) 
+        console.log("Diccionario creado correctamente")
+        
         return result
 
     } catch (error) {
@@ -60,4 +65,26 @@ export async function getAllInquiries() : Promise<{[clave:string]:string}[]> {
         throw error;
     }
 }
+
+
+export async function filtraInquiriesTipo(filtro : string[]) : Promise<{[clave:string]:string}[]>{
+    try{
+        let data: string | null =  localStorage.getItem("diccionario_contenedoresJSON");
+        
+        if(data){
+            let inquiries : {[clave:string]:string}[] = JSON.parse(data)
+            inquiries.filter((data)=>data["type"] in filtro)
+            return inquiries
+        }
+        else{
+            throw new Error("Error al recuperar las inquiries")
+        }
+    }
+    catch(error) {
+        console.error("Error inesperado: ", error)
+        throw error
+    }
+}
+
+
 
