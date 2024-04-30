@@ -211,9 +211,9 @@ export class NuevaIncidenciaMAPComponent implements AfterViewInit{
         console.log(descrip);
         console.log(tipo);
         console.log(ubi);
-    
         // Llamar a insertInquiry con los valores obtenidos
-        if (tipo == "CONTENEDOR LLENO"){
+        if (tipo == "contenedor_lleno"){
+            console.log("Contenedor lleno con identificador: ", this.containerID)
             modifyLevel(this.containerID, this.containerType, true)
         }
         else await insertInquiry(descrip, tipo, this.containerID, ubi, this.containerType);
