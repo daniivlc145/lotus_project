@@ -1,11 +1,11 @@
 import { v4 as uuidv4 } from 'uuid';
 import { supabaseClient } from "../../supabase_client";
-import { Camera, CameraResultType, CameraSource } from '@capacitor/camera';
+import { Camera, CameraResultType, Photo } from '@capacitor/camera';
 
-export async function insertInquiry(description: string, type: string, container_id: number | null, geo_shape: string | null, containerType: string) {
+export async function insertInquiry(description: string, type: string, container_id: number | null, geo_shape: string | null, containerType: string, image: Photo | null = null) {
+    
     try {
-        const imageURL = 'https://olfjbwyuusyambowcier.supabase.co/storage/v1/object/public/inquiries_images/123456789.jpg'
-
+        let imageLink: String | null = null;
          const { data: { user }, error : errorUsuario } = await supabaseClient.auth.getUser();
          if (errorUsuario) {
              throw new Error('No se ha encontrado un usuario autenticado');
@@ -14,12 +14,12 @@ export async function insertInquiry(description: string, type: string, container
             containerType = conversionWasteContainers(containerType)
             containerType = containerType.split('_')[0] + '_id';
         }
-        // CODIGO A QUITAR
-        
+        if(image) {
+            imageLink = await subirImagenYGuardar(image);
+        }
         const {error} = await supabaseClient
-        .from('inquiries')
-        .insert({ description, type, container_id, creator_id: user?.id, geo_shape}); //datos_relacion: containerType, imagen_adjunta: imageURL (sacado provisionalmente)
-
+            .from('inquiries')
+            .insert({ description, type, container_id, creator_id: user?.id, geo_shape, imagen_adjunta: imageLink, datos_relacion: containerType});
         if (error) {
             console.error('Error al insertar la incidencia:', error.message);
             throw error;
@@ -52,31 +52,37 @@ export async function modifyLevel(container_id: number, container_type: string, 
     
 }
 
-export async function seleccionarImagen() {
+export async function takePicure() {
     const image = await Camera.getPhoto({
-       quality: 80,
-       allowEditing: true,
-       resultType: CameraResultType.Uri,
-       source: CameraSource.Prompt,
-    });
-    return image;
+        quality: 90,
+        allowEditing: true,
+        resultType: CameraResultType.Uri
+      });
+      return image;
 }
 
-export async function subirImagenYGuardar(imagen: any) {
-    try {
-       // Genera un nombre de archivo único
-       const fileName = `${uuidv4()}`;
-   
-       // Sube la imagen al bucket de Supabase Storage
-       const { data, error } = await supabaseClient.storage.from('inquiries_images').upload(fileName, imagen);
-       if (error) throw error;
-   
-       // Obtiene la URL pública de la imagen
-       const { data: publicUrlData } = supabaseClient.storage.from('inquiries_images').getPublicUrl(fileName);
-   
-       console.log('Imagen subida y URL guardada en inquiries:', publicUrlData.publicUrl); // Accede a la URL pública correctamente
+export async function subirImagenYGuardar(imagen: Photo) {
+    try{
+        if (imagen.webPath) {
+            const response = await fetch(imagen.webPath);
+            const blob = await response.blob();
+            const fileName = `${uuidv4()}`;
+            const file = new File([blob],fileName, { type: blob.type });
+            // Sube la imagen al bucket de Supabase Storage
+            const { data, error } = await supabaseClient.storage.from('inquiries_images').upload(fileName, file);
+            if (error) throw error;
+        
+            // Obtiene la URL pública de la imagen
+            const { data: publicUrlData } = supabaseClient.storage.from('inquiries_images').getPublicUrl(fileName);
+        
+            console.log('Imagen subida y URL guardada en inquiries:', publicUrlData.publicUrl);
+            return publicUrlData.publicUrl;
+        } else {
+            throw new Error('La propiedad webPath de la imagen no está definida.');
+        }
     } catch (error) {
-       console.error('Error al subir la imagen:', error);
+        console.error('Error al subir la imagen:', error);
+        throw error;
     }
 }
   
