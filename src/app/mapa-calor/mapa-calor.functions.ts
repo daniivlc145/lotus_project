@@ -1,4 +1,4 @@
-import { supabaseClient } from "src/supabase_client";
+import { supabaseClient } from "../../supabase_client";
 
 export async function getFullContainers() : Promise<number[][]> {
     try{
@@ -11,21 +11,21 @@ export async function getFullContainers() : Promise<number[][]> {
             'waste_containers', 
         ]
         for (const containerTypeSearch of containers) {
-            const fieldsNeeded = containerTypeSearch === 'waste_containers' ? 'geo_point_2d, objectid, is_full, container_type' : 'geo_point_2d, objectid, is_full';
+            
             const { data, error } = await supabaseClient
                 .from(containerTypeSearch)
-                .select(fieldsNeeded)
-                .eq("is_full",true)
-                
+                .select("geo_point_2d")
+                .eq("is_full","true")
 
             if (error) {
-                console.log("JEJE GOD")
                 throw new Error(`Error al consultar el contenedor ${containerTypeSearch}: ${error.message}`);
             }
             if (data) {
                 for (const element of data) {
-                    let aux : string[] = ((element as any).geo_point_2d).split(",").push("0.5")
-                    let location = aux.map((data)=> Number(data))
+                    console.log((element as any).geo_point_2d.split(","))
+                    let aux : string[] = (element as any).geo_point_2d.split(",")
+                    aux.push("0.5")
+                    let location : number[] = aux.map((data)=> Number(data))
                     console.log("Ubicacion: " , location)
                     result.push(location)
                 }
