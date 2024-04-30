@@ -2,7 +2,8 @@ import { v4 as uuidv4 } from 'uuid';
 import { supabaseClient } from "../../supabase_client";
 import { Camera, CameraResultType, Photo } from '@capacitor/camera';
 
-export async function insertInquiry(description: string, type: string, container_id: number | null, geo_shape: string | null, containerType: string, image: String | null = null) {
+export async function insertInquiry(description: string, type: string, container_id: number | null, geo_shape: string | null, containerType: string, image: Photo | null = null) {
+    const imageLink = null;
     try {
          const { data: { user }, error : errorUsuario } = await supabaseClient.auth.getUser();
          if (errorUsuario) {
@@ -12,10 +13,12 @@ export async function insertInquiry(description: string, type: string, container
             containerType = conversionWasteContainers(containerType)
             containerType = containerType.split('_')[0] + '_id';
         }
+        if(image) {
+            const imageLink = subirImagenYGuardar(image);
+        }
         const {error} = await supabaseClient
-        .from('inquiries')
-        .insert({ description, type, container_id, creator_id: user?.id, geo_shape, imagen_adjunta: image, datos_relacion: containerType});
-
+            .from('inquiries')
+            .insert({ description, type, container_id, creator_id: user?.id, geo_shape, imagen_adjunta: imageLink, datos_relacion: containerType});
         if (error) {
             console.error('Error al insertar la incidencia:', error.message);
             throw error;
@@ -54,9 +57,13 @@ export async function takePicure() {
         allowEditing: true,
         resultType: CameraResultType.Uri
       });
-      try{
-        if (image.webPath) {
-            const response = await fetch(image.webPath);
+      return image;
+}
+
+export async function subirImagenYGuardar(imagen: Photo) {
+    try{
+        if (imagen.webPath) {
+            const response = await fetch(imagen.webPath);
             const blob = await response.blob();
             const fileName = `${uuidv4()}`;
             const file = new File([blob],fileName, { type: blob.type });
@@ -75,17 +82,6 @@ export async function takePicure() {
     } catch (error) {
         console.error('Error al subir la imagen:', error);
         throw error;
-    }
-}
-
-export async function subirImagenYGuardar(imagen: any) {
-    try {
-       // Genera un nombre de archivo único
-       const fileName = `${uuidv4()}`;
-   
-        // Accede a la URL pública correctamente
-    } catch (error) {
-       console.error('Error al subir la imagen:', error);
     }
 }
   
