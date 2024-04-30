@@ -3,8 +3,9 @@ import { supabaseClient } from "../../supabase_client";
 import { Camera, CameraResultType, Photo } from '@capacitor/camera';
 
 export async function insertInquiry(description: string, type: string, container_id: number | null, geo_shape: string | null, containerType: string, image: Photo | null = null) {
-    const imageLink = null;
+    
     try {
+        let imageLink: String | null = null;
          const { data: { user }, error : errorUsuario } = await supabaseClient.auth.getUser();
          if (errorUsuario) {
              throw new Error('No se ha encontrado un usuario autenticado');
@@ -14,7 +15,7 @@ export async function insertInquiry(description: string, type: string, container
             containerType = containerType.split('_')[0] + '_id';
         }
         if(image) {
-            const imageLink = subirImagenYGuardar(image);
+            imageLink = await subirImagenYGuardar(image);
         }
         const {error} = await supabaseClient
             .from('inquiries')
