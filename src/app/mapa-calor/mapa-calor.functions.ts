@@ -19,12 +19,14 @@ export async function getFullContainers() : Promise<number[][]> {
                 
 
             if (error) {
+                console.log("JEJE GOD")
                 throw new Error(`Error al consultar el contenedor ${containerTypeSearch}: ${error.message}`);
             }
             if (data) {
                 for (const element of data) {
                     let aux : string[] = ((element as any).geo_point_2d).split(",").push("0.5")
                     let location = aux.map((data)=> Number(data))
+                    console.log("Ubicacion: " , location)
                     result.push(location)
                 }
             }
