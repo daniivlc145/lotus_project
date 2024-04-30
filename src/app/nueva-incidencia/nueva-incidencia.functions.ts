@@ -61,11 +61,11 @@ export async function takePicure() {
       return image
 }
 
-export async function subirImagen(imagen: Photo) {
-    const response = await fetch(imagen.webPath);
-      const blob = await response.blob();
-      const file = new File([blob], 'space-cat.png', { type: blob.type });
-}
+// export async function subirImagen(imagen: Photo) {
+//     const response = await fetch(imagen.webPath);
+//       const blob = await response.blob();
+//       const file = new File([blob], 'space-cat.png', { type: blob.type });
+// }
 
 export async function subirImagenYGuardar(imagen: any) {
     try {
