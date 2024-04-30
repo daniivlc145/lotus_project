@@ -7,7 +7,7 @@ import { insertInquiry } from "../app/nueva-incidencia/nueva-incidencia.function
 import {muestraMisIncidencias } from "../app/mis-incidencias/mis-incidencias.functions";
 import { supabaseClient } from "../supabase_client";
 import { getFullName } from "../app/profile-user/profile-user.functions";
-import { seleccionarImagen } from "../app/nueva-incidencia/nueva-incidencia.functions";
+//import { seleccionarImagen } from "../app/nueva-incidencia/nueva-incidencia.functions";
 
 //  async function prueba(){
 //      const {data, error} =  await supabaseClient.auth.signUp({ email: "valencia@organizacion.com", password : "00000000", options: {data : { CIF : "VALENCIAC42G02", city : "Valencia", organization_name : "GVA", phone_number : "654123798"}}  })
