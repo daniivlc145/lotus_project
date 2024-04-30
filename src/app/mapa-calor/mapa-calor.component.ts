@@ -1,6 +1,8 @@
 import { Component, OnInit } from '@angular/core';
 import * as L from 'leaflet';
 import 'leaflet.heat';
+import { Router } from '@angular/router';
+import {getFullContainers} from './mapa-calor.functions';
 
 // Importa heatLayer específicamente desde el paquete de Leaflet-Heat
 import 'leaflet.heat/dist/leaflet-heat';
@@ -14,7 +16,7 @@ export class mapaCalorComponent implements OnInit {
 
     map!: L.Map;
 
-    constructor() { }
+    constructor(private router: Router) { }
   
     ngOnInit(): void {
 
@@ -24,7 +26,7 @@ export class mapaCalorComponent implements OnInit {
       
     }
   
-    private initMap(): void {
+    private async initMap(): Promise<void> {
         this.map = L.map('map', {
             zoomControl: false // Desactiva el control de zoom predeterminado
           }).setView([39.4697, -0.3774], 50);
@@ -34,16 +36,32 @@ export class mapaCalorComponent implements OnInit {
       }).addTo(this.map);
   
       // Ejemplo de datos para el mapa de calor
-      const heatData = [
-        [39.4699, -0.3763, 0.5], // Ayuntamiento de Valencia
-        [39.4738, -0.3774, 0.5], // Mercado Central de Valencia
-        [39.4663, -0.3685, 0.5], // Mercado de Colón
-        [39.4696, -0.3765, 0.5]  // Estación de metro Alameda de Valencia
-        // Puedes agregar más datos si lo deseas...
-    ];
-    
+      const heatData = await getFullContainers();
+      console.log(heatData);
   
       // Usa el método heatLayer directamente
       (L as any).heatLayer(heatData, { radius: 25 }).addTo(this.map);
     }
-}
+
+
+    goToIncPage() {
+
+      this.router.navigate(['/']);
+    }
+  
+    goToMapPage() {
+  
+        window.location.reload();
+      
+    }
+  
+    goToProfPage(){
+  
+      this.router.navigate(['/profOrg']);
+  
+    }
+  
+    goToStatsPage(){
+      this.router.navigate(['/stats']);
+    }
+  }

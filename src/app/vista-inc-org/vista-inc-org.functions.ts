@@ -1,6 +1,6 @@
 import { supabaseClient } from "../../supabase_client";
 
-export async function muestraMisIncidencias(): Promise<{[clave:string]:string}[]>{
+export async function getAllInquiries() : Promise<{[clave:string]:string}[]> {
     try{
         let result : {[clave:string]:string}[] = []
         
@@ -15,7 +15,6 @@ export async function muestraMisIncidencias(): Promise<{[clave:string]:string}[]
         const {data, error} = await supabaseClient
             .from('inquiries')
             .select('created_at, description, type, geo_shape')
-            .eq('creator_id', user?.id)
             .in('type', ['reclamation', 'suggestion', 'query']);
 
         if (error) {
@@ -61,3 +60,4 @@ export async function muestraMisIncidencias(): Promise<{[clave:string]:string}[]
         throw error;
     }
 }
+

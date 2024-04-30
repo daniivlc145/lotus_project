@@ -1,0 +1,60 @@
+<body style="font-family: 'Laura merged', sans-serif; ">
+  <div class="NuevaIncidenciaComponent">
+    <div style="position: relative; width: 400px; height: 490px;">
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="1.71221 2.87944 6.896 3.565" style="height: 140px; width:170px; position:absolute; bottom: 100%; left: 28%; z-index: 1;">
+        <path d="M 3 6 C 3 6 2 6 2 5 C 2 5 1.264 3.211 2.146 3.276 C 4.083 2.903 5.137 2.473 8.35 3.634 C 8.501 3.972 9 5 8 6 C 7 7 6 6 3 6" fill="#84beb0"/>
+      </svg>
+      <p class="textotitle" style="font-family: 'Laura merged', sans-serif; z-index: 4;">Mis Reportes</p>
+      <p class="empty" *ngIf="elementos.length === 0" style="font-family: 'Laura merged', sans-serif; z-index:  4;">No tienes incidencias registradas</p>
+      <div #contenedorIncidencias id="contenedorIncidencias" style="overflow: auto; width:100%; height:105%; align-items: center; margin-left: 7%; padding:5%" >
+          <!-- Mover el ngFor aquí -->
+          <div *ngFor="let elemento of elementos">
+            <!-- Clonar y actualizar elementos aquí -->
+            <div #incidenciaElement>
+              <svg id="backgroundSVG" #backgroundSVG xmlns="http://www.w3.org/2000/svg" viewBox="1.55556 0.75 10.56 5.694" style=" width:300px; position:absolute; bottom: 65%; right: 15%; z-index: 1;filter: drop-shadow(0 0 10px rgba(0, 0, 0, 0.15));">
+                <path d="M 3 6 C 3 6 2 6 2 5 C 2 5 1 3 2 2 C 4 0 5 1 9 1 C 13 1 12 3 12 3 C 12 4 11 6 10 6 C 7 7 6 6 3 6" fill="#ffffff"/>
+              </svg>
+              <!-- Utiliza la notación de corchetes para acceder a la propiedad 'type' -->
+              <p id="tipoElement" class="texto-TIPO" style="font-family: 'Laura merged', sans-serif;">{{ elemento['type'] }}</p>
+              <p id="fechaElement" class="texto-DATE" style="font-family: 'Laura merged', sans-serif;">{{ elemento['fecha'] }}</p>
+              <p id="horaElement" class="texto-TIME" style="font-family: 'Laura merged', sans-serif; ">{{ elemento['hora'] }}</p>
+              <p id= "labelUbi" class="label-Ubi" style="font-family: 'Laura merged', sans-serif; ">Ubicación:</p>
+              <p id="geoShapeElement" class="texto-Ubi" style="font-family: 'Laura merged', sans-serif; ">{{ elemento['geo_shape'] }}</p>
+              <p  id= "labeldesc"class="label-desc" style="font-family: 'Laura merged', sans-serif;">Descripción:</p>
+              <p id="descripcionElement" class="texto-desc" style="font-family: 'Laura merged', sans-serif;">{{ elemento['descripcion'] }}</p>
+              <svg #svgHeader xmlns="http://www.w3.org/2000/svg" viewBox="1 0.75 11.11 2.25" style="height: 140px; width:315px; position:absolute; bottom: 80%; right: 14%;">
+                <path d="M 1 3 C 2 3 1 3 2 2 C 4 0 5 1 9 1 C 13 1 12 3 12 3 C 6 3 7 3 3 3" fill="#5a8d8d"/>
+              </svg>
+            </div>
+          </div>
+        </div>
+  </div>
+  </div>
+
+    <footer class="footer">
+      <div class="footer-buttons">
+          <button class="mis-incidencias" (click)="goToMisPage();">
+              <img src="../../assets/img/Icon_Mis_Incidencias_pink.png" alt="Icono Mis Incidencias">
+          </button>
+          
+          <button class="reportes-mapa" (click)="goToNuevaIncPage();">
+              <img src="../../assets/img/Icon_Reportes_En_El_Mapa.png" alt="Icono Reportes en el Mapa">
+          </button>
+          
+          <button class="ver-mapa" (click)="goToMapPage();">
+              <img src="../../assets/img/icon_VER_MAPA.png" alt="Icono Ver Mapa">
+          </button>
+          
+          <button class="info-reciclaje" (click)="goToInfoPage();">
+              <img src="../../assets/img/icon_Info_Reciclaje.png" alt="Icono Información de Reciclaje">
+          </button>
+          
+          <button class="icono-usuario" (click)="goToProfPage();">
+              <img src="../../assets/img/icon_User.png" alt="Icono Usuario">
+          </button>
+          
+      </div>
+  </footer>
+  </body>
+  
+  

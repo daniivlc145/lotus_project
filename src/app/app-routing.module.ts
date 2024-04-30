@@ -44,6 +44,8 @@ import { EditarPerfilComponent } from './editar-perfil/editar-perfil.component';
 
 import { StatsComponent } from './stats/stats.component';
 
+import { VistaIncOrgComponent } from './vista-inc-org/vista-inc-org.component';
+
 
 const routes: Routes = [
 
@@ -88,6 +90,8 @@ const routes: Routes = [
   {path:'editarPerfil', component: EditarPerfilComponent},
 
   {path: 'stats', component:StatsComponent},
+
+  {path: 'incOrg', component:VistaIncOrgComponent},
 
   {
     path: '',

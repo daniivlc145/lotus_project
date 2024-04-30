@@ -36,7 +36,7 @@ import { NuevaIncidenciaMAPComponent } from './nueva-incidencia-map/nueva-incide
 import {PoplogOutComponent} from './poplog-out/poplog-out.component';
 import { EditarPerfilComponent } from './editar-perfil/editar-perfil.component';
 import { StatsComponent } from './stats/stats.component';
-
+import { VistaIncOrgComponent } from './vista-inc-org/vista-inc-org.component';
 
 @NgModule({
   declarations: [
@@ -65,6 +65,7 @@ import { StatsComponent } from './stats/stats.component';
     PoplogOutComponent,
     EditarPerfilComponent,
     StatsComponent,
+    VistaIncOrgComponent
   ],
   
   imports: [

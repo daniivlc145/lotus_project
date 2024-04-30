@@ -1,6 +1,6 @@
 import { v4 as uuidv4 } from 'uuid';
 import { supabaseClient } from "../../supabase_client";
-import { Camera, CameraResultType, CameraSource, Photo } from '@capacitor/camera';
+import { Camera, CameraResultType, CameraSource } from '@capacitor/camera';
 
 export async function insertInquiry(description: string, type: string, container_id: number | null, geo_shape: string | null, containerType: string) {
     try {
@@ -18,7 +18,7 @@ export async function insertInquiry(description: string, type: string, container
         
         const {error} = await supabaseClient
         .from('inquiries')
-        .insert({ description, type, container_id, creator_id: user?.id, geo_shape}); //datos_relacion: containerType, imagen_adjunta: imageURL (sacado provisionalmente)
+        .insert({ description, type, container_id, creator_id: user?.id, geo_shape, datos_relacion: containerType}); //imagen_adjunta: imageURL (sacado provisionalmente)
 
         if (error) {
             console.error('Error al insertar la incidencia:', error.message);
@@ -52,19 +52,14 @@ export async function modifyLevel(container_id: number, container_type: string, 
     
 }
 
-export async function takePicure() {
+export async function seleccionarImagen() {
     const image = await Camera.getPhoto({
-        quality: 90,
-        allowEditing: true,
-        resultType: CameraResultType.Uri
-      });
-      return image
-}
-
-export async function subirImagen(imagen: Photo) {
-    const response = await fetch(imagen.webPath);
-      const blob = await response.blob();
-      const file = new File([blob], 'space-cat.png', { type: blob.type });
+       quality: 80,
+       allowEditing: true,
+       resultType: CameraResultType.Uri,
+       source: CameraSource.Prompt,
+    });
+    return image;
 }
 
 export async function subirImagenYGuardar(imagen: any) {

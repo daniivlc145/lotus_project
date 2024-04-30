@@ -1,13 +1,16 @@
 @import url("/src/css/style.css");
 
-body{user-select: none;}
+body{
+  
+  user-select: none;
+  background-color: #3a5e62;
+}
 
 .content { /*Es el div q engloba todo*/
     width: 100%;
     height: 100%;
-    background-color: #3a5e62;
-    position: relative;
-    top: 45%;
+    position: absolute;
+    top: 50%;
     left: 50%;
     transform: translate(-50%, -50%);
     display: flex;
@@ -18,144 +21,123 @@ body{user-select: none;}
 }
 
 
-
-
+.photo{
+  display: flex; 
+    align-items: center; 
+    justify-content: center; 
+    height: 100%; 
+    width: 100%;
+    position: relative;
+    bottom: 37%;
+}
 
 .circulo {
-    width: 110px; /* Tamaño del círculo en píxeles */
-    height: 110px; /* Tamaño del círculo en píxeles */
-    background-color: #c1d7d5; /* Cambia esto al color que desees */
-    border-radius: 50%; /* Hace que el div sea un círculo */
-    z-index: 2;
-    position: absolute;
-    top: 15%;
-    left: 50%;
-    transform: translate(-50%, -50%); /* Centra el círculo horizontal y verticalmente */
-    border: 5px solid #5a8d8d; /* Define el borde con ancho, estilo y color */
-    overflow: hidden;
+  width: 90px; /* Tamaño del círculo en píxeles */
+  height: 90px; /* Tamaño del círculo en píxeles */
+  background-color: #c1d7d5; /* Cambia esto al color que desees */
+  border-radius: 50%; /* Hace que el div sea un círculo */
+  z-index: 2;
+  position: absolute;
+  top: 63%;
+  left: 26%;
+  transform: translate(-50%, -50%); /* Centra el círculo horizontal y verticalmente */
+  border: 5px solid #5a8d8d; /* Define el borde con ancho, estilo y color */
+  overflow: hidden;
 }
 
 #name {
-  color: #5a8d8d;
+  color: #b5b4b8;
   position: absolute;
-  top: 50%;
-  left: 50%;
-  transform: translate(-50%, -50%);
   z-index: 10000;
   font-family: 'Laura merged', sans-serif;
-  font-size: 20px; /* Reduzco el tamaño de fuente */
-  white-space: nowrap; /* Evita que el texto se divida en varias líneas */
-}
-
-.nombre {
-  width: max-content; /* Hace que el contenedor se ajuste al contenido */
-  position: absolute;
-  top: 30%;
+  font-size: 20px; /* Reduzco el tamaño de fuente */  
   left: 50%;
-  transform: translateX(-50%); /* Solo trasladamos horizontalmente */
-}
-
-
-.buttonedit {
-  z-index: 20;
-  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='1.92623 3.29003 12.36 2.95'%3E%3Cpath d='M 3 6 C 2.916 6.267 1.961 5.604 2 5 C 2 5 1.749 4.383 2.173 3.693 C 3.792 3.481 4.429 3.056 12.018 3.454 C 12.389 3.693 14.618 3.375 14.246 4.489 C 14.273 5.922 14.406 5.816 11.566 6.24 C 5.994 5.816 8.674 6.108 3.023 6.108' fill='%23c1d7d5'/%3E%3C/svg%3E");
-  background-color: transparent;
+  top: 60%;
   font-weight: bold;
+  transform: rotate(-3deg); /* Rota el texto 45 grados en sentido contrario a las agujas del reloj */
+
+}
+
+ #email,#numero,#password,#newpassword{
+  font-size: 18px;
+  width: 80%;
+  padding: 8px;
+  margin-bottom: 20px;
+  color: #b5b4b8;
+  border-color: #e6e5ea;
+  border-radius: 15px  ;
+  z-index: 8;
   font-family: 'Laura merged', sans-serif;
-  font-size: 4.9vw; /* Ajusta el tamaño del texto según tus preferencias */
-  width: 120%; /* Ancho ajustado automáticamente según el contenido */
-  height: auto; /* Altura ajustada automáticamente según el contenido */
-  color: #3a5e62;
-  background-repeat: no-repeat;
-  margin-bottom: 10px;
-  display: flex;
-  align-items: center;
-  padding: 5px; /* Añade espacio entre el texto y los bordes del botón */
-  p{margin-left: 10px; margin-top: 5px;}
+
 }
 
-.buttonedit img {
-  width: 22%; /* Modifica el tamaño de la imagen según tus preferencias */
-}
 
-.buttons {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  top: 38%;
+
+.input-icon {
   position: absolute;
-  width: 40%; /* Modifica el ancho de los botones */
-  height: auto; /* Altura ajustada automáticamente según el contenido */
-  left: 31%;
+  z-index: 1000;
+  right: 12%;
+  top:20px;
+  transform: translateY(-50%);
+  pointer-events: none; /* Permite que los clics pasen a través del icono al campo de texto */
+  width: 12%; /* Ajusta el tamaño de la imagen según sea necesario */
+}
+.input-icon2 {
+  position: absolute;
+  z-index: 1000;
+  right: 11%;
+  top:33%;
+  transform: translateY(-50%);
+  pointer-events: none; /* Permite que los clics pasen a través del icono al campo de texto */
+  width: 12%; /* Ajusta el tamaño de la imagen según sea necesario */
+}
+.input-icon3 {
+  position: absolute;
+  z-index: 1000;
+  right: 11%;
+  top:59%;
+  transform: translateY(-50%);
+  pointer-events: none; /* Permite que los clics pasen a través del icono al campo de texto */
+  width: 12%; /* Ajusta el tamaño de la imagen según sea necesario */
+}
+
+
+.textboxes{
+  display: flex; /* Hace que los elementos hijos se alineen en una fila */
+  flex-direction: column;
+    justify-content: space-between; /* Distribuye el espacio entre los elementos de manera uniforme */
+    align-items: center; /* Alinea verticalmente los elementos hijos en el centro */
+    position: relative;
+    z-index: 40;
+    bottom: 60%;
+
 }
 
 
 
 
 
-
-
-.footer {
-  background-color: white; /* Color de fondo del footer */
-  color: white; /* Color del texto */
-  position: fixed; /* Fijo en la parte inferior de la pantalla */
-  width: 100%; /* Ancho completo */
-  bottom: 0;
-  height: 90px;
-  z-index:1001;
+.saveChanges {
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='-0.415823 -0.468844 28.79 7.305'%3E%3Cpath d='M 0 0 C 3.697 -0.659 9.069 -0.472 13.721 -0.336 C 16.098 -0.327 19.631 -0.336 23.028 -0.336 C 24.6667 0 26.255 -0.402 27.614 0.164 C 28.03 0.391 28.43 0.34 28.366 2.904 C 28 4 28.294 4.808 28 6 C 26.104 7.149 20.592 6.772 17.322 6.796 C 14.808 6.593 12.363 6.525 10.936 6.525 C 9.374 6.728 8.219 6.728 6.181 6.525 C 3.668 6.728 2.09 6.545 -0.062 6.281 C -0.515 6.243 -0.34 5.506 -0.387 4.23 C -0.387 2.497 -0.573 0.702 0 0' fill='%23c1d7d5'/%3E%3C/svg%3E");
+  background-repeat: no-repeat;
+  background-color: transparent;
+  border: none; /* Eliminar el borde */
+  color: #3a5e62; /* Cambiar el color del texto a blanco */
+  text-align: center;
+  font-size: 24px;
+  position: relative; 
+  height: 80px; 
+  width:200px;
+  cursor: pointer; /* Cambia el cursor al pasar por encima */ 
+  z-index: 8;
+  bottom:18%;
+  transform: rotate(-1deg); /* Rota el texto 45 grados en sentido contrario a las agujas del reloj */
+  white-space: nowrap; /* Asegura que el texto esté en una sola línea */
+  padding-bottom: 34px; /* Ajusta este valor para mover el texto hacia arriba */
 }
 
-
-@media(min-width: 600px){
-  .filter-buttons{
-      align-items: center;
-      width: 70%;
-  }
-  
-}
-
-.footer-buttons button{
-  background-color: transparent; /* Color de fondo de los botones */
-  gap: 10px;
-  margin-right: 20px !important; /* Intenta con un valor más fuerte */
-  bottom: 3px !important;
-
-}
-
-
-
-.footer-buttons {
-  display: flex; /* Uso de Flexbox */
-  justify-content: space-around; /* Espaciado uniforme entre los botones */
-  background-color: white; /* Color de fondo de los botones */
-  bottom: 3px !important;
-  
-
-}
-
-
-
-.mis-incidencias{
-  width: 50px;
-  transform: rotate(-2deg);
-}
-
-.reportes-mapa{
-  width: 60px;
-  transform: rotate(-2deg);
-}
-
-.ver-mapa{
-  width: 80px;
-
-}
-
-.info-reciclaje{
-  width: 35px;
-  transform: rotate(-2deg);
-}
-
-.icono-usuario{
-  width: 45px;
-  transform: rotate(-2deg);
+.icono-guardar {
+  width: 15%; 
+  top:2%;
+  position: relative;
 }
