@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import * as L from 'leaflet';
 import 'leaflet.heat';
+import { Router } from '@angular/router';
 
 // Importa heatLayer específicamente desde el paquete de Leaflet-Heat
 import 'leaflet.heat/dist/leaflet-heat';
@@ -14,7 +15,7 @@ export class mapaCalorComponent implements OnInit {
 
     map!: L.Map;
 
-    constructor() { }
+    constructor(private router: Router) { }
   
     ngOnInit(): void {
 
@@ -46,4 +47,26 @@ export class mapaCalorComponent implements OnInit {
       // Usa el método heatLayer directamente
       (L as any).heatLayer(heatData, { radius: 25 }).addTo(this.map);
     }
-}
+
+
+    goToIncPage() {
+
+      this.router.navigate(['/']);
+    }
+  
+    goToMapPage() {
+  
+        window.location.reload();
+      
+    }
+  
+    goToProfPage(){
+  
+      this.router.navigate(['/profOrg']);
+  
+    }
+  
+    goToStatsPage(){
+      this.router.navigate(['/stats']);
+    }
+  }

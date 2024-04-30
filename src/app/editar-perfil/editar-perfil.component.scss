@@ -1,12 +1,15 @@
 @import url("/src/css/style.css");
 
-body{user-select: none;}
+body{
+  
+  user-select: none;
+  background-color: #3a5e62;
+}
 
 .content { /*Es el div q engloba todo*/
     width: 100%;
     height: 100%;
-    background-color: #3a5e62;
-    position: relative;
+    position: absolute;
     top: 45%;
     left: 50%;
     transform: translate(-50%, -50%);
@@ -29,17 +32,17 @@ body{user-select: none;}
 }
 
 .circulo {
-    width: 110px; /* Tamaño del círculo en píxeles */
-    height: 110px; /* Tamaño del círculo en píxeles */
-    background-color: #c1d7d5; /* Cambia esto al color que desees */
-    border-radius: 50%; /* Hace que el div sea un círculo */
-    z-index: 2;
-    position: absolute;
-    top: 58%;
-    left: 33%;
-    transform: translate(-50%, -50%); /* Centra el círculo horizontal y verticalmente */
-    border: 5px solid #5a8d8d; /* Define el borde con ancho, estilo y color */
-    overflow: hidden;
+  width: 90px; /* Tamaño del círculo en píxeles */
+  height: 90px; /* Tamaño del círculo en píxeles */
+  background-color: #c1d7d5; /* Cambia esto al color que desees */
+  border-radius: 50%; /* Hace que el div sea un círculo */
+  z-index: 2;
+  position: absolute;
+  top: 63%;
+  left: 26%;
+  transform: translate(-50%, -50%); /* Centra el círculo horizontal y verticalmente */
+  border: 5px solid #5a8d8d; /* Define el borde con ancho, estilo y color */
+  overflow: hidden;
 }
 
 #name {
@@ -49,7 +52,7 @@ body{user-select: none;}
   font-family: 'Laura merged', sans-serif;
   font-size: 20px; /* Reduzco el tamaño de fuente */  
   left: 50%;
-  top: 52%;
+  top: 60%;
   font-weight: bold;
   transform: rotate(-3deg); /* Rota el texto 45 grados en sentido contrario a las agujas del reloj */
 
@@ -57,7 +60,7 @@ body{user-select: none;}
 
  #email,#numero,#password,#newpassword{
   font-size: 18px;
-  width: 250px;
+  width: 80%;
   padding: 8px;
   margin-bottom: 20px;
   color: #b5b4b8;
@@ -116,72 +119,4 @@ body{user-select: none;}
   z-index: 8;
   bottom:5%;
   white-space: nowrap; /* Asegura que el texto esté en una sola línea */
-}
-
-
-
-
-.footer {
-  background-color: white; /* Color de fondo del footer */
-  color: white; /* Color del texto */
-  position: fixed; /* Fijo en la parte inferior de la pantalla */
-  width: 100%; /* Ancho completo */
-  bottom: 0;
-  height: 90px;
-  z-index:1001;
-}
-
-
-@media(min-width: 600px){
-  .filter-buttons{
-      align-items: center;
-      width: 70%;
-  }
-  
-}
-
-.footer-buttons button{
-  background-color: transparent; /* Color de fondo de los botones */
-  gap: 10px;
-  margin-right: 20px !important; /* Intenta con un valor más fuerte */
-  bottom: 3px !important;
-
-}
-
-
-
-.footer-buttons {
-  display: flex; /* Uso de Flexbox */
-  justify-content: space-around; /* Espaciado uniforme entre los botones */
-  background-color: white; /* Color de fondo de los botones */
-  bottom: 3px !important;
-  
-
-}
-
-
-
-.mis-incidencias{
-  width: 50px;
-  transform: rotate(-2deg);
-}
-
-.reportes-mapa{
-  width: 60px;
-  transform: rotate(-2deg);
-}
-
-.ver-mapa{
-  width: 80px;
-
-}
-
-.info-reciclaje{
-  width: 35px;
-  transform: rotate(-2deg);
-}
-
-.icono-usuario{
-  width: 45px;
-  transform: rotate(-2deg);
 }

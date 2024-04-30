@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-stats',
@@ -7,8 +8,30 @@ import { Component, OnInit } from '@angular/core';
 })
 export class StatsComponent  implements OnInit {
 
-  constructor() { }
+  constructor(private router: Router) { }
 
   ngOnInit() {}
+
+
+  goToIncPage() {
+
+    this.router.navigate(['/']);
+  }
+
+  goToMapPage() {
+
+     
+    this.router.navigate(['/mapCalor']); 
+  }
+
+  goToProfPage(){
+
+    this.router.navigate(['/profOrg']);
+
+  }
+
+  goToStatsPage(){
+    window.location.reload();
+  }
 
 }

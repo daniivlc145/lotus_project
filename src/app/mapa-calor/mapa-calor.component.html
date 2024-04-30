@@ -8,22 +8,32 @@
         width: 100%;
         height: 100%;
         z-index: 0;"></div>
+
+
+    <div class="header-map">
+        
+            <p>REPORTES DE CONTENEDORES<br>LLENOS<p>
+        
+
+    </div>
+        
+    
     <footer class="footer">
         <div class="footer-buttons">
-            <button class="mis-incidencias" >
+            <button class="mis-incidencias" (click)="goToIncPage();" >
                 <img src="../../assets/img/Icon_Suggestion.png" alt="Icono Incidencias Usuarios">
             </button>
             
-            <button class="reportes-mapa" >
+            <button class="reportes-mapa" (click)="goToStatsPage();">
                 <img src="../../assets/img/icon_Stats.png" alt="Icono Estadisticas">
             </button>
 
             
-            <button class="mapa_calor" >
+            <button class="mapa_calor" (click)="goToMapPage();">
                 <img src="../../assets/img/Icon_Mapa_Calor_pink.png" alt="Icono Mapa de Calor">
             </button>
             
-            <button class="icono-usuario">
+            <button class="icono-usuario"(click)="goToProfPage();">
                 <img src="../../assets/img/icon_User.png" alt="Icono Usuario">
             </button>
             

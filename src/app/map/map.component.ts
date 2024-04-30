@@ -402,6 +402,6 @@ export class MapComponent implements OnInit {
   }
 
   goToNuevaIncMAPPage(){
-    this.router.navigate(['newImap']);
+    this.router.navigate(['/newImap']);
   }
 }
