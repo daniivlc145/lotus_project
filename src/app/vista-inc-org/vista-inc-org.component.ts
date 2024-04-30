@@ -1,6 +1,6 @@
 import { Component, OnInit, AfterViewInit, ElementRef, ViewChild } from '@angular/core';
 import { Router } from '@angular/router';
-//import { muestraMisIncidencias } from './mis-incidencias.functions';
+import { getAllInquiries } from './vista-inc-org.functions';
 
 @Component({
   selector: 'app-vista-inc-org',
@@ -17,15 +17,26 @@ export class VistaIncOrgComponent  implements OnInit {
   constructor(private router: Router) {}
 
   ngOnInit(): void {
-   /* muestraMisIncidencias().then((result) => {
+    getAllInquiries().then((result) => {
       this.elementos = result; // Almacenar los resultados
-      console.log(result);
   
       // Replicar el elemento para cada incidencia después de que se resuelva muestraMisIncidencias()
       this.replicarElementos();
-    });*/
+    });
   }
+
+
+
+  isSidebarOpen: boolean = false;
+
+  toggleSidebar() {
+    this.isSidebarOpen = !this.isSidebarOpen;
+  }
+
+ 
   
+  
+
   replicarElementos(): void {
     setTimeout(() => {
         const contenedor = document.getElementById('contenedorIncidencias');
@@ -145,33 +156,64 @@ private crearNuevoElemento(elem: {[clave:string]:string}): void {
 
 
 
-  goToInfoPage() {
+goToIncPage() {
 
-    this.router.navigate(['/info-rec']);
-  
+  window.location.reload();
+}
+
+goToMapPage() {
+
+   
+  this.router.navigate(['/mapCalor']); 
+}
+
+goToProfPage(){
+
+  this.router.navigate(['/profOrg']);
+
+}
+
+goToStatsPage(){
+  this.router.navigate(['/stats']);
+}
+
+
+selectAll = true;
+  items = [
+    { id: 'reclamacion_informe', selected: true },
+    { id: 'peticion', selected: true },
+    { id: 'consulta', selected: true },
+    { id: 'lleno', selected: true },
+  ];
+
+  itemChanged(item: any) {
+    if (this.selectAll && !item.selected) {
+      this.selectAll = false;
+      const checkbox = document.getElementById('checkbox-top-right') as HTMLInputElement;
+      if (checkbox) {
+        checkbox.checked = false;
+      }
+    } else if (!this.selectAll && this.items.every(item => item.selected)) {
+      this.selectAll = true;
+      const checkbox = document.getElementById('checkbox-top-right') as HTMLInputElement;
+      if (checkbox) {
+        checkbox.checked = true;
+      }
+    }
   }
 
-  goToNuevaIncPage() {
-
-    this.router.navigate(['/newI']);
+  toggleCheckbox(itemId: string) {
+    const item = this.items.find(item => item.id === itemId);
+    if (item) {
+      item.selected = !item.selected;
+      this.itemChanged(item);
+    }
   }
 
-  goToMisPage() {
-    
-    window.location.reload();
-
+  toggleAll() {
+    this.selectAll = !this.selectAll;
+    this.items.forEach(item => {
+      item.selected = this.selectAll;
+    });
   }
-
-  goToMapPage() {
-
-    this.router.navigate(['/map']);
-    
-  }
-
-  goToProfPage(){
-
-    this.router.navigate(['/profUser']);
-
-  }
-
 }

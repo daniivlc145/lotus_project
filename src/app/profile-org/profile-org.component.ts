@@ -34,6 +34,23 @@ import { getFullName } from './profile-org.functions';
         this.router.navigate(['/sug']);
 
       }
+
+      goToIncPage(){
+
+        this.router.navigate(['/incOrg']);
+
+      }
+     
+      
+      goToProfPage(){
+      
+        this.router.navigate(['/profOrg']);
+      
+      }
+      
+      goToStatsPage(){
+        this.router.navigate(['/stats']);
+      }
     
       
   }

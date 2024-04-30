@@ -1,11 +1,82 @@
 <body style="font-family: 'Laura merged', sans-serif; ">
+ 
+      
   <div class="NuevaIncidenciaComponent">
-    <div style="position: relative; width: 400px; height: 490px;">
-      <svg xmlns="http://www.w3.org/2000/svg" viewBox="1.71221 2.87944 6.896 3.565" style="height: 140px; width:170px; position:absolute; bottom: 100%; left: 28%; z-index: 1;">
-        <path d="M 3 6 C 3 6 2 6 2 5 C 2 5 1.264 3.211 2.146 3.276 C 4.083 2.903 5.137 2.473 8.35 3.634 C 8.501 3.972 9 5 8 6 C 7 7 6 6 3 6" fill="#84beb0"/>
-      </svg>
-      <p class="textotitle" style="font-family: 'Laura merged', sans-serif; z-index: 4;">Mis Reportes</p>
-      <p class="empty" *ngIf="elementos.length === 0" style="font-family: 'Laura merged', sans-serif; z-index:  4;">No tienes incidencias registradas</p>
+    
+     <div class="header">
+
+        <p class="textotitle">REPORTES</p> 
+
+        <div class="fdiv">
+        
+        <button class="filtro" (click)="toggleSidebar()">
+        <img src="../../assets/img/Filters.png" alt="Icono filtro">
+        </button>
+
+        </div>
+
+      </div>
+
+      <div id="filterSidebar" [style.display]="isSidebarOpen ? 'block' : 'none'">
+        <h2>Filtrar Resultados</h2>
+                
+        <div class="filter-buttons">
+          <div class="button-container">
+              <input type="checkbox" id="checkbox-top-right" class="filter-checkbox" (change)="toggleAll()" [checked]="selectAll">
+              <label for="checkbox-top-right">
+                  <img src="../../assets/img/Selected.png" alt="Seleccionado" class="checkbox-selected">
+              </label>
+          </div>
+  
+          <div class="button-container">
+              <input type="checkbox" id="reclamacion_informe" class="filter-checkbox" [(ngModel)]="items[0].selected" (change)="itemChanged(items[0])">
+              <label for="reclamacion_informe">
+                  <img src="../../assets/img/Selected.png" alt="Seleccionado" class="checkbox-selected">
+              </label>
+          </div>
+  
+          <div class="button-container">
+              <input type="checkbox" id="peticion" class="filter-checkbox" [(ngModel)]="items[1].selected" (change)="itemChanged(items[1])">
+              <label for="peticion">
+                  <img src="../../assets/img/Selected.png" alt="Seleccionado" class="checkbox-selected">
+              </label>
+          </div>
+  
+          <div class="button-container">
+              <input type="checkbox" id="consulta" class="filter-checkbox" [(ngModel)]="items[2].selected" (change)="itemChanged(items[2])">
+              <label for="consulta">
+                  <img src="../../assets/img/Selected.png" alt="Seleccionado" class="checkbox-selected">
+              </label>
+          </div>
+  
+          <div class="button-container">
+              <input type="checkbox" id="lleno" class="filter-checkbox" [(ngModel)]="items[3].selected" (change)="itemChanged(items[3])">
+              <label for="lleno">
+                  <img src="../../assets/img/Selected.png" alt="Seleccionado" class="checkbox-selected">
+              </label>
+          </div>
+      </div>
+        
+
+      </div>
+      
+
+     
+
+      
+
+    <div style="    
+    position: absolute;
+    width: 100%;
+    height: 80%;
+    top: 13%;
+    left: 0;
+    align-items: center;
+    padding-bottom: 60px;
+">
+      
+      
+      <p class="empty" *ngIf="elementos.length === 0" style="font-family: 'Laura merged', sans-serif; z-index:  4;">No hay incidencias registradas</p>
       <div #contenedorIncidencias id="contenedorIncidencias" style="overflow: auto; width:100%; height:105%; align-items: center; margin-left: 7%; padding:5%" >
           <!-- Mover el ngFor aquí -->
           <div *ngFor="let elemento of elementos">
@@ -31,30 +102,27 @@
   </div>
   </div>
 
-    <footer class="footer">
-      <div class="footer-buttons">
-          <button class="mis-incidencias" (click)="goToMisPage();">
-              <img src="../../assets/img/Icon_Mis_Incidencias_pink.png" alt="Icono Mis Incidencias">
-          </button>
-          
-          <button class="reportes-mapa" (click)="goToNuevaIncPage();">
-              <img src="../../assets/img/Icon_Reportes_En_El_Mapa.png" alt="Icono Reportes en el Mapa">
-          </button>
-          
-          <button class="ver-mapa" (click)="goToMapPage();">
-              <img src="../../assets/img/icon_VER_MAPA.png" alt="Icono Ver Mapa">
-          </button>
-          
-          <button class="info-reciclaje" (click)="goToInfoPage();">
-              <img src="../../assets/img/icon_Info_Reciclaje.png" alt="Icono Información de Reciclaje">
-          </button>
-          
-          <button class="icono-usuario" (click)="goToProfPage();">
-              <img src="../../assets/img/icon_User.png" alt="Icono Usuario">
-          </button>
-          
-      </div>
-  </footer>
+  <footer class="footer">
+    <div class="footer-buttons">
+        <button class="mis-incidencias" (click)="goToIncPage();" >
+            <img src="../../assets/img/Icon_Suggestion_pink.png" alt="Icono Incidencias Usuarios">
+        </button>
+        
+        <button class="reportes-mapa" (click)="goToStatsPage();">
+            <img src="../../assets/img/icon_Stats.png" alt="Icono Estadisticas">
+        </button>
+
+        
+        <button class="mapa_calor" (click)="goToMapPage();">
+            <img src="../../assets/img/Icon_Mapa_Calor_.png" alt="Icono Mapa de Calor">
+        </button>
+        
+        <button class="icono-usuario"(click)="goToProfPage();">
+            <img src="../../assets/img/icon_User.png" alt="Icono Usuario">
+        </button>
+        
+    </div>
+</footer>
   </body>
   
   

@@ -46,7 +46,7 @@ export class mapaCalorComponent implements OnInit {
 
     goToIncPage() {
 
-      this.router.navigate(['/']);
+      this.router.navigate(['/incOrg']);
     }
   
     goToMapPage() {

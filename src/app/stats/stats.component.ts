@@ -15,7 +15,7 @@ export class StatsComponent  implements OnInit {
 
   goToIncPage() {
 
-    this.router.navigate(['/']);
+    this.router.navigate(['/incOrg']);
   }
 
   goToMapPage() {
