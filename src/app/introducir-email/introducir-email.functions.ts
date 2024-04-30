@@ -24,7 +24,7 @@ export async function forgotPassword(email:string) : Promise<void>{
         })
   
         if(error){
-            throw new Error('Error al encontrar el correo')
+            throw error
         }
         console.log("Correo encontrado, mensaje enviado")
     }
