@@ -1,6 +1,6 @@
 import { Component, OnInit, AfterViewInit, ElementRef, ViewChild } from '@angular/core';
 import { Router } from '@angular/router';
-import { getAllInquiries } from './vista-inc-org.functions';
+import { getAllInquiries, filtraInquiriesTipo } from './vista-inc-org.functions';
 
 @Component({
   selector: 'app-vista-inc-org',
@@ -17,12 +17,7 @@ export class VistaIncOrgComponent  implements OnInit {
   constructor(private router: Router) {}
 
   ngOnInit(): void {
-    getAllInquiries().then((result) => {
-      this.elementos = result; // Almacenar los resultados
-  
-      // Replicar el elemento para cada incidencia después de que se resuelva muestraMisIncidencias()
-      this.replicarElementos();
-    });
+    this.loadData();
   }
 
 
@@ -177,43 +172,46 @@ goToStatsPage(){
   this.router.navigate(['/stats']);
 }
 
+selectAll: boolean = true;
+items = [
+    { id: 'reclamation', selected: true },
+    { id: 'suggestion', selected: true },
+    { id: 'query', selected: true },
+    { id: 'contenedor_lleno', selected: true },
+];
 
-selectAll = true;
-  items = [
-    { id: 'reclamacion_informe', selected: true },
-    { id: 'peticion', selected: true },
-    { id: 'consulta', selected: true },
-    { id: 'lleno', selected: true },
-  ];
-
-  itemChanged(item: any) {
-    if (this.selectAll && !item.selected) {
-      this.selectAll = false;
-      const checkbox = document.getElementById('checkbox-top-right') as HTMLInputElement;
-      if (checkbox) {
-        checkbox.checked = false;
-      }
-    } else if (!this.selectAll && this.items.every(item => item.selected)) {
-      this.selectAll = true;
-      const checkbox = document.getElementById('checkbox-top-right') as HTMLInputElement;
-      if (checkbox) {
-        checkbox.checked = true;
-      }
-    }
+itemChanged() {
+  // Verificar si todos los checkboxes están marcados
+  if (this.items.every(item => item.selected)) {
+    this.selectAll = true;
+  } else {
+    this.selectAll = false;
   }
+  // Cargar datos según el estado de los checkboxes
+  this.loadData();
+}
 
-  toggleCheckbox(itemId: string) {
-    const item = this.items.find(item => item.id === itemId);
-    if (item) {
-      item.selected = !item.selected;
-      this.itemChanged(item);
-    }
-  }
+toggleAll() {
+  // Cambiar el estado de todos los checkboxes
+  this.items.forEach(item => item.selected = this.selectAll);
+  // Cargar datos según el estado de los checkboxes
+  this.loadData();
+}
 
-  toggleAll() {
-    this.selectAll = !this.selectAll;
-    this.items.forEach(item => {
-      item.selected = this.selectAll;
+loadData(): void {
+  // Lógica para cargar los datos según el estado de los checkboxes
+  if (this.selectAll) {
+    getAllInquiries().then((result) => {
+      this.elementos = result; // Almacenar los resultados
+      this.replicarElementos();
+    });
+  } else {
+    const tiposSeleccionados = this.items.filter(item => item.selected).map(item => item.id);
+    filtraInquiriesTipo(tiposSeleccionados).then((result) => {
+      this.elementos = result; // Almacenar los resultados
+      this.replicarElementos();
     });
   }
+}
+
 }

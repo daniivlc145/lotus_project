@@ -5,7 +5,7 @@
     
      <div class="header">
 
-        <p class="textotitle">REPORTES</p> 
+        <h1 class="textotitle">REPORTES</h1> 
 
         <div class="fdiv">
         
@@ -18,46 +18,31 @@
       </div>
 
       <div id="filterSidebar" [style.display]="isSidebarOpen ? 'block' : 'none'">
-        <h2>Filtrar Resultados</h2>
-                
-        <div class="filter-buttons">
-          <div class="button-container">
-              <input type="checkbox" id="checkbox-top-right" class="filter-checkbox" (change)="toggleAll()" [checked]="selectAll">
-              <label for="checkbox-top-right">
-                  <img src="../../assets/img/Selected.png" alt="Seleccionado" class="checkbox-selected">
-              </label>
-          </div>
-  
-          <div class="button-container">
-              <input type="checkbox" id="reclamacion_informe" class="filter-checkbox" [(ngModel)]="items[0].selected" (change)="itemChanged(items[0])">
-              <label for="reclamacion_informe">
-                  <img src="../../assets/img/Selected.png" alt="Seleccionado" class="checkbox-selected">
-              </label>
-          </div>
-  
-          <div class="button-container">
-              <input type="checkbox" id="peticion" class="filter-checkbox" [(ngModel)]="items[1].selected" (change)="itemChanged(items[1])">
-              <label for="peticion">
-                  <img src="../../assets/img/Selected.png" alt="Seleccionado" class="checkbox-selected">
-              </label>
-          </div>
-  
-          <div class="button-container">
-              <input type="checkbox" id="consulta" class="filter-checkbox" [(ngModel)]="items[2].selected" (change)="itemChanged(items[2])">
-              <label for="consulta">
-                  <img src="../../assets/img/Selected.png" alt="Seleccionado" class="checkbox-selected">
-              </label>
-          </div>
-  
-          <div class="button-container">
-              <input type="checkbox" id="lleno" class="filter-checkbox" [(ngModel)]="items[3].selected" (change)="itemChanged(items[3])">
-              <label for="lleno">
-                  <img src="../../assets/img/Selected.png" alt="Seleccionado" class="checkbox-selected">
-              </label>
-          </div>
-      </div>
+        <div style="position: relative; width: 100%; height: 100%;">
+             
+            <h2>Filtrar Resultados</h2>
+            <div class="checks">  
+                <div>
+                    <label class="custom-checkbox">
+                        <input type="checkbox" [(ngModel)]="selectAll" (change)="toggleAll()">
+                        <span class="checkbox-image"></span>
+                        Todas
+                    </label>
+                </div>
+                <div *ngFor="let item of items; let i = index" style="margin-top: 5%;">
+                    <label class="custom-checkbox">
+                        <input type="checkbox" [(ngModel)]="items[i].selected" (change)="itemChanged()">
+                        <span class="checkbox-image"></span>
+                        {{item.id}}
+                    </label>
+                </div>
+            </div>
+            
+            
+        </div> 
         
-
+        
+          
       </div>
       
 
