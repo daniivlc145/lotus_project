@@ -13,7 +13,6 @@ import { getFullName } from './profile-user.functions';
   })
   export class profileUserComponent  implements OnInit {
     @ViewChild('nombre') nombreRef!: ElementRef<HTMLInputElement>;
-
   
     constructor(private router: Router,private popoverCntrl: PopoverController) { }
   
@@ -75,11 +74,18 @@ import { getFullName } from './profile-user.functions';
         componentProps: {
           title: 'Cerrar sesión',
           content: '¿Estás seguro de que quieres cerrar sesión?'
-        }
+        },
       });
       await popover.present();
+      const frogSad = document.getElementById('frogSad');
+      if (frogSad) { // Verifica si frogSad no es null antes de acceder a sus propiedades
+        if (frogSad.style.display === 'none') {
+            frogSad.style.display = 'block';
+        } 
+      }
   
       popover.onWillDismiss().then(async (detail) => {
+        if (frogSad) {frogSad.style.display = 'none';}
         if (detail.data && detail.data.action === 'accept') {
           this.router.navigateByUrl('/login');
       } });

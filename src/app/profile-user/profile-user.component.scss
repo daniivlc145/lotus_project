@@ -56,6 +56,7 @@ body{user-select: none;}
 }
 
 
+
 .buttonedit {
   z-index: 20;
   background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='1.92623 3.29003 12.36 2.95'%3E%3Cpath d='M 3 6 C 2.916 6.267 1.961 5.604 2 5 C 2 5 1.749 4.383 2.173 3.693 C 3.792 3.481 4.429 3.056 12.018 3.454 C 12.389 3.693 14.618 3.375 14.246 4.489 C 14.273 5.922 14.406 5.816 11.566 6.24 C 5.994 5.816 8.674 6.108 3.023 6.108' fill='%23c1d7d5'/%3E%3C/svg%3E");
@@ -73,6 +74,8 @@ body{user-select: none;}
   padding: 5px; /* Añade espacio entre el texto y los bordes del botón */
   p{margin-left: 10px; margin-top: 5px;}
 }
+
+
 
 .buttonedit img {
   width: 22%; /* Modifica el tamaño de la imagen según tus preferencias */
