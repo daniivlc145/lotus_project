@@ -17,14 +17,31 @@
     transition: right 0.3s ease;
     z-index: 2345678;
     display: none;
-    border-radius: 30px 30px 30px 30px;
-    background-color: transparent;
+    border-radius: 30px;
+    background-image: url('data:image/svg+xml;charset=utf8,%3Csvg xmlns="http://www.w3.org/2000/svg" viewBox="0.14078 1.639 14.47 22.09"%3E%3Cpath d="M 1.481 21.12 C 1.434 21.214 0.679 19.8 1.009 16.923 C 0.774 10.085 0.401 8.947 0.855 5.824 C 1.17 5.165 0.826 4.106 7.9 3.905 C 9.075 4.02 8.924 4.261 9.726 2.139 C 10.249 3.533 10.65 4.163 11.337 3.991 C 12.826 4.02 13.943 4.478 13.807 9.418 C 14.544 20.979 13.79 22.488 13.177 22.252 C 11.007 22.771 2.377 24.515 1.575 21.497" fill="%23ffffff"%3E%3C/path%3E%3C/svg%3E');
     background-repeat: no-repeat;
     filter: drop-shadow(0px 0px 10px rgba(0, 0, 0, 0.5));
     color: #3a5e62;
-    /* Eliminamos la línea que establece el background-color transparente */
-    background-image: url('data:image/svg+xml;charset=utf8,%3Csvg xmlns="http://www.w3.org/2000/svg" viewBox="0.14078 1.639 14.47 22.09"%3E%3Cpath d="M 1.481 21.12 C 1.434 21.214 0.679 19.8 1.009 16.923 C 0.774 10.085 0.401 8.947 0.855 5.824 C 1.17 5.165 0.826 4.106 7.9 3.905 C 9.075 4.02 8.924 4.261 9.726 2.139 C 10.249 3.533 10.65 4.163 11.337 3.991 C 12.826 4.02 13.943 4.478 13.807 9.418 C 14.544 20.979 13.79 22.488 13.177 22.252 C 11.007 22.771 2.377 24.515 1.575 21.497" fill="%23ffffff"%3E%3C/path%3E%3C/svg%3E');
 }
+
+.sidebar-content {
+    position: relative;
+    height: 100%;
+    width: 100%;
+}
+
+.image-container {
+  float: right;
+  clear: both;
+  margin-top: 80px; /* Aumenta el margen superior para bajar la imagen */
+  opacity: 16%;
+}
+
+
+
+
+
+
 
 h2{
 
@@ -299,6 +316,9 @@ h2{
 .custom-checkbox input[type="checkbox"] + .checkbox-image {
     background-image: url('../../icons/Unselected.png'); /* Ruta a la imagen cuando el checkbox no está seleccionado */
 }
+
+
+
 
 
 
