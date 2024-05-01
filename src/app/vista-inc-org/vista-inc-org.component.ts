@@ -174,10 +174,10 @@ goToStatsPage(){
 
 selectAll: boolean = true;
 items = [
-    { id: 'reclamation', selected: true },
-    { id: 'suggestion', selected: true },
-    { id: 'query', selected: true },
-    { id: 'contenedor_lleno', selected: true },
+    { id: 'RECLAMACIÓN', selected: true },
+    { id: 'PETICIÓN', selected: true },
+    { id: 'CONSULTA', selected: true },
+    { id: 'CONTENEDOR LLENO', selected: true },
 ];
 
 itemChanged() {

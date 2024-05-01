@@ -216,7 +216,8 @@ export class NuevaIncidenciaMAPComponent implements AfterViewInit{
             console.log("Contenedor lleno con identificador: ", this.containerID)
             modifyLevel(this.containerID, this.containerType, true)
         }
-        else await insertInquiry(descrip, tipo, this.containerID, ubi, this.containerType);
+        //else (Para que no se guarde en la base de datos las inquirie de Consulta Llena)
+        await insertInquiry(descrip, tipo, this.containerID, ubi, this.containerType);
     
         const popoverone = await this.popoverCntrl.create({
           component: PopinfoOneComponent,

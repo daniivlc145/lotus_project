@@ -69,12 +69,13 @@ export async function getAllInquiries() : Promise<{[clave:string]:string}[]> {
 
 export async function filtraInquiriesTipo(filtro : string[]) : Promise<{[clave:string]:string}[]>{
     try{
-        let data: string | null =  localStorage.getItem("diccionario_contenedoresJSON");
+        let data: string | null =  localStorage.getItem("diccionario_InquiriesJSON");
         
         if(data){
             let inquiries : {[clave:string]:string}[] = JSON.parse(data)
-            inquiries.filter((data)=>data["type"] in filtro)
-            return inquiries
+            const filtrado = inquiries.filter((data)=>filtro.includes(data["type"]))
+            
+            return filtrado
         }
         else{
             throw new Error("Error al recuperar las inquiries")
