@@ -33,14 +33,14 @@
       
       <p class="texto_desc" style="font-family: 'Laura Regular', sans-serif; z-index: 2;">Descripción</p>
       <textarea class="descripBox" #descrip id="descrip" name="descrip" rows="4" cols="50" maxlength="850" ></textarea>
-        <figure>
-          <img src="../assets/img/icon_Camera.png" id="camera" class="camera" style="margin-left: 2px;" (click)="takePhotoFromCamera();"style="position:absolute;margin-left: 2px;  z-index: 23;bottom:36%;left:70%;height: 40px;width:40px;">
-        </figure>
-        <pwa-camera-modal></pwa-camera-modal>
-      <input type="button" id="uploadImage" class="uploadI" style="margin-left: 2px;"/>
-      <figure>
-        <img src="../assets/img/uploadImage.png" (click)="takePhotoFromAlbum();" style="position:absolute; margin-left: 2px;z-index: 23;bottom:26%;left:70%;height: 40px;width:40px;">
-        </figure>
+      <ionic-button id="camera" class="camera" (click)="takePhotoFromCamera();" style="margin-left: 2px; position: relative;">
+        <img src="../assets/img/icon_Camera.png" alt="Camera Icon" style="width: 40px; height: 40px; pointer-events: none;">
+      </ionic-button>
+      
+      <ionic-button id="uploadImage" class="uploadI" (click)="takePhotoFromAlbum();" style="margin-left: 2px; position: relative;">
+        <img src="../assets/img/uploadImage.png" alt="Upload Image Icon" style="width: 40px; height: 40px; pointer-events: none;">
+      </ionic-button>
+      
       <svg xmlns="http://www.w3.org/2000/svg" viewBox="1.55556 -0.584459 16.44 26.33" style="height: 450; width:400px;  filter: drop-shadow(0 0 10px rgba(0, 0, 0, 0.5)); position:absolute; z-index: 1;" >
         <path d="M 17 25 C 17 26 3 26 3 25 C 2 24 2 24 2 13 C 2 7 1 1 2 1 C 3 0 15 -2 17 1 C 18 2 18 14 18 14 C 18 21 18 24 17 25" fill="#FFFFFF"/>
       </svg>
