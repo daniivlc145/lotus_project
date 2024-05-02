@@ -52,15 +52,6 @@ export async function modifyLevel(container_id: number, container_type: string, 
     
 }
 
-export async function takePicure() {
-    const image = await Camera.getPhoto({
-        quality: 90,
-        allowEditing: true,
-        resultType: CameraResultType.Uri
-      });
-      return image;
-}
-
 export async function subirImagenYGuardar(imagen: Photo) {
     try{
         if (imagen.webPath) {
