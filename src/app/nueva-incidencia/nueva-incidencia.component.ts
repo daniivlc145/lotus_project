@@ -6,6 +6,7 @@ import { PopinfoOneComponent } from '../popinfo-one/popinfo-one.component';
 import { PopinfoTwoComponent } from '../popinfo-two/popinfo-two.component';
 import { PopoverController } from '@ionic/angular';
 import { insertInquiry } from './nueva-incidencia.functions';
+import { CameraService } from 'src/services/camera.service';
 
 
 @Component({
@@ -22,7 +23,7 @@ export class NuevaIncidenciaComponent{
     calles: string[] = [];
     filteredOptions: string[] = [];
   
-    constructor(private stringComparison: StringComparison, private router: Router,private popoverCntrl: PopoverController) {
+    constructor(private stringComparison: StringComparison, private router: Router,private popoverCntrl: PopoverController, private cameraService: CameraService) {
       this.cargarCallesDeValencia();
     }
     
@@ -194,6 +195,16 @@ export class NuevaIncidenciaComponent{
         // Maneja el error de manera adecuada
       }
       this.router.navigateByUrl('/map');
+    }
+
+    async takePhotoFromCamera() {
+      const photo = await this.cameraService.takePicureFromCamera();
+      console.log(photo); // Aquí puedes manejar la foto capturada, por ejemplo, mostrándola en la UI
+    }
+    // holi
+    async takePhotoFromAlbum() {
+      const photo = await this.cameraService.takePicureFromAlbum();
+      console.log(photo); // Aquí puedes manejar la foto capturada, por ejemplo, mostrándola en la UI
     }
     
   }
