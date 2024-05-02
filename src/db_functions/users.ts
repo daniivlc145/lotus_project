@@ -56,7 +56,7 @@ export async function signOutUser (): Promise<void> {
   }
 }
 // Funcion de actualizar datos; en configuracion
-export async function updateUserData (fullName: string): Promise<void> {
+export async function updateUserData (fullName: string, phoneNumber: string): Promise<void> {
   try{
     const {data: {user}} = await supabaseClient.auth.getUser()
     
@@ -66,7 +66,7 @@ export async function updateUserData (fullName: string): Promise<void> {
     }
 
     const { data, error } = await supabaseClient.auth.updateUser({
-      data: { full_name: fullName }
+      data: { full_name: fullName, phone_number: phoneNumber }
     })
 
     if(error){
