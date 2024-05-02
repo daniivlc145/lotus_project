@@ -18,7 +18,7 @@ async function prueba(){
       }
   }
   prueba()
-""signUpUser("maxkaidanov2@gmail.com","00000000","Max Latoncioso", "000641222")
+//signUpUser("maxkaidanov2@gmail.com","00000000","Max Latoncioso", "000641222")
 
 
 // prueba().then((result)=> console.log("El correo especificado existe en la base de datos: ", result))
