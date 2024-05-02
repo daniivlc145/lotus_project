@@ -2,7 +2,6 @@ import { signUpUser } from "../app/registro/registro.functions";
 import { updateUserData } from "./users";
 import { signInUser } from "../app/login/login.functions";
 import { forgotPassword } from "src/app/introducir-email/introducir-email.functions";
-import { searchContainers } from "./containers";
 import { insertInquiry } from "../app/nueva-incidencia/nueva-incidencia.functions";
 import {muestraMisIncidencias } from "../app/mis-incidencias/mis-incidencias.functions";
 import { supabaseClient } from "../supabase_client";
