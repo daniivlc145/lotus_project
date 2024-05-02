@@ -1,6 +1,6 @@
 import { v4 as uuidv4 } from 'uuid';
 import { supabaseClient } from "../../supabase_client";
-import { Camera, CameraResultType, Photo } from '@capacitor/camera';
+import { Photo } from '@capacitor/camera';
 
 export async function insertInquiry(description: string, type: string, container_id: number | null, geo_shape: string | null, containerType: string, image: Photo | null = null) {
     

@@ -241,8 +241,13 @@ export class NuevaIncidenciaMAPComponent implements AfterViewInit{
       this.router.navigateByUrl('/map');
     }
 
-    async takePhoto() {
-      const photo = await this.cameraService.takePicure();
+    async takePhotoFromCamera() {
+      const photo = await this.cameraService.takePicureFromCamera();
+      console.log(photo); // Aquí puedes manejar la foto capturada, por ejemplo, mostrándola en la UI
+    }
+
+    async takePhotoFromAlbum() {
+      const photo = await this.cameraService.takePicureFromAlbum();
       console.log(photo); // Aquí puedes manejar la foto capturada, por ejemplo, mostrándola en la UI
     }
     
