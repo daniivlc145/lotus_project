@@ -12,6 +12,7 @@ import { MediatorService } from '../mediator.service';
 import { NONE_TYPE } from '@angular/compiler';
 import { ChangeDetectionStrategy } from '@angular/core';
 import { NgZone } from '@angular/core';
+import { CameraService } from 'src/services/camera.service';
 
 
 @Component({
@@ -33,7 +34,7 @@ export class NuevaIncidenciaMAPComponent implements AfterViewInit{
     containerID : number  = 0;
     containerType : string = ""
   
-    constructor(private stringComparison: StringComparison, private ngZone: NgZone, private router: Router,private popoverCntrl: PopoverController, private mediatorService:MediatorService,private renderer: Renderer2, private elementRef: ElementRef) {
+    constructor(private stringComparison: StringComparison, private ngZone: NgZone, private router: Router,private popoverCntrl: PopoverController, private mediatorService:MediatorService,private renderer: Renderer2, private elementRef: ElementRef, private cameraService: CameraService) {
       this.cargarCallesDeValencia();
       
     }
@@ -239,6 +240,13 @@ export class NuevaIncidenciaMAPComponent implements AfterViewInit{
       }
       this.router.navigateByUrl('/map');
     }
+
+    async takePhoto() {
+      const photo = await this.cameraService.takePicure();
+      console.log(photo); // Aquí puedes manejar la foto capturada, por ejemplo, mostrándola en la UI
+    }
+    
+
   }
 
   
