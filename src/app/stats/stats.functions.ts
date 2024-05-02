@@ -53,10 +53,27 @@ async function recogeStatsContainer(diccionario_container : {[clave:string]:Cont
     return result
 }
 
-async function recogeStatsStreets(diccionario_inquiries : {[clave:string]:string}[]) : Promise<Number[]> {
+async function recogeStatsStreets(diccionario_inquiries : {[clave:string]:string}[]) : Promise<{[clave:string]:number}> {
+    let diccionario_stats : {[clave:string]:number} = {}
+    for(let inquirie_item of diccionario_inquiries){
+        if(diccionario_stats[inquirie_item["geo_shape"]]){
+            diccionario_stats[inquirie_item["geo_shape"]] = diccionario_stats[inquirie_item["geo_shape"]] + 1
+        }
+        else{
+            diccionario_stats[inquirie_item["geo_shape"]] = 0
+        }
+    }
+
+    const sortedValues = Object.values(diccionario_stats).sort();
+
+    // COMPLETAR
     
+    // const sortedDict = {};
+    // sortedValues.forEach(value => {
+    // sortedDict[value] = diccionario_stats[value]
+    // });
     
-    return result
+    return diccionario_stats
 }
 
 // CAMBIAR QUITAR
