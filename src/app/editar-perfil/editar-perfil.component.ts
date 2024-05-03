@@ -8,6 +8,7 @@ import { Router } from '@angular/router';
 })
 export class EditarPerfilComponent  implements OnInit {
 
+
   constructor(private router: Router) { }
 
   ngOnInit() {}
@@ -55,5 +56,14 @@ export class EditarPerfilComponent  implements OnInit {
   goToAbtPage(){
 
     this.router.navigate(['/abt']);
+  }
+
+  saveChanges() {
+    const email = (document.getElementById('email') as HTMLInputElement).value;
+    const password = (document.getElementById('password') as HTMLInputElement).value;
+    const numero = (document.getElementById('numero') as HTMLInputElement).value;
+    const repeatpassword = (document.getElementById('repeatpassword') as HTMLInputElement).value;
+
+
   }
 }
