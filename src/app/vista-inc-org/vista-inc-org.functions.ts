@@ -3,15 +3,7 @@ import { supabaseClient } from "../../supabase_client";
 export async function getAllInquiries() : Promise<{[clave:string]:string}[]> {
     try{
         let result : {[clave:string]:string}[] = []
-        
-        const {data: {user}, error: errorUsuario} = await supabaseClient.auth.getUser()
-        
-        if (errorUsuario) {
-             throw new Error('No se ha encontrado un usuario autenticado')
-         }
-        // CODIGO A QUITAR
-        console.log("Usuario encontrado")
-        
+    
         const {data, error} = await supabaseClient
             .from('inquiries')
             .select('created_at, description, type, geo_shape')
