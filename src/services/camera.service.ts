@@ -10,7 +10,7 @@ import {} from '@capacitor/app';
 export class CameraService {
 
   constructor() { }
-  async takePictureFromCamera(): Promise<Photo> {
+  async takePhoto(): Promise<Photo> {
     const image = await Camera.getPhoto({
         quality: 90,
         allowEditing: true,
