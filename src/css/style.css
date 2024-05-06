@@ -45,6 +45,19 @@
     text-wrap:wrap;
 }
 
+.error-message-editProfile{
+    position: absolute; /* Posicionamiento absoluto */
+    font-family: 'Laura merged'; /* Nombre de la fuente */
+    src: url('../fonts/Laura-merged.ttf') format('truetype'); /* Ruta del archivo TTF */
+    color: #f56f5d;
+    bottom: -4px;
+    z-index: 100;
+    transform: translateX(-50);
+    text-align: center;
+    max-width: 210px;
+    text-wrap:wrap;
+}
+
 .error-message-email{
     position: absolute; /* Posicionamiento absoluto */
     font-family: 'Laura merged'; /* Nombre de la fuente */

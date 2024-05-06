@@ -13,13 +13,16 @@
                 <div class="nombre"><h2 id="name">CHULI CHULONA</h2></div>
             </div>
       <div class="textboxes">
-        <input type="text" id="email" class="font-email" name="email" placeholder="CORREO ELECTRÓNICO" required="required" style="font-family: 'Laura merged', sans-serif;" >
+        <input type="text" id="email" class="font-email" [(ngModel)]="email" name="email" placeholder="CORREO ELECTRÓNICO" required="required" style="font-family: 'Laura merged', sans-serif;" >
         <img src="../../assets/img/icon_Edit_pink.png" class="input-icon" alt="icono edit">
-        <input type="text" id="numero" class="font-email" name="numero" placeholder="NÚMERO DE TELÉFONO" required="required" style="font-family: 'Laura merged', sans-serif;" >
+        <input type="text" id="numero" class="font-email" [(ngModel)]="numero" name="numero" placeholder="NÚMERO DE TELÉFONO" required="required" style="font-family: 'Laura merged', sans-serif;" >
         <img src="../../assets/img/icon_Edit_pink.png" class="input-icon2" alt="icono edit">
-        <input type="password" id="password" class="font-email" name="password" placeholder="CONTRASEÑA" required="required" style="font-family: 'Laura merged', sans-serif;" >
+        <input type="password" id="password" class="font-email" [(ngModel)]="password" name="password" placeholder="CONTRASEÑA" required="required" style="font-family: 'Laura merged', sans-serif;" (input)="onFirstTextboxChange()" >
         <img src="../../assets/img/icon_Edit_pink.png" class="input-icon3" alt="icono edit">
-        <input type="password" id="newpassword" class="font-email" name="newpassword" placeholder="REPETIR CONTRASEÑA" required="required" style="font-family: 'Laura merged', sans-serif;" >
+        <input type="password" id="newpassword" class="font-email" name="newpassword" [(ngModel)]="repeatpassword" placeholder="REPETIR CONTRASEÑA" required="required" style="font-family: 'Laura merged', sans-serif;" [disabled]="isSecondTextboxActive" [class.disabled]="isSecondTextboxActive">
+        <div *ngIf="errorMessage" class="error-message-editProfile">
+          {{ errorMessage }}
+        </div>
       </div> 
     </div>
     <button class="saveChanges" type="submit" style="font-family: 'Laura merged', sans-serif;" (click)="saveChanges();" ><strong>GUARDAR CAMBIOS</strong>

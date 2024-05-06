@@ -8,8 +8,12 @@ import { Router } from '@angular/router';
 })
 export class EditarPerfilComponent  implements OnInit {
 
-
+  errorMessage: string | null = null; // Esta es la propiedad que mencionaste
   constructor(private router: Router) { }
+  email = "";
+  numero = "";
+  password = "";
+  repeatpassword = "";
 
   ngOnInit() {}
 
@@ -58,12 +62,68 @@ export class EditarPerfilComponent  implements OnInit {
     this.router.navigate(['/abt']);
   }
 
-  saveChanges() {
-    const email = (document.getElementById('email') as HTMLInputElement).value;
-    const password = (document.getElementById('password') as HTMLInputElement).value;
-    const numero = (document.getElementById('numero') as HTMLInputElement).value;
-    const repeatpassword = (document.getElementById('repeatpassword') as HTMLInputElement).value;
+  isSecondTextboxActive = true;
 
-
+  onFirstTextboxChange() {
+    this.isSecondTextboxActive = this.password === "";
+  }
+  saveChanges(){
+    console.log('guardar')
+    try {
+      if (areAllTextBoxesEmpty(this.email,this.password,this.numero)) {
+        throw new Error('Rellena al menos un campo');
+      }
+      if (this.numero.trim()!= "") {
+        if (validarTelefono(this.numero)) {
+          throw new Error('Teléfono incorrecto. Escribe solo dígitos');
+        }
+        // cambiar teléfono
+      }
+      if (this.email.trim()!= "") {
+        if (validarCorreoElectronico(this.email)) {
+          throw new Error('Email incorrecto. Escribe un email válido');
+        }
+        // cambiar email
+      }
+      if (this.password.trim()!= "") {
+        if (validarContrasena(this.password, this.repeatpassword)) {
+          throw new Error('Las contraseñas no coinciden');
+        }
+        if (validarLongitudContrasena(this.password)) {
+          throw new Error('La contrasña debe tener 8-16 caracteres');
+        }
+      }
+    }catch(error){
+      console.error('ERROR CAPTURADO:', (error as Error).message)
+      this.errorMessage = (error as Error).message; // Actualiza el mensaje de error
+  }
+  
   }
 }
+function validarCorreoElectronico(correo: string): boolean {
+  const expresionRegular = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+  return !expresionRegular.test(correo);
+}
+
+function validarTelefono(texto: string): boolean {
+  const soloDigitos = /^\d+$/.test(texto);
+  return !soloDigitos;
+}
+
+function validarContrasena(password: string, rep: string): boolean {
+  const contrasenaInvalida = password === rep;
+  return !contrasenaInvalida;
+}
+function validarLongitudContrasena(password: string): boolean {
+  const longitudValida = password.length >= 8 && password.length <= 16;
+  return !longitudValida;
+}
+
+function areAllTextBoxesEmpty(email:string, password: string, number: string): boolean {
+  console.log('campos vacíos')
+  return email.trim() === "" &&
+         number.trim() === "" &&
+         password.trim() === ""
+}
+
+

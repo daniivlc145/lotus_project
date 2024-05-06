@@ -1,6 +1,6 @@
 import { Injectable } from '@angular/core';
 import { Camera, CameraResultType, Photo, CameraSource } from '@capacitor/camera';
-import {} from '@capacitor/app';
+//import {} from '@capacitor/app';
 
 
 
