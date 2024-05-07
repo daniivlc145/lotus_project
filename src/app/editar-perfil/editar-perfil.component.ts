@@ -10,6 +10,9 @@ import { updateUserData } from 'src/db_functions/users';
   styleUrls: ['./editar-perfil.component.scss'],
 })
 export class EditarPerfilComponent  implements OnInit {
+back() {
+  this.router.navigate(['/profUser']);
+}
 changePassword() {
   const currentUrl = this.router.url; 
   console.log(currentUrl)// Obtén la URL actual

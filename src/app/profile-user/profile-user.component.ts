@@ -12,6 +12,7 @@ import { getFullName } from './profile-user.functions';
     
   })
   export class profileUserComponent  implements OnInit {
+
     @ViewChild('nombre') nombreRef!: ElementRef<HTMLInputElement>;
   
     constructor(private router: Router,private popoverCntrl: PopoverController) { }
@@ -22,6 +23,9 @@ import { getFullName } from './profile-user.functions';
       console.log(fullName);
     }
 
+    goToEditPage() {
+      this.router.navigate(['/editarPerfil']);
+    }
 
     goToConfigPage() {
   
