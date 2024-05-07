@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { Router } from '@angular/router';
+import { ActivatedRoute, Router } from '@angular/router';
 import { forgotPassword } from './introducir-email.functions';
 import { existsEmail } from './introducir-email.functions';
 import { PopoverController } from '@ionic/angular';
@@ -12,12 +12,28 @@ import { PopinfoOneComponent } from '../popinfo-one/popinfo-one.component';
   styleUrls: ['./introducir-email.component.scss'],
 })
 export class IntroducirEmailComponent  implements OnInit {
+
 errorMessage: string | null = null; // Esta es la propiedad que mencionaste
+  returnUrl!: string;
+  constructor(private router: Router,private route: ActivatedRoute,public popovercntrl: PopoverController) { }
 
-  constructor(private router: Router,public popovercntrl: PopoverController) { }
-
-  ngOnInit() {}
-
+  ngOnInit() {
+    
+    console.log(this.route.snapshot.queryParams);
+    this.route.queryParams.subscribe(params => {
+    this.returnUrl = params['returnUrl'];    
+    console.log(this.returnUrl);
+  })
+}
+  
+  
+  back() {
+    if (this.returnUrl) {
+      this.router.navigateByUrl(this.returnUrl);
+    } else {
+      console.log('No hay una URL de retorno registrada.');
+    }
+  }
   async sendEmail(){
     console.log('send email')
     const email = (document.getElementById('email') as HTMLInputElement).value

@@ -13,6 +13,7 @@ export class RegistroComponent  implements OnInit {
   constructor(private router: Router, private popoverCntrl: PopoverController) { } // Inyecta el servicio Router en el constructor
   errorMessage: string | null = null; // Esta es la propiedad que mencionaste
   oculto :boolean = false;
+  
   ngOnInit() {}
 
   llamada(): void{

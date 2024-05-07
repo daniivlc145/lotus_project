@@ -9,16 +9,16 @@ import { getFullName } from "../app/profile-user/profile-user.functions";
 //import { seleccionarImagen } from "../app/nueva-incidencia/nueva-incidencia.functions";
 import { getStats } from "../app/stats/stats.functions";
 
-//getStats()
- async function prueba(){
-     const {data, error} =  await supabaseClient.auth.signUp({ email: "valencia@organizacion.com", password : "00000000", options: {data : { cif : "DANIVEGOÑA", city : "Valencia", organization_name : "GVA", phone_number : "654123798"}}  })
+getStats()
+//  async function prueba(){
+//      const {data, error} =  await supabaseClient.auth.signUp({ email: "valencia@organizacion.com", password : "00000000", options: {data : { cif : "DANIVEGOÑA", city : "Valencia", organization_name : "GVA", phone_number : "654123798"}}  })
 
-       if (error){
-           console.log("Ha habido un error")
-           console.log(error)
-       }
-   }
-   prueba()
+//        if (error){
+//            console.log("Ha habido un error")
+//            console.log(error)
+//        }
+//    }
+//    prueba()
 //signUpUser("maxkaidanov2@gmail.com","00000000","Max Latoncioso", "000641222")
 
 
