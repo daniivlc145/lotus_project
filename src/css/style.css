@@ -50,7 +50,7 @@
     font-family: 'Laura merged'; /* Nombre de la fuente */
     src: url('../fonts/Laura-merged.ttf') format('truetype'); /* Ruta del archivo TTF */
     color: #f56f5d;
-    bottom: -4px;
+    bottom: 0px;
     z-index: 100;
     transform: translateX(-50);
     text-align: center;
