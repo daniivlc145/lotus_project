@@ -28,7 +28,7 @@ body{
     height: 100%; 
     width: 100%;
     position: relative;
-    bottom: 37%;
+    bottom: 35%;
 }
 
 .circulo {
@@ -62,7 +62,7 @@ body{
   font-size: 18px;
   width: 80%;
   padding: 8px;
-  margin-bottom: 24px;
+  margin-bottom: 30px;
   color: #b5b4b8;
   border-color: #e6e5ea;
   border-radius: 15px  ;
@@ -101,25 +101,10 @@ body{
     align-items: center; /* Alinea verticalmente los elementos hijos en el centro */
     position: relative;
     z-index: 40;
-    bottom: 64%;
+    bottom: 60%;
 
 }
 
-.changePassword{
-  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='-0.415823 -0.468844 28.79 7.305'%3E%3Cpath d='M 0 0 C 3.697 -0.659 9.069 -0.472 13.721 -0.336 C 16.098 -0.327 19.631 -0.336 23.028 -0.336 C 24.6667 0 26.255 -0.402 27.614 0.164 C 28.03 0.391 28.43 0.34 28.366 2.904 C 28 4 28.294 4.808 28 6 C 26.104 7.149 20.592 6.772 17.322 6.796 C 14.808 6.593 12.363 6.525 10.936 6.525 C 9.374 6.728 8.219 6.728 6.181 6.525 C 3.668 6.728 2.09 6.545 -0.062 6.281 C -0.515 6.243 -0.34 5.506 -0.387 4.23 C -0.387 2.497 -0.573 0.702 0 0' fill='%23e5cec8'/%3E%3C/svg%3E");
-  background-repeat: no-repeat;
-  background-color: transparent;
-  border: none; /* Eliminar el borde */
-  color: white; /* Cambiar el color del texto a blanco */
-  text-align: top;
-  font-size: 20px;
-  bottom: 36.5%;
-  position: relative;
-  z-index: 40;
-  height: 50px; 
-  width:170px;
-  cursor: pointer; /* Cambia el cursor al pasar por encima */ 
-}
 
 
 
@@ -136,7 +121,7 @@ body{
   width:200px;
   cursor: pointer; /* Cambia el cursor al pasar por encima */ 
   z-index: 8;
-  bottom:34%;
+  bottom:27%;
   transform: rotate(-1deg); /* Rota el texto 45 grados en sentido contrario a las agujas del reloj */
   white-space: nowrap; /* Asegura que el texto esté en una sola línea */
   padding-bottom: 34px; /* Ajusta este valor para mover el texto hacia arriba */
@@ -151,3 +136,18 @@ body{
 .disabled {
   opacity: 0.5;
 }
+
+p{
+  text-align: center;
+  a{
+    color: #84beb0;
+    text-decoration: underline;
+  }
+  user-select: none;
+  font-size: 95%;
+  color: #3a5e62;
+  z-index: 8;
+  position: relative;
+  font-family: 'Laura merged', sans-serif;
+  bottom: 30%;
+} 

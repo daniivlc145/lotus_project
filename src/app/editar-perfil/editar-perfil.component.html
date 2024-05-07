@@ -2,7 +2,7 @@
   <div class="content">
     <div style="position: relative; width: 70%; height: 80%; z-index: 1;">
         <svg xmlns="http://www.w3.org/2000/svg" viewBox="1.55556 -0.584459 16.44 26.33" style="height: 100%; width: 100%; filter: drop-shadow(0 0 10px rgba(0, 0, 0, 0.5)); position: absolute;">
-            <path d="M 18.038 18.136 C 18.102 19.846 10.185 20.606 2.142 19.149 C 1.78 17.517 2.016 15.349 2 13 C 2 7 1 1 2 1 C 3 0 15 -2 17 1 C 18 2 18.228 15.793 18.038 18.199" fill="#FFFFFF"/>
+            <path d="M 17.927 20.785 C 19.603 25.557 3.033 24.186 2.061 22.586 C 1.319 21.843 2.016 15.349 2 13 C 2 7 1 1 2 1 C 3 0 15 -2 17 1 C 18 2 18.228 15.793 17.927 20.744" fill="#FFFFFF"/>
         </svg> 
           <div class="photo">
                 <div class="circulo">
@@ -22,8 +22,7 @@
         </div>
       </div> 
     </div>
-      <button class="changePassword" type="submit" style="font-family: 'Laura merged', sans-serif;" (click)="changePassword();" ><strong>CAMBIAR CONTRASEÑA</strong>
-      </button>   
+    <p>¿QUIERES CAMBIAR TU CONTRASEÑA? <br>  <a (click)="changePassword()" routerLinkActive="active" [routerLinkActiveOptions]="{exact: true}">HAZ CLICK AQUI</a></p>  
     <button class="saveChanges" type="submit" style="font-family: 'Laura merged', sans-serif;" (click)="saveChanges();" ><strong>GUARDAR CAMBIOS</strong>
       <img src="../../assets/img/icon_Edit.png" alt="Icono Guardar" class="icono-guardar">
     </button>   
