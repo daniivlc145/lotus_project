@@ -32,9 +32,11 @@ export class NuevaIncidenciaMAPComponent implements AfterViewInit{
     coords:string='';
     full:string='El contenedor está lleno.';
     containerID : number  = 0;
-    containerType : string = ""
+    containerType : string = "";
+    photoTaken: boolean = false;
+    capturedPhoto: string | undefined;
   
-    constructor(private stringComparison: StringComparison, private ngZone: NgZone, private router: Router,private popoverCntrl: PopoverController, private mediatorService:MediatorService,private renderer: Renderer2, private elementRef: ElementRef, private cameraService: CameraService) {
+    constructor(private stringComparison: StringComparison, private ngZone: NgZone, private router: Router, private popoverCntrl: PopoverController, private mediatorService: MediatorService, private renderer: Renderer2, private elementRef: ElementRef, private cameraService: CameraService) {
       this.cargarCallesDeValencia();
       
     }
@@ -243,8 +245,11 @@ export class NuevaIncidenciaMAPComponent implements AfterViewInit{
 
     async takePhotoFromCamera() {
       const photo = await this.cameraService.takePicureFromCamera();
-      console.log(photo); // Aquí puedes manejar la foto capturada, por ejemplo, mostrándola en la UI
+      console.log(photo); 
+      this.photoTaken = true;
+      this.capturedPhoto = photo.base64String;
     }
+    
   
 
   }
