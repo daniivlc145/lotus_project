@@ -9,6 +9,8 @@ import { getFullName } from './profile-org.functions';
     
   })
   export class profileOrgComponent  implements OnInit {
+
+
     @ViewChild('nombre') nombreRef!: ElementRef<HTMLInputElement>;
     constructor(private router: Router) { }
   
@@ -51,6 +53,9 @@ import { getFullName } from './profile-org.functions';
       goToStatsPage(){
         this.router.navigate(['/stats']);
       }
-    
+      
+      goToEditPage() {
+        throw new Error('Method not implemented.');
+        }
       
   }

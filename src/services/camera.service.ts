@@ -8,6 +8,9 @@ import { Camera, CameraResultType, Photo, CameraSource } from '@capacitor/camera
   providedIn: 'root'
 })
 export class CameraService {
+  takePicureFromCamera() {
+    throw new Error('Method not implemented.');
+  }
 
   constructor() { }
   async takePhoto(): Promise<Photo> {

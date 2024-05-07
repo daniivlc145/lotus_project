@@ -244,7 +244,7 @@ export class NuevaIncidenciaMAPComponent implements AfterViewInit{
     }
 
     async takePhotoFromCamera() {
-      const photo = await this.cameraService.takePicureFromCamera();
+      const photo = await this.cameraService.takePhoto();
       console.log(photo); 
       this.photoTaken = true;
       this.capturedPhoto = photo.base64String;
