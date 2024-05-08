@@ -162,7 +162,9 @@ export class NuevaIncidenciaMAPComponent implements AfterViewInit{
           content: '¿Desea registrar la incidencia tal en la ubicación tal?'
         }
       });
-      await popover.present();
+      setTimeout(async () => {
+        await popover.present();
+      }, 100);
     
       popover.onWillDismiss().then(async (detail) => {
         if (detail.data && detail.data.action === 'accept') {
@@ -230,7 +232,9 @@ export class NuevaIncidenciaMAPComponent implements AfterViewInit{
             content: 'Gracias por ayudarnos a hacer un mundo más limpio y mejor'
           }
         });
-        await popoverone.present();
+        setTimeout(async () => {
+          await popoverone.present();
+        }, 100);
 
         popoverone.onWillDismiss().then(() => {
           console.log('Navegando a: /ruta-deseada');
@@ -240,7 +244,6 @@ export class NuevaIncidenciaMAPComponent implements AfterViewInit{
         console.error('Error al guardar la incidencia:', error);
         // Maneja el error de manera adecuada
       }
-      this.router.navigateByUrl('/map');
     }
 
     async takePhotoFromCamera() {

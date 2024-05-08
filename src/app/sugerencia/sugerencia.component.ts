@@ -39,7 +39,9 @@ export class SugerenciaComponent  implements OnInit {
         content: 'Hemos recibido tu sugerencia. Nos pondremos con ella lo antes posible. ¡Gracias!'
       }
     });
-    await popover.present();
+    setTimeout(async () => {
+      await popover.present();
+    }, 100);
 
     return popover.onWillDismiss().then(() => {
       console.log('Navegando a: /ruta-deseada');
