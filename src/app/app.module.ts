@@ -37,7 +37,6 @@ import {PoplogOutComponent} from './poplog-out/poplog-out.component';
 import { EditarPerfilComponent } from './editar-perfil/editar-perfil.component';
 import { StatsComponent } from './stats/stats.component';
 import { VistaIncOrgComponent } from './vista-inc-org/vista-inc-org.component';
-import { defineCustomElements } from '@ionic/pwa-elements/loader';
 
 @NgModule({
   declarations: [
@@ -93,8 +92,6 @@ import { defineCustomElements } from '@ionic/pwa-elements/loader';
   schemas: [CUSTOM_ELEMENTS_SCHEMA],
 })
 export class AppModule { 
-  constructor() {
-    defineCustomElements(window);
-  }
+  constructor() {}
 }
 

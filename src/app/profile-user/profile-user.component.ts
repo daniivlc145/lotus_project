@@ -12,6 +12,7 @@ import { getFullName } from './profile-user.functions';
     
   })
   export class profileUserComponent  implements OnInit {
+
     @ViewChild('nombre') nombreRef!: ElementRef<HTMLInputElement>;
   
     constructor(private router: Router,private popoverCntrl: PopoverController) { }
@@ -22,6 +23,11 @@ import { getFullName } from './profile-user.functions';
       console.log(fullName);
     }
 
+    goToEditPage() {
+      const currentUrl = this.router.url; 
+      console.log(currentUrl)// Obtén la URL actual
+      this.router.navigate(['/editarPerfil'], { queryParams: { returnUrl: currentUrl } });
+    }
 
     goToConfigPage() {
   
@@ -57,14 +63,17 @@ import { getFullName } from './profile-user.functions';
 
     goToSugPage(){
 
-      this.router.navigate(['/sug']);
+      const currentUrl = this.router.url; 
+      console.log(currentUrl)// Obtén la URL actual
+      this.router.navigate(['/sug'], { queryParams: { returnUrl: currentUrl } });
 
     }
 
          
     goToAbtPage(){
-
-      this.router.navigate(['/abt']);
+      const currentUrl = this.router.url; 
+      console.log(currentUrl)// Obtén la URL actual
+      this.router.navigate(['/abt'], { queryParams: { returnUrl: currentUrl } });
     }
   
     async logOut(){

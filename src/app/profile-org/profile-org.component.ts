@@ -1,6 +1,8 @@
 import { Component,  OnInit, ElementRef, ViewChild } from '@angular/core';
 import { Router } from '@angular/router';
 import { getFullName } from './profile-org.functions';
+import { PoplogOutComponent } from '../poplog-out/poplog-out.component';
+import { PopoverController } from '@ionic/angular';
 
 @Component({
     selector: 'app-profile-org',
@@ -9,8 +11,10 @@ import { getFullName } from './profile-org.functions';
     
   })
   export class profileOrgComponent  implements OnInit {
+
+
     @ViewChild('nombre') nombreRef!: ElementRef<HTMLInputElement>;
-    constructor(private router: Router) { }
+    constructor(private router: Router, private popovercntrl :PopoverController) { }
   
     async ngOnInit() {
       const fullName = await getFullName();
@@ -26,13 +30,16 @@ import { getFullName } from './profile-org.functions';
       
       goToAbtPage(){
 
-        this.router.navigate(['/abt']);
+        const currentUrl = this.router.url; 
+        console.log(currentUrl)// Obtén la URL actual
+        this.router.navigate(['/abt'], { queryParams: { returnUrl: currentUrl } });
       }
 
       goToSugPage(){
 
-        this.router.navigate(['/sug']);
-
+        const currentUrl = this.router.url; 
+        console.log(currentUrl)// Obtén la URL actual
+        this.router.navigate(['/sug'], { queryParams: { returnUrl: currentUrl } });
       }
 
       goToIncPage(){
@@ -51,6 +58,36 @@ import { getFullName } from './profile-org.functions';
       goToStatsPage(){
         this.router.navigate(['/stats']);
       }
-    
       
+      goToChangePassword() {
+        const currentUrl = this.router.url; 
+        console.log(currentUrl)// Obtén la URL actual
+        this.router.navigate(['/email'], { queryParams: { returnUrl: currentUrl } });
+        }
+      
+        async logOut(){
+          const popover = await this.popovercntrl.create({
+            component: PoplogOutComponent,
+            backdropDismiss:false,
+            componentProps: {
+              title: 'Cerrar sesión',
+              content: '¿Estás seguro de que quieres cerrar sesión?'
+            },
+          });
+          await popover.present();
+          const frogSad = document.getElementById('frogSad');
+          if (frogSad) { // Verifica si frogSad no es null antes de acceder a sus propiedades
+            if (frogSad.style.display === 'none') {
+                frogSad.style.display = 'block';
+            } 
+          }
+      
+          popover.onWillDismiss().then(async (detail) => {
+            if (frogSad) {frogSad.style.display = 'none';}
+            if (detail.data && detail.data.action === 'accept') {
+              this.router.navigateByUrl('/login');
+          } });
+              
+          
+        }
   }

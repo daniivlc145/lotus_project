@@ -10,7 +10,7 @@ body{
     width: 100%;
     height: 100%;
     position: absolute;
-    top: 50%;
+    top: 55%;
     left: 50%;
     transform: translate(-50%, -50%);
     display: flex;
@@ -28,7 +28,7 @@ body{
     height: 100%; 
     width: 100%;
     position: relative;
-    bottom: 37%;
+    bottom: 35%;
 }
 
 .circulo {
@@ -52,17 +52,17 @@ body{
   font-family: 'Laura merged', sans-serif;
   font-size: 20px; /* Reduzco el tamaño de fuente */  
   left: 50%;
-  top: 60%;
+  top: 61%;
   font-weight: bold;
   transform: rotate(-3deg); /* Rota el texto 45 grados en sentido contrario a las agujas del reloj */
 
 }
 
- #email,#numero,#password,#newpassword{
+ #fullname,#numero{
   font-size: 18px;
   width: 80%;
   padding: 8px;
-  margin-bottom: 20px;
+  margin-bottom: 30px;
   color: #b5b4b8;
   border-color: #e6e5ea;
   border-radius: 15px  ;
@@ -85,21 +85,13 @@ body{
 .input-icon2 {
   position: absolute;
   z-index: 1000;
-  right: 11%;
-  top:33%;
+  right: 10%;
+  top:65%;
   transform: translateY(-50%);
   pointer-events: none; /* Permite que los clics pasen a través del icono al campo de texto */
   width: 12%; /* Ajusta el tamaño de la imagen según sea necesario */
 }
-.input-icon3 {
-  position: absolute;
-  z-index: 1000;
-  right: 11%;
-  top:59%;
-  transform: translateY(-50%);
-  pointer-events: none; /* Permite que los clics pasen a través del icono al campo de texto */
-  width: 12%; /* Ajusta el tamaño de la imagen según sea necesario */
-}
+
 
 
 .textboxes{
@@ -112,7 +104,6 @@ body{
     bottom: 60%;
 
 }
-
 
 
 
@@ -130,14 +121,54 @@ body{
   width:200px;
   cursor: pointer; /* Cambia el cursor al pasar por encima */ 
   z-index: 8;
-  bottom:18%;
+  bottom:27%;
   transform: rotate(-1deg); /* Rota el texto 45 grados en sentido contrario a las agujas del reloj */
   white-space: nowrap; /* Asegura que el texto esté en una sola línea */
   padding-bottom: 34px; /* Ajusta este valor para mover el texto hacia arriba */
 }
 
 .icono-guardar {
-  width: 15%; 
+  width: 11%; 
   top:2%;
+  left:4px;
   position: relative;
+}
+
+.disabled {
+  opacity: 0.5;
+}
+
+p{
+  text-align: center;
+  a{
+    color: #84beb0;
+    text-decoration: underline;
+  }
+  user-select: none;
+  font-size: 95%;
+  color: #3a5e62;
+  z-index: 8;
+  position: relative;
+  font-family: 'Laura merged', sans-serif;
+  bottom: 30%;
+} 
+
+.custom-button-before{
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='4 0.555556 3.444 3.733'%3E%3Cpath d='M 7 4 C 7 5 4 3 4 4 L 4 1 C 4 0 7 1 7 1 C 7 1 8 4 7 4' fill='%235a8d8d'/%3E%3C/svg%3E");
+  background-repeat: no-repeat;
+  background-color: transparent; /* Establecer el color de fondo como transparente */
+  background-size: cover;
+  border: none; /* Sin borde */
+  padding: 10px 20px; /* Espacio interno */
+  cursor: pointer; /* Cambia el cursor al pasar por encima */
+  color: white;
+  font-family: 'Handwriting', sans-serif; /* Utiliza la fuente Laura Regular */
+  font-size: 24px; /* Tamaño de la fuente */
+  text-align: center; /* Alineación del texto */
+  position:absolute;
+}
+
+.custom-button-before:hover{
+  background-color: transparent;/* Color de fondo al pasar por encima */
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='4 0.555556 3.444 3.733'%3E%3Cpath d='M 7 4 C 7 5 4 3 4 4 L 4 1 C 4 0 7 1 7 1 C 7 1 8 4 7 4' fill='%235a8d8d'/%3E%3C/svg%3E");
 }

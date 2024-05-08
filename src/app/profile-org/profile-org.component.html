@@ -11,16 +11,17 @@
             </div>
         </div>
 
+        <div class="nombre"><h2 id="name" #nombre ></h2></div>
+        <figure #frogSad id="frogSad"style="position:absolute; transform:translateX(-50); height:100%; width:100%; bottom:-85%; left:23%; display: none; ">
+            <img src="../../assets/img/frogSad.png" style="z-index: 1000; height: 35%; width:35%; position:absolute;filter: drop-shadow(0 0 20px rgb(12, 62, 56));">
+        </figure>
+
         <div class="nombre"><h2 id="name" #nombre></h2></div>
         
         <div class="buttons">
-            <button class="buttonedit">
+            <button class="buttoneditpassword" (click)="goToChangePassword()">
                 <img src="../../assets/img/icon_Edit.png" alt="Descripción de la imagen">
-                    <p>Editar Perfil</p>
-            </button>
-            <button class="buttonedit">
-                <img src="../../assets/img/icon_Config.png" alt="Descripción de la imagen">
-                    <p>Configuración</p>
+                    <p>Cambiar contraseña</p>
             </button>
             <button class="buttonedit" (click)="goToAbtPage()">
                 <img src="../../assets/img/icon_About_Us.png" alt="Descripción de la imagen">
@@ -31,7 +32,7 @@
                     <p>Sugerencia</p>
             </button>
 
-            <button class="buttonedit">
+            <button class="buttonedit" (click)="logOut()">
                 <img src="../../assets/img/icon_Log_Out.png" alt="Descripción de la imagen">
                     <p>Cerrar sesión</p>
             </button>

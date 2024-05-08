@@ -4,6 +4,7 @@ import { Router } from '@angular/router';
 import { filtrarMapa, searchContainers } from './map.functions';
 import { MediatorService } from '../mediator.service';
 import { conversionWasteContainers } from '../nueva-incidencia/nueva-incidencia.functions';
+import { Geolocation } from '@capacitor/geolocation';
 
 @Component({
   selector: 'app-map',
@@ -13,6 +14,7 @@ import { conversionWasteContainers } from '../nueva-incidencia/nueva-incidencia.
 
 export class MapComponent implements OnInit {
 
+  ubicacion:any;
   public coords:string='';
   customDiv: HTMLElement | null = null;
   map!: L.Map;
@@ -103,20 +105,27 @@ export class MapComponent implements OnInit {
 
   ngOnInit(): void {
     setTimeout(() => {
-      this.initializeMap();
+      this.obtenerUbicacion();
     }, 500);
     const checkbox = document.getElementById('checkbox-top-right') as HTMLInputElement;
     checkbox.checked = true;
   }
 
-  private initializeMap() {
-
-
-
+  async obtenerUbicacion() {
+    try {
+      const ubicacion = await Geolocation.getCurrentPosition();
+      console.log(ubicacion);
+      this.ubicacion = ubicacion;
+      this.initializeMap()
+   } catch (error) {
+      console.error('Error obteniendo la ubicación', error);
+    }
+  }
+  private async initializeMap() {
 
     this.map = L.map('map', {
       zoomControl: false // Desactiva el control de zoom predeterminado
-    }).setView([39.4697, -0.3774], 50);
+    }).setView([this.ubicacion.coords.latitude, this.ubicacion.coords.longitude], 30);
 
     L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
       attribution: '&copy; OpenStreetMap contributors'
@@ -343,11 +352,7 @@ export class MapComponent implements OnInit {
           }
 
         }
-
-
-
       })
-
   }
   
  
@@ -371,6 +376,7 @@ export class MapComponent implements OnInit {
         return '';
     }
   }
+  
   
   
 
@@ -405,3 +411,7 @@ export class MapComponent implements OnInit {
     this.router.navigate(['/newImap']);
   }
 }
+function obtenerUbicacion() {
+  throw new Error('Function not implemented.');
+}
+

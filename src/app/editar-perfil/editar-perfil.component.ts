@@ -1,5 +1,9 @@
-import { Component, OnInit } from '@angular/core';
-import { Router } from '@angular/router';
+import { Component, ElementRef, OnInit, ViewChild } from '@angular/core';
+import { ActivatedRoute, Router } from '@angular/router';
+import { PopinfoTwoComponent } from '../popinfo-two/popinfo-two.component';
+import { PopoverController } from '@ionic/angular';
+import { updateUserData } from 'src/db_functions/users';
+import { getFullName } from '../profile-user/profile-user.functions';
 
 @Component({
   selector: 'app-editar-perfil',
@@ -7,10 +11,42 @@ import { Router } from '@angular/router';
   styleUrls: ['./editar-perfil.component.scss'],
 })
 export class EditarPerfilComponent  implements OnInit {
+@ViewChild('nombre') nombreRef!: ElementRef<HTMLInputElement>;
+returnUrl!: string;
+nametext ="NOMBRE COMPLETO";
+photofrog ="../../assets/img/frogUser.png";
+back() {
+  if (this.returnUrl) {
+    this.router.navigateByUrl(this.returnUrl);
+  } else {
+    console.log('No hay una URL de retorno registrada.');
+  }
+}
+changePassword() {
+  const currentUrl = this.router.url; 
+  console.log(currentUrl)// Obtén la URL actual
+  this.router.navigate(['/email'], { queryParams: { returnUrl: currentUrl } });
+}
 
-  constructor(private router: Router) { }
+  errorMessage: string | null = null; // Esta es la propiedad que mencionaste
+  constructor(private router: Router,private popoverCntrl: PopoverController,private route: ActivatedRoute) {}
+  fullname = "";
+  numero = "";
 
-  ngOnInit() {}
+  async ngOnInit() {
+    console.log(this.route.snapshot.queryParams);
+    this.route.queryParams.subscribe(params => {
+    this.returnUrl = params['returnUrl'];    
+    console.log(this.returnUrl);
+  })
+ console.log(this.nametext)
+ const nameUser = await getFullName();
+ this.nombreRef.nativeElement.textContent = nameUser;
+}
+
+
+
+
 
 
   goToConfigPage() {
@@ -56,4 +92,70 @@ export class EditarPerfilComponent  implements OnInit {
 
     this.router.navigate(['/abt']);
   }
+
+  isSecondTextboxActive = true;
+
+  
+  saveChanges(){
+    console.log('guardar')
+    try {
+      if (areAllTextBoxesEmpty(this.fullname,this.numero)) {throw new Error('Rellena al menos un campo'); }
+      if(this.numero.trim() !== ""){
+        if (validarTelefono(this.numero)) {throw new Error('Teléfono incorrecto. Escribe solo dígitos');}
+      }
+      if(this.fullname.trim() !== ""){
+        if (validarnombrecompleto(this.fullname)) {throw new Error('Email incorrecto. Escribe un email válido');}
+      }
+      this.showPop();
+      
+    }catch(error){
+      console.error('ERROR CAPTURADO:', (error as Error).message)
+      this.errorMessage = (error as Error).message; // Actualiza el mensaje de error
+  }
+  
+  }
+  
+  async showPop() {
+    const popover = await this.popoverCntrl.create({
+      component: PopinfoTwoComponent,
+      backdropDismiss: false,
+      componentProps: {
+        title: 'Guardar cambios',
+        content: '¿Desea guardar los cambios realizados?'
+      }
+    });
+    await popover.present();
+  
+    popover.onWillDismiss().then(async (detail) => {
+      if (detail.data && detail.data.action === 'accept') {
+        try {
+          await updateUserData(this.fullname,this.numero);
+        } catch (error) {
+          console.error('Error al cambiar la info', error);
+        }
+      }
+    });
+  }
+
+
 }
+function validarnombrecompleto(texto: string): boolean {
+  const contieneDigitos = /\d/.test(texto);
+  const masDe100Caracteres = texto.length > 100;
+  return contieneDigitos || masDe100Caracteres;
+}
+
+function validarTelefono(texto: string): boolean {
+  const soloDigitos = /^\d+$/.test(texto);
+  return !soloDigitos;
+}
+
+
+
+function areAllTextBoxesEmpty(email:string, number: string): boolean {
+  console.log('campos vacíos')
+  return email.trim() ==="" &&
+         number.trim() === "" 
+}
+
+
