@@ -146,7 +146,60 @@ private crearNuevoElemento(elem: {[clave:string]:string}): void {
   } else {
       console.error('Contenedor de incidencias no encontrado en el DOM.');
   }
+
+
+
+
+  nuevoDiv.setAttribute('style', 'right:50%; cursor: pointer;'); // Agrega estilo para indicar que es clickeable
+
+  // Agregar un manejador de eventos clic
+  nuevoDiv.addEventListener('click', () => {
+    // Al hacer clic, mostrar información detallada del elemento
+    this.mostrarDetalle(elem);
+  });
+
 }
+
+mostrarDetalle(elem: {[clave:string]:string}): void {
+  // Crear un div para mostrar la información detallada
+  const detalleDiv = document.createElement('div');
+  detalleDiv.setAttribute('id', 'detalleIncidencia');
+  detalleDiv.setAttribute('style', 'color: #3a5e62 ;  padding:5%; height:60%; width:80%; position: fixed; top: 50%; left: 50%; transform: translate(-50%, -50%); background-color: white; border: 2px solid #ccc; z-index: 9999;');
+
+  // Agregar la información detallada al div
+  detalleDiv.innerHTML = `
+    <div style='height:20%; width:20%; z-index:123; position: absolute; top:4%; right:10px;'><img id="cerrarDetalle" src="../assets/img/sugerencia.png" alt="Cerrar" style="cursor: pointer;"></div>
+    <div style='z-index:12; position: absolute; top:20%; left: 50%; transform: translateX(-50%); width: 80%;'>
+      <h2 style="text-align: center;">Detalles de la incidencia</h2>
+      <p>Fecha: ${elem['fecha']}</p>
+      <p>Tipo: ${elem['type']}</p>
+      <p>Hora: ${elem['hora']}</p>
+      <p>Descripción: ${elem['descripcion']}</p>
+      <p>Ubicación: ${elem['geo_shape']}</p>
+    </div>
+  `;
+
+  // Agregar el div al body del documento
+  document.body.appendChild(detalleDiv);
+
+  // Crear un div para cubrir el fondo y deshabilitar los demás elementos
+  const fondoDiv = document.createElement('div');
+  fondoDiv.setAttribute('id', 'fondoInhabilitado');
+  fondoDiv.setAttribute('style', 'position: fixed; top: 0; left: 0; width: 100%; height: 100%; background-color: rgba(0, 0, 0, 0.5); z-index: 9998;');
+
+  // Agregar el div de fondo al body del documento
+  document.body.appendChild(fondoDiv);
+
+  // Agregar un manejador de eventos clic al botón de cerrar
+  const cerrarBoton = detalleDiv.querySelector('#cerrarDetalle');
+  if (cerrarBoton) {
+    cerrarBoton.addEventListener('click', () => {
+      detalleDiv.remove(); // Eliminar el div de detalle
+      fondoDiv.remove(); // Eliminar el div de fondo
+    });
+  }
+}
+
 
 
 
