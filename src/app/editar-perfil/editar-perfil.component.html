@@ -12,8 +12,8 @@
                         <img src="{{photofrog}}" height="100%" width="120%"/>
                     </div>
                 </div>
-                <div class="nombre"><h2 id="name">CHULI CHULONA</h2></div>
-            </div>
+                <div class="nombre"><h2 id="name" #nombre ></h2></div>
+              </div>
       <div class="textboxes">
         <input type="text" id="fullname" class="font-email" [(ngModel)]="fullname" name="fullname" placeholder="{{nametext}}" required="required" style="font-family: 'Laura merged', sans-serif;" >
         <img src="../../assets/img/icon_Edit_pink.png" class="input-icon" alt="icono edit">
@@ -26,7 +26,7 @@
     </div>
     <p>¿QUIERES CAMBIAR TU CONTRASEÑA? <br>  <a (click)="changePassword()" routerLinkActive="active" [routerLinkActiveOptions]="{exact: true}">HAZ CLICK AQUI</a></p>  
     <button class="saveChanges" type="submit" style="font-family: 'Laura merged', sans-serif;" (click)="saveChanges();" ><strong>GUARDAR CAMBIOS</strong>
-      <img src="../../assets/img/icon_Edit.png" alt="Icono Guardar" class="icono-guardar">
+      <img src="../../assets/img/icon_save.png" alt="Icono Guardar" class="icono-guardar">
     </button>   
   </div>
 </body>

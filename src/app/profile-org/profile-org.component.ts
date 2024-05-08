@@ -59,10 +59,10 @@ import { PopoverController } from '@ionic/angular';
         this.router.navigate(['/stats']);
       }
       
-      goToEditPage() {
+      goToChangePassword() {
         const currentUrl = this.router.url; 
         console.log(currentUrl)// Obtén la URL actual
-        this.router.navigate(['/editarPerfil'], { queryParams: { returnUrl: currentUrl } });
+        this.router.navigate(['/email'], { queryParams: { returnUrl: currentUrl } });
         }
       
         async logOut(){

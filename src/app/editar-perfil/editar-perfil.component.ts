@@ -1,8 +1,9 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, ElementRef, OnInit, ViewChild } from '@angular/core';
 import { ActivatedRoute, Router } from '@angular/router';
 import { PopinfoTwoComponent } from '../popinfo-two/popinfo-two.component';
 import { PopoverController } from '@ionic/angular';
 import { updateUserData } from 'src/db_functions/users';
+import { getFullName } from '../profile-user/profile-user.functions';
 
 @Component({
   selector: 'app-editar-perfil',
@@ -10,9 +11,10 @@ import { updateUserData } from 'src/db_functions/users';
   styleUrls: ['./editar-perfil.component.scss'],
 })
 export class EditarPerfilComponent  implements OnInit {
+@ViewChild('nombre') nombreRef!: ElementRef<HTMLInputElement>;
 returnUrl!: string;
-nametext !: string;
-photofrog !: string;
+nametext ="NOMBRE COMPLETO";
+photofrog ="../../assets/img/frogUser.png";
 back() {
   if (this.returnUrl) {
     this.router.navigateByUrl(this.returnUrl);
@@ -31,21 +33,18 @@ changePassword() {
   fullname = "";
   numero = "";
 
-  ngOnInit() {
+  async ngOnInit() {
     console.log(this.route.snapshot.queryParams);
     this.route.queryParams.subscribe(params => {
     this.returnUrl = params['returnUrl'];    
     console.log(this.returnUrl);
   })
-  if(this.returnUrl == '/profUser'){
-    this.photofrog = "../../assets/img/frogUser.png";
-    this.nametext= "NOMBRE COMPLETO";
- }else{
-  this.nametext="NOMBRE DE LA ORG.";
-  this.photofrog="../../assets/img/frogOrg.png"
- }
  console.log(this.nametext)
+ const nameUser = await getFullName();
+ this.nombreRef.nativeElement.textContent = nameUser;
 }
+
+
 
 
 
