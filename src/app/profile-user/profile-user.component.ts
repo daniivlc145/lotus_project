@@ -89,12 +89,16 @@ import { getFullName } from './profile-user.functions';
         await popover.present();
       }, 100);
       const frogSad = document.getElementById('frogSad');
-      if (frogSad) { // Verifica si frogSad no es null antes de acceder a sus propiedades
-        if (frogSad.style.display === 'none') {
-            frogSad.style.display = 'block';
-        } 
-      }
-  
+      setTimeout(async () => {
+        if (frogSad) { // Verifica si frogSad no es null antes de acceder a sus propiedades
+          if (frogSad.style.display === 'none') {
+              frogSad.style.display = 'block';
+          } 
+        }
+      }, 100);
+      
+      
+
       popover.onWillDismiss().then(async (detail) => {
         if (frogSad) {frogSad.style.display = 'none';}
         if (detail.data && detail.data.action === 'accept') {
