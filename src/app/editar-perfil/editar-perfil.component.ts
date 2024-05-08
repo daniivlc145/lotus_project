@@ -2,7 +2,7 @@ import { Component, ElementRef, OnInit, ViewChild } from '@angular/core';
 import { ActivatedRoute, Router } from '@angular/router';
 import { PopinfoTwoComponent } from '../popinfo-two/popinfo-two.component';
 import { PopoverController } from '@ionic/angular';
-import { updateUserData } from 'src/db_functions/users';
+import { updateUserData } from './editar-perfil.functions';
 import { getFullName } from '../profile-user/profile-user.functions';
 
 @Component({
