@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { Router } from '@angular/router';
+import { ActivatedRoute, Router } from '@angular/router';
 import { PopinfoTwoComponent } from '../popinfo-two/popinfo-two.component';
 import { PopoverController } from '@ionic/angular';
 import { updateUserData } from 'src/db_functions/users';
@@ -10,8 +10,13 @@ import { updateUserData } from 'src/db_functions/users';
   styleUrls: ['./editar-perfil.component.scss'],
 })
 export class EditarPerfilComponent  implements OnInit {
+returnUrl!: string;
 back() {
-  this.router.navigate(['/profUser']);
+  if (this.returnUrl) {
+    this.router.navigateByUrl(this.returnUrl);
+  } else {
+    console.log('No hay una URL de retorno registrada.');
+  }
 }
 changePassword() {
   const currentUrl = this.router.url; 
@@ -20,11 +25,17 @@ changePassword() {
 }
 
   errorMessage: string | null = null; // Esta es la propiedad que mencionaste
-  constructor(private router: Router,private popoverCntrl: PopoverController) { }
+  constructor(private router: Router,private popoverCntrl: PopoverController,private route: ActivatedRoute) { }
   fullname = "";
   numero = "";
 
-  ngOnInit() {}
+  ngOnInit() {
+    console.log(this.route.snapshot.queryParams);
+    this.route.queryParams.subscribe(params => {
+    this.returnUrl = params['returnUrl'];    
+    console.log(this.returnUrl);
+  })
+  }
 
 
   goToConfigPage() {
