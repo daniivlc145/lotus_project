@@ -79,11 +79,10 @@ import { getFullName } from './profile-user.functions';
     async logOut(){
       const popover = await this.popoverCntrl.create({
         component: PoplogOutComponent,
-        backdropDismiss:false,
         componentProps: {
           title: 'Cerrar sesión',
           content: '¿Estás seguro de que quieres cerrar sesión?'
-        },
+        }
       });
       setTimeout(async () => {
         await popover.present();
