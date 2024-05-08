@@ -9,13 +9,13 @@
           <div class="photo">
                 <div class="circulo">
                     <div class="frog" style="position: absolute; top: 7%; ">
-                        <img src="../../assets/img/frogUser.png" height="100%" width="120%"/>
+                        <img src="{{photofrog}}" height="100%" width="120%"/>
                     </div>
                 </div>
                 <div class="nombre"><h2 id="name">CHULI CHULONA</h2></div>
             </div>
       <div class="textboxes">
-        <input type="text" id="fullname" class="font-email" [(ngModel)]="fullname" name="fullname" placeholder="NOMBRE COMPLETO" required="required" style="font-family: 'Laura merged', sans-serif;" >
+        <input type="text" id="fullname" class="font-email" [(ngModel)]="fullname" name="fullname" placeholder="{{nametext}}" required="required" style="font-family: 'Laura merged', sans-serif;" >
         <img src="../../assets/img/icon_Edit_pink.png" class="input-icon" alt="icono edit">
         <input type="text" id="numero" class="font-email" [(ngModel)]="numero" name="numero" placeholder="NÚMERO DE TELÉFONO" required="required" style="font-family: 'Laura merged', sans-serif;" >
         <img src="../../assets/img/icon_Edit_pink.png" class="input-icon2" alt="icono edit">

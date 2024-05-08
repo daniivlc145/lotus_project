@@ -11,6 +11,8 @@ import { updateUserData } from 'src/db_functions/users';
 })
 export class EditarPerfilComponent  implements OnInit {
 returnUrl!: string;
+nametext !: string;
+photofrog !: string;
 back() {
   if (this.returnUrl) {
     this.router.navigateByUrl(this.returnUrl);
@@ -25,7 +27,7 @@ changePassword() {
 }
 
   errorMessage: string | null = null; // Esta es la propiedad que mencionaste
-  constructor(private router: Router,private popoverCntrl: PopoverController,private route: ActivatedRoute) { }
+  constructor(private router: Router,private popoverCntrl: PopoverController,private route: ActivatedRoute) {}
   fullname = "";
   numero = "";
 
@@ -35,7 +37,17 @@ changePassword() {
     this.returnUrl = params['returnUrl'];    
     console.log(this.returnUrl);
   })
-  }
+  if(this.returnUrl == '/profUser'){
+    this.photofrog = "../../assets/img/frogUser.png";
+    this.nametext= "NOMBRE COMPLETO";
+ }else{
+  this.nametext="NOMBRE DE LA ORG.";
+  this.photofrog="../../assets/img/frogOrg.png"
+ }
+ console.log(this.nametext)
+}
+
+
 
 
   goToConfigPage() {
