@@ -85,7 +85,9 @@ import { getFullName } from './profile-user.functions';
           content: '¿Estás seguro de que quieres cerrar sesión?'
         },
       });
-      await popover.present();
+      setTimeout(async () => {
+        await popover.present();
+      }, 100);
       const frogSad = document.getElementById('frogSad');
       if (frogSad) { // Verifica si frogSad no es null antes de acceder a sus propiedades
         if (frogSad.style.display === 'none') {

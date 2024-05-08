@@ -124,7 +124,9 @@ changePassword() {
         content: '¿Desea guardar los cambios realizados?'
       }
     });
-    await popover.present();
+    setTimeout(async () => {
+      await popover.present();
+    }, 100);
   
     popover.onWillDismiss().then(async (detail) => {
       if (detail.data && detail.data.action === 'accept') {

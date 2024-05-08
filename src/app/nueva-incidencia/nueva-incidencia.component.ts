@@ -115,7 +115,6 @@ export class NuevaIncidenciaComponent{
       const tipoIncidencia = this.selectedOption;
       const contenidoPopover = `¿Desea registrar la incidencia en ${calleSeleccionada} como ${tipoIncidencia}?`;
       const popover = await this.popoverCntrl.create({
-      
         component: PopinfoTwoComponent,
         backdropDismiss: false,
         componentProps: {
@@ -123,7 +122,10 @@ export class NuevaIncidenciaComponent{
           content: contenidoPopover
         }
       });
-      await popover.present();
+       
+      setTimeout(async () => {
+        await popover.present();
+      }, 100);
     
       popover.onWillDismiss().then(async (detail) => {
         if (detail.data && detail.data.action === 'accept') {
@@ -188,7 +190,9 @@ export class NuevaIncidenciaComponent{
             content: 'Gracias por ayudarnos a hacer un mundo más limpio y mejor'
           }
         });
-        await popoverone.present();
+        setTimeout(async () => {
+          await popoverone.present();
+        }, 100);
     
         popoverone.onWillDismiss().then(() => {
           console.log('Navegando a: /ruta-deseada');
@@ -198,7 +202,6 @@ export class NuevaIncidenciaComponent{
         console.error('Error al guardar la incidencia:', error);
         // Maneja el error de manera adecuada
       }
-      this.router.navigateByUrl('/map');
     }
 
     async takePhotoFromCamera() {
