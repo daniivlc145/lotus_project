@@ -112,11 +112,12 @@ export class NuevaIncidenciaComponent{
 
     async showPop() {
       const popover = await this.popoverCntrl.create({
+      
         component: PopinfoTwoComponent,
         backdropDismiss: false,
         componentProps: {
           title: 'Nueva incidencia',
-          content: '¿Desea registrar la incidencia tal en la ubicación tal?'
+          content: '¿Desea registrar la incidencia?'
         }
       });
       await popover.present();
