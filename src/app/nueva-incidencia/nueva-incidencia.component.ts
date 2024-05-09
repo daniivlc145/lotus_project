@@ -1,6 +1,6 @@
-import { AfterViewInit, Component, ElementRef, ViewChild } from '@angular/core';
+import {AfterViewInit,Component, ElementRef, ViewChild } from '@angular/core';
 import { StringComparison } from '../string-comparison/string-comparison.service';
-import {FormControl, FormsModule, ReactiveFormsModule} from '@angular/forms';
+import {FormControl} from '@angular/forms';
 import { Router } from '@angular/router';
 import { PopinfoOneComponent } from '../popinfo-one/popinfo-one.component';
 import { PopinfoTwoComponent } from '../popinfo-two/popinfo-two.component';
@@ -15,10 +15,11 @@ import { CameraService } from 'src/services/camera.service';
   styleUrls: ['./nueva-incidencia.component.scss'],
 
 })
-export class NuevaIncidenciaComponent{
+export class NuevaIncidenciaComponent implements AfterViewInit{
   @ViewChild('myInput') input!: ElementRef<HTMLInputElement>;
   @ViewChild('tipo') tipoRef!: ElementRef;
   @ViewChild('descrip') descripRef!: ElementRef;
+  @ViewChild('reportButton') reportButtonRef!: ElementRef;
     myControl = new FormControl('');
     calles: string[] = [];
     filteredOptions: string[] = [];
@@ -26,7 +27,23 @@ export class NuevaIncidenciaComponent{
     constructor(private stringComparison: StringComparison, private router: Router,private popoverCntrl: PopoverController, private cameraService: CameraService) {
       this.cargarCallesDeValencia();
     }
+    ngAfterViewInit(){
+  
+    }
+    updateButtonState() {
+      const ubicacion = this.input.nativeElement.value;
+      console.log(ubicacion);
+      const descripcion = this.descripRef.nativeElement.value;
+      console.log(descripcion);
+      if (ubicacion.trim()!= '' && descripcion.trim()!= '') {
+        this.reportButtonRef.nativeElement.disabled = false;
+      } else {
+        this.reportButtonRef.nativeElement.disabled = true;
+      }
+    }
     
+    
+
     dropdownOpen: boolean = false;
   selectedOption: string = 'RECLAMACIÓN/INFORME';
 
@@ -75,6 +92,7 @@ export class NuevaIncidenciaComponent{
       this.filteredOptions = this.calles.filter(calle =>
         this.removeAccents(calle.toLowerCase()).includes(inputValue)
       ).slice(0, 4); // Mostrar solo las 4 primeras opciones
+      this.updateButtonState();
     }
     
     removeAccents(str: string): string {

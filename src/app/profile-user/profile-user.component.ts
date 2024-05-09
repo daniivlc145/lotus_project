@@ -87,6 +87,7 @@ import { getFullName } from './profile-user.functions';
       setTimeout(async () => {
         await popover.present();
       }, 100);
+      setTimeout(() => {}, 0); // Forzar actualización del DOM
       const frogSad = document.getElementById('frogSad');
       setTimeout(async () => {
         if (frogSad) { // Verifica si frogSad no es null antes de acceder a sus propiedades
