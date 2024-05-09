@@ -261,9 +261,6 @@ export class NuevaIncidenciaMAPComponent implements AfterViewInit{
       return await popover.present();
     }
     
-    
-  
-
   }
 
   
