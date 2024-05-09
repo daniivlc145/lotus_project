@@ -1,0 +1,34 @@
+<ion-content class="photo-content" style="overflow: visible; position: relative;">
+  <img [src]="photo && (photo.webPath || photo.path)" alt="Foto Capturada" class="center-image" style="max-width: 100%; max-height: 100%;">
+  
+</ion-content>
+<ion-button class="okButton custom-buttonOK" expand="block" (click)="uploadPhoto()"
+    style="border: none; /* Sin borde */
+    padding: 5px 10px;
+    cursor: pointer;
+    z-index: 8;
+    color: white;
+    font-family: 'Laura Regular', sans-serif;
+    font-size: 15px;
+    text-align: center;
+    position: absolute;
+    bottom: 0;
+    left: 32%;
+    font-weight: bold;">
+    CONFIRMAR
+  </ion-button>
+  <ion-button class="cancelButton custom-buttonNO" expand="block" (click)="closePopover()"
+    style="border: none;
+    padding: 5px 10px;
+    cursor: pointer;
+    z-index: 8;
+    color: white;
+    font-family: 'Laura Regular', sans-serif;
+    font-size: 15px;
+    text-align: center;
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    font-weight: bold;">
+    DESCARTAR
+  </ion-button>

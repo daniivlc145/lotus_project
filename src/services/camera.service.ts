@@ -1,28 +1,33 @@
 import { Injectable } from '@angular/core';
-import { Camera, CameraResultType, Photo, CameraSource } from '@capacitor/camera';
-//import {} from '@capacitor/app';
-
-
+import { Camera, CameraResultType, Photo, CameraSource, CameraOptions } from '@capacitor/camera';
 
 @Injectable({
   providedIn: 'root'
 })
 export class CameraService {
-  takePicureFromCamera() {
-    throw new Error('Method not implemented.');
-  }
 
   constructor() { }
-  async takePhoto(): Promise<Photo> {
-    const image = await Camera.getPhoto({
-        quality: 90,
-        allowEditing: true,
-        resultType: CameraResultType.Uri,
-        source: CameraSource.Prompt,
 
-      });
-      return image;
+  async takePhoto(): Promise<Photo> {
+    // Establecer el ratio de 16:9 para la foto
+    const ratio = 16 / 9;
+    const width = 800; // Anchura predeterminada
+    const height = Math.round(width / ratio); // Calcular la altura según el ratio
+
+    const options: CameraOptions = {
+      quality: 90,
+      allowEditing: true,
+      resultType: CameraResultType.Uri,
+      source: CameraSource.Prompt,
+      width: width,
+      height: height
+    };
+
+    const image = await Camera.getPhoto(options);
+    console.log("getPhoto")
+    return image;
   }
+
   // async requestCameraPermission() {
   //   try {
   //     const permission = await Camera.requestPermissions();

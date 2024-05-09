@@ -46,7 +46,6 @@ import { StatsComponent } from './stats/stats.component';
 
 import { VistaIncOrgComponent } from './vista-inc-org/vista-inc-org.component';
 
-
 const routes: Routes = [
 
   {path:'tutorial-welc', component:TutorialWelcComponent},

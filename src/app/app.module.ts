@@ -34,6 +34,7 @@ import {PopinfoTwoComponent} from './popinfo-two/popinfo-two.component';
 import { ConfigComponent } from './config/config.component';
 import { NuevaIncidenciaMAPComponent } from './nueva-incidencia-map/nueva-incidencia-map.component';
 import {PoplogOutComponent} from './poplog-out/poplog-out.component';
+import { PhotoPopoverComponent } from './photo-popover/photo-popover.component';
 import { EditarPerfilComponent } from './editar-perfil/editar-perfil.component';
 import { StatsComponent } from './stats/stats.component';
 import { VistaIncOrgComponent } from './vista-inc-org/vista-inc-org.component';
@@ -67,7 +68,8 @@ import { defineCustomElements } from '@ionic/pwa-elements/loader';
     PoplogOutComponent,
     EditarPerfilComponent,
     StatsComponent,
-    VistaIncOrgComponent
+    VistaIncOrgComponent,
+    PhotoPopoverComponent,
   ],
   
   imports: [

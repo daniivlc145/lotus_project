@@ -13,6 +13,8 @@ import { NONE_TYPE } from '@angular/compiler';
 import { ChangeDetectionStrategy } from '@angular/core';
 import { NgZone } from '@angular/core';
 import { CameraService } from 'src/services/camera.service';
+import { PhotoPopoverComponent } from '../photo-popover/photo-popover.component';
+import { Photo } from '@capacitor/camera';
 
 
 @Component({
@@ -33,8 +35,7 @@ export class NuevaIncidenciaMAPComponent implements AfterViewInit{
     full:string='El contenedor está lleno.';
     containerID : number  = 0;
     containerType : string = "";
-    photoTaken: boolean = false;
-    capturedPhoto: string | undefined;
+    photo!: Photo
   
     constructor(private stringComparison: StringComparison, private ngZone: NgZone, private router: Router, private popoverCntrl: PopoverController, private mediatorService: MediatorService, private renderer: Renderer2, private elementRef: ElementRef, private cameraService: CameraService) {
       this.cargarCallesDeValencia();
@@ -244,11 +245,19 @@ export class NuevaIncidenciaMAPComponent implements AfterViewInit{
     }
 
     async takePhotoFromCamera() {
-      const photo = await this.cameraService.takePhoto();
-      console.log(photo); 
-      this.photoTaken = true;
-      this.capturedPhoto = photo.base64String;
+      this.photo = await this.cameraService.takePhoto();
+      const popover = await this.popoverCntrl.create({
+        component: PhotoPopoverComponent,
+        componentProps: {
+          photo: this.photo
+        },
+        translucent: true
+      });
+    
+      // Muestra el Popover
+      return await popover.present();
     }
+    
     
   
 
