@@ -27,6 +27,7 @@ export class NuevaIncidenciaMAPComponent implements AfterViewInit{
   @ViewChild('myInput') input!: ElementRef<HTMLInputElement>;
   @ViewChild('tipo') tipoRef!: ElementRef;
   @ViewChild('descrip') descripRef!: ElementRef;
+  @ViewChild('reportButton') reportButtonRef !: ElementRef;
     myControl = new FormControl('');
     calles: string[] = [];
     filteredOptions: string[] = [];
@@ -50,6 +51,8 @@ export class NuevaIncidenciaMAPComponent implements AfterViewInit{
     this.setContainerType();
     this.descripRef.nativeElement.disabled = true;
     this.descripRef.nativeElement.value = this.full;
+    this.reportButtonRef.nativeElement.disabled = false;
+    this.updateButtonState();
   }
 
   setContainerType() : void{
@@ -75,12 +78,26 @@ export class NuevaIncidenciaMAPComponent implements AfterViewInit{
     if (this.selectedOption === 'CONTENEDOR LLENO') {
       this.descripRef.nativeElement.disabled = true;
       this.descripRef.nativeElement.value = this.full;
+      this.updateButtonState();      
     } else {
       this.descripRef.nativeElement.disabled = false;
       this.descripRef.nativeElement.value = '';
+      console.log(this.descripRef)
+      this.updateButtonState();
     }
   }
   
+  updateButtonState() {
+    const ubicacion = this.input.nativeElement.value;
+    console.log(ubicacion);
+    const descripcion = this.descripRef.nativeElement.value;
+    console.log(descripcion);
+    if (ubicacion.trim()!= '' && descripcion.trim()!= '') {
+      this.reportButtonRef.nativeElement.disabled = false;
+    } else {
+      this.reportButtonRef.nativeElement.disabled = true;
+    }
+  }
 
   closeDropdown() {
     this.dropdownOpen = false;
@@ -119,6 +136,7 @@ export class NuevaIncidenciaMAPComponent implements AfterViewInit{
       this.filteredOptions = this.calles.filter(calle =>
         this.removeAccents(calle.toLowerCase()).includes(inputValue)
       ).slice(0, 4); // Mostrar solo las 4 primeras opciones
+      this.updateButtonState();
     }
     
     removeAccents(str: string): string {
