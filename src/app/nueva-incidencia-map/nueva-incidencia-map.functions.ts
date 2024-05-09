@@ -2,7 +2,7 @@ import { v4 as uuidv4 } from 'uuid';
 import { supabaseClient } from "../../supabase_client";
 import { Photo } from '@capacitor/camera';
 
-export async function insertInquiry(description: string, type: string, container_id: number | null, geo_shape: string | null, containerType: string, image: Photo | null = null) {
+export async function insertInquiry(description: string, type: string, container_id: number, geo_shape: string, containerType: string, image: Photo | null = null) {
     
     try {
         let imageLink: String | null = null;

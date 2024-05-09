@@ -9,10 +9,11 @@ import { PopoverController } from '@ionic/angular';
 import { insertInquiry, modifyLevel } from './nueva-incidencia-map.functions';
 import { MapComponent } from '../map/map.component';
 import { MediatorService } from '../mediator.service';
-import { NONE_TYPE } from '@angular/compiler';
 import { ChangeDetectionStrategy } from '@angular/core';
 import { NgZone } from '@angular/core';
 import { CameraService } from 'src/services/camera.service';
+import { PhotoPopoverComponent } from '../photo-popover/photo-popover.component';
+import { Photo } from '@capacitor/camera';
 
 
 @Component({
@@ -33,8 +34,7 @@ export class NuevaIncidenciaMAPComponent implements AfterViewInit{
     full:string='El contenedor está lleno.';
     containerID : number  = 0;
     containerType : string = "";
-    photoTaken: boolean = false;
-    capturedPhoto: string | undefined;
+    photo!: Photo
   
     constructor(private stringComparison: StringComparison, private ngZone: NgZone, private router: Router, private popoverCntrl: PopoverController, private mediatorService: MediatorService, private renderer: Renderer2, private elementRef: ElementRef, private cameraService: CameraService) {
       this.cargarCallesDeValencia();
@@ -213,6 +213,7 @@ export class NuevaIncidenciaMAPComponent implements AfterViewInit{
       try {
         // Obtener los valores de tipo, ubi y descrip
         const { tipo, ubi, descrip } = await this.obtenerContenidoElementos();
+        const photoUpload= this.photo
         console.log(descrip);
         console.log(tipo);
         console.log(ubi);
@@ -222,7 +223,7 @@ export class NuevaIncidenciaMAPComponent implements AfterViewInit{
             modifyLevel(this.containerID, this.containerType, true)
         }
         //else (Para que no se guarde en la base de datos las inquirie de Consulta Llena)
-        await insertInquiry(descrip, tipo, this.containerID, ubi, this.containerType);
+        await insertInquiry(descrip, tipo, this.containerID, ubi, this.containerType, photoUpload);
     
         const popoverone = await this.popoverCntrl.create({
           component: PopinfoOneComponent,
@@ -247,14 +248,19 @@ export class NuevaIncidenciaMAPComponent implements AfterViewInit{
     }
 
     async takePhotoFromCamera() {
-      const photo = await this.cameraService.takePhoto();
-      console.log(photo); 
-      this.photoTaken = true;
-      this.capturedPhoto = photo.base64String;
+      this.photo = await this.cameraService.takePhoto();
+      const popover = await this.popoverCntrl.create({
+        component: PhotoPopoverComponent,
+        componentProps: {
+          photo: this.photo
+        },
+        translucent: true
+      });
+    
+      // Muestra el Popover
+      return await popover.present();
     }
     
-  
-
   }
 
   

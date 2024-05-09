@@ -7,6 +7,8 @@ import { PopinfoTwoComponent } from '../popinfo-two/popinfo-two.component';
 import { PopoverController } from '@ionic/angular';
 import { insertInquiry } from './nueva-incidencia.functions';
 import { CameraService } from 'src/services/camera.service';
+import { PhotoPopoverComponent } from '../photo-popover/photo-popover.component';
+import { Photo } from '@capacitor/camera';
 
 
 @Component({
@@ -23,6 +25,8 @@ export class NuevaIncidenciaComponent implements AfterViewInit{
     myControl = new FormControl('');
     calles: string[] = [];
     filteredOptions: string[] = [];
+    photo!: Photo
+    
   
     constructor(private stringComparison: StringComparison, private router: Router,private popoverCntrl: PopoverController, private cameraService: CameraService) {
       this.cargarCallesDeValencia();
@@ -193,9 +197,10 @@ export class NuevaIncidenciaComponent implements AfterViewInit{
     
         // Obtener los valores de tipo, descrip
         const { tipo, descrip } = await this.obtenerContenidoElementos();
+        const photoUpload= this.photo
     
         // Llamar a insertInquiry con los valores obtenidos
-        await insertInquiry(descrip, tipo, null, ubi, "");
+        await insertInquiry(descrip, tipo, null, ubi, null, photoUpload);
         console.log(descrip);
         console.log(tipo);
         console.log(ubi);
@@ -211,7 +216,8 @@ export class NuevaIncidenciaComponent implements AfterViewInit{
         setTimeout(async () => {
           await popoverone.present();
         }, 100);
-    
+        
+        
         popoverone.onWillDismiss().then(() => {
           console.log('Navegando a: /ruta-deseada');
           this.router.navigateByUrl('/map');
@@ -223,10 +229,24 @@ export class NuevaIncidenciaComponent implements AfterViewInit{
     }
 
     async takePhotoFromCamera() {
-      const photo = await this.cameraService.takePhoto();
-      console.log(photo); // Aquí puedes manejar la foto capturada, por ejemplo, mostrándola en la UI
-    }
+      this.photo = await this.cameraService.takePhoto();
+      const popover = await this.popoverCntrl.create({
+        component: PhotoPopoverComponent,
+        componentProps: {
+          photo: this.photo
+        },
+        translucent: true
+      });
     
-  }
+      // Muestra el Popover
+      return await popover.present();
+    }
+ }
+
+    
+    
+    
+    
+  
 
   
