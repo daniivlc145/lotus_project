@@ -31,9 +31,9 @@ export class mapaCalorComponent implements OnInit {
             zoomControl: false // Desactiva el control de zoom predeterminado
           }).setView([39.4697, -0.3774], 50);
   
-      L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
-        attribution: '© OpenStreetMap contributors'
-      }).addTo(this.map);
+          L.tileLayer('https://server.arcgisonline.com/ArcGIS/rest/services/World_Topo_Map/MapServer/tile/{z}/{y}/{x}', {
+            attribution: 'Tiles &copy; Esri'
+          }).addTo(this.map);
   
       // Ejemplo de datos para el mapa de calor
       const heatData = await getFullContainers();
