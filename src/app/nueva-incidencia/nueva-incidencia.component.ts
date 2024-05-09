@@ -197,9 +197,10 @@ export class NuevaIncidenciaComponent implements AfterViewInit{
     
         // Obtener los valores de tipo, descrip
         const { tipo, descrip } = await this.obtenerContenidoElementos();
+        const photoUpload= this.photo
     
         // Llamar a insertInquiry con los valores obtenidos
-        await insertInquiry(descrip, tipo, null, ubi, "");
+        await insertInquiry(descrip, tipo, null, ubi, null, photoUpload);
         console.log(descrip);
         console.log(tipo);
         console.log(ubi);
@@ -215,7 +216,8 @@ export class NuevaIncidenciaComponent implements AfterViewInit{
         setTimeout(async () => {
           await popoverone.present();
         }, 100);
-    
+        
+        
         popoverone.onWillDismiss().then(() => {
           console.log('Navegando a: /ruta-deseada');
           this.router.navigateByUrl('/map');
@@ -239,9 +241,12 @@ export class NuevaIncidenciaComponent implements AfterViewInit{
       // Muestra el Popover
       return await popover.present();
     }
+ }
+
     
     
     
-  }
+    
+  
 
   

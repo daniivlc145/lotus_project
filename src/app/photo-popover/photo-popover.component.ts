@@ -16,13 +16,14 @@ export class PhotoPopoverComponent implements OnInit {
 
   ngOnInit() {}
 
-  uploadPhoto() {
+  async uploadPhoto() {
     this.acceptClicked.emit();
-    this.popoverCntrl.dismiss({ action: 'accept' });
+    await this.popoverCntrl.dismiss({ action: 'accept', photo: this.photo });
   }
 
-  closePopover() {
-    this.popoverCntrl.dismiss();
+  async closePopover() {
+    await this.popoverCntrl.dismiss({ action: 'cancel', photo:'' });
   }
+
 
 }
