@@ -9,6 +9,7 @@ import { signInUser } from './login.functions';
 })
 export class loginComponent  implements OnInit {
 
+
   constructor(private router: Router) { } // Inyecta el servicio Router en el constructor
   errorMessage: string | null = null; // Esta es la propiedad que mencionaste
   ngOnInit() {
@@ -91,7 +92,11 @@ swapStyles(buttonId: string, otherbuttonId: string) {
   button2.style.fontWeight = font;
 }
 
-
+changePassword() {
+  const currentUrl = this.router.url; 
+  console.log(currentUrl)// Obtén la URL actual
+  this.router.navigate(['/email'], { queryParams: { returnUrl: currentUrl } });
+  }
 
 
 
