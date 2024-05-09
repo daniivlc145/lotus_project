@@ -40,7 +40,7 @@
                     <div *ngIf="errorMessage" class="error-message">
                       {{ errorMessage }}
                      </div>
-                    <p>¿HAS OLVIDADO TU CONTRASEÑA? <br>  <a routerLink="/email" routerLinkActive="active" [routerLinkActiveOptions]="{exact: true}">HAZ CLICK AQUI</a></p>
+                    <p>¿HAS OLVIDADO TU CONTRASEÑA? <br>  <a (click)="changePassword()" routerLinkActive="active" [routerLinkActiveOptions]="{exact: true}">HAZ CLICK AQUI</a></p>
                     <button class="entrar" type="submit" ><strong>ENTRAR</strong></button>
                 </form>
             <div class="registro">

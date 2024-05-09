@@ -1,6 +1,6 @@
-import { AfterViewInit, Component, ElementRef, ViewChild } from '@angular/core';
+import {AfterViewInit,Component, ElementRef, ViewChild } from '@angular/core';
 import { StringComparison } from '../string-comparison/string-comparison.service';
-import {FormControl, FormsModule, ReactiveFormsModule} from '@angular/forms';
+import {FormControl} from '@angular/forms';
 import { Router } from '@angular/router';
 import { PopinfoOneComponent } from '../popinfo-one/popinfo-one.component';
 import { PopinfoTwoComponent } from '../popinfo-two/popinfo-two.component';
@@ -17,10 +17,11 @@ import { Photo } from '@capacitor/camera';
   styleUrls: ['./nueva-incidencia.component.scss'],
 
 })
-export class NuevaIncidenciaComponent{
+export class NuevaIncidenciaComponent implements AfterViewInit{
   @ViewChild('myInput') input!: ElementRef<HTMLInputElement>;
   @ViewChild('tipo') tipoRef!: ElementRef;
   @ViewChild('descrip') descripRef!: ElementRef;
+  @ViewChild('reportButton') reportButtonRef!: ElementRef;
     myControl = new FormControl('');
     calles: string[] = [];
     filteredOptions: string[] = [];
@@ -30,7 +31,23 @@ export class NuevaIncidenciaComponent{
     constructor(private stringComparison: StringComparison, private router: Router,private popoverCntrl: PopoverController, private cameraService: CameraService) {
       this.cargarCallesDeValencia();
     }
+    ngAfterViewInit(){
+  
+    }
+    updateButtonState() {
+      const ubicacion = this.input.nativeElement.value;
+      console.log(ubicacion);
+      const descripcion = this.descripRef.nativeElement.value;
+      console.log(descripcion);
+      if (ubicacion.trim()!= '' && descripcion.trim()!= '') {
+        this.reportButtonRef.nativeElement.disabled = false;
+      } else {
+        this.reportButtonRef.nativeElement.disabled = true;
+      }
+    }
     
+    
+
     dropdownOpen: boolean = false;
   selectedOption: string = 'RECLAMACIÓN/INFORME';
 
@@ -79,6 +96,7 @@ export class NuevaIncidenciaComponent{
       this.filteredOptions = this.calles.filter(calle =>
         this.removeAccents(calle.toLowerCase()).includes(inputValue)
       ).slice(0, 4); // Mostrar solo las 4 primeras opciones
+      this.updateButtonState();
     }
     
     removeAccents(str: string): string {
@@ -119,7 +137,6 @@ export class NuevaIncidenciaComponent{
       const tipoIncidencia = this.selectedOption;
       const contenidoPopover = `¿Desea registrar la incidencia en ${calleSeleccionada} como ${tipoIncidencia}?`;
       const popover = await this.popoverCntrl.create({
-      
         component: PopinfoTwoComponent,
         backdropDismiss: false,
         componentProps: {
@@ -127,7 +144,10 @@ export class NuevaIncidenciaComponent{
           content: contenidoPopover
         }
       });
-      await popover.present();
+       
+      setTimeout(async () => {
+        await popover.present();
+      }, 100);
     
       popover.onWillDismiss().then(async (detail) => {
         if (detail.data && detail.data.action === 'accept') {
@@ -192,7 +212,9 @@ export class NuevaIncidenciaComponent{
             content: 'Gracias por ayudarnos a hacer un mundo más limpio y mejor'
           }
         });
-        await popoverone.present();
+        setTimeout(async () => {
+          await popoverone.present();
+        }, 100);
     
         popoverone.onWillDismiss().then(() => {
           console.log('Navegando a: /ruta-deseada');
@@ -202,7 +224,6 @@ export class NuevaIncidenciaComponent{
         console.error('Error al guardar la incidencia:', error);
         // Maneja el error de manera adecuada
       }
-      this.router.navigateByUrl('/map');
     }
 
     async takePhotoFromCamera() {

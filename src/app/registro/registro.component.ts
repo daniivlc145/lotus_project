@@ -80,7 +80,9 @@ export class RegistroComponent  implements OnInit {
         content: 'Te hemos enviado un correo electrónico para que verifiques la dirección. Una vez hecho esto, podrás disfrutar al máximo los servicios de Lotus!'
       }
     });
-    await popover.present();
+    setTimeout(async () => {
+      await popover.present();
+    }, 100);
 
     return popover.onWillDismiss().then(() => {
       console.log('Navegando a: /ruta-deseada');

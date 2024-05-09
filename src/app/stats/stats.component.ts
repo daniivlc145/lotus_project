@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
+import { getStats } from './stats.functions';
 
 @Component({
   selector: 'app-stats',
@@ -10,7 +11,11 @@ export class StatsComponent  implements OnInit {
 
   constructor(private router: Router) { }
 
-  ngOnInit() {}
+  ngOnInit() {
+
+   // getStats();
+
+  }
 
 
   goToIncPage() {

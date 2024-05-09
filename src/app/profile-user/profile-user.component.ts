@@ -79,20 +79,26 @@ import { getFullName } from './profile-user.functions';
     async logOut(){
       const popover = await this.popoverCntrl.create({
         component: PoplogOutComponent,
-        backdropDismiss:false,
         componentProps: {
           title: 'Cerrar sesión',
           content: '¿Estás seguro de que quieres cerrar sesión?'
-        },
+        }
       });
-      await popover.present();
+      setTimeout(async () => {
+        await popover.present();
+      }, 100);
+      setTimeout(() => {}, 0); // Forzar actualización del DOM
       const frogSad = document.getElementById('frogSad');
-      if (frogSad) { // Verifica si frogSad no es null antes de acceder a sus propiedades
-        if (frogSad.style.display === 'none') {
-            frogSad.style.display = 'block';
-        } 
-      }
-  
+      setTimeout(async () => {
+        if (frogSad) { // Verifica si frogSad no es null antes de acceder a sus propiedades
+          if (frogSad.style.display === 'none') {
+              frogSad.style.display = 'block';
+          } 
+        }
+      }, 100);
+      
+      
+
       popover.onWillDismiss().then(async (detail) => {
         if (frogSad) {frogSad.style.display = 'none';}
         if (detail.data && detail.data.action === 'accept') {
