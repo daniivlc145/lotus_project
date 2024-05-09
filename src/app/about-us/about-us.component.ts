@@ -8,6 +8,11 @@ import { ActivatedRoute, Router } from '@angular/router';
 })
 export class AboutUsComponent  implements OnInit {
 
+  isFlipped: boolean = false;
+
+  toggleFlip() {
+    this.isFlipped = !this.isFlipped;
+  }
   returnUrl!: string;
   back() {
   if (this.returnUrl) {

@@ -2,6 +2,8 @@ import { Component, OnInit } from '@angular/core';
 import { PopinfoOneComponent } from '../popinfo-one/popinfo-one.component';
 import { PopoverController } from '@ionic/angular';
 import { ActivatedRoute, Router } from '@angular/router';
+import { HttpClient } from '@angular/common/http';
+import { EmailService } from '../email.service';
 
 @Component({
   selector: 'app-sugerencia',
@@ -19,7 +21,27 @@ export class SugerenciaComponent  implements OnInit {
     }
   }
 
-  constructor(private router: Router, private popovercntrl: PopoverController, private route: ActivatedRoute) { }
+  emailContent: string = '';
+
+  sendEmail(emailContent: string) {
+    const recipient = 'lotuscodeproj@gmail.com';
+    const subject = 'Correo desde mi aplicación';
+    const body = emailContent;
+    this.showPop();
+
+    this.emailService.sendEmail(recipient, subject, body).subscribe(
+      response => {
+        console.log('Correo enviado exitosamente:', response);
+        // Puedes mostrar un mensaje de éxito o realizar otras acciones después de enviar el correo
+      },
+      error => {
+        console.error('Error al enviar correo:', error);
+        // Puedes mostrar un mensaje de error o realizar otras acciones en caso de error al enviar el correo
+      }
+    );
+  }
+
+  constructor(private router: Router, private popovercntrl: PopoverController, private route: ActivatedRoute, private http: HttpClient, private emailService: EmailService) { }
 
   ngOnInit() {
     console.log(this.route.snapshot.queryParams);

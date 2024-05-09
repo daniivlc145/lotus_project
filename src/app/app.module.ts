@@ -38,6 +38,8 @@ import { EditarPerfilComponent } from './editar-perfil/editar-perfil.component';
 import { StatsComponent } from './stats/stats.component';
 import { VistaIncOrgComponent } from './vista-inc-org/vista-inc-org.component';
 import { defineCustomElements } from '@ionic/pwa-elements/loader';
+import { IntroLoadingComponent } from './intro-loading/intro-loading.component';
+import { HttpClientModule } from '@angular/common/http'; 
 
 
 @NgModule({
@@ -67,7 +69,8 @@ import { defineCustomElements } from '@ionic/pwa-elements/loader';
     PoplogOutComponent,
     EditarPerfilComponent,
     StatsComponent,
-    VistaIncOrgComponent
+    VistaIncOrgComponent,
+    IntroLoadingComponent
   ],
   
   imports: [
@@ -80,6 +83,7 @@ import { defineCustomElements } from '@ionic/pwa-elements/loader';
     MatButtonModule,
     MatAutocompleteModule,
     MatInputModule,
+    HttpClientModule,
   ], 
   exports:[
     PopinfoOneComponent,
