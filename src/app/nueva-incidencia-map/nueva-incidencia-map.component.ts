@@ -9,7 +9,6 @@ import { PopoverController } from '@ionic/angular';
 import { insertInquiry, modifyLevel } from './nueva-incidencia-map.functions';
 import { MapComponent } from '../map/map.component';
 import { MediatorService } from '../mediator.service';
-import { NONE_TYPE } from '@angular/compiler';
 import { ChangeDetectionStrategy } from '@angular/core';
 import { NgZone } from '@angular/core';
 import { CameraService } from 'src/services/camera.service';
@@ -214,6 +213,7 @@ export class NuevaIncidenciaMAPComponent implements AfterViewInit{
       try {
         // Obtener los valores de tipo, ubi y descrip
         const { tipo, ubi, descrip } = await this.obtenerContenidoElementos();
+        const photoUpload= this.photo
         console.log(descrip);
         console.log(tipo);
         console.log(ubi);
@@ -223,7 +223,7 @@ export class NuevaIncidenciaMAPComponent implements AfterViewInit{
             modifyLevel(this.containerID, this.containerType, true)
         }
         //else (Para que no se guarde en la base de datos las inquirie de Consulta Llena)
-        await insertInquiry(descrip, tipo, this.containerID, ubi, this.containerType);
+        await insertInquiry(descrip, tipo, this.containerID, ubi, this.containerType, photoUpload);
     
         const popoverone = await this.popoverCntrl.create({
           component: PopinfoOneComponent,
