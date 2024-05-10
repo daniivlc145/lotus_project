@@ -1,0 +1,11 @@
+{
+    "short_name": "Lotus",
+    "name": "Lotus",
+    "icons": [
+      {
+        "src": "src/assets/img/Blank_Chiquito_Color.png",
+        "sizes": "192x192",
+        "type": "image/png"
+      }
+    ]
+  }

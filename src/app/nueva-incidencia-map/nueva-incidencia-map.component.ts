@@ -172,12 +172,15 @@ export class NuevaIncidenciaMAPComponent implements AfterViewInit{
   
     }
     async showPop() {
+      const calleSeleccionada = this.input.nativeElement.value;
+        const tipoIncidencia = this.selectedOption;
+        const contenidoPopover = `¿Desea registrar la incidencia en ${calleSeleccionada} como ${tipoIncidencia}?`;
       const popover = await this.popoverCntrl.create({
         component: PopinfoTwoComponent,
         backdropDismiss: false,
         componentProps: {
           title: 'Nueva incidencia',
-          content: '¿Desea registrar la incidencia tal en la ubicación tal?'
+          content: contenidoPopover
         }
       });
       setTimeout(async () => {
