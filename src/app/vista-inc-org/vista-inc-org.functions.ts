@@ -7,7 +7,7 @@ export async function getAllInquiries() : Promise<{[clave:string]:string}[]> {
         const {data, error} = await supabaseClient
             .from('inquiries')
             .select('created_at, description, type, geo_shape')
-            .in('type', ['reclamation', 'suggestion', 'query']);
+            .in('type', ['reclamation', 'suggestion', 'query','contenedor_lleno']);
 
         if (error) {
             console.error('Error al obtener las incidencias:', error.message);
@@ -27,15 +27,12 @@ export async function getAllInquiries() : Promise<{[clave:string]:string}[]> {
             let fecha = `${day}-${month}-${year}`;
             let [hours, minutes] = hour.split(':');
             let hora = `${hours}:${minutes}`;
-            if (elem.type === 'CONTENEDOR LLENO') {
-                elem.description = 'El contenedor está lleno.';
-            }
-            if(elem.type=== 'RECLAMACIÓN/INFORME'){
-                elem.type='RECLAMACIÓN';
-            }
+            
             elem.type = elem.type === 'reclamation' ? 'RECLAMACIÓN' 
                 : elem.type === 'suggestion' ? 'PETICIÓN' 
-                : 'CONSULTA'
+                : elem.type === 'query' ? 'CONSULTA'
+                : elem.type = 'LLENO'
+            
             result.push({
                 'fecha': fecha,
                 'hora': hora,
