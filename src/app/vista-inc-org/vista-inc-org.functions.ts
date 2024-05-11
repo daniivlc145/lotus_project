@@ -7,7 +7,7 @@ export async function getAllInquiries() : Promise<{[clave:string]:string}[]> {
         const {data, error} = await supabaseClient
             .from('inquiries')
             .select('created_at, description, type, geo_shape')
-            .in('type', ['reclamation', 'suggestion', 'query']);
+            .in('type', ['reclamation', 'suggestion', 'query','contenedor_lleno']);
 
         if (error) {
             console.error('Error al obtener las incidencias:', error.message);
