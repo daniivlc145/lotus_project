@@ -46,6 +46,11 @@ export class AboutUsComponent  implements OnInit {
     const url = 'https://www.linkedin.com/in/javilato/';
     Browser.open({ url: url });
   }
+
+  goToMax(){
+    const url = '  https://www.linkedin.com/in/max-kaidanov-solomatin-aa5553308/';
+    Browser.open({ url: url });
+  }
   
 
 }

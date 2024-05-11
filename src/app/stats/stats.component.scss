@@ -9,7 +9,7 @@ body {
   justify-content: center;
   align-items: center;
   height: 100vh;
-  overflow-y: auto; /* Agregar desplazamiento vertical al cuerpo */
+  font-family: 'Laura Regular', sans-serif;
 }
 
 .contenedor {
@@ -17,17 +17,19 @@ body {
   flex-direction: column;
   justify-content: center; 
   position: absolute;
-  left: 10%;
-  margin-top: 30px;
-  width: 80%;
+  top: 60%;
+  width: 100%;
   height: 25%;
+  background-color: #c1d7d5;
+  border-top: solid;
+  border-color: #ffffff;
  
 }
 
 .fila {
   display: flex;
   height: 40%;
-  margin: 10px;
+  margin: 5px;
 }
 
 .rectangulo {
@@ -36,16 +38,17 @@ body {
   background-color: #ffffff;
   box-shadow: 0 10px 20px rgba(0, 0, 0, 0.1); /* Ajusta los valores según el efecto que desees */
   border-radius: 10px; /* Ajusta el valor según la cantidad de redondez que desees */
-  margin: 10px; /* Espaciado entre los rectángulos */
+  margin: 20px; /* Espaciado entre los rectángulos */
   position: relative;
-  padding: 10px;
+  padding: 5px;
 }
 
 
 .tipo{
 
 position: absolute;
-bottom: 0;
+bottom: 10%;
+left: 5%;
 font-size: 3vw;
 margin: 0;
 

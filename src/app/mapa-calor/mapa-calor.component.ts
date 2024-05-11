@@ -3,7 +3,7 @@ import * as L from 'leaflet';
 import 'leaflet.heat';
 import { Router } from '@angular/router';
 import {getFullContainers} from './mapa-calor.functions';
-import 'leaflet-routing-machine';
+//import 'leaflet-routing-machine';
 
 // Importa heatLayer específicamente desde el paquete de Leaflet-Heat
 import 'leaflet.heat/dist/leaflet-heat';
@@ -50,9 +50,9 @@ export class mapaCalorComponent implements OnInit {
           routePoints.push(L.latLng(data[0],data[1]))
       });
 
-      L.Routing.control({
-        waypoints: routePoints,
-      }).addTo(this.map);
+     // L.Routing.control({
+     //   waypoints: routePoints,
+     // }).addTo(this.map);
       
     }
     

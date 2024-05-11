@@ -4,6 +4,7 @@ import { PopoverController } from '@ionic/angular';
 import { ActivatedRoute, Router } from '@angular/router';
 import { HttpClient } from '@angular/common/http';
 import { EmailService } from '../email.service';
+import { getMail } from './sugerencia.functions';
 
 @Component({
   selector: 'app-sugerencia',
@@ -23,15 +24,18 @@ export class SugerenciaComponent  implements OnInit {
 
   emailContent: string = '';
 
-  sendEmail(emailContent: string) {
+  async sendEmail(emailContent: string) {
     const subject = 'Correo desde mi aplicación';
     const body = emailContent;
+    const email = await getMail();
     this.showPop();
     const correo = {
         
-        to: ['lotuscodeproj@gmail.com'],
+      from: email,
+      to: ['lotuscodeproj@gmail.com'],
         subject: subject,
         body: body
+
     };
 
     this.emailService.enviarCorreo(correo).subscribe(

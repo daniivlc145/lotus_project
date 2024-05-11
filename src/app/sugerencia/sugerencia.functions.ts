@@ -4,14 +4,15 @@ import { supabaseClient } from "src/supabase_client";
 export async function getMail() : Promise<String> {
     
     try{
-        const id = supabaseClient.auth.getUser()
+        const {data: {user}, error: errorUsuario} = await supabaseClient.auth.getUser()
+        if (errorUsuario) throw "Error al encontrar el usuario"
+
         const {data, error} = await supabaseClient
-            .from("public.users_info")
-            .select("email")
-            .eq("user_id",id )
-    
-        if (error) throw "Error al encontrar el usuario"
-        return String(data)
+            .from('users_info')
+            .select('email')
+            .eq('user_id',user?.id )
+        if(error) throw ("Error al encontrar el email")
+        return data[0].email
     }
     catch(error){
         console.error("Error inesperado: ", error)
