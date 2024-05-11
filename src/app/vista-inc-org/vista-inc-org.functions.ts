@@ -27,15 +27,12 @@ export async function getAllInquiries() : Promise<{[clave:string]:string}[]> {
             let fecha = `${day}-${month}-${year}`;
             let [hours, minutes] = hour.split(':');
             let hora = `${hours}:${minutes}`;
-            if (elem.type === 'CONTENEDOR LLENO') {
-                elem.description = 'El contenedor está lleno.';
-            }
-            if(elem.type=== 'RECLAMACIÓN/INFORME'){
-                elem.type='RECLAMACIÓN';
-            }
+            
             elem.type = elem.type === 'reclamation' ? 'RECLAMACIÓN' 
                 : elem.type === 'suggestion' ? 'PETICIÓN' 
-                : 'CONSULTA'
+                : elem.type === 'query' ? 'CONSULTA'
+                : elem.type = 'CONTENEDOR LLENO'
+            
             result.push({
                 'fecha': fecha,
                 'hora': hora,
