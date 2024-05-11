@@ -31,7 +31,7 @@ export async function getAllInquiries() : Promise<{[clave:string]:string}[]> {
             elem.type = elem.type === 'reclamation' ? 'RECLAMACIÓN' 
                 : elem.type === 'suggestion' ? 'PETICIÓN' 
                 : elem.type === 'query' ? 'CONSULTA'
-                : elem.type = 'CONTENEDOR LLENO'
+                : elem.type = 'LLENO'
             
             result.push({
                 'fecha': fecha,
