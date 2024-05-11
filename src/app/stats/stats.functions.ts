@@ -1,6 +1,7 @@
-import { execSync } from 'child_process'
+// import { execSync } from 'child_process'
 import { searchContainers } from '../map/map.functions' 
 import { getAllInquiries } from '../vista-inc-org/vista-inc-org.functions'
+import { supabaseClient } from 'src/supabase_client'
 
 
 
@@ -10,32 +11,32 @@ interface ContainerInfo {
     is_full: boolean
 }
 
-export async function getStats() : Promise<void> {
-    try{
-        console.log(">> Empieza")
-        searchContainers().then((data)=> {
-            recogeStatsContainer(data).then((data) => 
-                {
-                    execSync('python3 ./get_stats.py -c [' + data + ']', {encoding : 'utf-8', stdio : 'inherit'})
-                }
-            )
-        })
-        getAllInquiries().then((data)=> {
-            recogeStatsStreets(data).then(([calles, valor]) => 
-                {
-                    let value = "[" + valor + "] "
-                    let street = '"' + calles + '"'
-                    execSync("python3 ./get_stats.py -s " + value +  " st " + street, {encoding : 'utf-8', stdio : 'inherit'})
-                }
-            )
-        })
-    }
-    catch(error){
-        console.error("Error inesperado al sacar los stats: ", error)
-    }
+// export async function getStats() : Promise<void> {
+//     try{
+//         console.log(">> Empieza")
+//         searchContainers().then((data)=> {
+//             recogeStatsContainer(data).then((data) => 
+//                 {
+//                     execSync('python3 ./get_stats.py -c [' + data + ']', {encoding : 'utf-8', stdio : 'inherit'})
+//                 }
+//             )
+//         })
+//         getAllInquiries().then((data)=> {
+//             recogeStatsStreets(data).then(([calles, valor]) => 
+//                 {
+//                     let value = "[" + valor + "] "
+//                     let street = '"' + calles + '"'
+//                     execSync("python3 ./get_stats.py -s " + value +  " st " + street, {encoding : 'utf-8', stdio : 'inherit'})
+//                 }
+//             )
+//         })
+//     }
+//     catch(error){
+//         console.error("Error inesperado al sacar los stats: ", error)
+//     }
 
 
-}
+// }
 
 async function recogeStatsContainer(diccionario_container : {[clave:string]:ContainerInfo[]}) : Promise<Number[]> {
     let contenedores : string[] = ["Papel / Carton", "oil_containers", "glass_containers", "clothes_containers", "Envases Ligeros",  "Organico"]
@@ -74,4 +75,44 @@ async function recogeStatsStreets(diccionario_inquiries : {[clave:string]:string
     // });
     return [Object.keys(diccionario_stats),Object.values(diccionario_stats)]
 
+}
+
+export async function getFullContainerStat() : Promise<Number> {
+    try{
+        const {data, error} = await supabaseClient
+        .from('inquiries')
+        .select('*', { count: 'exact', head: true })
+        .eq('type', 'contenedor_lleno')
+        
+
+        if(error){
+            throw "Error al recuperar stats de Contenedores llenos"
+        } 
+        
+        if (data){
+            console.log(data)
+        } 
+
+        return 0
+    }
+    catch(error) {
+        console.error("Error inesperado: ", error)
+        throw error
+    }
+        
+}
+
+export async function getReclamationStat() : Promise<Number> {
+    
+    return 0
+}
+
+export async function getPetitionStat() : Promise<Number> {
+    
+    return 0
+}
+
+export async function getQueryStat() : Promise<Number> {
+    
+    return 0
 }

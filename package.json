@@ -48,6 +48,7 @@
     "@angular/compiler-cli": "^17.3.5",
     "@capacitor/cli": "6.0.0",
     "@ionic/angular-toolkit": "^11.0.1",
+    "@ionic/core": "^8.1.1",
     "@types/jasmine": "~5.1.4",
     "@types/jest": "^29.5.12",
     "@types/leaflet": "^1.9.12",
