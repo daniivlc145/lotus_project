@@ -2,6 +2,8 @@ import { Component, OnInit } from '@angular/core';
 import { PopinfoOneComponent } from '../popinfo-one/popinfo-one.component';
 import { PopoverController } from '@ionic/angular';
 import { ActivatedRoute, Router } from '@angular/router';
+import { HttpClient } from '@angular/common/http';
+import { EmailService } from '../email.service';
 
 @Component({
   selector: 'app-sugerencia',
@@ -19,7 +21,28 @@ export class SugerenciaComponent  implements OnInit {
     }
   }
 
-  constructor(private router: Router, private popovercntrl: PopoverController, private route: ActivatedRoute) { }
+  emailContent: string = '';
+
+  sendEmail(emailContent: string) {
+    const subject = 'Correo desde mi aplicación';
+    const body = emailContent;
+    this.showPop();
+    const correo = {
+        
+        to: ['lotuscodeproj@gmail.com'],
+        subject: subject,
+        body: body
+    };
+
+    this.emailService.enviarCorreo(correo).subscribe(
+        response => console.log(response),
+        error => console.error(error)
+    );
+}
+
+
+
+  constructor(private router: Router, private popovercntrl: PopoverController, private route: ActivatedRoute, private http: HttpClient, private emailService: EmailService) { }
 
   ngOnInit() {
     console.log(this.route.snapshot.queryParams);

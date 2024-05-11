@@ -25,11 +25,13 @@
     <p class="sug">Sugerencia:</p>
 
     <div style="position: absolute; top: 35%; left: 50%;">
-      <form target="_blank" action="https://formsubmit.co/lotuscodeproj@gmail.com" method="POST">
-        <textarea placeholder="Tu sugerencia" name="message" class="descripBox" id="descrip"  rows="4" cols="50" maxlength="850" style="color:#3a5e62;" required></textarea>
-        <input type="submit" name="submit" class="custom-button-rep" style="margin-top: 20%;"/>
-        <img src="../../assets/img/sugerencia.png" style="z-index: 60; height: 25px; width: 25px;transform: translateX(-200%);  position:absolute; left:0%;bottom: 5%;filter:brightness(100);">
-      </form>
+      <form>
+        <textarea [(ngModel)]="emailContent" placeholder="Tu sugerencia" name="message" class="descripBox" id="descrip" rows="4" cols="50" maxlength="850" style="color:#3a5e62;" required></textarea>
+        <button class="custom-button-rep" style="margin-top: 20%;" (click)="sendEmail(emailContent)" ></button>
+        <img src="../../assets/img/sugerencia.png" style="z-index: 60; height: 25px; width: 25px; transform: translateX(-200%); position:absolute; left:0%; bottom: 5%; filter:brightness(100);" />
+    </form>
+    
+    
     </div>
 
   </div>

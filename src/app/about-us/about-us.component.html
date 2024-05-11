@@ -1,37 +1,70 @@
 
 <body>
+  
   <a (click)="back()" class="custom-button-before" style="z-index: 1050; height:50px; width:50px;   left:0%;
-            bottom:85%;"><</a>  
-      <div class="contentAbt">
-        <div style="position: relative; width: 400px; height: 490px;">
-            
-      <p class="textoAbt">DATO CURIOSO:<br><br>En muchas culturas asiáticas, la flor de loto es un símbolo de pureza .<br><br>Esta flor crece en aguas fangosas pero emerge impecablemente limpia y hermosa .</p>
-        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0.836584 3.02784 13.15 18.3"style="width:325px; height:540px; margin-left: 7%;filter: drop-shadow(0 0 10px rgba(0, 0, 0, 0.5));">
+            bottom:85%;"><</a>
+  
+    <div class="card" [ngClass]="{ 'flipped': isFlipped }" (click)="toggleFlip()">
+      <div class="front">
+         <p class="textoAbt">DATO CURIOSO:<br><br>En muchas culturas asiáticas, <br> la flor de loto es un símbolo <br> de pureza .Esta flor crece en <br> aguas fangosas pero emerge <br> impecablemente limpia y <br> hermosa .</p>
+         <svg xmlns="http://www.w3.org/2000/svg" viewBox="0.836584 3.02784 13.15 18.3" style="position: absolute; top: 55%; left: 44%; transform: translate(-50%, -50%); width: 90%; height: 100%; margin-left: 7%; filter: drop-shadow(0 0 10px rgba(0, 0, 0, 0.5));">
           <path d="M 3.814 17.644 C 3.061 17.203 0.86 18.855 1.135 11.424 C 0.937 5.325 0.532 5.325 1.227 4.158 C 1.832 3.333 3.712 2.499 12.018 3.454 C 12.389 3.693 14.618 3.375 13.807 9.418 C 13.61 12.839 13.883 15.406 13.047 16.229 C 12.687 16.839 12.094 16.922 11.373 16.946 C 8.704 17.271 7.352 17.026 6.699 17.003 C 4.86 17.057 4.843 18.036 7.795 21.331 C 4.563 18.254 3.924 18.198 3.887 17.662" fill="#fff"/>
         </svg>
-        <figure id="frog" style="z-index: 1004; position: absolute; bottom: -65px; right: -10px;">
-            <img src="../icons/frog-lotus.png" height="150" width="160"/>
-        </figure>
-      </div>
+        
+            <img src="../icons/frog-lotus.png" height="150" width="160" style="position: absolute; top: 78%; left: 50%;"/>
+        
     </div>
-   <!-- <swiper-container class="mySwiper" navigation="true" pagination="true" effect="flip" grab-cursor="true">
-      <swiper-slide>
-    </swiper-slide>
-    <swiper-slide>
       
-    </swiper-slide>
-    <swiper-slide>
-      
-    </swiper-slide>
-  </swiper-container>
-  
-        <script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-element-bundle.min.js"></script>-->
-    
-    <!--  <p class="otherAbt">.<span style="color: #3a5e62;">.</span>.</p>  
-      <a routerLink="/tutorial-last" class="custom-button-next" style="z-index: 1005; height:50px; width: 50px; right:0%;
-      top:89%;">></a>  
-      <a routerLink="/tutorial-welc" class="custom-button-before" style="z-index: 1005; height:50px;  width:50px; left:0%;
-      top:89%;"><</a>    -->   
+      <div class="back">
 
+              <img src="../../assets/img/mejorEquipo.jpg" height="170" width="210" style=" position: absolute; top: 20%; left: 20%;"/>
+    
+              <div class="container">
+                <h2>FRONTEND</h2>
+                <div class="row">
+                  <div class="col">
+                    <div class="d-flex align-items-center">
+                      <img src="../../assets/img/laura.png" alt="Persona 1" class="cara" (click)="goToLaura()">
+                      <p class="Nombre">Laura J. Illan</p>
+                    </div>
+                  </div>
+                  <div class="col">
+                    <div class="d-flex align-items-center">
+                      <img src="../../assets/img/lato.png" alt="Persona 2" class="cara" (click)="goToLato()">
+                      <p class="Nombre">Javier Latorre</p>
+                    </div>
+                  </div>
+                  <div class="col">
+                    <div class="d-flex align-items-center">
+                      <img src="../../assets/img/vic.png" alt="Persona 3" class="cara">
+                      <p class="Nombre">Julia Martínez</p>
+                    </div>
+                  </div>
+                </div>
+                <br>
+                <h2>BACKEND</h2>
+                <div class="row">
+                  <div class="col">
+                    <div class="d-flex align-items-center">
+                      <img src="../../assets/img/dani.png" alt="Persona 4" class="cara" (click)="goToDani()">
+                      <p class="Nombre">Daniel Ibañez</p>
+                    </div>
+                  </div>
+                  <div class="col">
+                    <div class="d-flex align-items-center">
+                      <img src="../../assets/img/maxfeo.png" alt="Persona 5" class="cara">
+                      <p class="Nombre">Max Kaidanov</p>
+                    </div>
+                  </div>
+                  <div class="col">
+                    <div class="d-flex align-items-center">
+                      <img src="../../assets/img/vic.png" alt="Persona 6" class="cara">
+                      <p class="Nombre">Carlos Cebellan</p>
+                    </div>
+                  </div>
+                </div>
+        </div>
+      </div>
+</div>
 
 </body>

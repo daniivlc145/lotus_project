@@ -1,5 +1,57 @@
 @import url("/src/css/style.css");
 
+
+body {
+  background-color: #c1d7d5;
+  margin: 0;
+  padding: 0;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+  overflow-y: auto; /* Agregar desplazamiento vertical al cuerpo */
+}
+
+.contenedor {
+  display: flex;
+  flex-direction: column;
+  justify-content: center; 
+  position: absolute;
+  left: 10%;
+  margin-top: 30px;
+  width: 80%;
+  height: 25%;
+ 
+}
+
+.fila {
+  display: flex;
+  height: 40%;
+  margin: 10px;
+}
+
+.rectangulo {
+  width: 100%;
+  height: 100%;
+  background-color: #ffffff;
+  box-shadow: 0 10px 20px rgba(0, 0, 0, 0.1); /* Ajusta los valores según el efecto que desees */
+  border-radius: 10px; /* Ajusta el valor según la cantidad de redondez que desees */
+  margin: 10px; /* Espaciado entre los rectángulos */
+  position: relative;
+  padding: 10px;
+}
+
+
+.tipo{
+
+position: absolute;
+bottom: 0;
+font-size: 3vw;
+margin: 0;
+
+}
+
+
 .footer {
     background-color: white; /* Color de fondo del footer */
     color: white; /* Color del texto */

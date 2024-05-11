@@ -46,6 +46,9 @@ import { StatsComponent } from './stats/stats.component';
 
 import { VistaIncOrgComponent } from './vista-inc-org/vista-inc-org.component';
 
+import { IntroLoadingComponent } from './intro-loading/intro-loading.component';
+
+
 const routes: Routes = [
 
   {path:'tutorial-welc', component:TutorialWelcComponent},
@@ -91,6 +94,8 @@ const routes: Routes = [
   {path: 'stats', component:StatsComponent},
 
   {path: 'incOrg', component:VistaIncOrgComponent},
+
+  {path: 'load', component:IntroLoadingComponent},
 
   {
     path: '',

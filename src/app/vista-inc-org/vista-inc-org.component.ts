@@ -52,7 +52,9 @@ export class VistaIncOrgComponent  implements OnInit {
 private crearNuevoElemento(elem: {[clave:string]:string}): void {
   // Crear un nuevo elemento div
   const nuevoDiv = document.createElement('div');
-  nuevoDiv.setAttribute ('style', 'right:50%; margin-bottom: 30px;');
+  nuevoDiv.setAttribute ('style', 'right:50%; margin-bottom:30px; ');
+  nuevoDiv.classList.add('nuevoDiv');
+
 
   const nuevoLabel = document.createElement('div');
   nuevoLabel.setAttribute ('style', 'position:relative');
