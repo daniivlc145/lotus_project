@@ -3,9 +3,11 @@ import * as L from 'leaflet';
 import 'leaflet.heat';
 import { Router } from '@angular/router';
 import {getFullContainers} from './mapa-calor.functions';
+import 'leaflet-routing-machine';
 
 // Importa heatLayer específicamente desde el paquete de Leaflet-Heat
 import 'leaflet.heat/dist/leaflet-heat';
+import { NONE_TYPE } from '@angular/compiler';
 
 @Component({
   selector: 'app-mapa-calor',
@@ -27,22 +29,33 @@ export class mapaCalorComponent implements OnInit {
     }
   
     private async initMap(): Promise<void> {
-        this.map = L.map('map', {
-            zoomControl: false // Desactiva el control de zoom predeterminado
-          }).setView([39.4697, -0.3774], 50);
-  
-          L.tileLayer('https://server.arcgisonline.com/ArcGIS/rest/services/World_Topo_Map/MapServer/tile/{z}/{y}/{x}', {
-            attribution: 'Tiles &copy; Esri'
-          }).addTo(this.map);
+      this.map = L.map('map', {
+          zoomControl: false // Desactiva el control de zoom predeterminado
+        }).setView([39.4697, -0.3774], 50);
+
+        L.tileLayer('https://server.arcgisonline.com/ArcGIS/rest/services/World_Topo_Map/MapServer/tile/{z}/{y}/{x}', {
+          attribution: 'Tiles &copy; Esri'
+        }).addTo(this.map);
   
       // Ejemplo de datos para el mapa de calor
       const heatData = await getFullContainers();
       console.log(heatData);
-  
+      
       // Usa el método heatLayer directamente
       (L as any).heatLayer(heatData, { radius: 25 }).addTo(this.map);
-    }
 
+      let routePoints : L.LatLng[] = [L.latLng(39.08989925, -0.545081986577831)]
+      heatData.forEach(data  => {
+          data.pop
+          routePoints.push(L.latLng(data[0],data[1]))
+      });
+
+      L.Routing.control({
+        waypoints: routePoints,
+      }).addTo(this.map);
+      
+    }
+    
 
     goToIncPage() {
 
