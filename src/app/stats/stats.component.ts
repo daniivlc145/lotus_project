@@ -17,6 +17,8 @@ export class StatsComponent  implements OnInit {
 
   }
 
+  
+
 
   goToIncPage() {
 

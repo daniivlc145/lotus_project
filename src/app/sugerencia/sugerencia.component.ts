@@ -24,22 +24,23 @@ export class SugerenciaComponent  implements OnInit {
   emailContent: string = '';
 
   sendEmail(emailContent: string) {
-    const recipient = 'lotuscodeproj@gmail.com';
     const subject = 'Correo desde mi aplicación';
     const body = emailContent;
     this.showPop();
+    const correo = {
+        
+        to: ['lotuscodeproj@gmail.com'],
+        subject: subject,
+        body: body
+    };
 
-    this.emailService.sendEmail(recipient, subject, body).subscribe(
-      response => {
-        console.log('Correo enviado exitosamente:', response);
-        // Puedes mostrar un mensaje de éxito o realizar otras acciones después de enviar el correo
-      },
-      error => {
-        console.error('Error al enviar correo:', error);
-        // Puedes mostrar un mensaje de error o realizar otras acciones en caso de error al enviar el correo
-      }
+    this.emailService.enviarCorreo(correo).subscribe(
+        response => console.log(response),
+        error => console.error(error)
     );
-  }
+}
+
+
 
   constructor(private router: Router, private popovercntrl: PopoverController, private route: ActivatedRoute, private http: HttpClient, private emailService: EmailService) { }
 
