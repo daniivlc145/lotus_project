@@ -16,6 +16,7 @@ export async function signUpUser (email: string, password: string, fullName: str
   try {
     const { data, error} = await supabaseClient.auth.signUp(userData)
     if (error) {
+      if (String(error).includes("key")) throw "Correo a registrado"
       throw error
     }
     console.log('Usuario registrado con éxito')
