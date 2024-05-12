@@ -94,6 +94,7 @@ export async function getFullContainerStat() : Promise<Number> {
         } 
 
         return 0
+
     }
     catch(error) {
         console.error("Error inesperado: ", error)

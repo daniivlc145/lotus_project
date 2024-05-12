@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
 // import { getStats } from './stats.functions';
-import { getFullContainerStat } from './stats.functions';
+import { getFullContainerStat, getReclamationStat, getPetitionStat, getQueryStat } from './stats.functions';
 
 @Component({
   selector: 'app-stats',
@@ -17,6 +17,9 @@ export class StatsComponent  implements OnInit {
 
    // getStats();
    this.obtenerNumeroContenedoresLlenos();
+   this.obtenerConsultas();
+   this.obtenerReclamaciones();
+   this.obtenerPeticiones();
   
 
   }
@@ -27,16 +30,51 @@ export class StatsComponent  implements OnInit {
           var elemento = document.getElementById("2");
       
           if (elemento) {
-            elemento.textContent = numero.toString(); // Asegúrate de convertir el número a cadena antes de asignarlo como texto
-          } else {
-            console.error("No se encontró el elemento con ID '2'");
+            elemento.textContent = numero.toString(); 
+          } 
+        } catch (error) {
+          console.error("Error al obtener el número:", error);
+        }
+      }
+
+      async  obtenerConsultas() {
+        try {
+          const numero = await getQueryStat();
+          var elemento = document.getElementById("4");
+      
+          if (elemento) {
+            elemento.textContent = numero.toString();
+          } 
+        } catch (error) {
+          console.error("Error al obtener el número:", error);
+        }
+      }
+
+      async  obtenerReclamaciones() {
+        try {
+          const numero = await getReclamationStat();
+          var elemento = document.getElementById("3");
+      
+          if (elemento) {
+            elemento.textContent = numero.toString(); 
           }
         } catch (error) {
           console.error("Error al obtener el número:", error);
         }
       }
       
-  
+      async  obtenerPeticiones() {
+        try {
+          const numero = await getPetitionStat();
+          var elemento = document.getElementById("1");
+      
+          if (elemento) {
+            elemento.textContent = numero.toString();
+          }
+        } catch (error) {
+          console.error("Error al obtener el número:", error);
+        }
+      }
 
 
   goToIncPage() {
