@@ -79,21 +79,14 @@ async function recogeStatsStreets(diccionario_inquiries : {[clave:string]:string
 
 export async function getFullContainerStat() : Promise<Number> {
     try{
-        const {data, error} = await supabaseClient
+        const {data, error, count} = await supabaseClient
         .from('inquiries')
-        .select('*', { count: 'exact', head: true })
+        .select('*', { count : 'exact', head : true})
         .eq('type', 'contenedor_lleno')
-        
 
-        if(error){
-            throw "Error al recuperar stats de Contenedores llenos"
-        } 
+        if(error) throw "Error al recuperar stats de Contenedores llenos"         
         
-        if (data){
-            console.log(data)
-        } 
-
-        return 0
+        return count || 0
 
     }
     catch(error) {
@@ -104,16 +97,58 @@ export async function getFullContainerStat() : Promise<Number> {
 }
 
 export async function getReclamationStat() : Promise<Number> {
-    
-    return 0
+    try{
+        const {data, error, count} = await supabaseClient
+        .from('inquiries')
+        .select('*', { count : 'exact', head : true})
+        .eq('type', 'reclamation')
+
+        if(error) throw "Error al recuperar stats de Contenedores llenos"         
+        
+        return count || 0
+
+    }
+    catch(error) {
+        console.error("Error inesperado: ", error)
+        throw error
+    }
+
 }
 
-export async function getPetitionStat() : Promise<Number> {
-    
-    return 0
+export async function getSuggestionStat() : Promise<Number> {
+    try{
+        const {data, error, count} = await supabaseClient
+        .from('inquiries')
+        .select('*', { count : 'exact', head : true})
+        .eq('type', 'suggestion')
+
+        if(error) throw "Error al recuperar stats de Contenedores llenos"         
+        
+        return count || 0
+
+    }
+    catch(error) {
+        console.error("Error inesperado: ", error)
+        throw error
+    }
+
 }
 
 export async function getQueryStat() : Promise<Number> {
-    
-    return 0
+    try{
+        const {data, error, count} = await supabaseClient
+        .from('inquiries')
+        .select('*', { count : 'exact', head : true})
+        .eq('type', 'query')
+
+        if(error) throw "Error al recuperar stats de Contenedores llenos"         
+        
+        return count || 0
+
+    }
+    catch(error) {
+        console.error("Error inesperado: ", error)
+        throw error
+    }
+
 }
