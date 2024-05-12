@@ -51,10 +51,14 @@ export class mapaCalorComponent implements OnInit {
           routePoints.push(L.latLng(data[0],data[1]))
       });
 
+      
+
       L.Routing.control({
         waypoints: routePoints,
       }).addTo(this.map);
 
+
+      
 
       // Selecciona el div que deseas eliminar
 // Selecciona el div que deseas eliminar
