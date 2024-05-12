@@ -10,15 +10,32 @@ import { getFullContainerStat } from './stats.functions';
 })
 export class StatsComponent  implements OnInit {
 
+
   constructor(private router: Router) { }
 
   async ngOnInit() {
 
    // getStats();
-    await getFullContainerStat();
+   this.obtenerNumeroContenedoresLlenos();
+  
 
   }
 
+      async  obtenerNumeroContenedoresLlenos() {
+        try {
+          const numero = await getFullContainerStat();
+          var elemento = document.getElementById("2");
+      
+          if (elemento) {
+            elemento.textContent = numero.toString(); // Asegúrate de convertir el número a cadena antes de asignarlo como texto
+          } else {
+            console.error("No se encontró el elemento con ID '2'");
+          }
+        } catch (error) {
+          console.error("Error al obtener el número:", error);
+        }
+      }
+      
   
 
 
