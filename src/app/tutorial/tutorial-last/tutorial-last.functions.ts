@@ -6,9 +6,9 @@ export async function yaNoNuevo () {
             throw new Error('No se ha encontrado un usuario autenticado')
         }
         const {data, error} = await supabaseClient
-            .from('users')
+            .from('users_info')
             .update({is_new: false})
-            .eq('id', user?.id)
+            .eq('user_id', user?.id)
         if (error) {
             console.error('Error al actualizar el usuario:', error.message)
             throw error

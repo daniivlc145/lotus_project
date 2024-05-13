@@ -99,7 +99,7 @@ const routes: Routes = [
 
   {
     path: '',
-    redirectTo: 'tutorial-welc',
+    redirectTo: 'login',
     pathMatch: 'full'
   },
   {

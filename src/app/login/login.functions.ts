@@ -34,12 +34,17 @@ function camposVacios(email: string, password: string): boolean {
   return email.trim() === '' || password.trim() === '';
 }
 
-export async function compruebaNuevo(email: string): Promise<boolean>{
+export async function compruebaNuevo(): Promise<boolean>{
   try{
+    const {data: {user}, error: errorUsuario} = await supabaseClient.auth.getUser()
+    if (errorUsuario) {
+        throw new Error('No se ha encontrado un usuario autenticado')
+    }
+
     const {data, error} = await supabaseClient
-    .from('users')
+    .from('users_info')
     .select('is_new')
-    .eq('email', email)
+    .eq('user_id', user?.id)
   
     if (error) {
         console.error('Error al obtener los usuarios:', error.message);

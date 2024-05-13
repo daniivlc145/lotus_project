@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router'; // Importa el módulo Router
 import { signInUser } from './login.functions';
+import { compruebaNuevo } from './login.functions';
 
 @Component({
   selector: 'app-login',
@@ -26,14 +27,15 @@ export class loginComponent  implements OnInit {
     try{
       await signInUser(email,password);
       console.log('goToLoginPage() called');
-      this.router.navigate(['/map']); 
+      if(await compruebaNuevo()){
+        this.router.navigate(['/tutorial-welc']);
+      } else {
+        this.router.navigate(['/map']); 
+      }
     }catch(error){
       console.error('ERROR CAPTURADO:', (error as Error).message)
       this.errorMessage = (error as Error).message; // Actualiza el mensaje de error
     }
-    
-    
-    
   }
 
 
@@ -97,10 +99,5 @@ changePassword() {
   console.log(currentUrl)// Obtén la URL actual
   this.router.navigate(['/email'], { queryParams: { returnUrl: currentUrl } });
   }
-
-
-
-
-
 }
   

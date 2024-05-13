@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router'; // Importa el módulo Router
+import { yaNoNuevo } from './tutorial-last.functions';
 
 @Component({
   selector: 'app-tutorial-last',
@@ -13,7 +14,7 @@ export class TutorialLastComponent implements OnInit {
   ngOnInit() {}
 
   goToLoginPage() {
-    
+    yaNoNuevo(); // Llama a la función que actualiza el estado del usuario
     this.router.navigate(['/login']); // Cambia 'login' por la ruta de tu página de inicio de sesión
   }
   
