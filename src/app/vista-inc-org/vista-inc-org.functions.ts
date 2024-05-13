@@ -61,6 +61,7 @@ export async function filtraInquiriesTipo(filtro : string[]) : Promise<{[clave:s
         let data: string | null =  localStorage.getItem("diccionario_InquiriesJSON");
         
         if(data){
+            filtro= filtro.map((data)=> (data === "CONTENEDOR LLENO" ? "LLENO" : data))
             let inquiries : {[clave:string]:string}[] = JSON.parse(data)
             const filtrado = inquiries.filter((data)=>filtro.includes(data["type"]))
             

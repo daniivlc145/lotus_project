@@ -63,16 +63,16 @@
     /*texto*/
     
     .textoAbt {
-      font-family: 'Laura Regular', sans-serif;
-      font-size: 7vw;
+      font-family: 'Laura merged', sans-serif;
+      font-size: 5vw;
       text-align: left;
       color: #3a5e62;
-      line-height: 1.2;
+      line-height: 1;
       position: absolute;
-      top: 30%;
-      left: 17%;
+      top: 25%;
+      left: 20%;
       z-index: 2;
-      width: 100%;
+      width: 65%;
       height: 100%;
   }
   
@@ -135,7 +135,7 @@
     flex-direction: column;
     align-items: center;
     position: absolute;
-    top: 50%;
+    top: 20%;
     width: 100%;
     height:30% ;
   }

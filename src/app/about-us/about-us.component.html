@@ -6,20 +6,25 @@
   
     <div class="card" [ngClass]="{ 'flipped': isFlipped }" (click)="toggleFlip()">
       <div class="front">
-         <p class="textoAbt">DATO CURIOSO:<br><br>En muchas culturas asiáticas, <br> la flor de loto es un símbolo <br> de pureza .Esta flor crece en <br> aguas fangosas pero emerge <br> impecablemente limpia y <br> hermosa .</p>
-         <svg xmlns="http://www.w3.org/2000/svg" viewBox="0.836584 3.02784 13.15 18.3" style="position: absolute; top: 55%; left: 44%; transform: translate(-50%, -50%); width: 90%; height: 100%; margin-left: 7%; filter: drop-shadow(0 0 10px rgba(0, 0, 0, 0.5));">
+        <div style="position:relative; width: 100%; height: 100%;">
+         <p class="textoAbt">EQUIPO LOTUS<br><br>Somos un grupo de amigos formado al comenzar la carrera en 2021. El proyecto se originó para participar en el Codethon de Artemis 2024.</p>
+         <img src="../../assets/img/mejorEquipo.jpg" height="170" width="160" style="z-index: 123456; position: absolute; top: 43%; left: 28%;"/>
+         <svg xmlns="http://www.w3.org/2000/svg" viewBox="0.836584 3.02784 13.15 18.3" style="position: absolute; top: 53%; left: 44%; transform: translate(-50%, -50%); width: 90%; height: 100%; margin-left: 7%; filter: drop-shadow(0 0 10px rgba(0, 0, 0, 0.5));">
           <path d="M 3.814 17.644 C 3.061 17.203 0.86 18.855 1.135 11.424 C 0.937 5.325 0.532 5.325 1.227 4.158 C 1.832 3.333 3.712 2.499 12.018 3.454 C 12.389 3.693 14.618 3.375 13.807 9.418 C 13.61 12.839 13.883 15.406 13.047 16.229 C 12.687 16.839 12.094 16.922 11.373 16.946 C 8.704 17.271 7.352 17.026 6.699 17.003 C 4.86 17.057 4.843 18.036 7.795 21.331 C 4.563 18.254 3.924 18.198 3.887 17.662" fill="#fff"/>
         </svg>
         
             <img src="../icons/frog-lotus.png" height="150" width="160" style="position: absolute; top: 78%; left: 50%;"/>
-        
+        </div>
     </div>
       
       <div class="back">
 
-              <img src="../../assets/img/mejorEquipo.jpg" height="170" width="210" style=" position: absolute; top: 20%; left: 20%;"/>
-    
-              <div class="container">
+        <div style="position:relative; width: 100%; height: 100%;">
+         
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0.836584 3.02784 13.15 18.3" style="position: absolute; top: 53%; left: 44%; transform: translate(-50%, -50%); width: 90%; height: 100%; margin-left: 7%; filter: drop-shadow(0 0 10px rgba(0, 0, 0, 0.5));">
+           <path d="M 3.814 17.644 C 3.061 17.203 0.86 18.855 1.135 11.424 C 0.937 5.325 0.532 5.325 1.227 4.158 C 1.832 3.333 3.712 2.499 12.018 3.454 C 12.389 3.693 14.618 3.375 13.807 9.418 C 13.61 12.839 13.883 15.406 13.047 16.229 C 12.687 16.839 12.094 16.922 11.373 16.946 C 8.704 17.271 7.352 17.026 6.699 17.003 C 4.86 17.057 4.843 18.036 7.795 21.331 C 4.563 18.254 3.924 18.198 3.887 17.662" fill="#fff"/>
+         </svg>
+         <div class="container">
                 <h2>FRONTEND</h2>
                 <div class="row">
                   <div class="col">
@@ -64,6 +69,10 @@
                   </div>
                 </div>
         </div>
+             <img src="../icons/frog-lotus.png" height="150" width="160" style="position: absolute; top: 78%; left: 50%;"/>
+         </div>
+    
+              
       </div>
 </div>
 
