@@ -74,6 +74,7 @@ export class RegistroComponent  implements OnInit {
   async showPop(){
     const popover = await this.popoverCntrl.create({
       component: PopinfoOneComponent,
+      mode:'ios',
       backdropDismiss:false,
       componentProps: {
         title: 'Verificación de correo',

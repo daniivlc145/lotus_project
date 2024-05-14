@@ -60,6 +60,7 @@ export class SugerenciaComponent  implements OnInit {
   async showPop(){
     const popover = await this.popovercntrl.create({
       component: PopinfoOneComponent,
+      mode:'ios',
       backdropDismiss:false,
       componentProps: {
         title: '¡Sugerencia enviada!',

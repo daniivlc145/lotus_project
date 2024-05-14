@@ -60,6 +60,7 @@ errorMessage: string | null = null; // Esta es la propiedad que mencionaste
     const popover = await this.popovercntrl.create({
       component: PopinfoOneComponent,
       backdropDismiss:false,
+      mode:'ios',
       componentProps: {
         title: 'Recuperar contraseña',
         content: 'Te hemos enviado un correo electrónico para que puedas cambiar tu contraseña, ¡revísalo cuanto antes!'

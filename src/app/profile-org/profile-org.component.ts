@@ -68,6 +68,7 @@ import { PopoverController } from '@ionic/angular';
         async logOut(){
           const popover = await this.popovercntrl.create({
             component: PoplogOutComponent,
+            mode:'ios',
             componentProps: {
               title: 'Cerrar sesión',
               content: '¿Estás seguro de que quieres cerrar sesión?'

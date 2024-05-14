@@ -177,6 +177,7 @@ export class NuevaIncidenciaMAPComponent implements AfterViewInit{
         const contenidoPopover = `¿Desea registrar la incidencia en ${calleSeleccionada} como ${tipoIncidencia}?`;
       const popover = await this.popoverCntrl.create({
         component: PopinfoTwoComponent,
+        mode:'ios',
         backdropDismiss: false,
         componentProps: {
           title: 'Nueva incidencia',
@@ -249,6 +250,7 @@ export class NuevaIncidenciaMAPComponent implements AfterViewInit{
         const popoverone = await this.popoverCntrl.create({
           component: PopinfoOneComponent,
           backdropDismiss: false,
+          mode:'ios',
           componentProps: {
             title: '¡Incidencia notificada!',
             content: 'Gracias por ayudarnos a hacer un mundo más limpio y mejor'
@@ -272,6 +274,7 @@ export class NuevaIncidenciaMAPComponent implements AfterViewInit{
       this.photo = await this.cameraService.takePhoto();
       const popover = await this.popoverCntrl.create({
         component: PhotoPopoverComponent,
+        mode:'ios',
         componentProps: {
           photo: this.photo
         },

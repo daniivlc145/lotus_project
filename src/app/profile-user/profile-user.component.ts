@@ -79,23 +79,23 @@ import { getFullName } from './profile-user.functions';
     async logOut(){
       const popover = await this.popoverCntrl.create({
         component: PoplogOutComponent,
+        mode:'ios',
         componentProps: {
           title: 'Cerrar sesión',
           content: '¿Estás seguro de que quieres cerrar sesión?'
         }
       });
-      setTimeout(async () => {
+        
         await popover.present();
-      }, 100);
-      setTimeout(() => {}, 0); // Forzar actualización del DOM
+    
       const frogSad = document.getElementById('frogSad');
-      setTimeout(async () => {
+      
         if (frogSad) { // Verifica si frogSad no es null antes de acceder a sus propiedades
           if (frogSad.style.display === 'none') {
               frogSad.style.display = 'block';
           } 
         }
-      }, 100);
+    
       
       
 

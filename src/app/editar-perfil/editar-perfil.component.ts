@@ -118,6 +118,7 @@ changePassword() {
   async showPop() {
     const popover = await this.popoverCntrl.create({
       component: PopinfoTwoComponent,
+      mode:'ios',
       backdropDismiss: false,
       componentProps: {
         title: 'Guardar cambios',

@@ -77,3 +77,84 @@
   .mat-autocomplete-panel {
     font-family: 'Laura merged', sans-serif;
   }
+
+  @import url("/src/css/style.css");
+
+  body{user-select: none;}
+  
+  
+  
+  .popup{
+      background-color: transparent;
+      filter: drop-shadow(0 0 10px rgba(1, 0, 0, 0)); 
+      width: 300px;
+      height: 300px;
+      left: 50%;
+      bottom: 15%;
+      position: fixed;
+      transform: translate(-50%, -50%);
+  }
+  
+  .title{
+      color: black;
+      font-size: 28px;
+      z-index: 5;
+      position: absolute;
+      bottom: 78%;
+      left: 28%;
+      font-family: 'Laura merged', sans-serif;
+      width: max-content; /* Para ajustar el tamaño del contenedor al contenido */
+      text-align: center;
+  }
+  
+  
+  .okbutton{
+      background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='-0.0277126 8 4.573 3.327'%3E%3Cpath d='M 4.395 8.571 C 4.78 12.073 4.67 10.935 1.081 11.327 C -0.301 10.887 0 11 0 9 C 0.3333 8.6667 0 8 3 8 C 4.3333 8.3333 3.712 8.131 4.38 8.547' fill='%2384beb0'/%3E%3C/svg%3E");
+      background-repeat: no-repeat;
+      background-color: transparent; /* Establecer el color de fondo como transparente */
+      background-size: cover;
+      border: none; /* Sin borde */
+      padding: 10px 20px; /* Espacio interno */
+      cursor: pointer; /* Cambia el cursor al pasar por encima */
+      z-index: 8;
+      color: white;
+      font-family: 'Laura merged', sans-serif; /* Utiliza la fuente Laura Regular */
+      font-size: 22px; /* Tamaño de la fuente */
+      text-align: center; /* Alineación del texto */
+      position: absolute;
+      bottom: 22%;
+      right:12%;
+      font-weight: bold;
+  }
+  
+  .cancelbutton{
+      background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='-0.605 9.64435 0.8647 0.3796'%3E%3Cpath d='M -0.158 10.015 C -0.321 10.034 -0.574 10.027 -0.605 9.95 C -0.518 9.539 -0.542 9.68 0.095 9.645 C 0.197 9.627 0.453 9.986 0 10' fill='%23e5cec8'/%3E%3C/svg%3E");
+      background-repeat: no-repeat;
+      background-color: transparent; /* Establecer el color de fondo como transparente */
+      background-size: cover;
+      border: none; /* Sin borde */
+      padding: 10px 20px; /* Espacio interno */
+      cursor: pointer; /* Cambia el cursor al pasar por encima */
+      z-index: 8;
+      color: white;
+      font-family: 'Laura merged', sans-serif; /* Utiliza la fuente Laura Regular */
+      font-size: 20px; /* Tamaño de la fuente */
+      text-align: center; /* Alineación del texto */
+      position: absolute;
+      bottom: 21%;
+      left:10%;
+      font-weight: bold;
+  }
+  
+  .text{
+      font-family: 'Laura merged', sans-serif; /* Utiliza la fuente Laura Regular */
+      font-size: 24px; /* Tamaño de la fuente */
+      text-align: center; /* Alineación del texto */
+      color: #3a5e62; /* Color del texto */
+      position: absolute; 
+      top: 39%; 
+      left: 49%; 
+      transform: translate(-50%, -50%);
+      z-index: 2; /* Asegura que el texto esté por encima del SVG */
+      width: 90%;
+  }
