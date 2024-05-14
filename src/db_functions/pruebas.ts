@@ -1,5 +1,5 @@
 import { signUpUser } from "../app/registro/registro.functions";
-import { updateUserData } from "./users";
+// import { updateUserData } from "./users";
 import { signInUser } from "../app/login/login.functions";
 import { forgotPassword } from "src/app/introducir-email/introducir-email.functions";
 import { insertInquiry } from "../app/nueva-incidencia/nueva-incidencia.functions";
@@ -7,9 +7,9 @@ import {muestraMisIncidencias } from "../app/mis-incidencias/mis-incidencias.fun
 import { supabaseClient } from "../supabase_client";
 import { getFullName } from "../app/profile-user/profile-user.functions";
 //import { seleccionarImagen } from "../app/nueva-incidencia/nueva-incidencia.functions";
-import { getStats } from "../app/stats/stats.functions";
+// import { getStats } from "../app/stats/stats.functions";
 
-getStats()
+//getStats()
 //  async function prueba(){
 //      const {data, error} =  await supabaseClient.auth.signUp({ email: "valencia@organizacion.com", password : "00000000", options: {data : { cif : "DANIVEGOÑA", city : "Valencia", organization_name : "GVA", phone_number : "654123798"}}  })
 
