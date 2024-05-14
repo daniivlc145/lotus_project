@@ -20,7 +20,7 @@ export async function forgotPassword(email:string) : Promise<void>{
     try{
         const { data, error } = await supabaseClient.auth.resetPasswordForEmail(email, {
             // Habrá que modificar invent por la ruta correcta
-            redirectTo: 'http://localhost:4200/contrasenaOlv',
+            redirectTo: 'https://lotusproject.netlify.app/contrasenaOlv',
         })
   
         if(error){
