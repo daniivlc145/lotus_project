@@ -128,7 +128,7 @@ private crearNuevoElemento(elem: {[clave:string]:string}): void {
   const descripcionElement = document.createElement('p');
   descripcionElement.className = 'texto-desc';
   descripcionElement.textContent = elem['descripcion'];
-  descripcionElement.setAttribute('style',' font-size: 16px;  text-align: left;color: #b5b4b8; position: absolute;z-index: 3; margin-top: 140px; left:35%; overflow: hidden;text-overflow: ellipsis; width: 170px; white-space: nowrap;')
+  descripcionElement.setAttribute('style',' font-size: 16px;  text-align: left;color: #b5b4b8; position: absolute;z-index: 3; margin-top: 140px; left:32%; overflow: hidden;text-overflow: ellipsis; width: 170px; white-space: nowrap;')
   nuevoLabel.appendChild(descripcionElement);
   
 

@@ -7,7 +7,7 @@
       </svg>
       <p class="textotitle" style="font-family: 'Laura merged', sans-serif; z-index: 4;">Mis Reportes</p>
       <p class="empty" *ngIf="elementos.length === 0" style="font-family: 'Laura merged', sans-serif; z-index:  4;">No tienes incidencias registradas</p>
-      <div #contenedorIncidencias id="contenedorIncidencias" style="overflow: auto; width:90%; height:90%; align-items: center; margin-left: 7%; padding:5%; position: absolute; top:15%;" >
+      <div #contenedorIncidencias id="contenedorIncidencias" style="overflow: auto; width:90%; height:90%; align-items: center; margin-left: 7%; padding:5%; position: absolute; top:15%; display: grid; grid-template-columns: repeat(auto-fill, minmax(300px, 1fr)); gap: 30px;" >
           <!-- Mover el ngFor aquí -->
           <div *ngFor="let elemento of elementos">
             <!-- Clonar y actualizar elementos aquí -->
