@@ -70,8 +70,10 @@ async function recogeStatsStreets(diccionario_inquiries : {[clave:string]:string
     let diccionario_stats : {[clave:string]:number} = {}
     let calles_tot : number = 0
     for(let inquirie_item of diccionario_inquiries){
-        console.log(inquirie_item["geo_shape"].search(/\w/g))
-        if(inquirie_item["geo_shape"] == null || inquirie_item["geo_shape"].search(/[A-Za-z]/) == -1){
+        console.log(inquirie_item["geo_shape"])
+        console.log((/[a-zA-Z]/g).test(inquirie_item["geo_shape"]) )
+    
+        if(inquirie_item["geo_shape"] == null || !(/[a-zA-Z]/g).test(inquirie_item["geo_shape"])  ){
             continue  
         } 
         if(diccionario_stats[inquirie_item["geo_shape"]]){

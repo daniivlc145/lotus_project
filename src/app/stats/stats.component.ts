@@ -2,6 +2,7 @@ import { Component, OnInit, ElementRef, ViewChild } from '@angular/core';
 import { Router } from '@angular/router';
 import { getStatsCalles } from './stats.functions';
 import { getFullContainerStat, getReclamationStat, getSuggestionStat, getQueryStat } from './stats.functions';
+import { ChangeDetectorRef } from '@angular/core';
 
 interface Incidencia {
   calle: string;
@@ -17,7 +18,7 @@ export class StatsComponent implements OnInit {
   elementos: {[clave:string]:number} = {}; // Almacenar los resultados de muestraMisIncidencias
   incidenciasData: Incidencia[] = [];
 
-  constructor(private router: Router) { }
+  constructor(private router: Router,  private cdRef: ChangeDetectorRef) { }
 
   async ngOnInit() {
     await this.obtenerDatos(); // Asegúrate de que los datos estén disponibles antes de continuar
@@ -26,16 +27,27 @@ export class StatsComponent implements OnInit {
     this.obtenerReclamaciones();
     this.obtenerSugerencias();
   }
+  
+
+  
+  
+
 
   async obtenerDatos() {
     const result = await getStatsCalles();
-    this.elementos = result; // Almacenar los resultados
+    this.elementos = result;
     this.incidenciasData = Object.keys(this.elementos).map(calle => ({
       calle,
       porcentaje: this.elementos[calle]
     }));
-    console.log(result);  
+  
+    // Ordenar las incidencias por porcentaje
+    this.incidenciasData.sort((a, b) => b.porcentaje - a.porcentaje);
+  
+    console.log(this.incidenciasData);
+    this.cdRef.detectChanges(); // Forzar a Angular a detectar cambios
   }
+  
 
 
  

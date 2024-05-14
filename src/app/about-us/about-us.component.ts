@@ -52,5 +52,10 @@ export class AboutUsComponent  implements OnInit {
     Browser.open({ url: url });
   }
   
-
+  
+  goToJulia(){
+    const url = '  https://www.linkedin.com/in/julia-mart%C3%ADnez-requeni-a041b1259/ ';
+    Browser.open({ url: url });
+  }
+ 
 }

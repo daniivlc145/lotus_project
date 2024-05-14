@@ -20,15 +20,15 @@ body {
 }
 
 .scrollable-container {
-  max-height: 400px; /* Por ejemplo, ajusta este valor según el tamaño que desees */
-  overflow-y: auto; /* Esto permite que el contenido sea desplazable verticalmente si se desborda */
+  max-height: 400px; /* Ajusta según el tamaño que desees */
+  overflow-y: auto; /* Permite el desplazamiento vertical si el contenido se desborda */
   position: absolute;
   width: 100%;
-  height: 40%;
+  height: 100%; /* Ajusta según sea necesario */
   background-color: #3a5e62;
   font-family: 'Laura merged', sans-serif;
   left: 0;
-  top: 29%;
+  top: 16%;
 }
 
 .calles {
@@ -38,6 +38,8 @@ body {
   font-size: 6vw;
   justify-content: space-between;
   border: solid;
+  border-color: #3a5e62;
+  border-radius: 20px;
   background-color: white;
 }
 
@@ -50,8 +52,14 @@ body {
 font-family: 'Laura merged', sans-serif;
 font-size: 5vw;
 position: absolute;
-left: 3%;
-top: 24%;
+left: 0%;
+top: 0%;
+color: #ffffff;
+background-color: #3a5e62;
+width: 100%;
+height: 7%;
+padding: 7px;
+margin-bottom: 0;
 
 }
 
@@ -72,8 +80,7 @@ top: 24%;
   width: 100%;
   height: 25%;
   background-color: #c1d7d5;
-  border-top: solid;
-  border-color: #ffffff;
+  
  
 }
 
