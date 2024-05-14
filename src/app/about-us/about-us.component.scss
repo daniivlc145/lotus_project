@@ -150,24 +150,17 @@
     margin: 0 10px;
     text-align: center;
     width: 50%;
-    height: 90%;
+    height: 100%;
   }
   
   .cara {
     width: 60px; /* ajusta el tamaño de las imágenes según sea necesario */
     height: 60px; /* ajusta el tamaño de las imágenes según sea necesario */
     border-radius: 50%; /* para hacer las imágenes redondas */
-    margin-top: 5px;
+    margin: 5px;
   }
   
-  .Nombre {
-    margin: 5px 0;
-    color:#3a5e62;
-    font-size: 2vw;
-    margin-left: 5px;
-    margin-right: 5px;
-    line-height: 1.5;
-  }
+ 
 
   .oficio{
 
@@ -175,10 +168,28 @@
     font-size: 2vw;
     margin-left: 5px;
     margin-right: 5px;
-    
+    margin-bottom: 0px;
+    line-height: 1.5;
 
   }
-  
+
+  .gmail {
+
+    width: 20px; /* ajusta el tamaño de las imágenes según sea necesario */
+    height: 20px; /* ajusta el tamaño de las imágenes según sea necesario */
+
+  }
+
+
+  .linkedin {
+
+    width: 20px; /* ajusta el tamaño de las imágenes según sea necesario */
+    height: 20px; /* ajusta el tamaño de las imágenes según sea necesario */
+
+  }
+
+
+
   .col {
 
     background-color: #c1d7d5;
