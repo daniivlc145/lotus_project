@@ -1,11 +1,13 @@
 
 <body style="font-family: 'Laura Regular', sans-serif;">
-  <div class="NuevaIncidenciaComponent">
-    <div style="position: relative; width: 400px; height: 490px;">
-      <svg xmlns="http://www.w3.org/2000/svg" viewBox="1.71221 2.87944 6.896 3.565" style="height: 140px; width:200px; position:absolute; bottom: 100%; left: 24%; z-index: 1;">
+  <div class="NuevaIncidenciaComponent" style="width: 100%; height: 80%; position: relative; top: 0;">
+    
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="1.71221 2.87944 6.896 3.565" style="height: 140px; width:200px; position:absolute; top: -7%; left: 24%; z-index: 1;">
         <path d="M 3 6 C 3 6 2 6 2 5 C 2 5 1.264 3.211 2.146 3.276 C 4.083 2.903 5.137 2.473 8.35 3.634 C 8.501 3.972 9 5 8 6 C 7 7 6 6 3 6" fill="#84beb0"/>
       </svg>
       <p class="textotitle" style="font-family: 'Laura Regular', sans-serif; z-index: 2; text-align: center; line-height: 25px;">Nuevo Reporte<br>GENERAL</p>
+      
+  
       <p class="texto_tipo" style="font-family: 'Laura Regular', sans-serif; z-index: 2;">Tipo</p>
       <div class="dropdown" id="tipo" [class.open]="dropdownOpen" (click)="toggleDropdown()">
         <button class="dropbtn">{{ selectedOption }}</button>
@@ -22,7 +24,7 @@
       
       
       <!--<textarea class="input" id="ubi" name="ubi" maxlength="50"></textarea>-->
-      <form class="form" id="ubi" style="height:18px; margin-top: 10px; border-radius: 30px;">
+      <form class="form" id="ubi" style=" margin-top: 10px; border-radius: 30px;">
         <mat-form-field class="form">
           <input type="text" matInput [matAutocomplete]="auto" #myInput (input)="onInputChange($event)" class="input2" style="font-family: 'Laura merged', sans-serif; ">
           <mat-autocomplete #auto="matAutocomplete" style="font-family: 'Laura merged', sans-serif;">
@@ -47,11 +49,12 @@
       width:40px;">
         <img src="../assets/img/icon_Camera.png" alt="Camera Icon" style="width: 40px; height: 40px; pointer-events: none;">
       </ionic-button>
-      <svg xmlns="http://www.w3.org/2000/svg" viewBox="1.55556 -0.584459 16.44 26.33" style="height: 450; width:400px;  filter: drop-shadow(0 0 10px rgba(0, 0, 0, 0.5)); position:absolute; z-index: 1;" >
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="1.55556 -0.584459 16.44 26.33" style="height: 80%; width:90%;  filter: drop-shadow(0 0 10px rgba(0, 0, 0, 0.5)); position:absolute; top:20%; left:5%; z-index: 1;" >
         <path d="M 17 25 C 17 26 3 26 3 25 C 2 24 2 24 2 13 C 2 7 1 1 2 1 C 3 0 15 -2 17 1 C 18 2 18 14 18 14 C 18 21 18 24 17 25" fill="#FFFFFF"/>
       </svg>
-      <input type="button" id="reportButton" #reportButton name="reportButton" value="REPORTAR" class="custom-button-rep" (click)="showPop();" style="position: absolute; bottom: 15px; right: 128px; height: 50px; width:140px; font-family: 'Laura Regular', sans-serif; z-index: 2;" disabled/>
-    </div>  
+     
+      <input type="button" id="reportButton" #reportButton name="reportButton" value="REPORTAR" class="custom-button-rep" (click)="showPop();" style="position: absolute; top:96%; left: 30%; height: 50px; width:140px; font-family: 'Laura Regular', sans-serif; z-index: 2;" disabled/>
+  
     <a routerLink="/map" routerLinkActive="active" [routerLinkActiveOptions]="{exact: true}" class="custom-button-before" style="height:50px; width: 50px;"></a>     
   </div>
   <script>
