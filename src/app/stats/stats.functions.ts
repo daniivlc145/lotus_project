@@ -12,8 +12,8 @@ interface ContainerInfo {
 }
 export async function getStatsCalles() : Promise<{[clave:string]:string}> {
     try{
-            getAllInquiries().then((data)=> {
-                return recogeStatsStreets(data)
+            getAllInquiries().then(async (data)=> {
+                return await recogeStatsStreets(data)
             })
             throw "Error al recuperar incidencias"
     }

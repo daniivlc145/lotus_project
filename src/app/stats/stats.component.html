@@ -3,10 +3,15 @@
         <div>
             <img src="../../assets/img/stats_containers.png" alt="Icono Incidencias Usuarios" height="70%" width="90%" style="position:relative; left:5%; top: 10%;">
         </div>
-    
-        <div>
-            <img src="../../assets/img/stats_inquiries.png" alt="Icono Incidencias Usuarios" height="70%" width="90%" style="position:relative; left:5%; top: 10%;">
+
+        <div class="scrollable-container">
+            <div *ngFor="let incidencia of incidenciasData">
+              <div>{{ incidencia.calle }} - {{ incidencia.porcentaje }}%</div>
+            </div>
         </div>
+          
+    
+       
     
         <div class="contenedor">
             <div class="fila">

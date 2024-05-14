@@ -1,7 +1,13 @@
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
-// import { getStats } from './stats.functions';
+import { getStatsCalles } from './stats.functions';
 import { getFullContainerStat, getReclamationStat, getSuggestionStat, getQueryStat } from './stats.functions';
+
+
+interface Incidencia {
+  calle: string;
+  porcentaje: number;
+}
 
 @Component({
   selector: 'app-stats',
@@ -10,6 +16,9 @@ import { getFullContainerStat, getReclamationStat, getSuggestionStat, getQuerySt
 })
 export class StatsComponent  implements OnInit {
 
+  
+  elementos: { [clave: string]: string } = {}; // Tu diccionario existente
+  incidenciasData: Incidencia[] = []; // Arreglo de objetos Incidencia
 
   constructor(private router: Router) { }
 
@@ -20,11 +29,29 @@ export class StatsComponent  implements OnInit {
    this.obtenerConsultas();
    this.obtenerReclamaciones();
    this.obtenerSugerencias();
+
+   this.incidenciasData = Object.keys(this.elementos).map(calle => ({
+    calle,
+    porcentaje: parseFloat(this.elementos[calle])
+  }));
   
 
   }
 
-  async  obtenerNumeroContenedoresLlenos() {
+ 
+
+
+
+
+
+  
+
+
+
+ 
+
+
+async  obtenerNumeroContenedoresLlenos() {
     try {
       const numero = await getFullContainerStat();
       var elemento = document.getElementById("2");
@@ -100,3 +127,4 @@ export class StatsComponent  implements OnInit {
   }
 
 }
+

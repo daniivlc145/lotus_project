@@ -41,12 +41,15 @@ export class loginComponent  implements OnInit {
 
   // Variable para almacenar el último botón seleccionado
  lastSelectedButtonId: string | null = null;
+ org: boolean = false;
 
  handleButtonClick(buttonId: string) {
   // Verificar si el botón actual es diferente al último seleccionado
   if (buttonId !== this.lastSelectedButtonId) {
       const otherButtonId = buttonId === 'userbutton' ? 'orgbutton' : 'userbutton';
       this.swapStyles(buttonId, otherButtonId);
+      this.org = !this.org
+      
 
       // Actualizar el último botón seleccionado
       this.lastSelectedButtonId = buttonId;
