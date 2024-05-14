@@ -14,7 +14,7 @@ interface Incidencia {
   styleUrls: ['./stats.component.scss'],
 })
 export class StatsComponent implements OnInit {
-  elementos: {[clave:string]:string} = {}; // Almacenar los resultados de muestraMisIncidencias
+  elementos: {[clave:string]:number} = {}; // Almacenar los resultados de muestraMisIncidencias
   incidenciasData: Incidencia[] = [];
 
   constructor(private router: Router) { }
@@ -28,30 +28,13 @@ export class StatsComponent implements OnInit {
   }
 
   async obtenerDatos() {
-    /*const result = await getStatsCalles();
+    const result = await getStatsCalles();
     this.elementos = result; // Almacenar los resultados
     this.incidenciasData = Object.keys(this.elementos).map(calle => ({
       calle,
-      porcentaje: parseFloat(this.elementos[calle])
+      porcentaje: this.elementos[calle]
     }));
-    console.log(result);*/
-    const simulatedData = {
-      "Calle 1": "50",
-      "Calle 2": "30",
-      "Calle 3": "20",
-      "Calle 4": "50",
-      "Calle 5": "30",
-      "Calle 6": "20",
-      "Calle 7": "50",
-      "Calle 8": "30",
-      "Calle 9": "20"
-  };
-  this.elementos = simulatedData;
-    this.incidenciasData = Object.keys(this.elementos).map(calle => ({
-        calle,
-        porcentaje: parseFloat(this.elementos[calle])
-    }));
-    console.log(this.incidenciasData);  
+    console.log(result);  
   }
 
 

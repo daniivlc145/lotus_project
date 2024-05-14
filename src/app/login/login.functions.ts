@@ -59,17 +59,17 @@ export async function compruebaNuevo(): Promise<boolean>{
   }
 }
 
-export async function isUser(email : string) {
+export async function isUser(email : string) : Promise<Boolean>  {
     try {
 
       const {data, error,count} = await supabaseClient
       .from('users_info')
-      .select('*')
+      .select('*', { count : 'exact', head : true})
       .eq('email',email)
       
       if(error) throw "Error al comprobar la existencia del correo"
-
-      count ? true : false
+      console.log(count)
+      return count ? true : false
     }
     catch(error) {
       console.error("Error inesperado: ", error)

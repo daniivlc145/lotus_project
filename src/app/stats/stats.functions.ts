@@ -10,12 +10,15 @@ interface ContainerInfo {
     location: string,
     is_full: boolean
 }
-export async function getStatsCalles() : Promise<{[clave:string]:string}> {
+export async function getStatsCalles() : Promise<{[clave:string]:number}> {
     try{
-            getAllInquiries().then(async (data)=> {
-                return await recogeStatsStreets(data)
+            return await getAllInquiries().then(async (data)=> {
+                console.log("HA IDO BIEN")
+                const aux = await recogeStatsStreets(data)
+                console.log(aux)
+                return aux
             })
-            throw "Error al recuperar incidencias"
+            .catch(()=> {throw "Error al recuperar incidencias"})
     }
     catch(error){
         console.error("Error inesperado al sacar los stats: ", error)
@@ -67,7 +70,8 @@ async function recogeStatsStreets(diccionario_inquiries : {[clave:string]:string
     let diccionario_stats : {[clave:string]:number} = {}
     let calles_tot : number = 0
     for(let inquirie_item of diccionario_inquiries){
-        if(inquirie_item["geo_shape"] == null || inquirie_item["geo_shape"].search(/\,/g) != -1){
+        console.log(inquirie_item["geo_shape"].search(/\w/g))
+        if(inquirie_item["geo_shape"] == null || inquirie_item["geo_shape"].search(/[A-Za-z]/) == -1){
             continue  
         } 
         if(diccionario_stats[inquirie_item["geo_shape"]]){
@@ -80,7 +84,7 @@ async function recogeStatsStreets(diccionario_inquiries : {[clave:string]:string
         }
     }
     for(let entry of Object.keys(diccionario_stats)){
-            diccionario_stats[entry] = diccionario_stats[entry] / calles_tot
+            diccionario_stats[entry] = Math.round(diccionario_stats[entry] / calles_tot * 100)
     }
     
 
