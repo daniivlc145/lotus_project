@@ -44,54 +44,11 @@ changePassword() {
  this.nombreRef.nativeElement.textContent = nameUser;
 }
 
+goToProfPage(){
+  this.router.navigate(['/profUser']);
+}
 
-
-
-
-
-  goToConfigPage() {
   
-    this.router.navigate(['/config']);
-  }
-  
-  goToInfoPage() {
-
-    this.router.navigate(['/info-rec']);
-  }
-
-  goToNuevaIncPage() {
-
-    this.router.navigate(['/newI']);
-  }
-
-  goToMisPage() {
-
-    this.router.navigate(['/misI']);
-  }
-
-  goToMapPage() {
-
-      this.router.navigate(['/map']);
-  }
-
-  goToProfPage(){
-
-    window.location.reload();
-    
-    
-  }
-
-  goToSugPage(){
-
-    this.router.navigate(['/sug']);
-
-  }
-
-       
-  goToAbtPage(){
-
-    this.router.navigate(['/abt']);
-  }
 
   isSecondTextboxActive = true;
 
@@ -104,7 +61,7 @@ changePassword() {
         if (validarTelefono(this.numero)) {throw new Error('Teléfono incorrecto. Escribe solo dígitos');}
       }
       if(this.fullname.trim() !== ""){
-        if (validarnombrecompleto(this.fullname)) {throw new Error('Email incorrecto. Escribe un email válido');}
+        if (validarnombrecompleto(this.fullname)) {throw new Error('El nombre no puede contener dígitos ni contener más de 100 caracteres');}
       }
       this.showPop();
       
@@ -132,6 +89,8 @@ changePassword() {
       if (detail.data && detail.data.action === 'accept') {
         try {
           await updateUserData(this.fullname,this.numero);
+          this.goToProfPage()
+
         } catch (error) {
           console.error('Error al cambiar la info', error);
         }
@@ -159,5 +118,7 @@ function areAllTextBoxesEmpty(email:string, number: string): boolean {
   return email.trim() ==="" &&
          number.trim() === "" 
 }
+
+
 
 
