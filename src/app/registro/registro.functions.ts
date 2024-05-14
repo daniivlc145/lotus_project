@@ -10,7 +10,7 @@ export async function signUpUser (email: string, password: string, fullName: str
         full_name: fullName,
         phone_number: phoneNumber
       },
-      emailRedirectTo: "http://localhost:4200/login"
+      emailRedirectTo: "https://lotusproject.netlify.app/login"
     }
   }
   try {
