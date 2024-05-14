@@ -32,6 +32,7 @@ user-select: none;
     top: 0%;
     left: 15%;
     font-size: 6vw;
+    line-height: 1;
 }
 
    
@@ -51,6 +52,14 @@ user-select: none;
     flex-direction: column;
     align-items: center;
     z-index: 0; /* Asegura que el contenedor de formulario esté detrás del título */
+}
+
+.registro {
+
+    position: absolute;
+    top: 90%;
+    left: 20%;
+
 }
 
     
