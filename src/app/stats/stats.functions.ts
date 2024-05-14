@@ -10,7 +10,19 @@ interface ContainerInfo {
     location: string,
     is_full: boolean
 }
-
+export async function getStatsCalles() : Promise<{[clave:string]:string}> {
+    try{
+            getAllInquiries().then((data)=> {
+                return recogeStatsStreets(data)
+            })
+            throw "Error al recuperar incidencias"
+    }
+    catch(error){
+        console.error("Error inesperado al sacar los stats: ", error)
+        throw error
+    } 
+    
+}
 // export async function getStats() : Promise<void> {
 //     try{
 //         console.log(">> Empieza")
@@ -51,7 +63,7 @@ async function recogeStatsContainer(diccionario_container : {[clave:string]:Cont
     return result
 }
 
-async function recogeStatsStreets(diccionario_inquiries : {[clave:string]:string}[]) : Promise<[string[],number[]]> {
+async function recogeStatsStreets(diccionario_inquiries : {[clave:string]:string}[]) : Promise<{[clave:string]:Number}> {
     let diccionario_stats : {[clave:string]:number} = {}
     for(let inquirie_item of diccionario_inquiries){
         if(inquirie_item["geo_shape"] == null || inquirie_item["geo_shape"].search(/\,/g) != -1){
@@ -73,7 +85,7 @@ async function recogeStatsStreets(diccionario_inquiries : {[clave:string]:string
     // sortedValues.forEach(value => {
     // sortedDict[value] = diccionario_stats[value]
     // });
-    return [Object.keys(diccionario_stats),Object.values(diccionario_stats)]
+    return diccionario_stats
 
 }
 
