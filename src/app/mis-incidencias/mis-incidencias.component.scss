@@ -12,6 +12,14 @@
       overflow: auto;
       font-family: 'Laura merged', sans-serif;
   }
+
+  @media(min-width: 600px){
+    .filter-buttons{
+        align-items: center;
+        width: 70%;
+    }
+    
+}
   
   
   /*Custom Last*/
