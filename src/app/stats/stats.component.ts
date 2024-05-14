@@ -1,8 +1,7 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, ElementRef, ViewChild } from '@angular/core';
 import { Router } from '@angular/router';
 import { getStatsCalles } from './stats.functions';
 import { getFullContainerStat, getReclamationStat, getSuggestionStat, getQueryStat } from './stats.functions';
-
 
 interface Incidencia {
   calle: string;
@@ -14,38 +13,46 @@ interface Incidencia {
   templateUrl: './stats.component.html',
   styleUrls: ['./stats.component.scss'],
 })
-export class StatsComponent  implements OnInit {
-
-  
-  elementos: { [clave: string]: string } = {}; // Tu diccionario existente
-  incidenciasData: Incidencia[] = []; // Arreglo de objetos Incidencia
+export class StatsComponent implements OnInit {
+  elementos: {[clave:string]:string} = {}; // Almacenar los resultados de muestraMisIncidencias
+  incidenciasData: Incidencia[] = [];
 
   constructor(private router: Router) { }
 
   async ngOnInit() {
-
-   // getStats();
-   this.obtenerNumeroContenedoresLlenos();
-   this.obtenerConsultas();
-   this.obtenerReclamaciones();
-   this.obtenerSugerencias();
-
-   this.incidenciasData = Object.keys(this.elementos).map(calle => ({
-    calle,
-    porcentaje: parseFloat(this.elementos[calle])
-  }));
-  
-
+    await this.obtenerDatos(); // Asegúrate de que los datos estén disponibles antes de continuar
+    this.obtenerNumeroContenedoresLlenos();
+    this.obtenerConsultas();
+    this.obtenerReclamaciones();
+    this.obtenerSugerencias();
   }
 
- 
-
-
-
-
-
-  
-
+  async obtenerDatos() {
+    /*const result = await getStatsCalles();
+    this.elementos = result; // Almacenar los resultados
+    this.incidenciasData = Object.keys(this.elementos).map(calle => ({
+      calle,
+      porcentaje: parseFloat(this.elementos[calle])
+    }));
+    console.log(result);*/
+    const simulatedData = {
+      "Calle 1": "50",
+      "Calle 2": "30",
+      "Calle 3": "20",
+      "Calle 4": "50",
+      "Calle 5": "30",
+      "Calle 6": "20",
+      "Calle 7": "50",
+      "Calle 8": "30",
+      "Calle 9": "20"
+  };
+  this.elementos = simulatedData;
+    this.incidenciasData = Object.keys(this.elementos).map(calle => ({
+        calle,
+        porcentaje: parseFloat(this.elementos[calle])
+    }));
+    console.log(this.incidenciasData);  
+  }
 
 
  
