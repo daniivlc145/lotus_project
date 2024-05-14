@@ -63,19 +63,26 @@ async function recogeStatsContainer(diccionario_container : {[clave:string]:Cont
     return result
 }
 
-async function recogeStatsStreets(diccionario_inquiries : {[clave:string]:string}[]) : Promise<{[clave:string]:Number}> {
+async function recogeStatsStreets(diccionario_inquiries : {[clave:string]:string}[]) : Promise<{[clave:string]:number}> {
     let diccionario_stats : {[clave:string]:number} = {}
+    let calles_tot : number = 0
     for(let inquirie_item of diccionario_inquiries){
         if(inquirie_item["geo_shape"] == null || inquirie_item["geo_shape"].search(/\,/g) != -1){
             continue  
         } 
         if(diccionario_stats[inquirie_item["geo_shape"]]){
             diccionario_stats[inquirie_item["geo_shape"]] = diccionario_stats[inquirie_item["geo_shape"]] + 1
+            calles_tot++
         }
         else{
             diccionario_stats[inquirie_item["geo_shape"]] = 1
+            calles_tot++
         }
     }
+    for(let entry of Object.keys(diccionario_stats)){
+            diccionario_stats[entry] = diccionario_stats[entry] / calles_tot
+    }
+    
 
     //const sortedValues = Object.values(diccionario_stats).sort();
 
