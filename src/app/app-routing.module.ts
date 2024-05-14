@@ -99,7 +99,7 @@ const routes: Routes = [
 
   {
     path: '',
-    redirectTo: 'login',
+    redirectTo: 'load',
     pathMatch: 'full'
   },
   {
