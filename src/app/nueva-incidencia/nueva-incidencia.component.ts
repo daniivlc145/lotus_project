@@ -139,6 +139,7 @@ export class NuevaIncidenciaComponent implements AfterViewInit{
       const popover = await this.popoverCntrl.create({
         component: PopinfoTwoComponent,
         backdropDismiss: false,
+        mode:'ios',
         componentProps: {
           title: 'Nueva incidencia',
           content: contenidoPopover
@@ -208,6 +209,7 @@ export class NuevaIncidenciaComponent implements AfterViewInit{
         const popoverone = await this.popoverCntrl.create({
           component: PopinfoOneComponent,
           backdropDismiss: false,
+          mode:'ios',
           componentProps: {
             title: '¡Incidencia notificada!',
             content: 'Gracias por ayudarnos a hacer un mundo más limpio y mejor'
@@ -232,6 +234,7 @@ export class NuevaIncidenciaComponent implements AfterViewInit{
       this.photo = await this.cameraService.takePhoto();
       const popover = await this.popoverCntrl.create({
         component: PhotoPopoverComponent,
+        mode:'ios',
         componentProps: {
           photo: this.photo
         },
