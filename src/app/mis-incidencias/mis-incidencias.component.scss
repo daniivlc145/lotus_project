@@ -1,12 +1,6 @@
 @import url("/src/css/style.css");
   
   body {
-      margin: 0;
-      padding: 0;
-      display: flex;
-      justify-content: center;
-      align-items: center;
-      min-height: 100vh;
       background-color:#c1d7d5;
       user-select: none;
       overflow: auto;
@@ -56,16 +50,15 @@
   }
   
   .textotitle{
-    font-family: 'Laura merged', sans-serif; /* Utiliza la fuente Laura Regular */
-    font-size: 28px; /* Tamaño de la fuente */
-    text-align: left; /* Alineación del texto */
-    color: #FFFFFF; /* Color del texto */
-    position: absolute; 
-    bottom: 105%; 
-    left: 49%; 
-    transform: translate(-50%, 5%);
-    margin-bottom: 27px;
-    z-index: 6; /* Asegura que el texto esté por encima del SVG */
+    font-family: 'Laura Regular', sans-serif; /* Utiliza la fuente Laura Regular */
+  font-size: 5vw; /* Tamaño de la fuente */
+  text-align: left; /* Alineación del texto */
+  color: #FFFFFF; /* Color del texto */
+  position: absolute; 
+  top:2%;
+  left: 49%; 
+  transform: translate(-50%, -0%);
+  z-index: 2; /* Asegura que el texto esté por encima del SVG */
   }
 
   .texto-TIPO{
@@ -114,6 +107,7 @@
       left: 26%; 
       transform: translate(-50%, -0%);
       z-index: 6; 
+      margin-right: 5px;
   }
   .texto-Ubi{
     font-family: 'Laura merged', sans-serif; /* Utiliza la fuente Laura Regular */
@@ -122,7 +116,7 @@
       color: #b5b4b8; /* Color del texto */
       position: absolute; 
       bottom: 75%; 
-      left: 57%; 
+      left: 60%; 
       transform: translate(-50%, -0%);
       z-index: 6; 
   }
@@ -137,6 +131,7 @@
       left: 25%; 
       transform: translate(-50%, -0%);
       z-index: 6; 
+      margin-right: 10px;
   }
   .texto-desc{
     font-family: 'Laura merged', sans-serif; /* Utiliza la fuente Laura Regular */
@@ -145,7 +140,7 @@
       color: #b5b4b8; /* Color del texto */
       position: absolute; 
       bottom: 70%; 
-      left: 57%; 
+      left: 80%; 
       transform: translate(-50%, -0%);
       z-index: 6; 
   }
