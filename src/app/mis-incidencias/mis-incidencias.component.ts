@@ -56,7 +56,7 @@ private crearNuevoElemento(elem: {[clave:string]:string}): void {
   nuevoSVG.setAttribute('id', 'backgroundSVG');
   nuevoSVG.setAttribute('xmlns', 'http://www.w3.org/2000/svg');
   nuevoSVG.setAttribute('viewBox', '0.644079 3.88478 13.17 8.81');
-  nuevoSVG.setAttribute('style', 'width:300px; position:relative; z-index: 1; filter: drop-shadow(0 0 10px rgba(0, 0, 0, 0.15)); align-self:center; align-content:center');
+  nuevoSVG.setAttribute('style', 'width:100%; position:relative; z-index: 1; filter: drop-shadow(0 0 10px rgba(0, 0, 0, 0.15)); align-self:center; align-content:center');
   nuevoSVG.setAttribute('x', '10');
   nuevoSVG.setAttribute('y', '20');
   // Crear el elemento 'path' dentro del elemento SVG
@@ -74,7 +74,7 @@ private crearNuevoElemento(elem: {[clave:string]:string}): void {
   svgHeader.setAttribute('id', 'svgHeader');
   svgHeader.setAttribute('xmlns', 'http://www.w3.org/2000/svg');
   svgHeader.setAttribute('viewBox', '0.763236 3.87435 13.06 3.126');
-  svgHeader.setAttribute('style', 'height: 140px; width:315px; position:relative; z-index: 2;');
+  svgHeader.setAttribute('style', 'height: 70%; width:90%; position:relative; z-index: 2;');
 
   // Crear el elemento 'path' dentro del elemento SVG
   const nuevoPath2 = document.createElementNS('http://www.w3.org/2000/svg', 'path');
@@ -103,7 +103,7 @@ private crearNuevoElemento(elem: {[clave:string]:string}): void {
   const fechaElement = document.createElement('p');
   fechaElement.className = 'texto-DATE';
   fechaElement.textContent = elem['fecha'];
-  fechaElement.setAttribute('style',' font-size: 20px;  text-align: left;color: #ffffff; position: absolute;z-index: 3;margin-top: 40px; left: 46%; ')
+  fechaElement.setAttribute('style',' font-size: 20px;  text-align: left;color: #ffffff; position: absolute;z-index: 3;margin-top: 40px; left: 50%; ')
   nuevoLabel.appendChild(fechaElement);
 
   const tipoElement = document.createElement('p');
@@ -115,20 +115,20 @@ private crearNuevoElemento(elem: {[clave:string]:string}): void {
   const horaElement = document.createElement('p');
   horaElement.className = 'texto-TIME';
   horaElement.textContent = elem['hora'];
-  horaElement.setAttribute('style',' font-size: 20px;  text-align: left;color: #ffffff; position: absolute;z-index: 3; margin-top: 40px; left: 68%;')
+  horaElement.setAttribute('style',' font-size: 20px;  text-align: left;color: #ffffff; position: absolute;z-index: 3; margin-top: 40px; left: 80%;')
   nuevoLabel.appendChild(horaElement);
 
   const descripcionElement = document.createElement('p');
   descripcionElement.className = 'texto-desc';
   descripcionElement.textContent = elem['descripcion'];
-  descripcionElement.setAttribute('style',' font-size: 16px;  text-align: left;color: #b5b4b8; position: absolute;z-index: 3; margin-top: 120px; left:29%; overflow: hidden;text-overflow: ellipsis; width: 170px; white-space: nowrap;')
+  descripcionElement.setAttribute('style',' font-size: 16px;  text-align: left;color: #b5b4b8; position: absolute;z-index: 3; margin-top: 120px; left:35%; overflow: hidden;text-overflow: ellipsis; width: 170px; white-space: nowrap;')
   nuevoLabel.appendChild(descripcionElement);
   
 
   const geoShapeElement = document.createElement('p');
   geoShapeElement.className = 'texto-Ubi';
   geoShapeElement.textContent = elem['geo_shape'];
-  geoShapeElement.setAttribute('style',' font-size: 16px;  text-align: left;color: #b5b4b8; position: absolute;z-index: 3; margin-top: 90px; left:29%; overflow: hidden; text-overflow: ellipsis; width: 170px; white-space: nowrap; overflow-wrap: break-word;')
+  geoShapeElement.setAttribute('style',' font-size: 16px;  text-align: left;color: #b5b4b8; position: absolute;z-index: 3; margin-top: 90px; left:30%; overflow: hidden; text-overflow: ellipsis; width: 170px; white-space: nowrap; overflow-wrap: break-word;')
   nuevoLabel.appendChild(geoShapeElement);
 
   // Obtener el contenedor de incidencias

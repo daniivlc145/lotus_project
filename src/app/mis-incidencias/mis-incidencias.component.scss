@@ -61,41 +61,9 @@
   z-index: 2; /* Asegura que el texto esté por encima del SVG */
   }
 
-  .texto-TIPO{
-    font-family: 'Laura merged', sans-serif; /* Utiliza la fuente Laura Regular */
-      font-size: 25px; /* Tamaño de la fuente */
-      text-align: left; /* Alineación del texto */
-      color: #ffffff; /* Color del texto */
-      position: absolute; 
-      bottom: 86%; 
-      left: 25%; 
-      transform: translate(-50%, -0%);
-      z-index: 6; 
-  }
 
-  .texto-DATE{
-    font-family: 'Laura merged', sans-serif; /* Utiliza la fuente Laura Regular */
-      font-size: 20px; /* Tamaño de la fuente */
-      text-align: left; /* Alineación del texto */
-      color: #ffffff; /* Color del texto */
-      position: absolute; 
-      bottom: 86%; 
-      left: 57%; 
-      transform: translate(-50%, -0%);
-      z-index: 6; 
-  }
 
-  .texto-TIME{
-    font-family: 'Laura merged', sans-serif; /* Utiliza la fuente Laura Regular */
-      font-size: 18px; /* Tamaño de la fuente */
-      text-align: left; /* Alineación del texto */
-      color: #ffffff; /* Color del texto */
-      position: absolute; 
-      bottom: 86%; 
-      left: 75%; 
-      transform: translate(-50%, -0%);
-      z-index: 6; 
-  }
+
 
   .label-Ubi{
     font-family: 'Laura merged', sans-serif; /* Utiliza la fuente Laura Regular */
@@ -151,6 +119,19 @@
     font-weight: bold;
     font-size: 15px;
 }
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 .footer {
