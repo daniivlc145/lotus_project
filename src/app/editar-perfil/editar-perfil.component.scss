@@ -38,7 +38,7 @@ body{
   border-radius: 50%; /* Hace que el div sea un círculo */
   z-index: 2;
   position: absolute;
-  top: 63%;
+  top:30%;
   left: 26%;
   transform: translate(-50%, -50%); /* Centra el círculo horizontal y verticalmente */
   border: 5px solid #5a8d8d; /* Define el borde con ancho, estilo y color */
@@ -50,7 +50,7 @@ body{
   position: absolute;
   z-index: 10000;
   font-family: 'Laura merged', sans-serif;
-  font-size: 20px; /* Reduzco el tamaño de fuente */  
+  font-size: 5vw; /* Reduzco el tamaño de fuente */  
   left: 50%;
   top: 61%;
   font-weight: bold;
@@ -59,7 +59,7 @@ body{
 }
 
  #fullname,#numero{
-  font-size: 18px;
+  font-size: 5vw;
   width: 80%;
   padding: 8px;
   margin-bottom: 30px;
@@ -76,7 +76,7 @@ body{
 .input-icon {
   position: absolute;
   z-index: 1000;
-  right: 12%;
+  left: 70%;
   top:20px;
   transform: translateY(-50%);
   pointer-events: none; /* Permite que los clics pasen a través del icono al campo de texto */
@@ -85,7 +85,7 @@ body{
 .input-icon2 {
   position: absolute;
   z-index: 1000;
-  right: 10%;
+  left: 70%;
   top:65%;
   transform: translateY(-50%);
   pointer-events: none; /* Permite que los clics pasen a través del icono al campo de texto */
@@ -99,9 +99,10 @@ body{
   flex-direction: column;
     justify-content: space-between; /* Distribuye el espacio entre los elementos de manera uniforme */
     align-items: center; /* Alinea verticalmente los elementos hijos en el centro */
-    position: relative;
+    position: absolute;
     z-index: 40;
-    bottom: 60%;
+    top: 40%;
+    width: 100%;
 
 }
 
@@ -115,13 +116,13 @@ body{
   border: none; /* Eliminar el borde */
   color: #3a5e62; /* Cambiar el color del texto a blanco */
   text-align: center;
-  font-size: 24px;
-  position: relative; 
+  font-size: 5vw;
+  position: absolute; 
   height: 80px; 
   width:200px;
   cursor: pointer; /* Cambia el cursor al pasar por encima */ 
   z-index: 8;
-  bottom:27%;
+  top: 74%;
   transform: rotate(-1deg); /* Rota el texto 45 grados en sentido contrario a las agujas del reloj */
   white-space: nowrap; /* Asegura que el texto esté en una sola línea */
   padding-bottom: 34px; /* Ajusta este valor para mover el texto hacia arriba */
@@ -148,9 +149,9 @@ p{
   font-size: 95%;
   color: #3a5e62;
   z-index: 8;
-  position: relative;
+  position: absolute;
   font-family: 'Laura merged', sans-serif;
-  bottom: 30%;
+  top: 65%;
 } 
 
 .custom-button-before{
@@ -163,7 +164,7 @@ p{
   cursor: pointer; /* Cambia el cursor al pasar por encima */
   color: white;
   font-family: 'Handwriting', sans-serif; /* Utiliza la fuente Laura Regular */
-  font-size: 24px; /* Tamaño de la fuente */
+  font-size: 4vw; /* Tamaño de la fuente */
   text-align: center; /* Alineación del texto */
   position:absolute;
 }
