@@ -61,7 +61,7 @@ goToProfPage(){
         if (validarTelefono(this.numero)) {throw new Error('Escribe solo 9 dígitos en el teléfono');}
       }
       if(this.fullname.trim() !== ""){
-        if (validarnombrecompleto(this.fullname)) {throw new Error('Nombre sin digitos ni más de 70 caracteres.');}
+        if (validarnombrecompleto(this.fullname)) {throw new Error('Escribe un nombre sin digitos y sin más de 50 caracteres.');}
       }
       this.showPop();
       
@@ -103,13 +103,13 @@ goToProfPage(){
 }
 function validarnombrecompleto(texto: string): boolean {
   const contieneDigitos = /\d/.test(texto);
-  const masDe100Caracteres = texto.length > 70;
+  const masDe100Caracteres = texto.length > 50;
   return contieneDigitos || masDe100Caracteres;
 }
 
 function validarTelefono(texto: string): boolean {
   const soloDigitos = /^\d+$/.test(texto);
-  const masDe9Caracteres = texto.length > 9
+  const masDe9Caracteres = texto.length != 9
   return !soloDigitos || masDe9Caracteres;
 }
 
