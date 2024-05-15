@@ -1,6 +1,7 @@
 import { Component, OnInit, ElementRef, ViewChild } from '@angular/core';
 import { Router } from '@angular/router';
-import { getStatsCalles } from './stats.functions';
+import { EmailService } from '../email.service';
+import { getStatsCalles, getStatsContenedores } from './stats.functions';
 import { getFullContainerStat, getReclamationStat, getSuggestionStat, getQueryStat } from './stats.functions';
 import { ChangeDetectorRef } from '@angular/core';
 
@@ -17,11 +18,15 @@ interface Incidencia {
 export class StatsComponent implements OnInit {
   elementos: {[clave:string]:number} = {}; // Almacenar los resultados de muestraMisIncidencias
   incidenciasData: Incidencia[] = [];
+  imageName = '../../icons/Blank_Chiquito.png'
 
-  constructor(private router: Router,  private cdRef: ChangeDetectorRef) { }
+  constructor(private router: Router,  private cdRef: ChangeDetectorRef, private emailService: EmailService) { }
 
   async ngOnInit() {
     await this.obtenerDatos(); // Asegúrate de que los datos estén disponibles antes de continuar
+    let stats = await getStatsContenedores()
+    this.imageName = await this.emailService.pedirStats(stats)
+    console.log("HOLA")
     this.obtenerNumeroContenedoresLlenos();
     this.obtenerConsultas();
     this.obtenerReclamaciones();

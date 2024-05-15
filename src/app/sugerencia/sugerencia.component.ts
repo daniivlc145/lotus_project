@@ -29,19 +29,14 @@ export class SugerenciaComponent  implements OnInit {
     const body = emailContent;
     const email = await getMail();
     this.showPop();
-    const correo = {
-        
-      from: email,
-      to: ['lotuscodeproj@gmail.com'],
-        subject: subject,
-        body: body
+    const to  = "lotuscodeproj@gmail.com"
+    
 
-    };
-
-    this.emailService.enviarCorreo(correo).subscribe(
-        response => console.log(response),
-        error => console.error(error)
-    );
+    this.emailService.enviarCorreo(to,email, body)
+     .subscribe(
+         response => console.log(response),
+         error => console.error(error)
+     );
 }
 
 

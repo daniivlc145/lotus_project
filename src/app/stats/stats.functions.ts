@@ -26,32 +26,21 @@ export async function getStatsCalles() : Promise<{[clave:string]:number}> {
     } 
     
 }
-// export async function getStats() : Promise<void> {
-//     try{
-//         console.log(">> Empieza")
-//         searchContainers().then((data)=> {
-//             recogeStatsContainer(data).then((data) => 
-//                 {
-//                     execSync('python3 ./get_stats.py -c [' + data + ']', {encoding : 'utf-8', stdio : 'inherit'})
-//                 }
-//             )
-//         })
-//         getAllInquiries().then((data)=> {
-//             recogeStatsStreets(data).then(([calles, valor]) => 
-//                 {
-//                     let value = "[" + valor + "] "
-//                     let street = '"' + calles + '"'
-//                     execSync("python3 ./get_stats.py -s " + value +  " st " + street, {encoding : 'utf-8', stdio : 'inherit'})
-//                 }
-//             )
-//         })
-//     }
-//     catch(error){
-//         console.error("Error inesperado al sacar los stats: ", error)
-//     }
+ export async function getStatsContenedores() : Promise<Number[]> {
+     try{
+         console.log(">> Empieza")
+         return searchContainers().then(async (data)=> {
+            const stats = await recogeStatsContainer(data)
+            console.log(stats)
+             return stats
+         }).catch(() =>{throw "Error al buscar contenedores"})
+     }
+     catch(error){
+         console.error("Error inesperado al sacar los stats: ", error)
+         throw error
+    }
 
-
-// }
+ }
 
 async function recogeStatsContainer(diccionario_container : {[clave:string]:ContainerInfo[]}) : Promise<Number[]> {
     let contenedores : string[] = ["Papel / Carton", "oil_containers", "glass_containers", "clothes_containers", "Envases Ligeros",  "Organico"]

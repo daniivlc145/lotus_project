@@ -1,7 +1,7 @@
 import { supabaseClient } from "src/supabase_client";
 
 
-export async function getMail() : Promise<String> {
+export async function getMail() : Promise<string> {
     
     try{
         const {data: {user}, error: errorUsuario} = await supabaseClient.auth.getUser()
