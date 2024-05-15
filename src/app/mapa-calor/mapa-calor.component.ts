@@ -45,7 +45,7 @@ export class mapaCalorComponent implements OnInit {
       // Usa el método heatLayer directamente
       (L as any).heatLayer(heatData, { radius: 25 }).addTo(this.map);
 
-      let routePoints : L.LatLng[] = [L.latLng(39.08989925, -0.545081986577831)]
+      let routePoints : L.LatLng[] = []
       heatData.forEach(data  => {
           data.pop
           routePoints.push(L.latLng(data[0],data[1]))

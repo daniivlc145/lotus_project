@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { Router } from '@angular/router'; // Importa el módulo Router
 
 @Component({
   selector: 'app-intro-loading',
@@ -7,8 +8,13 @@ import { Component, OnInit } from '@angular/core';
 })
 export class IntroLoadingComponent  implements OnInit {
 
-  constructor() { }
+  constructor(private router: Router) { } // Inyecta el servicio Router en el constructor
 
-  ngOnInit() {}
+  ngOnInit() {
+    setTimeout(()=> {
+      this.router.navigate(['/login'])
+    },3500)
 
+  }
+  
 }

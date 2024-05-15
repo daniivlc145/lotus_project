@@ -19,6 +19,58 @@ body {
 
 }
 
+.scrollable-container {
+  max-height: 400px; /* Ajusta según el tamaño que desees */
+  overflow-y: auto; /* Permite el desplazamiento vertical si el contenido se desborda */
+  position: absolute;
+  width: 100%;
+  height: 100%; /* Ajusta según sea necesario */
+  background-color: #3a5e62;
+  font-family: 'Laura merged', sans-serif;
+  left: 0;
+  top: 16%;
+}
+
+.calles {
+  display: flex;
+  align-items: center; /* Centra los elementos verticalmente */
+  gap: 10px; /* Añade espacio entre los elementos */
+  font-size: 6vw;
+  justify-content: space-between;
+  border: solid;
+  border-color: #3a5e62;
+  border-radius: 20px;
+  background-color: white;
+}
+
+.calles p {
+  margin: 5px; /* Añade margen alrededor de cada párrafo */
+}
+
+.title {
+
+font-family: 'Laura merged', sans-serif;
+font-size: 5vw;
+position: absolute;
+left: 0%;
+top: 0%;
+color: #ffffff;
+background-color: #3a5e62;
+width: 100%;
+height: 7%;
+padding: 7px;
+margin-bottom: 0;
+
+}
+
+
+
+.calles p:first-child {
+  order: -1; /* Esto asegura que el primer párrafo (porcentaje) se muestre primero */
+}
+
+
+
 .contenedor {
   display: flex;
   flex-direction: column;
@@ -28,8 +80,7 @@ body {
   width: 100%;
   height: 25%;
   background-color: #c1d7d5;
-  border-top: solid;
-  border-color: #ffffff;
+  
  
 }
 

@@ -13,9 +13,9 @@ export class TutorialLastComponent implements OnInit {
 
   ngOnInit() {}
 
-  goToLoginPage() {
+  goToMapPage() {
     yaNoNuevo(); // Llama a la función que actualiza el estado del usuario
-    this.router.navigate(['/login']); // Cambia 'login' por la ruta de tu página de inicio de sesión
+    this.router.navigate(['/map']); // Cambia 'login' por la ruta de tu página de inicio de sesión
   }
   
 }

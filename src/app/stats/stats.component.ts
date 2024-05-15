@@ -1,30 +1,59 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, ElementRef, ViewChild } from '@angular/core';
 import { Router } from '@angular/router';
-// import { getStats } from './stats.functions';
+import { getStatsCalles } from './stats.functions';
 import { getFullContainerStat, getReclamationStat, getSuggestionStat, getQueryStat } from './stats.functions';
+import { ChangeDetectorRef } from '@angular/core';
+
+interface Incidencia {
+  calle: string;
+  porcentaje: number;
+}
 
 @Component({
   selector: 'app-stats',
   templateUrl: './stats.component.html',
   styleUrls: ['./stats.component.scss'],
 })
-export class StatsComponent  implements OnInit {
+export class StatsComponent implements OnInit {
+  elementos: {[clave:string]:number} = {}; // Almacenar los resultados de muestraMisIncidencias
+  incidenciasData: Incidencia[] = [];
 
-
-  constructor(private router: Router) { }
+  constructor(private router: Router,  private cdRef: ChangeDetectorRef) { }
 
   async ngOnInit() {
-
-   // getStats();
-   this.obtenerNumeroContenedoresLlenos();
-   this.obtenerConsultas();
-   this.obtenerReclamaciones();
-   this.obtenerSugerencias();
+    await this.obtenerDatos(); // Asegúrate de que los datos estén disponibles antes de continuar
+    this.obtenerNumeroContenedoresLlenos();
+    this.obtenerConsultas();
+    this.obtenerReclamaciones();
+    this.obtenerSugerencias();
+  }
   
 
-  }
+  
+  
 
-  async  obtenerNumeroContenedoresLlenos() {
+
+  async obtenerDatos() {
+    const result = await getStatsCalles();
+    this.elementos = result;
+    this.incidenciasData = Object.keys(this.elementos).map(calle => ({
+      calle,
+      porcentaje: this.elementos[calle]
+    }));
+  
+    // Ordenar las incidencias por porcentaje
+    this.incidenciasData.sort((a, b) => b.porcentaje - a.porcentaje);
+  
+    console.log(this.incidenciasData);
+    this.cdRef.detectChanges(); // Forzar a Angular a detectar cambios
+  }
+  
+
+
+ 
+
+
+async  obtenerNumeroContenedoresLlenos() {
     try {
       const numero = await getFullContainerStat();
       var elemento = document.getElementById("2");
@@ -100,3 +129,4 @@ export class StatsComponent  implements OnInit {
   }
 
 }
+

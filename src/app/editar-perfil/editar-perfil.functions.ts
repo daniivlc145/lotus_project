@@ -36,6 +36,7 @@ export async function updateUserData (fullName: string, phoneNumber: string): Pr
     })
 
     if(error){
+      console.error(error)
       throw new Error("Error al actualizar datos de auth")
     }
 

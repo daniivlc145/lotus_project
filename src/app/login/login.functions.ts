@@ -34,6 +34,8 @@ function camposVacios(email: string, password: string): boolean {
   return email.trim() === '' || password.trim() === '';
 }
 
+
+
 export async function compruebaNuevo(): Promise<boolean>{
   try{
     const {data: {user}, error: errorUsuario} = await supabaseClient.auth.getUser()
@@ -55,4 +57,22 @@ export async function compruebaNuevo(): Promise<boolean>{
     console.error('Error inesperado:', (error as Error).message)
     throw error
   }
+}
+
+export async function isUser(email : string) : Promise<Boolean>  {
+    try {
+
+      const {data, error,count} = await supabaseClient
+      .from('users_info')
+      .select('*', { count : 'exact', head : true})
+      .eq('email',email)
+      
+      if(error) throw "Error al comprobar la existencia del correo"
+      console.log(count)
+      return count ? true : false
+    }
+    catch(error) {
+      console.error("Error inesperado: ", error)
+      throw error
+    }
 }

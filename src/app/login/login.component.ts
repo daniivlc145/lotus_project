@@ -1,7 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router'; // Importa el módulo Router
-import { signInUser } from './login.functions';
-import { compruebaNuevo } from './login.functions';
+import { signInUser, compruebaNuevo, isUser } from './login.functions';
 
 @Component({
   selector: 'app-login',
@@ -26,12 +25,30 @@ export class loginComponent  implements OnInit {
     const password = (document.getElementById('password') as HTMLInputElement).value;
     try{
       await signInUser(email,password);
-      console.log('goToLoginPage() called');
+      const user = await isUser(email)
+      console.log(this.org)
+      console.log(user)
+      if (!this.org && user){
+
+       console.log('goToLoginPage() called');
       if(await compruebaNuevo()){
         this.router.navigate(['/tutorial-welc']);
       } else {
         this.router.navigate(['/map']); 
       }
+      } 
+
+      if (this.org && !user){
+
+        console.log('goToLoginPage() called');
+      
+        this.router.navigate(['/mapCalor']); 
+
+      } else{
+        this.errorMessage = "Usuario no reconocido"
+
+      }
+      
     }catch(error){
       console.error('ERROR CAPTURADO:', (error as Error).message)
       this.errorMessage = (error as Error).message; // Actualiza el mensaje de error
@@ -41,12 +58,15 @@ export class loginComponent  implements OnInit {
 
   // Variable para almacenar el último botón seleccionado
  lastSelectedButtonId: string | null = null;
+ org: boolean = false;
 
  handleButtonClick(buttonId: string) {
   // Verificar si el botón actual es diferente al último seleccionado
   if (buttonId !== this.lastSelectedButtonId) {
       const otherButtonId = buttonId === 'userbutton' ? 'orgbutton' : 'userbutton';
       this.swapStyles(buttonId, otherButtonId);
+      this.org = !this.org
+      
 
       // Actualizar el último botón seleccionado
       this.lastSelectedButtonId = buttonId;

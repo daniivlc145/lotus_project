@@ -1,13 +1,13 @@
  
   <body style="font-family: 'Laura merged', sans-serif; ">
-  <div class="NuevaIncidenciaComponent">
-    <div style="position: relative; width: 400px; height: 490px;">
-      <svg xmlns="http://www.w3.org/2000/svg" viewBox="1.71221 2.87944 6.896 3.565" style="height: 140px; width:170px; position:absolute; bottom: 100%; left: 28%; z-index: 1;">
+  <div class="NuevaIncidenciaComponent" style="width: 100%; height: 90%; position: relative; top: 0;">
+    
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="1.71221 2.87944 6.896 3.565" style="height: 140px; width:200px; position:absolute; top: -8%; left: 24%; z-index: 1;">
         <path d="M 3 6 C 3 6 2 6 2 5 C 2 5 1.264 3.211 2.146 3.276 C 4.083 2.903 5.137 2.473 8.35 3.634 C 8.501 3.972 9 5 8 6 C 7 7 6 6 3 6" fill="#84beb0"/>
       </svg>
       <p class="textotitle" style="font-family: 'Laura merged', sans-serif; z-index: 4;">Mis Reportes</p>
       <p class="empty" *ngIf="elementos.length === 0" style="font-family: 'Laura merged', sans-serif; z-index:  4;">No tienes incidencias registradas</p>
-      <div #contenedorIncidencias id="contenedorIncidencias" style="overflow: auto; width:100%; height:110%; align-items: center; margin-left: 7%; padding:5%" >
+      <div #contenedorIncidencias id="contenedorIncidencias" style="overflow: auto; width:90%; height:90%; align-items: center; margin-left: 7%; padding:5%; position: absolute; top:15%; display: grid; grid-template-columns: repeat(auto-fill, minmax(300px, 1fr)); gap: 30px;" >
           <!-- Mover el ngFor aquí -->
           <div *ngFor="let elemento of elementos">
             <!-- Clonar y actualizar elementos aquí -->
@@ -16,9 +16,12 @@
                 <path d="M 3.383 12.648 C 0.954 12.45 0.717 10.749 0.695 9.97 C 0.674 9.359 0.527 9.149 0.855 5.824 C 1.17 5.165 0.826 4.106 7.9 3.905 C 9.613 3.803 10.829 4.127 11.337 3.991 C 12.826 4.02 13.943 4.478 13.807 9.418 C 13.694 11.16 13.826 12.31 11.722 12.595 C 4.056 12.543 4.696 12.796 3.383 12.648" fill="#fff"/>
               </svg>
               <!-- Utiliza la notación de corchetes para acceder a la propiedad 'type' -->
-              <p id="tipoElement" class="texto-TIPO" style="font-family: 'Laura merged', sans-serif;">{{ elemento['type'] }}</p>
-              <p id="fechaElement" class="texto-DATE" style="font-family: 'Laura merged', sans-serif;">{{ elemento['fecha'] }}</p>
-              <p id="horaElement" class="texto-TIME" style="font-family: 'Laura merged', sans-serif; ">{{ elemento['hora'] }}</p>
+           
+                <p id="tipoElement" class="texto-TIPO" style="font-family: 'Laura merged', sans-serif;">{{ elemento['type'] }}</p>
+                <p id="fechaElement" class="texto-DATE" style="font-family: 'Laura merged', sans-serif;">{{ elemento['fecha'] }}</p>
+                <p id="horaElement" class="texto-TIME" style="font-family: 'Laura merged', sans-serif;">{{ elemento['hora'] }}</p>
+            
+            
               <p id= "labelUbi" class="label-Ubi" style="font-family: 'Laura merged', sans-serif; ">Ubicación:</p>
               <p id="geoShapeElement" class="texto-Ubi" style="font-family: 'Laura merged', sans-serif; ">{{ elemento['geo_shape'] }}</p>
               <p  id= "labeldesc"class="label-desc" style="font-family: 'Laura merged', sans-serif;">Descripción:</p>
@@ -29,7 +32,7 @@
             </div>
           </div>
         </div>
-  </div>
+  
   </div>
 
     <footer class="footer">

@@ -10,7 +10,22 @@ interface ContainerInfo {
     location: string,
     is_full: boolean
 }
-
+export async function getStatsCalles() : Promise<{[clave:string]:number}> {
+    try{
+            return await getAllInquiries().then(async (data)=> {
+                console.log("HA IDO BIEN")
+                const aux = await recogeStatsStreets(data)
+                console.log(aux)
+                return aux
+            })
+            .catch(()=> {throw "Error al recuperar incidencias"})
+    }
+    catch(error){
+        console.error("Error inesperado al sacar los stats: ", error)
+        throw error
+    } 
+    
+}
 // export async function getStats() : Promise<void> {
 //     try{
 //         console.log(">> Empieza")
@@ -51,19 +66,29 @@ async function recogeStatsContainer(diccionario_container : {[clave:string]:Cont
     return result
 }
 
-async function recogeStatsStreets(diccionario_inquiries : {[clave:string]:string}[]) : Promise<[string[],number[]]> {
+async function recogeStatsStreets(diccionario_inquiries : {[clave:string]:string}[]) : Promise<{[clave:string]:number}> {
     let diccionario_stats : {[clave:string]:number} = {}
+    let calles_tot : number = 0
     for(let inquirie_item of diccionario_inquiries){
-        if(inquirie_item["geo_shape"] == null || inquirie_item["geo_shape"].search(/\,/g) != -1){
+        console.log(inquirie_item["geo_shape"])
+        console.log((/[a-zA-Z]/g).test(inquirie_item["geo_shape"]) )
+    
+        if(inquirie_item["geo_shape"] == null || !(/[a-zA-Z]/g).test(inquirie_item["geo_shape"])  ){
             continue  
         } 
         if(diccionario_stats[inquirie_item["geo_shape"]]){
             diccionario_stats[inquirie_item["geo_shape"]] = diccionario_stats[inquirie_item["geo_shape"]] + 1
+            calles_tot++
         }
         else{
             diccionario_stats[inquirie_item["geo_shape"]] = 1
+            calles_tot++
         }
     }
+    for(let entry of Object.keys(diccionario_stats)){
+            diccionario_stats[entry] = Math.round(diccionario_stats[entry] / calles_tot * 100)
+    }
+    
 
     //const sortedValues = Object.values(diccionario_stats).sort();
 
@@ -73,7 +98,7 @@ async function recogeStatsStreets(diccionario_inquiries : {[clave:string]:string
     // sortedValues.forEach(value => {
     // sortedDict[value] = diccionario_stats[value]
     // });
-    return [Object.keys(diccionario_stats),Object.values(diccionario_stats)]
+    return diccionario_stats
 
 }
 
