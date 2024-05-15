@@ -51,13 +51,23 @@ h1{ font-family: 'Laura Regular', sans-serif;}
     opacity: 100%;
 }
 
+.button-top-center{
+    position: fixed; 
+    top: 30px;
+    right: 150px; 
+    z-index: 1000;
+    display: flex;
+    align-items: right;
+    opacity: 100%;
+}
 
 
-.button-top-right input[type="checkbox"] {
+
+.button-top-right input[type="checkbox"], .button-top-center input[type="checkbox"] {
 display: none;
 }
 
-.button-top-right label {
+.button-top-right label, .button-top-center label {
     width: 13px;
     height: 15px;
     background-color: #3a5e62;
@@ -75,8 +85,17 @@ display: none;
     right: 100px;
     transform: translate(-50%, -50%);
 }
+.button-top-center img{
+    display:none;
+    position: fixed;
+    width:15px;
+    height: 17px; /* Ajusta el tamaño de la imagen según necesites */
+    top: 37px;
+    right: 226px;
+    transform: translate(-50%, -50%);
+}
 
-.button-top-right input[type="checkbox"]:checked + label img{
+.button-top-right input[type="checkbox"]:checked + label img, .button-top-center input[type="checkbox"]:checked + label img{
     display: block; /* Muestra la imagen */
 }
 
@@ -207,7 +226,7 @@ display: none;
 
 
 
-.button-top-right span {
+.button-top-right span, .button-top-center span {
     font-family: 'Laura Regular', sans-serif;
     color:#3a5e62;
     font-weight: bold;
