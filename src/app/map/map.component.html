@@ -20,6 +20,13 @@
             </label>
             <span>Mostrar todos</span>
         </label>
+        <label class="button-top-center">
+            <input type="checkbox" id="checkbox-top-center" class="filter-checkbox" (click)="toggleNoLlenos()">
+            <label for="checkbox-top-center">
+                <img src="../../assets/img/Selected.png" alt="Seleccionado">
+            </label>
+            <span>Mostrar vacíos</span>
+        </label>
         <div class="filter-buttons">
             <div class="button-container">
                 <img [src]="getContainerImage('glass_containers')" (click)="toggleCheckbox('glass_containers')">

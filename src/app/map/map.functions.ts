@@ -52,6 +52,7 @@ export async function searchContainers(): Promise<{[clave: string]: ContainerInf
     
     const data : string = JSON.stringify(result,null,2)
     try{
+        localStorage.removeItem("diccionario_contenedoresJSON")
         localStorage.setItem("diccionario_contenedoresJSON",data) 
         console.log("Diccionario creado correctamente")
     }
@@ -64,7 +65,7 @@ export async function searchContainers(): Promise<{[clave: string]: ContainerInf
 
 }
 
-export async function filtrarMapa(contenedores : string[]) : Promise<{[clave: string]: ContainerInfo[]}>{
+export async function filtrarMapa(contenedores : string[], empty : Boolean) : Promise<{[clave: string]: ContainerInfo[]}>{
     try{
         const data: string | null =  localStorage.getItem("diccionario_contenedoresJSON");
         if (data){
@@ -72,7 +73,27 @@ export async function filtrarMapa(contenedores : string[]) : Promise<{[clave: st
             const res : {[clave:string]: ContainerInfo[]} = {}
             for(const element of contenedores){
                     console.log(element)
-                    res[element] = diccionario[element]
+                    if (empty) res[element] = diccionario[element].filter((data) => data.is_full === !empty)
+                    else res[element] = diccionario[element]
+            }
+            console.log("Actualizado correctamente")
+            return res;
+        }
+        else throw new Error("Error al cargar al filtrar")
+    }
+    catch(error){
+        console.error("Error inesperado: ",error)
+        throw error
+    }
+}
+export async function filtrarMapaVacios() : Promise<{[clave: string]: ContainerInfo[]}>{
+    try{
+        const data: string | null =  localStorage.getItem("diccionario_contenedoresJSON");
+        if (data){
+            const diccionario : {[clave: string]: ContainerInfo[]} = JSON.parse(data)
+            const res : {[clave:string]: ContainerInfo[]} = {}
+            for(let elem in diccionario){
+                res[elem] = (diccionario[elem].filter((tipo) => tipo.is_full === false))
             }
             console.log("Actualizado correctamente")
             return res;

@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import * as L from 'leaflet';
 import { Router } from '@angular/router';
-import { filtrarMapa, searchContainers } from './map.functions';
+import { filtrarMapa, searchContainers, filtrarMapaVacios } from './map.functions';
 import { MediatorService } from '../mediator.service';
 import { conversionWasteContainers } from '../nueva-incidencia/nueva-incidencia.functions';
 import { Geolocation } from '@capacitor/geolocation';
@@ -109,6 +109,9 @@ export class MapComponent implements OnInit {
     }, 500);
     const checkbox = document.getElementById('checkbox-top-right') as HTMLInputElement;
     checkbox.checked = true;
+    const checkbox_empty = document.getElementById('checkbox-top-center') as HTMLInputElement;
+    checkbox_empty.checked = true;
+    
   }
 
   async obtenerUbicacion() {
@@ -141,7 +144,7 @@ export class MapComponent implements OnInit {
     L.tileLayer('https://server.arcgisonline.com/ArcGIS/rest/services/World_Topo_Map/MapServer/tile/{z}/{y}/{x}', {
       attribution: 'Tiles &copy; Esri'
     }).addTo(this.map);
-
+    
     // Escucha el evento de cambio de vista del mapa
     this.map.on('moveend', () => {
       this.updateMarkers(); // Actualiza los marcadores cuando cambia la vista del mapa
@@ -162,8 +165,9 @@ export class MapComponent implements OnInit {
         }
 
 
-
+        this.updateSelectedItems();
       })
+    
 
   }
 
@@ -258,6 +262,7 @@ export class MapComponent implements OnInit {
 
   selectAll = true;
   selectedItems: string[] = [];
+  selectEmpty = true;
   
   items = [
     { id: 'glass_containers', selected: true },
@@ -275,6 +280,12 @@ export class MapComponent implements OnInit {
       item.selected = this.selectAll;
     });
     this.updateSelectedItems();
+  }
+
+  toggleNoLlenos() {
+    this.selectEmpty= !this.selectEmpty;
+    this.updateSelectedItems();
+    
   }
 
   toggleCheckbox(itemId: string) {
@@ -341,7 +352,6 @@ export class MapComponent implements OnInit {
   }
   
   
-  
   updateSelectedItems() {
     this.selectedItems = this.items
       .filter(item => item.selected)
@@ -350,8 +360,8 @@ export class MapComponent implements OnInit {
     
     this.markers.forEach(marker => marker.remove());
     this.markers = [];
-
-    const container_info = filtrarMapa(this.selectedItems).then(
+    
+    const container_info = filtrarMapa(this.selectedItems,this.selectEmpty).then(
       (result)=> {
        
         for(let basura of this.selectedItems){
