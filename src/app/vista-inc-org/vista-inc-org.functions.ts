@@ -6,7 +6,7 @@ export async function getAllInquiries() : Promise<{[clave:string]:string}[]> {
     
         const {data, error} = await supabaseClient
             .from('inquiries')
-            .select('created_at, description, type, geo_shape')
+            .select('created_at, description, type, geo_shape, imagen_adjunta')
             .in('type', ['reclamation', 'suggestion', 'query','contenedor_lleno']);
 
         if (error) {
@@ -38,7 +38,9 @@ export async function getAllInquiries() : Promise<{[clave:string]:string}[]> {
                 'hora': hora,
                 'descripcion': elem.description,
                 'type': elem.type,
-                'geo_shape': elem.geo_shape
+                'geo_shape': elem.geo_shape,
+                'link_imagen': elem.imagen_adjunta
+
             })
            
         }
