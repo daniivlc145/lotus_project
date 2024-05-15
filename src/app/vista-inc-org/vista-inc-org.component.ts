@@ -199,9 +199,10 @@ detalleDiv.innerHTML = `
   <p style="font-size:4vw;">Hora: ${elem['hora']}</p>
   <p style="font-size:4vw;">Descripción: ${elem['descripcion']}</p>
   <p style="font-size:4vw;">Ubicación: ${elem['geo_shape']}</p>
-  ${elem['link_imagen'] ? `<img src="${elem['link_imagen']}" width="30px" height="30px" />` : ''}
+  ${elem['link_imagen'] ? `<div style="text-align:center;"><img src="${elem['link_imagen']}" width="100px" height="100px" style="margin: auto;" /></div>` : ''}
 </div>
 `;
+
 
 
   // Agregar el div al body del documento
