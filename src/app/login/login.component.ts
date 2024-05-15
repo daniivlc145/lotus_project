@@ -4,7 +4,7 @@ import { signInUser, compruebaNuevo, isUser } from './login.functions';
 
 @Component({
   selector: 'app-login',
-  templateUrl: './login.html',
+  templateUrl: './login.component.html',
   styleUrls: ['./login.component.scss'],
 })
 export class loginComponent  implements OnInit {
