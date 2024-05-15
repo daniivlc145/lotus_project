@@ -13,7 +13,7 @@ export async function signInUser (email: string, password: string): Promise<void
       if(await validarCorreoElectronico(email)){throw new Error('Email incorrecto. Escribe un email válido')}
       const {data, error} = await supabaseClient.auth.signInWithPassword(signInInfo)
       if (error) {
-        throw new Error('El email o la contraseña son incorrecto/S')
+        throw new Error('Email o contraseña incorrecto/s')
       }
       console.log('Exito iniciando sesión')
     } catch (error) {
