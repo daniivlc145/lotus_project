@@ -32,17 +32,15 @@ user-select: none;
 
     .title-container {
         position: absolute;
-        top: 22%;
+        top: 25%;
+        left: 50%;
         transform: translate(-50%, -50%);
         z-index: 1; /* Asegura que el título esté sobre el contenedor de formulario */
         user-select: none;
-        width: 100%;
         
          h1{
             font-family: 'Laura merged', sans-serif;
             font-size: 7vw;
-            left: 30%;
-            position: absolute;
         }
                 
     }
