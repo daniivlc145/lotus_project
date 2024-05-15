@@ -116,17 +116,28 @@ export class MapComponent implements OnInit {
       const ubicacion = await Geolocation.getCurrentPosition();
       console.log(ubicacion);
       this.ubicacion = ubicacion;
-      this.initializeMap()
-   } catch (error) {
+      this.initializeMap();
+    } catch (error) {
       console.error('Error obteniendo la ubicación', error);
+      // Si no se puede obtener la ubicación, establecer el punto inicial en el Ayuntamiento de Valencia
+      this.ubicacion = { coords: { latitude: 39.4699, longitude: -0.3763 } }; // Coordenadas del Ayuntamiento de Valencia
+      this.initializeMap();
     }
   }
+  
+
+
   private async initializeMap() {
 
+    const initialCoords = this.ubicacion ? [this.ubicacion.coords.latitude, this.ubicacion.coords.longitude] : [39.4699, -0.3763]; // Coordenadas del Ayuntamiento de Valencia
+  
+    // Convertir las coordenadas en un formato adecuado
+    const initialLatLng: L.LatLngTuple = [initialCoords[0], initialCoords[1]];
+  
+    // Inicializar el mapa con la ubicación inicial
     this.map = L.map('map', {
       zoomControl: false // Desactiva el control de zoom predeterminado
-    }).setView([this.ubicacion.coords.latitude, this.ubicacion.coords.longitude], 30);
-
+    }).setView(initialLatLng, 30);
     L.tileLayer('https://server.arcgisonline.com/ArcGIS/rest/services/World_Topo_Map/MapServer/tile/{z}/{y}/{x}', {
       attribution: 'Tiles &copy; Esri'
     }).addTo(this.map);
