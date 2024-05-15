@@ -14,7 +14,7 @@ export async function muestraMisIncidencias(): Promise<{[clave:string]:string}[]
         
         const {data, error} = await supabaseClient
             .from('inquiries')
-            .select('created_at, description, type, geo_shape')
+            .select('created_at, description, type, geo_shape, imagen_adjunta')
             .eq('creator_id', user?.id)
             .in('type', ['reclamation', 'suggestion', 'query', 'contenedor_lleno']);
 
@@ -45,7 +45,8 @@ export async function muestraMisIncidencias(): Promise<{[clave:string]:string}[]
                 'hora': hora,
                 'descripcion': elem.description,
                 'type': elem.type,
-                'geo_shape': elem.geo_shape
+                'geo_shape': elem.geo_shape,
+                'link_imagen': elem.imagen_adjunta
             })
            
         }
