@@ -40,7 +40,7 @@ user-select: none;
         
          h1{
             font-family: 'Laura merged', sans-serif;
-            font-size: 30px;
+            font-size: 7vw;
         }
                 
     }
@@ -91,7 +91,7 @@ user-select: none;
 
     
     #email, #password {
-        font-size: 18px;
+        font-size: 4vw;
         width: 200px;
         padding: 8px;
         margin-bottom: 10px;
@@ -107,7 +107,7 @@ user-select: none;
         text-align: center;
         a{color: #84beb0;}
         user-select: none;
-        font-size: 95%;
+        font-size: 4vw;
         margin-top: 30px;
         color: #3a5e62;
         z-index: 8;
@@ -141,7 +141,7 @@ user-select: none;
             border-radius: inherit; /* Hereda el radio de borde del contenedor */
             cursor: pointer;
             border-radius: 50px;
-            font-size: 20px;
+            font-size: 5vw;
             z-index: 8;
             }
 
@@ -201,7 +201,7 @@ user-select: none;
         left: 50%; /* Centrar horizontalmente */
         transform: translateX(-50%); /* Centrar exactamente */
         text-align: center;
-        font-size: 27px;
+        font-size: 5vw;
         position: absolute; 
         bottom: -15px; 
         right:50%; 
