@@ -22,15 +22,26 @@ export class StatsComponent implements OnInit {
 
   constructor(private router: Router,  private cdRef: ChangeDetectorRef, private emailService: EmailService) { }
 
+  currentDiv: number = 1;
+
+  showNext() {
+    this.currentDiv = (this.currentDiv % 2) + 1;
+  }
+
+  showPrevious() {
+    this.currentDiv = (this.currentDiv - 2 + 2) % 2 + 1;
+  }
+  
   async ngOnInit() {
-    await this.obtenerDatos(); // Asegúrate de que los datos estén disponibles antes de continuar
-    let stats = await getStatsContenedores()
-    this.imageName = await this.emailService.pedirStats(stats)
-    console.log("HOLA")
+    
     this.obtenerNumeroContenedoresLlenos();
     this.obtenerConsultas();
     this.obtenerReclamaciones();
     this.obtenerSugerencias();
+    await this.obtenerDatos(); // Asegúrate de que los datos estén disponibles antes de continuar
+    let stats = await getStatsContenedores()
+    this.imageName = await this.emailService.pedirStats(stats)
+    
   }
   
 
@@ -48,8 +59,6 @@ export class StatsComponent implements OnInit {
   
     // Ordenar las incidencias por porcentaje
     this.incidenciasData.sort((a, b) => b.porcentaje - a.porcentaje);
-  
-    console.log(this.incidenciasData);
     this.cdRef.detectChanges(); // Forzar a Angular a detectar cambios
   }
   
@@ -64,7 +73,7 @@ async  obtenerNumeroContenedoresLlenos() {
       var elemento = document.getElementById("2");
   
       if (elemento) {
-        console.log(numero)
+        console.log("Hola"+numero)
         elemento.textContent = numero.toString(); 
       } 
     } catch (error) {
@@ -76,6 +85,7 @@ async  obtenerNumeroContenedoresLlenos() {
     try {
       const numero = await getQueryStat();
       var elemento = document.getElementById("4");
+      console.log(numero)
   
       if (elemento) {
         elemento.textContent = numero.toString();

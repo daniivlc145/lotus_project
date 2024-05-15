@@ -1,21 +1,29 @@
 <body>
     <div style="position: relative; width: 100%; height: 90%; overflow-y: auto;">
-        <div>
-           <img src="{{imageName}}"  height="400px" width="450px"  />
-        </div>
-        <div style="position: absolute; width: 100%; height: 30%; top: 25%; background-color: #c1d7d5;">
-        <h6 class="title">PORCENTAJES DE LAS INCIDENCIAS POR CALLE</h6>
-        <div class="scrollable-container">
-            
-            <div  style="height: 30%; width: 100%; background-color:  #c1d7d5;">
-                <div class="calles" *ngFor="let incidencia of incidenciasData">
-                    <p>{{ incidencia.calle }}</p>
-                    <p>{{ incidencia.porcentaje }}%</p>
-                    
-                  </div>
+
+        <div class="container">
+            <div class="div-container" [ngClass]="{'active': currentDiv === 2}">
+                <h6 class="title">PORCENTAJES DE LAS INCIDENCIAS POR CONTENEDOR</h6>
+                <img src="{{imageName}}" height="50%" width="80%" style="position: absolute; top: 15%; left: 10%;" />
+            </div>
+            <div class="div-container" [ngClass]="{'active': currentDiv === 1}">
+                <div style="position: absolute; width: 100%; height: 55%; top: 0%; background-color: #c1d7d5;">
+                    <h6 class="title">PORCENTAJES DE LAS INCIDENCIAS POR CALLE</h6>
+                    <div class="scrollable-container">
+                        <div style="height: 30%; width: 90%; background-color: #c1d7d5; margin: 15px;">
+                            <div class="calles" *ngFor="let incidencia of incidenciasData">
+                                <p>{{ incidencia.calle }}</p>
+                                <p>{{ incidencia.porcentaje }}%</p>
+                            </div>
+                        </div>
+                    </div>
                 </div>
             </div>
-            </div>
+        </div>
+        
+        <button (click)="showNext()" class="nav-button" style="left: 50%;">Siguiente</button>
+        
+        
           
           
     
