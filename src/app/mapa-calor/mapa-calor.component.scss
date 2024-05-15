@@ -87,3 +87,11 @@ P{
     width: 45px;
     transform: rotate(-2deg);
   }
+
+
+
+  ::ng-deep .leaflet-marker-icon,
+  ::ng-deep .leaflet-marker-shadow {
+      display: none;
+  }
+  

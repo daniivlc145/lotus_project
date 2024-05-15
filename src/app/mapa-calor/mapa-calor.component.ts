@@ -46,16 +46,21 @@ export class mapaCalorComponent implements OnInit {
       (L as any).heatLayer(heatData, { radius: 25 }).addTo(this.map);
 
       let routePoints : L.LatLng[] = []
-      heatData.forEach(data  => {
-          data.pop
-          routePoints.push(L.latLng(data[0],data[1]))
-      });
-
-      
-
-      L.Routing.control({
+      heatData.forEach(data => {
+        // Suponiendo que data es un array que contiene las coordenadas [latitud, longitud]
+        // Suponiendo que deseas eliminar el último elemento de data usando pop, aunque parece un error de sintaxis
+        data.pop(); // No olvides los paréntesis para llamar a la función
+    
+        // Añadir las coordenadas como LatLng a routePoints
+        routePoints.push(L.latLng(data[0], data[1]));
+    });
+    
+   
+    
+    // Añadir la ruta con los marcadores personalizados como waypoints
+    L.Routing.control({
         waypoints: routePoints,
-      }).addTo(this.map);
+    }).addTo(this.map);
 
 
       
@@ -71,6 +76,9 @@ if (divARemover && divARemover.parentNode) {
 } else {
     console.log('El elemento no fue encontrado o no tiene un padre.');
 }
+
+
+
 
       
     }
