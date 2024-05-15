@@ -9,10 +9,8 @@ body{
 .content { /*Es el div q engloba todo*/
     width: 100%;
     height: 100%;
-    position: absolute;
-    top: 55%;
-    left: 50%;
-    transform: translate(-50%, -50%);
+    position: relative;
+ 
     display: flex;
     justify-content: center; /* Centra horizontalmente */
     align-items: center; /* Centra verticalmente */
@@ -43,6 +41,17 @@ body{
   transform: translate(-50%, -50%); /* Centra el círculo horizontal y verticalmente */
   border: 5px solid #5a8d8d; /* Define el borde con ancho, estilo y color */
   overflow: hidden;
+}
+
+.error-message-editProfile{
+
+  position: absolute;
+  top:87%;
+  left:0%;
+  max-width: 100%;
+  width: 100%;
+  font-size: 3.5vw;
+
 }
 
 #name {

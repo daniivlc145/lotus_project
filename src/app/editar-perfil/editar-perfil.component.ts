@@ -58,10 +58,10 @@ goToProfPage(){
     try {
       if (areAllTextBoxesEmpty(this.fullname,this.numero)) {throw new Error('Rellena al menos un campo'); }
       if(this.numero.trim() !== ""){
-        if (validarTelefono(this.numero)) {throw new Error('Teléfono incorrecto. Escribe solo 9 dígitos');}
+        if (validarTelefono(this.numero)) {throw new Error('Escribe solo 9 dígitos en el teléfono');}
       }
       if(this.fullname.trim() !== ""){
-        if (validarnombrecompleto(this.fullname)) {throw new Error('El nombre no puede contener dígitos ni contener más de 70 caracteres');}
+        if (validarnombrecompleto(this.fullname)) {throw new Error('Nombre sin digitos ni más de 70 caracteres.');}
       }
       this.showPop();
       
