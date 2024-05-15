@@ -21,7 +21,7 @@ export class loginComponent  implements OnInit {
 
 
   async signIn() {
-    const email = (document.getElementById('email') as HTMLInputElement).value;
+    const email = (document.getElementById('email') as HTMLInputElement).value.toLowerCase();
     const password = (document.getElementById('password') as HTMLInputElement).value;
     try{
       await signInUser(email,password);
