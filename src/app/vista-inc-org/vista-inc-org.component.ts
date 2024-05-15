@@ -191,12 +191,12 @@ detalleDiv.setAttribute('style', divStyles);
 detalleDiv.innerHTML = `
 <div style='height:13%; width:13%; z-index:123; position: absolute; top:7%; right:15%;'><img id="cerrarDetalle" src="../assets/img/X.png" alt="Cerrar" style="cursor: pointer;"></div>
 <div style='z-index:12; position: absolute; top:18%; left: 50%; transform: translateX(-50%); width: 80%;'>
-  <h2 style="text-align: center; font-family: Laura merged, sans-serif; font-size:130%;"><strong>DETALLES DE LA INCIDENCIA</strong></h2>
-  <p>Fecha: ${elem['fecha']}</p>
-  <p>Tipo: ${elem['type']}</p>
-  <p>Hora: ${elem['hora']}</p>
-  <p>Descripción: ${elem['descripcion']}</p>
-  <p>Ubicación: ${elem['geo_shape']}</p>
+  <h2 style="text-align: center; font-family: Laura merged, sans-serif; font-size:5vw;"><strong>DETALLES DE LA INCIDENCIA</strong></h2>
+  <p style="font-size:4vw;">Fecha: ${elem['fecha']}</p>
+  <p style="font-size:4vw;">Tipo: ${elem['type']}</p>
+  <p style="font-size:4vw;">Hora: ${elem['hora']}</p>
+  <p style="font-size:4vw;">Descripción: ${elem['descripcion']}</p>
+  <p style="font-size:4vw;">Ubicación: ${elem['geo_shape']}</p>
 </div>
 `;
 
