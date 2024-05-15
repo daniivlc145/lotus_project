@@ -187,6 +187,8 @@ border:none;
 // Agregar estilos al div principal
 detalleDiv.setAttribute('style', divStyles);
 
+console.log (elem["link_imagen"])
+
 // Agregar la información detallada al div
 detalleDiv.innerHTML = `
 <div style='height:13%; width:13%; z-index:123; position: absolute; top:7%; right:15%;'><img id="cerrarDetalle" src="../assets/img/X.png" alt="Cerrar" style="cursor: pointer;"></div>
@@ -197,6 +199,7 @@ detalleDiv.innerHTML = `
   <p style="font-size:4vw;">Hora: ${elem['hora']}</p>
   <p style="font-size:4vw;">Descripción: ${elem['descripcion']}</p>
   <p style="font-size:4vw;">Ubicación: ${elem['geo_shape']}</p>
+  ${elem['link_imagen'] ? `<img src="${elem['link_imagen']}" width="30px" height="30px" />` : ''}
 </div>
 `;
 
