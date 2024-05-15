@@ -187,7 +187,7 @@ border:none;
 // Agregar estilos al div principal
 detalleDiv.setAttribute('style', divStyles);
 
-console.log (elem["link_imagen"])
+
 
 // Agregar la información detallada al div
 detalleDiv.innerHTML = `
