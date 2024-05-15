@@ -32,15 +32,17 @@ user-select: none;
 
     .title-container {
         position: absolute;
-        top: 25%;
-        left: 50%;
+        top: 22%;
         transform: translate(-50%, -50%);
         z-index: 1; /* Asegura que el título esté sobre el contenedor de formulario */
         user-select: none;
+        width: 100%;
         
          h1{
             font-family: 'Laura merged', sans-serif;
-            font-size: 30px;
+            font-size: 7vw;
+            left: 30%;
+            position: absolute;
         }
                 
     }
@@ -91,7 +93,7 @@ user-select: none;
 
     
     #email, #password {
-        font-size: 18px;
+        font-size: 5vw;
         width: 200px;
         padding: 8px;
         margin-bottom: 10px;
@@ -201,7 +203,7 @@ user-select: none;
         left: 50%; /* Centrar horizontalmente */
         transform: translateX(-50%); /* Centrar exactamente */
         text-align: center;
-        font-size: 27px;
+        font-size: 5vw;
         position: absolute; 
         bottom: -15px; 
         right:50%; 
