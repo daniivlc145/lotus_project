@@ -169,8 +169,8 @@ const divStyles = `
 font-family: Laura merged, sans-serif;
 color: #3a5e62;
 padding: 5%;
-height: 60%;
-width: 60%;
+height: 80%;
+width: 65%;
 position: fixed;
 top: 50%;
 left: 50%;
@@ -193,12 +193,12 @@ detalleDiv.setAttribute('style', divStyles);
 detalleDiv.innerHTML = `
 <div style='height:13%; width:13%; z-index:123; position: absolute; top:7%; right:15%;'><img id="cerrarDetalle" src="../assets/img/X.png" alt="Cerrar" style="cursor: pointer;"></div>
 <div style='z-index:12; position: absolute; top:18%; left: 50%; transform: translateX(-50%); width: 80%;'>
-  <h2 style="text-align: center; font-family: Laura merged, sans-serif; font-size:5vw;"><strong>DETALLES DE LA INCIDENCIA</strong></h2>
+  <h2 style="text-align: center; font-family: Laura merged, sans-serif; font-size:4vw;"><strong>DETALLES DE LA INCIDENCIA</strong></h2>
   <p style="font-size:4vw;">Fecha: ${elem['fecha']}</p>
   <p style="font-size:4vw;">Tipo: ${elem['type']}</p>
   <p style="font-size:4vw;">Hora: ${elem['hora']}</p>
   <p style="font-size:4vw;">Descripción: ${elem['descripcion']}</p>
-  <p style="font-size:4vw;">Ubicación: ${elem['geo_shape']}</p>
+  <p style="font-size:4vw; margin-bottom:10px;">Ubicación: ${elem['geo_shape']}</p>
   ${elem['link_imagen'] ? `<div style="text-align:center;"><img src="${elem['link_imagen']}" width="100px" height="100px" style="margin: auto;" /></div>` : ''}
 </div>
 `;

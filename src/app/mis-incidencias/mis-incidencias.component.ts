@@ -159,41 +159,43 @@ mostrarDetalle(elem: {[clave:string]:string}): void {
   const detalleDiv = document.createElement('div');
   detalleDiv.setAttribute('id', 'detalleIncidencia');
   // Definir estilos CSS para el div principal
-const divStyles = `
-font-family: Laura merged, sans-serif;
-color: #3a5e62;
-padding: 5%;
-height: 60%;
-width: 60%;
-position: fixed;
-top: 50%;
-left: 50%;
-transform: translate(-50%, -50%);
-background: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" viewBox="1.55556 -0.584459 16.44 26.33" style="height: 100%; width: 100%;  position: absolute;"><path d="M 17 25 C 17 26 3 26 3 25 C 2 24 2 24 2 13 C 2 7 1 1 2 1 C 3 0 15 -2 17 1 C 18 2 18 14 18 14 C 18 21 18 24 17 25" fill="%23FFFFFF"/></svg>');
-background-color: white;
-border: 2px solid #ccc;
-z-index: 9999;
-background-repeat: no-repeat;
-background-color: transparent;
-border:none;
-`;
-
-// Agregar estilos al div principal
-detalleDiv.setAttribute('style', divStyles);
-
-// Agregar la información detallada al div
-detalleDiv.innerHTML = `
-<div style='height:13%; width:13%; z-index:123; position: absolute; top:7%; right:15%;'><img id="cerrarDetalle" src="../assets/img/X.png" alt="Cerrar" style="cursor: pointer;"></div>
-<div style='z-index:12; position: absolute; top:18%; left: 50%; transform: translateX(-50%); width: 80%;'>
-  <h2 style="text-align: center; font-family: Laura merged, sans-serif; font-size:5vw;"><strong>DETALLES DE LA INCIDENCIA</strong></h2>
-  <p style="font-size:4vw;">Fecha: ${elem['fecha']}</p>
-  <p style="font-size:4vw;">Tipo: ${elem['type']}</p>
-  <p style="font-size:4vw;">Hora: ${elem['hora']}</p>
-  <p style="font-size:4vw;">Descripción: ${elem['descripcion']}</p>
-  <p style="font-size:4vw;">Ubicación: ${elem['geo_shape']}</p>
-  ${elem['link_imagen'] ? `<div style="text-align:center;"><img src="${elem['link_imagen']}" width="100px" height="100px" style="margin: auto;" /></div>` : ''}
-</div>
-`;
+  const divStyles = `
+  font-family: Laura merged, sans-serif;
+  color: #3a5e62;
+  padding: 5%;
+  height: 80%;
+  width: 65%;
+  position: fixed;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  background: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" viewBox="1.55556 -0.584459 16.44 26.33" style="height: 100%; width: 100%;  position: absolute;"><path d="M 17 25 C 17 26 3 26 3 25 C 2 24 2 24 2 13 C 2 7 1 1 2 1 C 3 0 15 -2 17 1 C 18 2 18 14 18 14 C 18 21 18 24 17 25" fill="%23FFFFFF"/></svg>');
+  background-color: white;
+  border: 2px solid #ccc;
+  z-index: 9999;
+  background-repeat: no-repeat;
+  background-color: transparent;
+  border:none;
+  `;
+  
+  // Agregar estilos al div principal
+  detalleDiv.setAttribute('style', divStyles);
+  
+  
+  
+  // Agregar la información detallada al div
+  detalleDiv.innerHTML = `
+  <div style='height:13%; width:13%; z-index:123; position: absolute; top:7%; right:15%;'><img id="cerrarDetalle" src="../assets/img/X.png" alt="Cerrar" style="cursor: pointer;"></div>
+  <div style='z-index:12; position: absolute; top:18%; left: 50%; transform: translateX(-50%); width: 80%;'>
+    <h2 style="text-align: center; font-family: Laura merged, sans-serif; font-size:4vw;"><strong>DETALLES DE LA INCIDENCIA</strong></h2>
+    <p style="font-size:4vw;">Fecha: ${elem['fecha']}</p>
+    <p style="font-size:4vw;">Tipo: ${elem['type']}</p>
+    <p style="font-size:4vw;">Hora: ${elem['hora']}</p>
+    <p style="font-size:4vw;">Descripción: ${elem['descripcion']}</p>
+    <p style="font-size:4vw; margin-bottom:10px;">Ubicación: ${elem['geo_shape']}</p>
+    ${elem['link_imagen'] ? `<div style="text-align:center;"><img src="${elem['link_imagen']}" width="100px" height="100px" style="margin: auto;" /></div>` : ''}
+  </div>
+  `;
 
 
   // Agregar el div al body del documento
