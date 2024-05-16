@@ -3,7 +3,7 @@
     "short_name": "Lotus",
     "icons": [
       {
-        "src": "./assets/icons/LOGO_LOTUS_192.png",
+        "src": "./assets/icons/LOGO_LOTUS_OFFICIAL.png",
         "sizes": "192x192",
         "type": "image/png",
         "purpose" :"maskable any"
