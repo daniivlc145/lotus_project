@@ -19,7 +19,7 @@ export class EmailService {
 
   async pedirStats(data : Number[]) : Promise<string>{
 
-    const response = await this.http.post('https://lotus-server.netlify.app/.netlify/functions/app/get-stats',data, {responseType: 'blob'}).toPromise()
+    const response = await this.http.post('https://localhost:3000/get-stats',data, {responseType: 'blob'}).toPromise()
     if (!response) {
       throw new Error('La respuesta es undefined');
     }
