@@ -13,12 +13,13 @@ export class EmailService {
 
   enviarCorreo(to : string, correo: string, text: string) : Observable<string>  {
     console.log("Enviando correo")
-    return this.http.post<string>('http://localhost:3000/send-email', {to: to, subject : correo, text : text});
+    console.log(to, correo, text)
+    return this.http.post<string>('https://lotus-server.netlify.app/.netlify/functions/app/send-email', {to : to, subject : correo, text : text});
   }
 
   async pedirStats(data : Number[]) : Promise<string>{
 
-    const response = await this.http.post('http://localhost:3000/get-stats',data, {responseType: 'blob'}).toPromise()
+    const response = await this.http.post('https://lotus-server.netlify.app/.netlify/functions/app/get-stats',data, {responseType: 'blob'}).toPromise()
     if (!response) {
       throw new Error('La respuesta es undefined');
     }
