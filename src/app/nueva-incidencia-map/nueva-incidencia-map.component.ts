@@ -241,7 +241,7 @@ export class NuevaIncidenciaMAPComponent implements AfterViewInit{
         console.log(ubi);
         // Llamar a insertInquiry con los valores obtenidos
         if (tipo == "contenedor_lleno"){
-            console.log("Contenedor lleno con identificador: ", this.containerID)
+            console.log("Contenedor lleno con identificador: ", this.containerID, "y tipo ", this.containerType)
             modifyLevel(this.containerID, this.containerType, true)
         }
         //else (Para que no se guarde en la base de datos las inquirie de Consulta Llena)

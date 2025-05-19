@@ -13,7 +13,8 @@ export class EmailService {
 
   enviarCorreo(to : string, correo: string, text: string) : Observable<string>  {
     console.log("Enviando correo")
-    return this.http.post<string>('http://localhost:3000/send-email', {to: to, subject : correo, text : text});
+    console.log(to, correo, text)
+    return this.http.post<string>('https://lotus-server.netlify.app/.netlify/functions/app/send-email', {to : to, subject : correo, text : text});
   }
 
   async pedirStats(data : Number[]) : Promise<string>{

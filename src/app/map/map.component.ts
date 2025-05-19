@@ -75,7 +75,7 @@ export class MapComponent implements OnInit {
     iconSize: [30, 47],
     iconAnchor: [19, 38],
     popupAnchor: [0, -38],
-    className : "clothes_container"
+    className : "clothes_containers"
   });
   
   diccionario_imagenes : {[clave:string] : L.Icon}= {
