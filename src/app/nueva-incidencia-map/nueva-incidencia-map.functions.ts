@@ -60,11 +60,11 @@ export async function subirImagenYGuardar(imagen: Photo) {
             const fileName = `${uuidv4()}`;
             const file = new File([blob],fileName, { type: blob.type });
             // Sube la imagen al bucket de Supabase Storage
-            const { data, error } = await supabaseClient.storage.from('inquiries_images').upload(fileName, file);
+            const { data, error } = await supabaseClient.storage.from('inquiries-images').upload(fileName, file);
             if (error) throw error;
         
             // Obtiene la URL pública de la imagen
-            const { data: publicUrlData } = supabaseClient.storage.from('inquiries_images').getPublicUrl(fileName);
+            const { data: publicUrlData } = supabaseClient.storage.from('inquiries-images').getPublicUrl(fileName);
         
             console.log('Imagen subida y URL guardada en inquiries:', publicUrlData.publicUrl);
             return publicUrlData.publicUrl;
