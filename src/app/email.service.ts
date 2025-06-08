@@ -31,7 +31,7 @@ export class EmailService {
     if (uploadError) throw uploadError;
 
     // Obtiene la URL pública del archivo subido
-    const { data: publicUrlData} = await supabaseClient.storage.from('stats').getPublicUrl(fileName);
+    const { data: publicUrlData} = await supabaseClient.storage.from('stats').getPublicUrl("https://lihvkdvrpavhyurcylew.supabase.co/storage/v1/object/public/stats//fa557d69-a9cb-4fda-8a82-722c6abc006d");
 
     console.log('Archivo subido y URL guardada en stats:', publicUrlData.publicUrl);
     return publicUrlData.publicUrl
