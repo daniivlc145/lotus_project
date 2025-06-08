@@ -19,16 +19,16 @@ export class EmailService {
 
   async pedirStats(data : Number[]) : Promise<string>{
 
-    const response = await this.http.post('http://localhost:3000/get-stats',data, {responseType: 'blob'}).toPromise()
-    if (!response) {
-      throw new Error('La respuesta es undefined');
-    }
-    const fileName = `${uuidv4()}`;
-    const file = new File([response], fileName, { type: response.type });
+    // const response = await this.http.post('http://localhost:3000/get-stats',data, {responseType: 'blob'}).toPromise()
+    // if (!response) {
+    //   throw new Error('La respuesta es undefined');
+    // }
+    // const fileName = `${uuidv4()}`;
+    // const file = new File([response], fileName, { type: response.type });
 
     // Sube el archivo al bucket de Supabase Storage
-    const { data: uploadData, error: uploadError } = await supabaseClient.storage.from('stats').upload(fileName, file);
-    if (uploadError) throw uploadError;
+    //const { data: uploadData, error: uploadError } = await supabaseClient.storage.from('stats').upload(fileName, file);
+    //if (uploadError) throw uploadError;
 
     // Obtiene la URL pública del archivo subido
     const { data: publicUrlData} = await supabaseClient.storage.from('stats').getPublicUrl("https://lihvkdvrpavhyurcylew.supabase.co/storage/v1/object/public/stats//fa557d69-a9cb-4fda-8a82-722c6abc006d");
